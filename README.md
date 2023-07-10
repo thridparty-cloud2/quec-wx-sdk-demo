@@ -1940,7 +1940,6 @@ const plugin = requirePlugin('quecPlugin')
  plugin.webSocket.subscribeDevice({pk:'',dk:''})
 ```
 
-
 ## 十一、主题配置
 ### 1、 setLogo 
 ##### 功能描述
