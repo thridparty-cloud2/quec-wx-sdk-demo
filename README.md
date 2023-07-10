@@ -71,7 +71,7 @@ plugin.config.setUserDomainSecret('用户域密钥')
 ```
 
 组件效果图：
-![链接](./v1.3.0/wifi.png)
+![链接](./images/doc/ble.jpg)
 
 |组件       | 属性    | 说明          |类型  | 默认值 |必填 | 事件 |
 | ----      | ----   | ----          |----  |----   |---- | ---- |
@@ -678,7 +678,7 @@ const plugin = requirePlugin('quecPlugin')
 }
 ```
 #### 2）组件效果图
-![链接](./v1.3.1/login.png)
+![链接](./images/doc/login.jpg)
 
 #### 3）组件说明
 | 组件    | 属性  | 说明    | 类型 | 默认值  | 必填 | 事件 |
