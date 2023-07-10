@@ -10,7 +10,7 @@ export function toLogin () {
   requirePlugin.async('quecPlugin').then(plugin => {
     plugin.config.setUserInfo('')
     wx.reLaunch({
-      url: '/pages/login/index'
+      url: '/pages/index/index'
     })
   }).catch(({ mod, errMsg }) => {
     console.error(`path: ${mod}, ${errMsg}`)

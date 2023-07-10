@@ -1,4 +1,4 @@
-// pages/device_detail/index.js
+const plugin = requirePlugin('quecPlugin')
 Page({
 
   /**
@@ -45,14 +45,17 @@ Page({
     this.setData({
       textDetail: {}
     })
-  },
 
-  deviceInfo (e) {
-    this.setData({
-      //curDevice: e.detail
+    plugin.quecManage.getTslList({
+      pk: this.data.pk,
+      success (res) {
+        console.log(res)
+      },
+      fail (res) {
+        console.log(JSON.stringify(res))
+      }
     })
   },
-
   editpage (e) {
     let item = e.detail
     const { pk, dk } = this.data
@@ -73,15 +76,6 @@ Page({
         })
         break
     }
-  },
-
-  invalid (e) {
-    let timer = setTimeout(() => {
-      wx.switchTab({
-        url: '/pages/home/home',
-      })
-      clearTimeout(timer)
-    }, 2000)
   },
 
   /**

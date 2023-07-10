@@ -9,3 +9,7 @@
 .van-tabs__scroll {
   background-color: transparent !important;
 }
+
+.nav-bar-index--navSearch {
+  display: none;
+}

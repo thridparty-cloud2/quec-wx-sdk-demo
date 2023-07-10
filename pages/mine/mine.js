@@ -1,5 +1,6 @@
 // 获取应用实例
-const plugin = requirePlugin('quecPlugin')
+const app = getApp()
+
 Page({
 
   /**
@@ -9,7 +10,8 @@ Page({
     headImage: '',
     nikeName: '',
     phonenumber: '',
-    email: ''
+    email: '',
+    isFinish: false
   },
 
   /**
@@ -47,54 +49,58 @@ Page({
       headImage: '',
       nikeName: ''
     })
-    plugin.quecAccount.getUInfo({
-      success (res) {
-        let result = res.data
-        let hImg = result.headimg
-        if (hImg) {
-          if (hImg.indexOf('thirdwx.') > 0) {
-            hImg = hImg.replace('thirdwx.', 'wx.')
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 2000
+    })
+    requirePlugin.async('quecPlugin').then(plugin => {
+      plugin.quecUser.getUInfo({
+        success (res) {
+          let result = res.data
+          let hImg = result.headimg
+          let imgs = plugin.config.getHeadImg(false)
+          if (imgs.indexOf(hImg) < 0) {
+            hImg = imgs[0]
           }
           self.setData({
             headImage: hImg
           })
-
-        } else {
           self.setData({
-            headImage: ''
+            nikeName: result.nikeName ? result.nikeName : ''
+          })
+        },
+        fail (res) { },
+        complete () {
+          wx.hideToast()
+          self.setData({
+            isFinish: true
           })
         }
-
-        self.setData({
-          nikeName: result.nikeName ? result.nikeName : ''
-        })
-      },
-      fail (res) {
-        console.log(JSON.stringify(res))
-      }
+      })
+    }).catch(({ mod, errMsg }) => {
+      console.error(`path: ${mod}, ${errMsg}`)
     })
+
   },
 
   /**
    * 个人中心
    */
   goUserInfo () {
-    wx.navigateTo({
-      url: '../account_info/index',
+    this.pageRouter.navigateTo({
+      url: '/pages/account_info/index'
     })
   },
-
-  goUserSystem () {
-    wx.navigateTo({
-      url: '../account_system/index',
-    })
-  },
-
+  /**
+   * 关于我们
+   */
   goUserAbout () {
-    wx.navigateTo({
-      url: '../account_about/index',
+    this.pageRouter.navigateTo({
+      url: '/pages/account_about/index'
     })
   },
+
 
   /**
    * 生命周期函数--监听页面隐藏

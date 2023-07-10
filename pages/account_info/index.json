@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "account_info": "plugin://quecPlugin/account_info"
+    "user_info": "plugin://quecPlugin/user_info"
   }
 }

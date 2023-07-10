@@ -1,11 +1,10 @@
-
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    version: 'V1.0.0',
+    version: ''
   },
 
   /**
@@ -26,27 +25,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow () {
-
+    this.getVersion()
   },
 
-  goPrivacy () {
-    wx.navigateTo({
-      url: '../account_privacy/index',
+  getVersion () {
+    this.setData({
+      version: wx.getAccountInfoSync().miniProgram.version
     })
   },
 
-  goProtocol () {
-    wx.navigateTo({
-      url: '../account_protocol/index',
-    })
-  },
-
-  goAboutQuec () {
-    console.log('a')
-    wx.navigateTo({
-      url: '../account_about_quec/index',
-    })
-  },
   /**
    * 生命周期函数--监听页面隐藏
    */

@@ -1,4 +1,4 @@
-
+import { toLogin } from '../../utils/tool.js'
 Page({
 
   /**
@@ -29,24 +29,28 @@ Page({
 
   },
 
-  goNikeName () {
+  goNikeName (e) {
     wx.redirectTo({
-      url: '../account_nickname/index',
+      url: '/pages/account_nickname/index?nikeName=' + e.detail,
     })
   },
 
   logoutSuccess () {
-    console.log('退出成功')
-    wx.redirectTo({
-      url: '/pages/login/index'
+    toLogin()
+  },
+
+  goChangePwd (e) {
+    this.pageRouter.navigateTo({
+      url: '/pages/edit_pwd/index?uname=' + e.detail,
     })
   },
 
-  goChangePwd () {
-    wx.navigateTo({
-      url: '../account_edit_pwd/index',
+  goCancel (e) {
+    this.pageRouter.navigateTo({
+      url: '/pages/cancel_index/index?uname=' + e.detail
     })
   },
+
 
   /**
    * 生命周期函数--监听页面隐藏

@@ -1,25 +1,19 @@
-<view class="container">
-  <nav_bar title="我的" isHome="{{true}}"></nav_bar>
+<view>
   <view class="mine">
     <view class="header" catchtap="goUserInfo">
       <view class="left">
-        <van-image round width="5rem" height="5rem" fit="fill" src="{{headImage ? headImage : '/images/mine/headImage.png'}}" use-loading-slot>
+        <van-image class="himg" round width="60" height="60" fit="fill" src="{{headImage}}" use-loading-slot>
           <van-loading slot="loading" type="spinner" size="20" vertical />
         </van-image>
         <view class="hInfo">
           <view class="txt">{{nikeName}}</view>
+          <view wx:if="{{isFinish}}" class="tip">查看并编辑个人资料</view>
         </view>
-      </view>
-      <view class="right">
-        <van-icon name="arrow" color="#BFBFBF" />
       </view>
     </view>
     <view class="menu">
       <van-cell is-link border="{{false}}" catchtap="goUserAbout">
-        <view slot="icon">
-          <image class="cellImg" src="/images/mine/aboutus.png"></image>
-        </view>
-        <view slot="title" class="cellTitle">关于我们</view>
+        <view slot="title" class="cellTitle">关于</view>
       </van-cell>
     </view>
   </view>

@@ -1,11 +1,12 @@
 
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+
   },
 
   /**
@@ -27,14 +28,6 @@ Page({
    */
   onShow () {
     let self = this
-    requirePlugin.async('quecPlugin').then(plugin => {
-      if (!plugin.config.getToken()) return
-      setMsgNum(self)
-    }).catch(({ mod, errMsg }) => {
-      console.error(`path: ${mod}, ${errMsg}`)
-    })
-
-
     if (typeof self.getTabBar === 'function' && self.getTabBar()) {
       self.getTabBar().setData({
         selected: 0
@@ -42,57 +35,29 @@ Page({
     }
   },
 
-  goSearch (e) {
-    if (e.detail.fid) {
-      this.pageRouter.navigateTo({
-        url: '/manage/pages/house/search/index?item=' + JSON.stringify(e.detail)
-      })
-    } else {
-      this.pageRouter.navigateTo({
-        url: '/manage/pages/non/device_search/index'
-      })
-    }
-  },
-
-  /**
+  /*
    * 跳转到蓝牙配网
    */
   toNetwork () {
     this.pageRouter.navigateTo({
-      url: '/bluetooth/pages/wifi_scan/index'
+      url: '/pages/bluetooth/pages/wifi_scan/index'
     })
   },
 
   //去扫码安装
   toScan (e) {
     this.pageRouter.navigateTo({
-      url: '/bluetooth/pages/device_add/index?item=' + e.detail,
+      url: '/pages/bluetooth/pages/device_add/index?item=' + e.detail,
     })
   },
 
-  /**
- * 家庭管理
- */
-  familyList (e) {
-    this.pageRouter.navigateTo({
-      url: '/manage/pages/house/family/list/index'
-    })
-  },
-
-  /**
-   * 房间管理
-   */
-  goRoomList (e) {
-    this.pageRouter.navigateTo({
-      url: '/pages/house/room/list/index?info=' + JSON.stringify(e.detail)
-    })
-  },
   /**
   * 去设备详情
   */
   goDetail (e) {
+    console.log(e)
     this.pageRouter.navigateTo({
-      url: `/pages/${e.detail.path}/index/index?item=${encodeURIComponent(JSON.stringify(e.detail.item))}`
+      url: `/pages/device_detail/CommonDetail/index?item=${encodeURIComponent(JSON.stringify(e.detail.item))}`
     })
   },
   /**
@@ -100,7 +65,7 @@ Page({
    */
   goShare (e) {
     this.pageRouter.navigateTo({
-      url: `/device_share/index?item=${encodeURIComponent(JSON.stringify(e.detail))}`,
+      url: `/pages/device_share/index?item=${encodeURIComponent(JSON.stringify(e.detail))}`,
     })
   },
   /**
@@ -111,15 +76,6 @@ Page({
       url: '/pages/device_add/index?item=' + JSON.stringify(e.detail)
     })
   },
-
-
-  /**
-   * 物模型属性不存在或出错
-   */
-  TslError (e) {
-
-  },
-
 
 
   /**

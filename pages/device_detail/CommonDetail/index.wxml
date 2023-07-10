@@ -1,4 +1,4 @@
 <nav_bar title="{{curDevice.deviceName}}"></nav_bar>
 <view class="detail">
-  <device_detail pk="{{pk}}" dk="{{dk}}" curItem="{{curDevice}}" textDetail="{{textDetail}}" bindeditpage="editpage" bindinvalid="invalid" bindback="handleBack"></device_detail>
+  <device_detail pk="{{pk}}" dk="{{dk}}" curItem="{{curDevice}}" textDetail="{{textDetail}}" bindeditpage="editpage" bindback="handleBack"></device_detail>
 </view>

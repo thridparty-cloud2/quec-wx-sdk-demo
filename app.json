@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/home/home",
+    "pages/index/index",
     "pages/login/index",
     "pages/login_code/index",
     "pages/forget/index",
@@ -12,10 +12,12 @@
     "pages/account_info/index",
     "pages/account_nickname/index",
     "pages/account_about/index",
-    "pages/account_version/index",
     "pages/account_privacy/index",
     "pages/account_protocol/index",
-    "pages/account_edit_pwd/index",
+    "pages/edit_pwd/index",
+    "pages/cancel_index/index",
+    "pages/cancel_sel/index",
+    "pages/cancel_send/index",
     "pages/device_share/index",
     "pages/device_add/index",
     "pages/msg/index",

@@ -1,6 +1,6 @@
 <view class="container">
-  <nav_bar title="个人信息" backUrl="../mine/mine" isTab="true"></nav_bar>
+  <nav_bar title="个人信息" backUrl="/pages/mine/mine" isTab="{true}}"></nav_bar>
   <view class="main">
-    <account_info bindgoNikeName="goNikeName" bindgoChangePwd="goChangePwd" bindlogoutSuccess="logoutSuccess"></account_info>
+    <user_info bindgoNikeName="goNikeName" bindgoChangePwd="goChangePwd" bindlogoutSuccess="logoutSuccess" bindgoCancel="goCancel"></user_info>
   </view>
 </view>
