@@ -1,28 +1,32 @@
-import {toLogin} from '../../utils/tool.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    detail: {}
+
   },
-  // 重置密码成功
-  resetSuccess () {
-    toLogin()
+
+  /**
+   * 去注册
+   */
+  toRegister () {
+    this.pageRouter.navigateTo({
+      url: '/pages/register/index'
+    })
   },
-  emailCodeValid () {
-    wx.navigateBack()
+
+  toEnterCode (e) {
+    this.pageRouter.navigateTo({
+      url: '/pages/valid_code/index?item=' + JSON.stringify(e.detail)
+    })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad (options) {
-    if (options.detail) {
-      this.setData({
-        detail: JSON.parse(options.detail)
-      })
-    }
+
   },
 
   /**

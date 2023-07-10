@@ -1,4 +1,0 @@
-<nav_bar title="重置登录密码"></nav_bar>
-<view class="container">
-  <user_reset_pwd bindresetSuccess='resetSuccess' detail="{{detail}}" bindemailCodeValid="emailCodeValid"></user_reset_pwd>
-</view>

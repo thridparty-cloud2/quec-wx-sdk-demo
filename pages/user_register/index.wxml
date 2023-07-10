@@ -1,5 +1,0 @@
-<nav_bar title="用户注册"></nav_bar>
-<user_register bindcodeSuccess="codeSuccess" protocolCheck='{{checked}}'></user_register>
-<view class="protocol">
-  <protocol bindchangeProtocol='changeProtocol' />
-</view>

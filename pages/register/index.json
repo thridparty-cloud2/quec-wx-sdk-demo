@@ -1,0 +1,6 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+    "user_register": "plugin://quecPlugin/user_register"
+  }
+}

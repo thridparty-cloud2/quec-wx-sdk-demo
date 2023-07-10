@@ -1,22 +1,18 @@
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    isRefresh: false,
-    scrollHeight: 100
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad (options) {
-    let self = this
-    const windowInfo = wx.getWindowInfo()
-    self.setData({
-      scrollHeight: windowInfo.safeArea.bottom - 60 - 100
-    })
+
   },
 
   /**
@@ -31,83 +27,105 @@ Page({
    */
   onShow () {
     let self = this
+    requirePlugin.async('quecPlugin').then(plugin => {
+      if (!plugin.config.getToken()) return
+      setMsgNum(self)
+    }).catch(({ mod, errMsg }) => {
+      console.error(`path: ${mod}, ${errMsg}`)
+    })
+
+
     if (typeof self.getTabBar === 'function' && self.getTabBar()) {
       self.getTabBar().setData({
         selected: 0
       })
-
-      self.setData({
-        isRefresh: true
-      })
-
     }
+  },
+
+  goSearch (e) {
+    if (e.detail.fid) {
+      this.pageRouter.navigateTo({
+        url: '/manage/pages/house/search/index?item=' + JSON.stringify(e.detail)
+      })
+    } else {
+      this.pageRouter.navigateTo({
+        url: '/manage/pages/non/device_search/index'
+      })
+    }
+  },
+
+  /**
+   * 跳转到蓝牙配网
+   */
+  toNetwork () {
+    this.pageRouter.navigateTo({
+      url: '/bluetooth/pages/wifi_scan/index'
+    })
+  },
+
+  //去扫码安装
+  toScan (e) {
+    this.pageRouter.navigateTo({
+      url: '/bluetooth/pages/device_add/index?item=' + e.detail,
+    })
+  },
+
+  /**
+ * 家庭管理
+ */
+  familyList (e) {
+    this.pageRouter.navigateTo({
+      url: '/manage/pages/house/family/list/index'
+    })
+  },
+
+  /**
+   * 房间管理
+   */
+  goRoomList (e) {
+    this.pageRouter.navigateTo({
+      url: '/pages/house/room/list/index?info=' + JSON.stringify(e.detail)
+    })
   },
   /**
   * 去设备详情
   */
   goDetail (e) {
-    wx.navigateTo({
-      url: `../device_detail/CommonDetail/index?item=${encodeURIComponent(JSON.stringify(e.detail.item))}`,
+    this.pageRouter.navigateTo({
+      url: `/pages/${e.detail.path}/index/index?item=${encodeURIComponent(JSON.stringify(e.detail.item))}`
     })
   },
   /**
    * 去分享页面
    */
   goShare (e) {
-    wx.navigateTo({
-      url: `../device_share/index?item=${encodeURIComponent(JSON.stringify(e.detail))}`,
+    this.pageRouter.navigateTo({
+      url: `/device_share/index?item=${encodeURIComponent(JSON.stringify(e.detail))}`,
     })
   },
   /**
     * 去添加设备页面
     */
   scanSuccess (e) {
-    wx.navigateTo({
-      url: '../device_add/index?item=' + JSON.stringify(e.detail),
+    this.pageRouter.navigateTo({
+      url: '/pages/device_add/index?item=' + JSON.stringify(e.detail)
     })
   },
+
 
   /**
-   * 设备添加成功
+   * 物模型属性不存在或出错
    */
-  addSuccess () {
-    wx.switchTab({
-      url: '../home/home',
-    })
+  TslError (e) {
+
   },
 
-  /**
-   * 重命名成功
-   */
-  renameSuccess () {
-    this.setData({
-      isRefresh: true
-    })
-  },
 
-  /***
-   * 删除成功
-   */
-  unbindSuccess () {
-    this.setData({
-      isRefresh: true
-    })
-  },
-
-  /**
-   * 重命名设备无效时跳转到设备列表
-   */
-  invalidDevice (e) {
-    this.setData({
-      isRefresh: true
-    })
-  },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide () {
-
   },
 
   /**
@@ -130,6 +148,4 @@ Page({
   onReachBottom () {
 
   },
-
-
 })

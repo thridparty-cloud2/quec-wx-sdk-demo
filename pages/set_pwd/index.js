@@ -1,24 +1,31 @@
-// pages/user_forget_pwd/index.js
+import { toLogin } from '../../utils/tool.js'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    item: {}
+  },
 
-  },
-  // 验证验证码成功
-  validateSuccess (e) {
-    const { detail } = e
-    wx.navigateTo({
-      url: `../user_reset_pwd/index?detail=${JSON.stringify(detail)}`,
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad (options) {
+    if (options.item) {
+      let item = JSON.parse(options.item)
+      this.setData({
+        item
+      })
+    }
+  },
 
+  /**
+   * 注册成功后跳转到登录页
+   */
+  setSuccess (e) {
+    toLogin()
   },
 
   /**
@@ -63,4 +70,10 @@ Page({
 
   },
 
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage () {
+
+  }
 })

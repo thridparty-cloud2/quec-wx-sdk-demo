@@ -1,31 +1,35 @@
-// pages/login_code/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    checked: false
+ 
   },
 
-  // 登录成功
-  loginSuccess () {
-    wx.switchTab({
-      url: '/pages/home/home',
-    })
-  },
-  // 勾选用户协议
-  changeProtocol (e) {
-    const { detail } = e
-    this.setData({
-      checked: detail
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad (options) {
+    
+  },
 
+  topwdLogin () {
+    this.pageRouter.navigateTo({
+      url: '/pages/login/index'
+    })
+  },
+
+  toRegister () {
+    this.pageRouter.navigateTo({
+      url: '/pages/register/index'
+    })
+  },
+
+  toEnterCode (e) {
+    this.pageRouter.navigateTo({
+      url: '/pages/valid_code/index?item=' + JSON.stringify(e.detail)
+    })
   },
 
   /**

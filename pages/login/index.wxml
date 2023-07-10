@@ -1,13 +1,4 @@
-<nav_bar title="示例DEMO" isHome="{{true}}"></nav_bar>
-<view class="container">
-  <user_login bindtoCodeLogin='toCodeLogin' bindtoForgetPwd='toForgetPwd' bindloginSuccess='loginSuccess' agreecheck="{{checked}}"></user_login>
-
-  <view class="footer">
-    <protocol bindchangeProtocol='changeProtocol' />
-    <view class="other-login-text">其他方式登录</view>
-    <view class="btnItem">
-      <wx_login generic:wx_info="wx_login_icon" agreecheck="{{checked}}" bindwxLoginSuccess="loginResult"></wx_login>
-    </view>
-    <view class="register">还没有账户？<text class="txt" bindtap="toRegister">立即注册</text></view>
-  </view>
+<view>
+  <nav_bar title="" backUrl="/pages/index/index"></nav_bar>
+  <user_login privacyVersion="demo-1.0.0" protocolVersion="demo-1.0.0" bindtoCodeLogin="toCodeLogin" bindtoForgetPwd="toForgetPwd" bindloginSuccess="loginSuccess" bindtoRegister="toRegister"></user_login>
 </view>

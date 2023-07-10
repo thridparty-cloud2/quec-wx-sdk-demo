@@ -1,8 +1,6 @@
 {
   "usingComponents": {
-    "van-button": "@vant/weapp/button/index",
-    "install_button": "/components/install_button/install_button",
-    "device_list": "plugin://quecPlugin/device_list"
+    "device_home": "plugin://quecPlugin/device_home"
   },
   "navigationBarTitleText": "设备列表"
 }

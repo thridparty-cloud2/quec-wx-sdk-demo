@@ -1,31 +1,36 @@
-let app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-   
+    uname: '',
+    type: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad (options) {
-  
+    let self = this
+    if (options.item) {
+      let item = JSON.parse(options.item)
+      self.setData({
+        uname: item.uname,
+        type: item.type
+      })
+    }
   },
-  // 跳转验证码登录
-  toCodeLogin () {
+
+  /**
+   * 验证码验证通过后跳转到密码设置页面
+   */
+  codeSuccess (e) {
     this.pageRouter.navigateTo({
-      url: '/pages/login_code/index',
+      url: '/pages/set_pwd/index?item=' + JSON.stringify(e.detail),
     })
   },
-  // 跳转忘记密码
-  toForgetPwd () {
-    this.pageRouter.navigateTo({
-      url: '/pages/forget/index',
-    })
-  },
+
   // 登录成功
   loginSuccess () {
     wx.switchTab({
@@ -33,12 +38,6 @@ Page({
     })
   },
 
-  // 跳转注册
-  toRegister () {
-    this.pageRouter.navigateTo({
-      url: '/pages/register/index',
-    })
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -81,4 +80,10 @@ Page({
 
   },
 
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage () {
+
+  }
 })

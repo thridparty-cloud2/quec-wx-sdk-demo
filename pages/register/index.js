@@ -1,24 +1,35 @@
-import { toLogin } from '../../utils/tool.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    curItem: {}
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad (options) {
-    let self = this
-    if (options.item) {
-      let dItem = JSON.parse(options.item)
-      self.setData({
-        curItem: dItem
-      })
-    }
+
+  },
+
+  /**
+   * 去登录
+   */
+  toLogin () {
+    this.pageRouter.navigateTo({
+      url: '/pages/login/index'
+    })
+  },
+
+  /**
+   * 去输入验证码页面
+   */
+  toEnterCode (e) {
+    this.pageRouter.navigateTo({
+      url: '/pages/valid_code/index?item=' + JSON.stringify(e.detail)
+    })
   },
 
   /**
@@ -35,13 +46,6 @@ Page({
 
   },
 
-  regSuccess (e) {
-    toLogin()
-  },
-
-  emailCodeValid (e) {
-    wx.navigateBack()
-  },
   /**
    * 生命周期函数--监听页面隐藏
    */

@@ -1,0 +1,4 @@
+<nav_bar title=""></nav_bar>
+<view class="container">
+  <user_forget_pwd type="{{2}}" bindtoRegister="toRegister" bindtoEnterCode="toEnterCode"></user_forget_pwd>
+</view>
