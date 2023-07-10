@@ -1,0 +1,4 @@
+<view class="bgLogin" style="background:linear-gradient(180deg, #E3F3FF 0%, #ffffff {{gradientHeight+'%'}})">
+  <nav_bar title=""></nav_bar>
+  <user_forget_pwd uname="{{uname}}" type="{{4}}" bindtoRegister="toRegister" bindtoEnterCode="toEnterCode"></user_forget_pwd>
+</view>

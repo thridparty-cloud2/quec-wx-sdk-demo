@@ -1,5 +1,3 @@
-
-const app = getApp()
 Page({
 
   /**
@@ -14,10 +12,13 @@ Page({
    */
   onLoad (options) {
     var self = this
-    var systemInfo = app.globalData.systemInfo
-    // 取高度
-    self.setData({
-      scrollHieght: systemInfo.safeArea.bottom - 60 - 160,
+    wx.getSystemInfoAsync({
+      success: (res) => {
+        // 取高度
+        self.setData({
+          scrollHieght: res.safeArea.bottom - 60 - 130,
+        })
+      }
     })
   },
 
@@ -42,6 +43,21 @@ Page({
     }
   },
 
+  toDetail (e) {
+    this.pageRouter.navigateTo({
+      url: `/pages/device_detail/CommonDetail/index?item=${encodeURIComponent(JSON.stringify(e.detail.item))}`,
+    })
+  },
+
+  /**
+    * 物模型属性不存在或出错
+    */
+  TslError (e) {
+    wx.navigateTo({
+      url: `/manage/pages/non/panel_no_data/index?item=${encodeURIComponent(JSON.stringify(e.detail.item))}`,
+    })
+  },
+
   /**
   * 
   * 删除成功
@@ -50,6 +66,7 @@ Page({
     this.setData({
       isSet: true
     })
+    setMsgNum(this)
   },
 
   /**
@@ -60,6 +77,7 @@ Page({
     this.setData({
       isSet: true
     })
+    setMsgNum(this)
   },
 
   /**

@@ -1,4 +1,0 @@
-/* pages/bluetooth_wifi/index.wxss */
-.van-cell {
-  padding: var(--cell-vertical-padding, 20px) var(--cell-horizontal-padding, 22px) !important;
-}

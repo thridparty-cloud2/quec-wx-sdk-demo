@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "user_cancel_sel": "plugin://quecPlugin/user_cancel_sel"
+  }
+}

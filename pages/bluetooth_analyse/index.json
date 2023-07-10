@@ -1,5 +1,0 @@
-{
-  "usingComponents": {
-    "bluetooth_analyse": "plugin://quecPlugin/bluetooth_analyse"
-  }
-}

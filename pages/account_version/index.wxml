@@ -1,6 +1,0 @@
-<view class="container">
-  <nav_bar title="当前版本"></nav_bar>
-  <view class="main">
-    <account_version version="{{version?version:'V1.0.0'}}"></account_version>
-  </view>
-</view>

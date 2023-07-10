@@ -9,11 +9,9 @@
     "pages/valid_code/index",
     "pages/set_pwd/index",
     "pages/mine/mine",
-    "pages/account_info/index",
-    "pages/account_nickname/index",
-    "pages/account_about/index",
-    "pages/account_privacy/index",
-    "pages/account_protocol/index",
+    "pages/info/index",
+    "pages/nickname/index",
+    "pages/about/index",
     "pages/edit_pwd/index",
     "pages/cancel_index/index",
     "pages/cancel_sel/index",
@@ -26,10 +24,8 @@
     "pages/device_detail/CommonDetail/device_tsl_text/index",
     "pages/device_detail/CommonDetail/device_tsl_struct/index",
     "pages/device_detail/CommonDetail/device_tsl_struct_text/index",
-    "pages/bluetooth_scan/index",
-    "pages/bluetooth_wifi/index",
-    "pages/bluetooth_analyse/index",
-    "pages/device_wifi_add/index"
+    "pages/wifi_scan/index",
+    "pages/wifi_config/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -37,7 +33,8 @@
     "navigationBarTitleText": "",
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom",
-    "backgroundColor": "#fafafa"
+    "backgroundColor": "#fafafa",
+    "handleWebviewPreload": "auto"
   },
   "plugins": {
     "quecPlugin": {

@@ -1,5 +1,5 @@
 <view>
   <view class="content">
-    <device_home bindgoDetail="goDetail" bindtoScan="toScan" bindtoNetwork="toNetwork" bindscanSuccess="scanSuccess" bindtoShare="goShare" bindinvalidDevice="invalidDevice" bindTslError="TslError" bindSearch="goSearch"></device_home>
+    <device_home bindgoDetail="goDetail" bindtoScan="toScan" bindtoNetwork="toNetwork" bindscanSuccess="scanSuccess" bindtoShare="goShare"></device_home>
   </view>
 </view>

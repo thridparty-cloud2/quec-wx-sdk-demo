@@ -1,5 +1,0 @@
-{
-  "usingComponents": {
-    "bluetooth_scan": "plugin://quecPlugin/bluetooth_scan"
-  }
-}

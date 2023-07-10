@@ -1,6 +1,3 @@
-<view class="container">
-  <nav_bar title="消息中心" isHome="{{true}}"></nav_bar>
-  <view class="content">
-    <msg_list sHeight="{{scrollHieght}}" binddelSuccess="delSuccess" bindreadSuccess="readSuccess" isSet="{{isSet}}"></msg_list>
-  </view>
+<view>
+  <msg_list sHeight="{{scrollHieght}}" bindgoDetail="toDetail" binddelSuccess="delSuccess" bindreadSuccess="readSuccess" isSet="{{isSet}}" bindTslError="TslError"></msg_list>
 </view>

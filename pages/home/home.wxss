@@ -6,10 +6,7 @@
   padding: 30rpx;
 }
 
-.van-tabs__scroll {
-  background-color: transparent !important;
-}
-
-.nav-bar-index--navSearch {
+.nav-bar-index--navSearch,
+.guide-index--guide {
   display: none;
 }

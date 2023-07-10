@@ -1,2 +1,0 @@
-<nav_bar title="设置昵称" backUrl="../account_info/index"></nav_bar>
-<user_nickname bindnicknameEditSuccess="nicknameEditSuccess"></user_nickname>

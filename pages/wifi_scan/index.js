@@ -1,4 +1,3 @@
-// pages/index/index.js
 Page({
 
   /**
@@ -29,45 +28,18 @@ Page({
 
   },
 
-  /**
-  * 去登陆页面
-  */
-  toLogin () {
-    this.pageRouter.navigateTo({
-      url: '/pages/login/index'
+  back () {
+    wx.switchTab({
+      url: '/pages/home/home',
     })
   },
 
-  // 勾选用户协议
-  changeProtocol (e) {
-    const { detail } = e
-    this.setData({
-      checked: detail
-    })
-  },
-
-  /**
-    * 微信一键登录回调
-    */
-  wxLoginResult (e) {
+  goList (e) {
     if (e.detail) {
-      wx.switchTab({
-        url: '/pages/home/home',
+      wx.redirectTo({
+        url: '/pages/wifi_config/index?item=' + e.detail,
       })
     }
-  },
-
-  // 跳转服务协议
-  toProtocol () {
-    // this.pageRouter.navigateTo({
-    //   url: '服务协议地址',
-    // })
-  },
-  // 跳转隐私协议
-  toPrivacy () {
-    // this.pageRouter.navigateTo({
-    //   url: '隐私协议地址',
-    // })
   },
 
   /**

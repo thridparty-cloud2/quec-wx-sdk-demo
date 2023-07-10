@@ -1,0 +1,10 @@
+
+.van-checkbox {
+  padding: 20rpx 0;
+}
+
+.van-checkbox__label {
+  color: #666666 !important;
+  font-size: 14px;
+  padding-left: 30rpx !important;
+}

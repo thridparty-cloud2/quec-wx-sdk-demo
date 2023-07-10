@@ -89,7 +89,7 @@ Page({
    */
   goUserInfo () {
     this.pageRouter.navigateTo({
-      url: '/pages/account_info/index'
+      url: '/pages/info/index'
     })
   },
   /**
@@ -97,7 +97,7 @@ Page({
    */
   goUserAbout () {
     this.pageRouter.navigateTo({
-      url: '/pages/account_about/index'
+      url: '/pages/about/index'
     })
   },
 

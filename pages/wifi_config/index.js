@@ -1,17 +1,27 @@
-// pages/index/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    succData: [],
+    fid: '',
+    mode: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad (options) {
+    let self = this
+    if (options.item) {
+      let item = JSON.parse(options.item)
+      self.setData({
+        succData: item.successData,
+        fid: item.fid,
+        mode: item.mode
+      })
+    }
 
   },
 
@@ -29,45 +39,16 @@ Page({
 
   },
 
-  /**
-  * 去登陆页面
-  */
-  toLogin () {
-    this.pageRouter.navigateTo({
-      url: '/pages/login/index'
+  saveSuccess () {
+    wx.switchTab({
+      url: '/pages/home/home',
     })
   },
 
-  // 勾选用户协议
-  changeProtocol (e) {
-    const { detail } = e
-    this.setData({
-      checked: detail
+  failOut () {
+    wx.switchTab({
+      url: '/pages/home/home',
     })
-  },
-
-  /**
-    * 微信一键登录回调
-    */
-  wxLoginResult (e) {
-    if (e.detail) {
-      wx.switchTab({
-        url: '/pages/home/home',
-      })
-    }
-  },
-
-  // 跳转服务协议
-  toProtocol () {
-    // this.pageRouter.navigateTo({
-    //   url: '服务协议地址',
-    // })
-  },
-  // 跳转隐私协议
-  toPrivacy () {
-    // this.pageRouter.navigateTo({
-    //   url: '隐私协议地址',
-    // })
   },
 
   /**

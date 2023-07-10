@@ -1,2 +1,0 @@
-<nav_bar title="添加Wifi设备"></nav_bar>
-<device_wifi_add item="{{dItem}}" bindaddSuccess="addSuccess"></device_wifi_add>

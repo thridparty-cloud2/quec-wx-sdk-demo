@@ -1,4 +1,4 @@
-
+import { toLogin } from '../../utils/tool.js'
 
 Page({
 
@@ -13,7 +13,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad (options) {
-
+    requirePlugin.async('quecPlugin').then(plugin => {
+      if (!plugin.config.getToken()) {
+        toLogin()
+      }
+    }).catch(({ mod, errMsg }) => {
+      console.error(`path: ${mod}, ${errMsg}`)
+    })
   },
 
   /**
@@ -40,14 +46,14 @@ Page({
    */
   toNetwork () {
     this.pageRouter.navigateTo({
-      url: '/pages/bluetooth/pages/wifi_scan/index'
+      url: '/pages/wifi_scan/index'
     })
   },
 
   //去扫码安装
   toScan (e) {
     this.pageRouter.navigateTo({
-      url: '/pages/bluetooth/pages/device_add/index?item=' + e.detail,
+      url: '/pages/device_add/index?item=' + e.detail,
     })
   },
 

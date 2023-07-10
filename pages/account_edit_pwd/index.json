@@ -1,6 +1,0 @@
-{
-  "disableScroll": true,
-  "usingComponents": {
-    "account_edit_pwd": "plugin://quecPlugin/account_edit_pwd"
-  }
-}
