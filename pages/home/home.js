@@ -61,7 +61,6 @@ Page({
   * 去设备详情
   */
   goDetail (e) {
-    console.log(e)
     this.pageRouter.navigateTo({
       url: `/pages/device_detail/CommonDetail/index?item=${encodeURIComponent(JSON.stringify(e.detail.item))}`
     })
