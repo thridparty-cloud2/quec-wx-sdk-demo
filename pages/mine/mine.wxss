@@ -69,8 +69,3 @@ page {
   width: 60px;
   height: 60px;
 }
-
-.sdk-icon.settings,
-.sdk-icon.About {
-  font-size: 24px;
-}
