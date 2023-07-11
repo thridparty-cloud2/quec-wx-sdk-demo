@@ -1,4 +1,6 @@
 import { toLogin } from '../../utils/tool.js'
+import { tip } from '../../utils/tip.js'
+
 Page({
 
   /**
@@ -46,9 +48,7 @@ Page({
   },
 
   goCancel (e) {
-    this.pageRouter.navigateTo({
-      url: '/pages/cancel_index/index?uname=' + e.detail
-    })
+    tip('暂不支持账户注销')
   },
 
 

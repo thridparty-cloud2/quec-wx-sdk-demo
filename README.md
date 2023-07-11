@@ -483,7 +483,7 @@ const plugin = requirePlugin('quecPlugin')
       }
  })
 ```
-v1.3.0 配网优化新增方法
+
 #### 12) openBleAndLoc
 ##### 功能描述
 ```

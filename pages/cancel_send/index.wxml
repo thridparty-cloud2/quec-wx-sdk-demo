@@ -1,2 +1,0 @@
-<nav_bar title="注销账号"></nav_bar>
-<user_cancel_send type="{{item.type}}" uname="{{item.uname}}" bindcancelSuccess="cancelSuccess"></user_cancel_send>

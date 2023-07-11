@@ -1,5 +1,0 @@
-{
-  "usingComponents": {
-    "user_cancel_send": "plugin://quecPlugin/user_cancel_send"
-  }
-}
