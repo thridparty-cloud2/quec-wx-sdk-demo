@@ -35,7 +35,6 @@ const plugin = requirePlugin('quecPlugin')
 plugin.config.setUserDomain('用户域')
 plugin.config.setUserDomainSecret('用户域密钥')
 
-
 3）授权：可将AppID和AppSecret提供给我们进行授权后，点击微信开发者工具-清缓存，然后点击“编译”即可正常运行。
 ```
 ### 3、特别说明

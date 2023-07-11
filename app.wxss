@@ -27,20 +27,6 @@ page {
   padding-right: 30rpx;
 }
 
-.rightIcon {
-  padding-right: 200rpx;
-  padding-top: 24rpx;
-}
-
-.rightIcon image {
-  width: 18px;
-  height: 18px;
-  padding: 6px;
-  background: rgba(255, 255, 255, 0.596637);
-  border-radius: 50%;
-  border: 0.5px solid rgba(151, 151, 151, 0.201002);
-}
-
 .van-nav-bar__title {
   display: inline-flex !important;
   font-style: normal !important;
@@ -72,60 +58,4 @@ page {
 .van-field__control {
   font-size: 16px !important;
   color: #333333 !important;
-}
-
-.van-field__label {
-  font-weight: 500 !important;
-}
-
-.van-button--danger {
-  background: green !important;
-  border: 1px solid green !important;
-}
-
-.van-button--disabled {
-  background: #E6E7E8 !important;
-  border-color: #E6E7E8 !important;
-  color: #ffffff !important;
-  opacity: 1 !important;
-}
-
-.van-dialog__confirm {
-  font-weight: bold !important;
-}
-
-.van-dialog__cancel,
-.van-dialog__confirm {
-  height: 55px;
-}
-
-.van-cell:after {
-  right: 0 !important;
-}
-
-.van-field__body--textarea {
-  padding: 0 !important;
-}
-
-.bgCls {
-  height: 100%;
-  overflow-x: hidden;
-}
-
-.bgCls .van-nav-bar {
-  background: transparent !important;
-}
-
-.van-button--large {
-  height: var(--button-large-height, 55px) !important;
-  font-size: 16px !important;
-  font-weight: 500 !important;
-}
-
-.van-checkbox__label {
-  padding-left: 10rpx !important;
-}
-
-.van-button {
-  height: var(--button-default-height, 50px) !important;
 }

@@ -33,3 +33,7 @@ page,
 .van-checkbox {
   display: inline-flex !important;
 }
+
+.start-index--login_btn {
+  line-height: 42px !important;
+}

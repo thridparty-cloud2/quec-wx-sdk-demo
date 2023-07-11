@@ -45,6 +45,7 @@ Page({
     this.setData({
       textDetail: {}
     })
+
     //示例调用
     // plugin.quecManage.getTslList({
     //   pk: this.data.pk,
