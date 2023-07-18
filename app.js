@@ -32,8 +32,8 @@ App({
     plugin.theme.setTitle('示例DEMO')
 
     //如客户有自己的用户域及密钥，请设置成自己的哦
-    //plugin.config.setUserDomain('用户域')
-    //plugin.config.setUserDomainSecret('用户域密钥')
+    // plugin.config.setUserDomain('用户域')
+    // plugin.config.setUserDomainSecret('用户域密钥')
 
   }
 })

@@ -1,0 +1,11 @@
+<nav_bar title="test1"></nav_bar>
+
+<view style="text-align: center; padding: 20rpx 0;" catchtap="send">
+  ws测试
+</view>
+
+<view>
+
+
+
+</view>

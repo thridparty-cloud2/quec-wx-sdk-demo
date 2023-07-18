@@ -17,6 +17,7 @@
     "pages/device_add/index",
     "pages/msg/index",
     "pages/device_detail/CommonDetail/index",
+    "pages/device_detail/CommonDetail/test/index",
     "pages/device_detail/CommonDetail/device_tsl_array/index",
     "pages/device_detail/CommonDetail/device_tsl_text/index",
     "pages/device_detail/CommonDetail/device_tsl_struct/index",

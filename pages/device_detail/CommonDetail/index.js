@@ -22,6 +22,7 @@ Page({
     let self = this
     if (options.item) {
       let dItem = JSON.parse(decodeURIComponent(options.item))
+      console.log(dItem)
       self.setData({
         pk: dItem.productKey,
         dk: dItem.deviceKey,
@@ -45,17 +46,6 @@ Page({
     this.setData({
       textDetail: {}
     })
-
-    //示例调用
-    // plugin.quecManage.getTslList({
-    //   pk: this.data.pk,
-    //   success (res) {
-    //     console.log(res)
-    //   },
-    //   fail (res) {
-    //     console.log(JSON.stringify(res))
-    //   }
-    // })
   },
   editpage (e) {
     let item = e.detail
