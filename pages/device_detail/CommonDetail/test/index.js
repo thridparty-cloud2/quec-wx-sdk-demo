@@ -20,7 +20,6 @@ Page({
       self.setData({
         pk: dItem.productKey,
         dk: dItem.deviceKey,
-        curDevice: JSON.stringify(dItem),
       })
 
       //示例调用
