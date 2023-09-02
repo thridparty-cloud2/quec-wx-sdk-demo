@@ -1507,7 +1507,7 @@ const plugin = requirePlugin('quecPlugin')
 |属性 | 类型 | 默认值 |必填 |说明 |
 | ---- | ---- | ---- |---- |---- |
 | pk | String |  - | 是 | 产品productKey |
-| sn | String |  - | 是 | 设备sn |
+| dk | String |  - | 是 | 设备deviceKey |
 | deviceName | String |  - | 是 | 设备名称 |
 | success | function |  - | 否 | 接口调用成功的回调函数 |
 | fail | function |  - | 否 | 接口调用失败的回调函数 |
@@ -1517,8 +1517,8 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecManage.rename({
-      pk:'',
-     sn:'',
+     pk:'',
+     dk:'',
      deviceName:'',
     success (res) {
          console.log(res)
@@ -1538,7 +1538,7 @@ const plugin = requirePlugin('quecPlugin')
 |属性 | 类型 | 默认值 |必填 |说明 |
 | ---- | ---- | ---- |---- |---- |
 | pk | String |  - | 是 | 产品productKey |
-| sn | String |  - | 是 | 设备sn |
+| dk | String |  - | 是 | 设备deviceKey |
 | success | function |  - | 否 | 接口调用成功的回调函数 |
 | fail | function |  - | 否 | 接口调用失败的回调函数 |
 | complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
@@ -1547,8 +1547,8 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecManage.unbind({
-      pk:'',
-     sn:'',
+    pk:'',
+    dk:'',
     success (res) {
          console.log(res)
      },
