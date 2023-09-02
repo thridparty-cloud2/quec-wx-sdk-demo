@@ -809,7 +809,7 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.sendPhoneSmsCode({
-    phone: '18095653439',
+    phone: '180xxxx',
     ssid: 'C1',
     stid: 'C3',
     success (res) {
@@ -840,7 +840,7 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.validateSmsCode({
-    phone: '18095653439',
+    phone: '180xxxxx',
     smsCode: '123542',
     isDisabled:2,
     success (res) {
@@ -898,7 +898,7 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.phonePwdRegister({
-    phone: '18095653439',
+    phone: '180xxxxx',
     pwd:'a123456',
     smsCode:'210320',
     success (res) {
@@ -929,7 +929,7 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.phonePwdLogin({
-    phone: '18095653439',
+    phone: '180xxxxxx',
     pwd:'a123456',
     success (res) {
          console.log(res)
@@ -958,7 +958,7 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.phoneSmsCodeLogin({
-    phone: '18095653439',
+    phone: '180xxxxxx',
     smsCode:'120321',
     success (res) {
          console.log(res)
