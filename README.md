@@ -1853,7 +1853,7 @@ const plugin = requirePlugin('quecPlugin')
 ```
 
 ## 九、webSocket接口
-### 1、connectSocket 
+### 1、connect 
 ##### 功能描述
 ```
 webSocket连接。
@@ -1861,29 +1861,71 @@ webSocket连接。
 ##### 参数
 |属性 | 类型 | 默认值 |必填 |说明 |
 | ---- | ---- | ---- |---- |---- |
-| obj | object |  - | 是 | obj{pk,dk})|
+| userid | string |  - | 是 | 用户id |
+| pk | string |  - | 是 | productKey |
+| dk | string |  - | 是 | deviceKey |
+| online | function |  - | 否 | 在线状态回调|
+| ask | function |  - | 否 | 发送状态回调 |
+| mattr | function |  - | 否 | 设备主动上报属性信息回调 |
+| enduser | function |  - | 否 | 终端用户设备权限变更信息|
+| location | function |  - | 否 | 设备定位信息上报回调 |
+| ota | function |  - | 否 | ota升级回调 |
+| error | function |  - | 否 | 接收云端发送的错误信息回调 |
+| fail | function |  - | 否 | 失败回调 |
 
 ##### 示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
- plugin.webSocket.connectSocket()
+plugin.socket.connect({
+    userid, pk, dk,
+    online (res) {},
+    ask (res) {},
+    mattr (res) {
+      switch (res.subtype) {
+        case 'REPORT'://设备主动上报属性信息
+          //处理设备主动上报属性信息
+          break
+        case 'OUTPUT'://设备服务调用响应信息
+          //设备服务调用响应信息
+          break
+        case 'READRESP'://设备读响应信息
+          //设备读响应信息
+          break
+        case 'INFO'://信息
+          //信息
+          break
+        case 'WARN'://告警
+          //告警
+          break
+        case 'ERROR'://故障
+          //故障
+          break
+      }
+    },
+    enduser (res) {},
+    error (res) {},
+    fail (res) { }
+})
 ```
 
-### 2、closeSocket 
+### 2、close 
 ##### 功能描述
 ```
 webSocket关闭。
 ```
 ##### 参数
-无
+|属性 | 类型 | 默认值 |必填 |说明 |
+| ---- | ---- | ---- |---- |---- |
+| success | function |  - | 否 | 成功回调 |
+| fail | function |  - | 否 | 失败回调 |
 
 ##### 示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
- plugin.webSocket.closeSocket()
+ plugin.socket.close()
 ```
 
-### 3、 sendCmd 
+### 3、 send
 ##### 功能描述
 ```
 指令下发
@@ -1891,51 +1933,25 @@ const plugin = requirePlugin('quecPlugin')
 ##### 参数
 |属性 | 类型 | 默认值 |必填 |说明 |
 | ---- | ---- | ---- |---- |---- |
-| obj | object |  - | 是 | obj{pk, dk, type, sendData}|
+| pk | string |  - | 是 | ProductKey|
+| dk | string |  - | 是 | deviceKey|
+| type | string |  - | 是 | 类型|
+| sendData | array |  - | 是 | 发送数据|
+| success | function |  - | 否 | 成功回调 |
+| fail | function |  - | 否 | 失败回调 |
 
 ##### 示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
- let sendData = [{
-        id: attrData.id,
-        value: sendValue,
-        type: attrData.dataType
- }]
- plugin.webSocket.sendCmd({ pk, dk, type, sendData })
-```
+plugin.socket.send({
+    pk, 
+    dk,
+    type:'WRITE-ATTR',
+    sendData: [{"struct_1": [{"struct_attr" : 1}, {"struct_bool" : true}] }],
+    success (res) {},
+    fail (res) { }
+})
 
-### 4、 msgCallback 
-##### 功能描述
-```
-获取websocket返回res数据。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| callBack | function |  - |  | 获取websocket返回res数据|
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.webSocket.msgCallback(function(res){
-     // websocket 数据渲染
- })
-```
-
-### 5、subscribeDevice
-##### 功能描述
-```
-设备订阅。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| obj | object |  - | 是  | obj{pk:'productKey',dk:'deviceKey'}|
-
-##### 示例代码
-```
- const plugin = requirePlugin('quecPlugin')
- plugin.webSocket.subscribeDevice({pk:'',dk:''})
 ```
 
 ## 十、主题配置
