@@ -82,6 +82,7 @@ Component({
      * @param {*} e 
      */
     getPhoneNumber (e) {
+      console.log(e)
       let self = this
       let detail = e.detail
       if (detail.errMsg.indexOf('user deny') > 0) {
