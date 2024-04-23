@@ -1,2 +1,0 @@
-<nav_bar title="关于" backUrl="/pages/mine/mine" isTab="{{true}}"></nav_bar>
-<user_about version="{{version ? version : '1.0.0'}}" phone="123456"></user_about>

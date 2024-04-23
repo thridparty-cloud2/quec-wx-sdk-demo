@@ -1,2 +1,0 @@
-<nav_bar title="设置昵称" backUrl="../info/index"></nav_bar>
-<user_nickname nikeName="{{nikeName}}" bindnicknameEditSuccess="nicknameEditSuccess"></user_nickname>

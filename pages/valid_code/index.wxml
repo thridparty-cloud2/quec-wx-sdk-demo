@@ -1,2 +1,0 @@
-<nav_bar title=""></nav_bar>
-<user_valid_code uname="{{uname}}" type="{{type}}" privacyVersion="demo-1.0.0" protocolVersion="demo-1.0.0" bindloginSuccess="loginSuccess" bindcodeSuccess="codeSuccess"></user_valid_code>

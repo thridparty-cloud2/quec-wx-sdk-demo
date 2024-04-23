@@ -1,4 +1,0 @@
-<view>
-  <nav_bar title=""></nav_bar>
-  <user_register bindtoLogin="toLogin" bindtoEnterCode="toEnterCode"></user_register>
-</view>

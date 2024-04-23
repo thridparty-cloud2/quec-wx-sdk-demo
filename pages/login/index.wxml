@@ -1,4 +1,0 @@
-<view>
-  <nav_bar title="" backUrl="/pages/index/index"></nav_bar>
-  <user_login privacyVersion="demo-1.0.0" protocolVersion="demo-1.0.0" bindtoCodeLogin="toCodeLogin" bindtoForgetPwd="toForgetPwd" bindloginSuccess="loginSuccess" bindtoRegister="toRegister"></user_login>
-</view>

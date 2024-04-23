@@ -1,4 +1,4 @@
-<view>
+<view class="bgCls">
   <view class="mine">
     <view class="header" catchtap="goUserInfo">
       <view class="left">
@@ -6,13 +6,16 @@
           <van-loading slot="loading" type="spinner" size="20" vertical />
         </van-image>
         <view class="hInfo">
-          <view class="txt">{{nikeName}}</view>
+          <view class="txt">{{isToken ? nikeName : '未设置昵称'}}</view>
           <view wx:if="{{isFinish}}" class="tip">查看并编辑个人资料</view>
         </view>
       </view>
     </view>
     <view class="menu">
       <van-cell is-link border="{{false}}" catchtap="goUserAbout">
+        <view slot="icon">
+          <view class="sdk-icon About"></view>
+        </view>
         <view slot="title" class="cellTitle">关于</view>
       </van-cell>
     </view>

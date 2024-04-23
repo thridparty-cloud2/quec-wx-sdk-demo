@@ -1,4 +1,0 @@
-<view>
-  <nav_bar title="" backUrl="/pages/login/index"></nav_bar>
-  <user_login_code bindtopwdLogin="topwdLogin" bindtoRegister="toRegister" bindtoEnterCode="toEnterCode"></user_login_code>
-</view>

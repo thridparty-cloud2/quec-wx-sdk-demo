@@ -1,29 +1,50 @@
 {
   "pages": [
     "pages/home/home",
-    "pages/index/index",
-    "pages/login/index",
-    "pages/login_code/index",
-    "pages/forget/index",
-    "pages/register/index",
-    "pages/valid_code/index",
-    "pages/set_pwd/index",
-    "pages/mine/mine",
-    "pages/info/index",
-    "pages/nickname/index",
-    "pages/about/index",
-    "pages/edit_pwd/index",
-    "pages/device_share/index",
-    "pages/device_add/index",
-    "pages/msg/index",
-    "pages/device_detail/CommonDetail/index",
-    "pages/device_detail/CommonDetail/test/index",
-    "pages/device_detail/CommonDetail/device_tsl_array/index",
-    "pages/device_detail/CommonDetail/device_tsl_text/index",
-    "pages/device_detail/CommonDetail/device_tsl_struct/index",
-    "pages/device_detail/CommonDetail/device_tsl_struct_text/index",
-    "pages/wifi_scan/index",
-    "pages/wifi_config/index"
+    "pages/mine/mine"
+  ],
+  "subpackages": [{
+      "root": "ble",
+      "name": "ble",
+      "pages": [
+        "device_add/index",
+        "v2/scan/index",
+        "v2/config/index",
+        "v1/add/index"
+      ]
+    },
+    {
+      "root": "user",
+      "name": "user",
+      "pages": [
+        "index/index",
+        "info/index",
+        "nickname/index",
+        "about/v2/home/index",
+        "login/index",
+        "login_code/index",
+        "valid_code/index",
+        "forget/index",
+        "register/index",
+        "set_pwd/index"
+      ]
+    },
+    {
+      "root": "mode",
+      "name": "mode",
+      "pages": [
+        "non/share/index",
+        "non/search/index"
+      ]
+    },
+    {
+      "root": "panel",
+      "name": "panel",
+      "pages": [
+        "no_data/index",
+        "general/index/index"
+      ]
+    }
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -31,18 +52,21 @@
     "navigationBarTitleText": "",
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom",
-    "backgroundColor": "#fafafa",
+    "backgroundColor": "#F7F8FC",
     "handleWebviewPreload": "auto"
+  },
+  "networkTimeout": {
+    "request": 180000,
+    "connectSocket": 180000
   },
   "plugins": {
     "quecPlugin": {
-      "version": "1.3.1",
+      "version": "1.6.0",
       "provider": "wx5e9a3feb8df9122e"
     }
   },
   "usingComponents": {
-    "van-icon": "@vant/weapp/icon/index",
-    "nav_bar": "/components/nav_bar/nav_bar"
+    "nav_bar": "/comps/nav_bar/nav_bar"
   },
   "tabBar": {
     "custom": true,
@@ -52,27 +76,21 @@
     "backgroundColor": "#ffffff",
     "list": [{
         "pagePath": "pages/home/home",
-        "iconPath": "/images/home.png",
-        "selectedIconPath": "/images/home_selected.png",
         "text": "首页"
       },
       {
-        "selectedIconPath": "/images/msg_selected.png",
-        "iconPath": "/images/msg.png",
-        "pagePath": "pages/msg/index",
-        "text": "消息"
-      },
-      {
-        "selectedIconPath": "/images/mine_selected.png",
-        "iconPath": "/images/mine.png",
         "pagePath": "pages/mine/mine",
         "text": "我的"
       }
     ]
   },
+  "requiredPrivateInfos": [
+    "getLocation",
+    "chooseLocation"
+  ],
   "permission": {
     "scope.userLocation": {
-      "desc": "您的位置信息将用于添加安装地址"
+      "desc": "您的位置信息将用于添加地址"
     }
   },
   "lazyCodeLoading": "requiredComponents",

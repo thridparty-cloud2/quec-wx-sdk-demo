@@ -1,5 +1,0 @@
-{
-  "usingComponents": {
-    "wifi_scan": "plugin://quecPlugin/wifi_scan"
-  }
-}

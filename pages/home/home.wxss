@@ -1,3 +1,9 @@
+@import '/asset/txtarea.wxss';
+
+page {
+  overflow: hidden !important;
+}
+
 .van-nav-bar__title {
   padding-left: 30rpx !important;
 }
@@ -6,7 +12,18 @@
   padding: 30rpx;
 }
 
-.nav-bar-index--navSearch,
-.guide-index--guide {
-  display: none;
+.van-tabs__scroll {
+  background-color: transparent !important;
+}
+
+.image-index--van-image {
+  width: 100px;
+  height: 100px;
+}
+
+.attent .van-icon-arrow-left:before,
+.attent .van-icon:before {
+  font-size: 12px !important;
+  vertical-align: top !important;
+  padding: 2px !important;
 }

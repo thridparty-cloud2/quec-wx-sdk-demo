@@ -1,6 +1,6 @@
-// 获取应用实例
+import { jump } from '../../utils/jump.js'
+const plugin = requirePlugin('quecPlugin')
 const app = getApp()
-
 Page({
 
   /**
@@ -11,14 +11,21 @@ Page({
     nikeName: '',
     phonenumber: '',
     email: '',
-    isFinish: false
+    baseImgUrl: app.globalData.baseImgUrl,
+    gradientHeight: 150,
+    isFinish: false,
+    MsgNum: 0,
+    isToken: false,
+    env: app.globalData.envData
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      gradientHeight: (150 / wx.getWindowInfo().windowHeight).toFixed(2) * 100
+    })
   },
 
   /**
@@ -33,8 +40,34 @@ Page({
    */
   onShow: function () {
     let self = this
-    self.initUinfo()
     if (typeof self.getTabBar === 'function' && self.getTabBar()) {
+      self.setData({
+        isToken: plugin.config.getToken()
+      })
+      if (plugin.config.getToken()) {
+        self.initUinfo()
+        plugin.quecMsg.getMsgStats({
+          success (res) {
+            if (res.data) {
+              let data = res.data
+              let num = Number(data.fault.unRead) + Number(data.inform.unRead) + Number(data.warning.unRead)
+              self.setData({
+                MsgNum: num
+              })
+            }
+          },
+          fail (res) {
+            self.setData({
+              MsgNum: 0
+            })
+          }
+        })
+      } else {
+        let imgs = plugin.config.getHeadImg(false)
+        self.setData({
+          headImage: imgs[0]
+        })
+      }
       wx.nextTick(() => {
         self.getTabBar().setData({
           selected: 2
@@ -44,44 +77,31 @@ Page({
   },
 
   initUinfo () {
+    plugin.jsUtil.load(2000)
     let self = this
-    self.setData({
-      headImage: '',
-      nikeName: ''
-    })
-    wx.showToast({
-      title: '加载中',
-      icon: 'loading',
-      duration: 2000
-    })
-    requirePlugin.async('quecPlugin').then(plugin => {
-      plugin.quecUser.getUInfo({
-        success (res) {
-          let result = res.data
-          let hImg = result.headimg
-          let imgs = plugin.config.getHeadImg(false)
-          if (imgs.indexOf(hImg) < 0) {
-            hImg = imgs[0]
-          }
-          self.setData({
-            headImage: hImg
-          })
-          self.setData({
-            nikeName: result.nikeName ? result.nikeName : ''
-          })
-        },
-        fail (res) { },
-        complete () {
-          wx.hideToast()
-          self.setData({
-            isFinish: true
-          })
+    plugin.quecUser.getUInfo({
+      success (res) {
+        let result = res.data
+        let hImg = result.headimg
+        let imgs = plugin.config.getHeadImg(false)
+        if (imgs.indexOf(hImg) < 0) {
+          hImg = imgs[0]
         }
-      })
-    }).catch(({ mod, errMsg }) => {
-      console.error(`path: ${mod}, ${errMsg}`)
+        self.setData({
+          headImage: hImg
+        })
+        self.setData({
+          nikeName: result.nikeName ? result.nikeName : ''
+        })
+      },
+      fail (res) { },
+      complete () {
+        wx.hideToast()
+        self.setData({
+          isFinish: true
+        })
+      }
     })
-
   },
 
   /**
@@ -89,15 +109,23 @@ Page({
    */
   goUserInfo () {
     this.pageRouter.navigateTo({
-      url: '/pages/info/index'
+      url: '/user/info/index'
     })
   },
   /**
-   * 关于我们
+   * 关于我们 
    */
   goUserAbout () {
     this.pageRouter.navigateTo({
-      url: '/pages/about/index'
+      url: '/user/about/v2/home/index'
+    })
+  },
+  /**
+   * 系统设置
+   */
+  goSetting () {
+    this.pageRouter.navigateTo({
+      url: '/user/setting/index'
     })
   },
 
@@ -115,21 +143,5 @@ Page({
   onUnload: function () {
 
   },
-
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
 
 })

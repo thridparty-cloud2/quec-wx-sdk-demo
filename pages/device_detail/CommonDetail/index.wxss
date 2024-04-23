@@ -1,8 +1,0 @@
-.van-nav-bar {
-  text-align: left !important;
-  padding-left: -10rpx;
-}
-
-.van-nav-bar__title {
-  padding-left: 90rpx;
-}

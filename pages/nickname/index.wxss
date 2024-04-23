@@ -1,9 +1,0 @@
-.van-field__label,
-.van-field__control {
-  font-size: 16px !important;
-  color: #333333 !important;
-}
-
-.van-field__label {
-  font-weight: 500 !important;
-}

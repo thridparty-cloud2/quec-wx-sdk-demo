@@ -2,5 +2,6 @@
   "usingComponents": {
     "device_home": "plugin://quecPlugin/device_home"
   },
-  "navigationBarTitleText": "设备列表"
+  "disableSwipeBack": true,
+  "navigationBarTitleText": ""
 }

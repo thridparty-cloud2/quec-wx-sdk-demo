@@ -1,5 +1,5 @@
 {
-  "name": "quec-wx-sdk-demo",
+  "name": "quec-wx-example",
   "version": "1.0.0",
   "description": "",
   "main": ".eslintrc.js",
@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@vant/weapp": "^1.10.3"
+    "@vant/weapp": "^1.11.1"
   }
 }

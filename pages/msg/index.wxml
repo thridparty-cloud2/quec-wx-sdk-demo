@@ -1,3 +1,0 @@
-<view>
-  <msg_list sHeight="{{scrollHieght}}" bindgoDetail="toDetail" binddelSuccess="delSuccess" bindreadSuccess="readSuccess" isSet="{{isSet}}" bindTslError="TslError"></msg_list>
-</view>

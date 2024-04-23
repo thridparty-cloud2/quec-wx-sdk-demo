@@ -1,9 +1,0 @@
-<view class="container">
-  <nav_bar title="示例DEMO" isHome="{{true}}"></nav_bar>
-  <view class="start">
-    <user_start bindchangeProtocol="changeProtocol" bindtoLogin="toLogin" bindtoProtocol="toProtocol" bindtoPrivacy="toPrivacy"></user_start>
-    <view class="wxLogin">
-      <wx_login generic:wx_info="wx_info" privacyVersion="demo-1.0.0" protocolVersion="demo-1.0.0" agreecheck="{{checked}}" bindwxLoginSuccess="wxLoginResult"></wx_login>
-    </view>
-  </view>
-</view>

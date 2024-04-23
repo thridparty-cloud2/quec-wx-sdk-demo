@@ -1,3 +1,5 @@
+@import '/asset/icon.wxss';
+
 page {
   overflow: hidden;
 }
@@ -68,4 +70,34 @@ page {
   border-radius: 50%;
   width: 60px;
   height: 60px;
+}
+
+.sdk-icon.settings,
+.sdk-icon.About,
+.sdk-icon.news {
+  font-size: 24px;
+}
+
+.msg {
+  position: relative;
+}
+
+.unread {
+  width: 10rpx;
+  height: 10rpx;
+  background: #FF4E45;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  right: 0rpx;
+  top: 5rpx;
+}
+
+.sdk-icon.huaban {
+  font-size: 20px;
+  padding-left: 6rpx;
+}
+
+.pleft {
+  padding-left: 24rpx;
 }
