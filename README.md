@@ -643,75 +643,8 @@ const plugin = requirePlugin('quecPlugin')
 4、个人信息-展示、修改头像、修改昵称、修改密码、注销账户、退出登录;
 6、关于- 标题、版本、电话（点击可拨打）
 ```
-### 2、实现方式
-```
-提供两种实现方式：
-1、含页面布局组件：提供页面流程，引用组件即可;
-2、提供注册、登录、忘记密码js接口，需要使用者根据业务自己编写页面;
-```
-### 3、含页面布局组件
-#### 1）组件引用
-```
-在json文件定义需要引入的自定义组件时,使用plugin://协议指明插件的引用名和自定义组件名。
-例如：
-{
-  "usingComponents": {
-    "wx_login":"plugin://quecPlugin/wx_login", //微信一键登录
-    "user_start": "plugin://quecPlugin/user_start", //首页
-    "user_login": "plugin://quecPlugin/user_login", //登录
-    "user_login_code": "plugin://quecPlugin/user_login_code", //验证码登录
-    "user_forget_pwd": "plugin://quecPlugin/user_forget_pwd", //忘记密码
-    "user_register": "plugin://quecPlugin/user_register", //注册
-    "user_valid_code": "plugin://quecPlugin/user_valid_code", //输入验证码
-    "user_set_pwd":"plugin://quecPlugin/user_set_pwd", //设置密码
-    "user_info": "plugin://quecPlugin/user_info", //用户信息展示
-    "user_nickname": "plugin://quecPlugin/user_nickname", //昵称修改
-    "user_cancel_index": "plugin://quecPlugin/user_cancel_index", //注销原因
-    "user_cancel_sel": "plugin://quecPlugin/user_cancel_sel", //注销风险提示
-    "user_cancel_send":"plugin://quecPlugin/user_cancel_send",//注销账户发送验证码
-    "user_setting":"plugin://quecPlugin/user_setting",//设置
-    "user_privacy_manage":"plugin://quecPlugin/user_privacy_manage",//隐私政策管理
-    "user_about": "plugin://quecPlugin/user_about", //关于
-  }
-}
-```
-#### 2）组件效果图
-![链接](./images/doc/login.jpg)
 
-#### 3）组件说明
-| 组件    | 属性  | 说明    | 类型 | 默认值  | 必填 | 事件 |
-| ------ | ---   | ----- | ------- | ------ | ---- | ------ |
-| user_start | - | -  | -  | - | -   | changeProtocol-是否选中协议<br>toLogin-手机号/邮箱登录<br>toProtocol-服务协议<br>toPrivacy-隐私政策 |
-| wx_login |  agreecheck| 是否勾选隐私协议 | boolean | false | 否   | wxLoginSuccess-微信一键登录成功回调<br>wxLoginResult-登录成功回调 |
-| wx_login |  privacyVersion| 隐私协议版本 | string | - | 否   |  |
-| wx_login |  protocolVersion| 服务协议版本 | string | - | 否   |  |
-| user_login | privacyVersion| 隐私协议版本 | string | - | 否   | toCodeLogin-跳转到验证码登录页面<br>toForgetPwd-跳转到忘记密码页面<br>loginSuccess-登录成功回调<br>toRegister-跳转到立即注册页面  |
-| user_login | protocolVersion| 服务协议版本 | string | - | 否   |  |
-| user_login_code | - | -  | - | -   | -   | topwdLogin-跳转到密码登录页面<br>toRegister-跳转到立即注册页面<br>toEnterCode-跳转到输入验证码页面 |
-| user_forget_pwd | type | 类型（2-忘记密码<br>4-修改密码） | number | -  | - | toRegister-跳转到注册页面<br> toEnterCode-跳转输入密码页面|
-| user_forget_pwd | uname | 账号（手机号/邮箱）| string  | -  | - |-  |
-| user_valid_code | uname | 账号（手机号/邮箱）| string  | -  | - | loginSuccess-验证码登录成功回调<br>codeSuccess-验证码输入成功回调 |
-| user_valid_code | type | 类型（1-验证码登录<br>2-忘记密码<br>3-注册<br>4-修改密码） | number  | -  | - |  |
-| user_valid_code |  privacyVersion| 隐私协议版本 | string | - | 否   |  |
-| user_valid_code |  protocolVersion| 服务协议版本 | string | - | 否   |  |
-| user_set_pwd | item | 账号/验证码/类型对象({uname, code, type}) | Object | - | 否   | setSuccess-密码设置成功  |
-| user_set_pwd | privacyVersion| 隐私协议版本 | string | - | 否   |  |
-| user_set_pwd | protocolVersion| 服务协议版本 | string | - | 否   |  |                                   |
-| user_register | - | -   | - | -   | - | toLogin-去登陆（已注册账号）<br> toEnterCode- 跳转到输入验证码页面 |
-| user_info | - |  - | - | - | - | goNikeName-跳转到修改昵称页面<br> goChangePwd-跳转到修改密码页面<br> logoutSuccess-退出成功回调<br>goCancel-跳转到注销账号页面<br>relatePhone-是否显示手机号授权弹框|
-| user_nickname | nikeName |  昵称 | string | - | 是 | nicknameEditSuccess-昵称修改成功回调|
-| user_about | version |  版本号 | string | 1.0.0 | 否 | - |
-| user_about | phone |  电话 | string | +86 0551-65869386 | 否 |-|
-| user_cancel_index | uname |  账号（手机号/邮箱） | string | - | 是 |-|
-| user_cancel_sel | uname |  账号（手机号/邮箱） | string | - | 是 |Send-跳转到注销发送验证码页面|
-| user_cancel_send | type |  类型（7-注销 2-关联手机号） | number | - | 否 | -|
-| user_cancel_send | uname |  账号（手机号/邮箱） | string | - | 是 | - |
-| user_setting | isHouse | 是否显示家居模式开关 | boolean | true | 否 | toHouse-跳转到家庭管理页面<br>PrivacyManage-跳转到隐私政策管理页面<br>toEnterHouse-进入家居模式<br>toEnterDetail-进入家居模式了解详情页面 |
-| user_setting | isPrivacyManage |  是否显示隐私政策管理 | boolean | true | 否 | - |
-| user_edit_pwd | uname |  账号（手机号/邮箱） | string | - | 是 |Send-跳转到注销发送验证码页面|
-| user_edit_pwd | type | 类型（2-忘记密码<br>4-修改密码） | number | -  | - | toRegister-跳转到注册页面<br> toEnterCode-跳转输入密码页面|
-
-#### 4）微信一键登录具体实现
+### 2、微信一键登录具体实现
 ```
 在插件开发中，部分API受限制，无法在插件中直接使用，如：获取用户信息，获取用户号码等，因此微信一键登录组件，采用抽象节点的方式实现。
 1)小程序miniprogram端app.json中，配置插件信息
@@ -736,7 +669,7 @@ wxml文件中：
  <wx_login generic:wx_info="wx_info" agreecheck="{{checked}}" bindwxLoginSuccess="loginResult"></wx_login>
 ```
 
-### 4、注册、登录、忘记密码、个人中心接口
+### 3、注册、登录、忘记密码、个人中心接口
 #### 1) wxLogin 
 ##### 功能描述
 ```
@@ -1365,44 +1298,7 @@ const plugin = requirePlugin('quecPlugin')
 涵盖功能点：设备扫描安装、设备列表（展示、重命名、删除）、设备搜索
 ```
 
-### 2、实现方式
-```
-提供两种实现方式：
-1、含页面布局组件：提供页面流程，引用组件即可。详见"含页面布局组件使用"。
-2、提供设备管理js接口，需要使用者根据业务自己编写页面。详见"设备管理接口"。
-```
-### 3、含页面布局组件使用
-#### 1）组件引用
-```
-在json文件定义需要引入的自定义组件时,使用plugin://协议指明插件的引用名和自定义组件名。
-{
-  "usingComponents": {
-      "device_add": "plugin://quecPlugin/device_add",   // 设备扫码安装
-      "device_list": "plugin://quecPlugin/device_list",   // 设备列表
-      "device_rename": "plugin://quecPlugin/device_rename",   // 设备详情更多设置-重命名
-      "device_search": "plugin://quecPlugin/device_search", //设备搜索
-  }
-}
-```
-#### 2）组件效果图
-![链接](./images/doc/manage.jpg)
-
-#### 3）组件说明
-|组件 | 属性 | 说明 |类型 |默认值 |必填 |事件
-| ---- | ---- | ---- |---- |---- |---- |---- |
-| device_add | item |  扫描的返回的结果信息 | Object |- | 是 | scanSuccess-扫描成功回调
-| device_add | btnStyle |  按钮样式 |string| - | 否 | addSuccess-添加成功回调
-| device_list | actionBg |  重命名、分享、删除背景色 |Object|	actionBg:{rename:#666666; share: '#3A77FF';del: '#E46155'}| 否 | scanSuccess-扫描成功回调
-| device_list | isRefresh |  是否刷新列表 | boolean | false | 否 | renameSuccess-重命名成功回调、addSuccess-添加成功回调
-| device_list | slideImg |  设置列表右滑图片 | string | /assets/images/device/slide.png | 否 | goDetail-跳转到设备详情
-| device_list | renameImg |  设置列表重命名图片 | string | /assets/images/device/rename.png | 否 | goShare-跳转到分享
-| device_list | shareImg |  设置列表分享图片 | string | /assets/images/device/share.png | 否 | unbindSuccess-删除成功回调
-| device_list | delImg |  设置列表删除图片 | string | /assets/images/device/del.png | 否 |
-| device_list | noDataImg |  设置列表无数据展示图片 | string | /assets/images/device/no_device_data.png | 否 |
-| device_rename | btnStyle |  按钮样式 |string| - | 否 | renameSuccess-重命名成功回调
-| device_rename | curItem |  当前设备数据信息 | string| - | 否 |
-
-### 4、设备管理接口
+### 2、设备管理接口
 #### 1) scan 
 ##### 功能描述
 ```
@@ -1567,32 +1463,7 @@ const plugin = requirePlugin('quecPlugin')
 3、管理分享用户列表
 ```
 
-### 2、实现方式
-```
-提供两种实现方式：
-1、含页面布局组件：提供页面流程，引用组件即可。详见"含页面布局组件使用"。
-2、提供个人中心-我的js接口，需要使用者根据业务自己编写页面。详见"设备分享接口"。
-```
-### 3、含页面布局组件使用
-#### 1）组件引用
-```
-{
-  "usingComponents": {
-    "device_share": "plugin://quecPlugin/device_share"   // 设备分享
-  }
-}
-```
-#### 2）组件效果图
-![链接](./images/doc/share.jpg)
-
-#### 3）组件说明
-|组件 | 属性 | 说明 |类型 |默认值 |必填 |事件
-| ---- | ---- | ---- |---- |---- |---- |---- |
-| device_share | curItem |  当前设备信息 | Object |- | 是 |invalidDevice-无效设备回调
-| device_share | headImage |  按钮颜色 |string| #ec5c51 | 否 |
-| device_share | noDataImg |  按钮样式 |string| - | 否 |
-
-### 4、设备分享接口
+### 2、设备分享接口
 #### 1) shareInfo 
 ##### 功能描述
 ```
@@ -1777,38 +1648,8 @@ const plugin = requirePlugin('quecPlugin')
 3、标记已读
 4、单条消息已读
 ```
-### 2、实现方式
-```
-提供两种实现方式：
-1、含页面布局组件：提供页面流程，引用组件即可。详见"含页面布局组件使用"。
-2、提供消息js接口：需要使用者根据业务自己编写页面。详见"消息中心接口"。
-```
-### 3、含页面布局组件使用
-#### 1）组件引用
-```
-{
-  "usingComponents": {
-    "msg_list": "plugin://quecPlugin/msg_list",   //消息中心
-    "device_alarm": "plugin://quecPlugin/device_alarm", //告警记录
-  }
-}
-```
-#### 2）组件效果图
-![链接](./images/doc/msg.jpg)
 
-#### 3）组件说明
-|组件 | 属性 | 说明 |类型 |默认值 |必填 |事件
-| ---- | ---- | ---- |---- |---- |---- |---- |
-| msg_list | isSet |  是否刷新消息列表 | boolean | - | 否 | toDetail-跳转到设备详情
-| msg_list | delImg |  设置删除图片 |string| /assets/images/device/del.png | 否 | delSuccess-删除成功回调
-| msg_list | noDataImg |  设置无数据图片 |string| /assets/images/device/ic_msg_empty.png | 否 | readSuccess-标记全读回调
-| msg_list | tabColor |  tab激活样式 |string| #ec5c51 | 否 |
-| device_alarm | pk |  产品productkey |string| - | 否 |
-| device_alarm | dk |  设备devicekey |string| - | 否 |
-| device_alarm | activeStepColor |  步骤条激活状态的颜色值 |string| #999999 | 否 |
-| device_alarm | noDataImg |  设置无数据图片 |string| /assets/images/device/ic_msg_empty.png | 否 |
-
-### 4、消息中心接口
+### 2、消息中心接口
 #### 1) getMsgList 
 ##### 功能描述
 ```
@@ -1924,68 +1765,8 @@ const plugin = requirePlugin('quecPlugin')
 ```
 涵盖功能点：设备详情通用面板控制、设置、设备分享、告警记录、设备重命名。
 ```
-### 2、实现方式
-```
-提供两种实现方式：
-1、含页面布局组件：提供页面流程，引用组件即可; 详见"含页面布局组件使用"。
-2、提供设备控制js接口：需要使用者根据业务自己编写页面; 详见"设备控制接口"。
-```
-### 3、自定义组件使用
-#### 1）组件引用
-```
-{
-  "usingComponents": {
-    "device_detail": "plugin://quecPlugin/device_detail",   //详情面板
-    "device_tsl_edit_text": "plugin://quecPlugin/device_tsl_edit_text",   //详情文本下发
-    "device_tsl_edit_array": "plugin://quecPlugin/device_tsl_edit_array",   //详情数组下发
-    "device_tsl_edit_struct": "plugin://quecPlugin/device_tsl_edit_struct",   //详情结构体下发
-    "device_tsl_edit_struct_text": "plugin://quecPlugin/device_tsl_edit_struct_text",   //详情结构体中文本下发
-    "device_detail_set": "plugin://quecPlugin/device_detail_set",   //详情-设置
-    "device_alarm": "plugin://quecPlugin/device_alarm",   //详情-告警记录
-    "device_share": "plugin://quecPlugin/device_share",   //详情-分享管理
-    "device_rename": "plugin://quecPlugin/device_rename",   //详情-设备名称修改
-  }
-}
-```
-#### 2）组件效果图
-![链接](./images/doc/control.jpg)
 
-#### 3）组件说明
-
-|组件 | 属性 | 说明 |类型 |默认值 |必填 |事件
-| ---- | ---- | ---- |---- |---- |---- |---- |
-| device_detail | pk |  产品ProductKey | string | - | 是 | editpage-TEXT、ARRAY、STRUCT跳转到对应属性页面
-| device_detail | dk |  设备deviceKey |string| - | 是 | invalid-无效设备回调
-| device_detail | curItem | 设备信息 |object| {} | 是 | back-返回页面回调
-| device_tsl_edit_text | pk |  产品ProductKey | string | - | 是 | back-返回页面回调
-| device_tsl_edit_text | dk |  设备deviceKey |string| - | 是 | 
-| device_tsl_edit_text | btnStyle | 按钮样式 |string| - | 否 | 
-| device_tsl_edit_text | btnColor | 按钮颜色值 |string| - | 否 | 
-| device_tsl_edit_text | attrData | 属性数据 |object| - | 是 | 
-| device_tsl_edit_array | pk |  产品ProductKey | string | - | 是 | back-返回页面回调
-| device_tsl_edit_array | dk |  设备deviceKey |string| - | 是 | 
-| device_tsl_edit_array | btnStyle | 按钮样式 |string| - | 否 | 
-| device_tsl_edit_array | btnColor | 按钮颜色值 |string| #ec5c51 | 否 | 
-| device_tsl_edit_array | attrData | 属性数据 |object| - | 是 | 
-| device_tsl_edit_struct | pk |  产品ProductKey | string | - | 是 | back-返回页面回调
-| device_tsl_edit_struct | dk |  设备deviceKey |string| - | 是 | editStructText-设置文本属性回调
-| device_tsl_edit_struct | btnStyle | 按钮样式 |string| - | 否 | 
-| device_tsl_edit_struct | btnColor | 按钮颜色值 |string| #ec5c51 | 否 | 
-| device_tsl_edit_struct | attrData | 属性数据 |object| - | 是 | 
-| device_tsl_edit_struct | arrowColor | 箭头颜色 |string| #BFBFBF | 否 | 
-| device_tsl_edit_struct | cancelColor | 弹框取消颜色值 |string| #999999 | 否 | 
-| device_tsl_edit_struct | textDetail | 文本框编辑属性数据 |object| - | 是 | 
-| device_tsl_edit_struct_text | btnStyle | 按钮样式 |string| - | 否 | back-返回页面回调
-| device_tsl_edit_struct_text | btnColor | 按钮颜色值 |string| #ec5c51 | 否 | 
-| device_tsl_edit_struct_text | attrData | 属性数据 |object| - | 是 | 
-| device_tsl_edit_struct_text | curkey | 当前数据的索引值 |string| - | 是 | 
-| device_detail_set | curItem | 设备信息 |object| {} | 是 |goRename-跳转到设备重命名页面;goShare-跳转到设备分享页面；goAlarm-跳转到告警记录页面
-| device_alarm | pk |  产品ProductKey | string | - | 是 | 
-| device_alarm | dk |  设备deviceKey |string| - | 是 | 
-| device_share | curItem |  设备信息 |object| {} | 是 | invalidDevice-无效设备回调
-| device_rename | curItem |  设备信息 |object| {} | 是 | renameSuccess-重命名成功回调
-
-### 4、设备控制接口
+### 2、设备控制接口
 #### 1) getTslList 
 ##### 功能描述
 ```
