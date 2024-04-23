@@ -1,0 +1,13 @@
+.van-nav-bar {
+  background-color: transparent !important;
+}
+
+.van-cell {
+  padding: var(--cell-vertical-padding, 15px) var(--cell-horizontal-padding, 0) !important;
+}
+
+page {
+  height: 100%;
+  overflow: hidden;
+  background: #ffffff;
+}

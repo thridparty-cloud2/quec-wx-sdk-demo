@@ -1,0 +1,12 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-row": "../../../../miniprogram_npm/@vant/weapp/row/index",
+    "van-col": "../../../../miniprogram_npm/@vant/weapp/col/index",
+    "rw_bool": "../../tsl/rw_bool/index",
+    "w_bool": "../../tsl/w_bool/index",
+    "rw_number": "../../tsl/rw_number/index",
+    "rw_enum": "../../tsl/rw_enum/index",
+    "general": "../../tsl/general/index"
+  }
+}

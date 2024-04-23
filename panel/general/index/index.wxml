@@ -1,0 +1,4 @@
+<nav_bar title="{{curDevice.deviceName}}" isWs="{{true}}" from="detail"></nav_bar>
+<view class="detail">
+  <detail pk="{{pk}}" dk="{{dk}}" curItem="{{curDevice}}" textDetail="{{textDetail}}" bindeditpage="editpage" bindinvalid="invalid" bindback="handleBack"></detail>
+</view>

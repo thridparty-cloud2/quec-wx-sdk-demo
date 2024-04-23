@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "device_add": "plugin://quecPlugin/device_add"
+  }
+}

@@ -1,0 +1,2 @@
+<nav_bar title=""></nav_bar>
+<user_set_pwd item="{{item}}" privacyVersion="{{env['PRIVACY_VERSION']}}" protocolVersion="{{env['PROTOCOL_VERSION']}}" bindsetSuccess="setSuccess"></user_set_pwd>

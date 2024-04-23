@@ -1,0 +1,7 @@
+<view class="tsl_vcol">
+  <view class="tsl_val">
+    <text class="title">{{tslData.name}}</text>
+    <van-switch checked="{{ boolVal }}" bind:change="onChange" size="18px" active-color="{{skin['primary']}}" inactive-color="{{skin['switch_dis']}}" />
+  </view>
+  <view class="val">{{tslVal?tslVal:"-"}}</view>
+</view>

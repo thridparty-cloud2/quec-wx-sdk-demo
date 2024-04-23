@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "device_search": "plugin://quecPlugin/device_search"
+  }
+}

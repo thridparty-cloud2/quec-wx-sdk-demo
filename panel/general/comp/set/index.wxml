@@ -1,0 +1,17 @@
+<view class="group">
+  <van-cell data-item="{{curItem}}" catchtap="{{role !==3 ? 'goRename' :''}}">
+    <view slot="title" class="cellTitle" style="color: {{skin['text_h2']}};">{{i18n['dname']}}</view>
+    <view class="val">{{curItem.deviceName}}</view>
+    <van-icon wx:if="{{role !==3}}" slot="right-icon" name="arrow" color="{{skin['arrow']}}" />
+  </van-cell>
+  <van-cell wx:if="{{!curItem.shareCode && role !==3}}" data-item="{{curItem}}" catchtap="goShare">
+    <view slot="title" class="cellTitle" style="color: {{skin['text_h2']}};">{{i18n['deviceShare']}}</view>
+    <view class="val"></view>
+    <van-icon slot="right-icon" name="arrow" color="{{skin['arrow']}}" />
+  </van-cell>
+  <van-cell data-item="{{curItem}}" catchtap="goDeviceAlarm">
+    <view slot="title" class="cellTitle" style="color: {{skin['text_h2']}};">{{i18n['alarmRecord']}}</view>
+    <view class="val"></view>
+    <van-icon slot="right-icon" name="arrow" color="{{skin['arrow']}}" />
+  </van-cell>
+</view>

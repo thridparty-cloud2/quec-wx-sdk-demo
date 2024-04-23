@@ -1,0 +1,4 @@
+<view class="bgLogin" style="background:linear-gradient(180deg, #B6DFFF 0%, #ffffff {{gradientHeight+'%'}})">
+  <nav_bar title=""></nav_bar>
+  <user_register bindtoLogin="toLogin" bindtoEnterCode="toEnterCode"></user_register>
+</view>

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "noData": "plugin://quecPlugin/noData"
+  }
+}

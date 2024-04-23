@@ -1,0 +1,34 @@
+.head {
+  display: flex;
+  min-height: 640rpx;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact {
+  text-align: center;
+  position: fixed;
+  bottom: 40px;
+  width: 100%;
+  left: 0;
+}
+
+.contact text {
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 12px;
+  color: #9C9FA3;
+  display: inline-block;
+}
+
+.contact .tel {
+  padding: 0 20rpx 0 10rpx;
+}
+
+.head .txt {
+  font-size: 14px;
+  color: #9C9FA3;
+  padding-top: 30rpx;
+  font-weight: 500;
+}

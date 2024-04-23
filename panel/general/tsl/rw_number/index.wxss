@@ -1,0 +1,54 @@
+@import '../../css/panel.wxss';
+@import "../../../../asset/icon.wxss";
+
+.vSlider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.action {
+  width: 64rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  background-color: #f7f8fc;
+  border-radius: 100%;
+  text-align: center;
+}
+
+.sdk-icon.jia,
+.sdk-icon.jian {
+  font-size: 32px;
+}
+
+slider {
+  width: 100%;
+  margin: 10px 0 10px 18px;
+}
+
+.act {
+  margin-top: 30rpx;
+}
+
+.argCls {
+  padding: 40rpx;
+}
+
+.argCls .tit {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333333;
+  text-align: center;
+}
+
+.argInput {
+  margin: 40rpx 0 0;
+}
+
+.f2 {
+  flex: 3;
+}
+
+.f1 {
+  flex: 1;
+}

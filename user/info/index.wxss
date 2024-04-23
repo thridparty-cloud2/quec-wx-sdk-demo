@@ -1,0 +1,11 @@
+.van-cell {
+  padding: 40rpx !important;
+}
+
+.van-icon-arrow {
+  color: #BFBFBF !important;
+}
+
+.van-cell__value {
+  flex: 2 !important;
+}

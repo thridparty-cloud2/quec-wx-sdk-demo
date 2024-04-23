@@ -1,0 +1,19 @@
+@import '/asset/smart.wxss';
+@import '/asset/txtarea.wxss';
+
+.bgCls .van-nav-bar {
+  background: transparent !important;
+}
+
+.van-search__content {
+  background-color: #FFFFFF !important;
+  border-radius: 20px !important;
+}
+
+.van-icon-arrow-left {
+  padding-top: 30rpx;
+}
+
+.van-field__control {
+  font-weight: normal !important;
+}

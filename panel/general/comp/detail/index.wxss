@@ -1,0 +1,6 @@
+@import '../../css/panel.wxss';
+
+.detail {
+  padding: 10rpx;
+  height: 100vh;
+}

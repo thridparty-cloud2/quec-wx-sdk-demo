@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "user_info": "plugin://quecPlugin/user_info"
+  }
+}

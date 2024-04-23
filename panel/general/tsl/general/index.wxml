@@ -1,0 +1,60 @@
+<block wx:if="{{attrData.subType === TSLConfig.TSL_SUBTYPE_R  || (attrData.dataType === TSLConfig.TSL_ATTR_DATA_TYPE_STRUCT && !attrData.vdata)}}">
+  <view class="tsl_vcol">
+    <view class="tsl_val"><text>{{attrData.name}}</text></view>
+    <block wx:if="{{attrData.vdata}}">
+      <block wx:if="{{attrData.dataType === TSLConfig.TSL_ATTR_DATA_TYPE_TEXT}}">
+        <view class="valCon readCon">
+          <text class="read_txt" style="{{isReadTxt?'-webkit-line-clamp:none':'-webkit-line-clamp:2'}}">{{attrData.vdata}}</text>
+        </view>
+        <view wx:if="{{attrData.vdata.length>70}}">
+          <van-divider />
+          <view class="more" catchtap="textmore"><text>{{open ? i18n['more'] :i18n['shou']}}</text>
+            <van-icon name="{{open ? 'arrow-down' : 'arrow-up'}}" color="{{skin['arrow']}}" />
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="valCon" style="height:{{ newLine>2 ? 'auto' : newLine*height+'px'}}">
+          <text class="{{attrData.dataType === TSLConfig.TSL_ATTR_DATA_TYPE_STRUCT ? 'tsl_struct' :'tsl_txt'}}">{{attrData.vdata}}</text>
+        </view>
+      </block>
+    </block>
+    <view wx:if="{{numLines > 2}}">
+      <van-divider />
+      <view class="more" catchtap="more"><text>{{open ? i18n['more'] :i18n['shou']}}</text>
+        <van-icon name="{{open ? 'arrow-down' : 'arrow-up'}}" color="{{skin['arrow']}}" />
+      </view>
+    </view>
+  </view>
+</block>
+<block wx:else>
+  <view class="tsl_vcol" data-type="{{attrData.dataType}}" data-item="{{attrData}}" catchtap="goDetail">
+    <view class="tsl_val"><text>{{attrData.name}}</text>
+      <van-icon name="arrow" color="{{skin['arrow']}}" size="14px" />
+    </view>
+    <block wx:if="{{attrData.vdata}}">
+      <block wx:if="{{attrData.dataType === TSLConfig.TSL_ATTR_DATA_TYPE_TEXT}}">
+        <view class="valCon readCon">
+          <text class="read_txt" style="{{isReadTxt?'-webkit-line-clamp:none':'-webkit-line-clamp:2'}}">{{attrData.vdata}}</text>
+        </view>
+        <view wx:if="{{attrData.vdata.length>70}}">
+          <van-divider />
+          <view class="more" catchtap="textmore"><text>{{open ? i18n['more'] :i18n['shou']}}</text>
+            <van-icon name="{{open ? 'arrow-down' : 'arrow-up'}}" color="{{skin['arrow']}}" />
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="valCon" style="height:{{ newLine>2 ? 'auto' : newLine*height+'px'}}">
+          <text class="{{(attrData.dataType === TSLConfig.TSL_ATTR_DATA_TYPE_STRUCT) ? 'tsl_struct' :'tsl_txt'}}">{{attrData.vdata}}</text>
+        </view>
+      </block>
+    </block>
+    <view wx:if="{{numLines > 2}}">
+      <van-divider />
+      <view class="more" catchtap="more"><text>{{open ? i18n['more']:i18n['shou']}}</text>
+        <van-icon name="{{open ? 'arrow-down' : 'arrow-up'}}" color="{{skin['arrow']}}" />
+      </view>
+    </view>
+  </view>
+</block>

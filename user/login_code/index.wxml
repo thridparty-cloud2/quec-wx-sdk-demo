@@ -1,0 +1,4 @@
+<view class="bgLogin" style="background:linear-gradient(180deg, #B6DFFF 0%, #ffffff {{gradientHeight+'%'}})">
+  <nav_bar title="" backUrl="/user/login/index"></nav_bar>
+  <user_login_code bindtopwdLogin="topwdLogin" bindtoRegister="toRegister" bindtoEnterCode="toEnterCode"></user_login_code>
+</view>

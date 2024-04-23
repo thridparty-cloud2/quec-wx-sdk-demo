@@ -1,0 +1,135 @@
+// 回显布尔、枚举的值
+function getEnumName (attr, value) {
+  var text = value
+  if (attr.dataType === 'ENUM' || attr.dataType === 'BOOL') {
+    if (!attr.specs || attr.specs.length <= 0) {
+      return ''
+    }
+    attr.specs.forEach(function (el) {
+      if (el.value.toString() === (value.toString())) {
+        text = el.name
+      }
+    })
+  }
+  return text
+}
+
+function getModeName (mode, value) {
+  var list = mode.filter(function (e) {
+    return e.id === JSON.parse(value)
+  })
+  return list[0] && list[0].name || ''
+}
+
+// 转数字
+function toNumber (value) {
+  return Number(value)
+}
+
+function toFixed (value, num) {
+  return parseFloat(toNumber(value).toFixed(num))
+}
+
+// 转字符串
+function toString (value) {
+  return value.toString()
+}
+
+// 获取结构体某个属性值
+function getStructValue (data, code, hasUnit) {
+  var value = undefined
+  if (data !== undefined) {
+    data.specs.forEach(function (item) {
+      if (item.code === code && !IsEmpty(item.vdata)) {
+        if (hasUnit) {
+          value = item.vdata + item.specs.unit
+        } else {
+          value = item.vdata
+        }
+      }
+    })
+  }
+
+  return value
+}
+
+// 获取结构体某个属性值
+function getStruct (data, code) {
+  var value = undefined
+  data.specs.forEach(function (item) {
+    if (item.code === code && !IsEmpty(item.vdata)) {
+      value = item
+    }
+  })
+  return value
+}
+
+// 处理时间
+function handleTime (h, m) {
+  var value = ''
+  if (!IsEmpty(h)) {
+    h = h.toString()
+  }
+  if (!IsEmpty(m)) {
+    m = m.toString()
+  }
+  if (h && h.length === 1) {
+    h = '0' + h
+  }
+  if (m && m.length === 1) {
+    m = '0' + m
+  }
+  if (h && m) {
+    value = h + ':' + m
+  } else if (!h && !m) {
+    value = '--'
+  } else if (h && !m) {
+    value = h + ':--'
+  } else if (!h && m) {
+    value = '--:' + m
+  }
+  return value
+}
+
+// 用于wxs遍历对象
+function objectKeys (obj) {
+  var str = JSON.stringify(obj)
+  var reg = getRegExp('"(\w+)":|[{}]', "g")
+  var keys = []
+  var nested = 0
+  var result = null
+
+  while ((result = reg.exec(str)) !== null) {
+    var match = result[0]
+
+    switch (match) {
+      case "{":
+        nested++
+        break
+      case "}":
+        nested--
+        break
+      default:
+        if (nested === 1) keys.push(result[1])
+        break
+    }
+  }
+
+  return keys
+}
+
+function IsEmpty (value) {
+  return ((value == null) || (value == undefined) || (value.length == 0))
+}
+
+
+module.exports = {
+  getEnumName: getEnumName,
+  getModeName: getModeName,
+  toNumber: toNumber,
+  toFixed: toFixed,
+  toString: toString,
+  getStructValue: getStructValue,
+  handleTime: handleTime,
+  getStruct: getStruct
+}

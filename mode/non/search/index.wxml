@@ -1,0 +1,3 @@
+<view class="bgCls">
+  <device_search model="{{model}}" isRefresh="{{isRefresh}}" layout="{{env['layout']}}" bindgoDetail="goDetail" bindscanSuccess="scanSuccess" bindtoShare="goShare" bindBack="back"></device_search>
+</view>

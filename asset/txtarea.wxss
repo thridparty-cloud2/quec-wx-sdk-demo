@@ -1,0 +1,6 @@
+.van-field__control--textarea {
+  height: 60px !important;
+  overflow: auto !important;
+  white-space: normal;
+  word-break: break-all;
+}

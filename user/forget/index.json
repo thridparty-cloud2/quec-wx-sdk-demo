@@ -1,0 +1,6 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+    "user_forget_pwd": "plugin://quecPlugin/user_forget_pwd"
+  }
+}

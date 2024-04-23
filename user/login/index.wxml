@@ -1,0 +1,4 @@
+<view class="bgLogin" style="background:linear-gradient(180deg, #B6DFFF 0%, #ffffff {{gradientHeight+'%'}})">
+  <nav_bar title="" backUrl="/user/index/index"></nav_bar>
+  <user_login privacyVersion="{{env['PRIVACY_VERSION']}}" protocolVersion="{{env['PROTOCOL_VERSION']}}" bindtoCodeLogin="toCodeLogin" bindtoForgetPwd="toForgetPwd" bindloginSuccess="loginSuccess" bindtoRegister="toRegister"></user_login>
+</view>
