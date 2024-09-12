@@ -832,8 +832,8 @@ const plugin = requirePlugin('quecPlugin')
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.phonePwdRegister({
     phone: '180xxxxx',
-    pwd:'a123456',
-    smsCode:'210320',
+    pwd:'xxxxxxx',
+    smsCode:'xxxxxx',
     success (res) {
          console.log(res)
      },
@@ -863,7 +863,7 @@ const plugin = requirePlugin('quecPlugin')
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.phonePwdLogin({
     phone: '180xxxxxx',
-    pwd:'a123456',
+    pwd:'xxxxxx',
     success (res) {
          console.log(res)
      },
@@ -948,9 +948,9 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.emailPwdRegister({
-    email: 'daney.hong@quectel.com',
-    pwd:'a123456',
-    code:'160210',
+    email: 'xxx.xxx@xx.xx',
+    pwd:'xxxx',
+    code:'xxxxxx',
     success (res) {
          console.log(res)
      },
@@ -978,8 +978,8 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.emailPwdLogin({
-    email: 'daney.hong@quectel.com',
-    pwd:'a123456',
+    email: 'xxx.xxx@xx.xx',
+    pwd:'xxxx',
     success (res) {
          console.log(res)
      },
@@ -1006,7 +1006,7 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.sendEmailRepwdCode({
-    email: 'daney.hong@quectel.com',
+    email: 'xx.xx@xx.xx',
     success (res) {
          console.log(res)
      },
@@ -1037,7 +1037,7 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.userPwdReset({
-    email: 'daney.hong@quectel.com',
+    email: 'xx.xx@xx.xx',
     code:'321010',
     success (res) {
          console.log(res)
