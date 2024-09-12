@@ -813,7 +813,7 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.sendEmailRegisterCode({
-    email: 'daney.hong@quectel.com',
+    email: 'xx.xx@xx.xx',
     success (res) {
          console.log(res)
      },
