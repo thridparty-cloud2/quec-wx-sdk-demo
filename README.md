@@ -742,7 +742,7 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.sendPhoneSmsCode({
-    phone: '180xxxx',
+    phone: 'xxxxxx',
     ssid: 'C1',
     stid: 'C3',
     success (res) {
@@ -773,8 +773,8 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.validateSmsCode({
-    phone: '180xxxxx',
-    smsCode: '123542',
+    phone: 'xxxxxx',
+    smsCode: 'xxxxxx',
     isDisabled:2,
     success (res) {
          console.log(res)
@@ -802,7 +802,7 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.isPhoneRegister({
-    phone: '180xxxxxxxx',
+    phone: 'xxxxxx',
     success (res) {
          console.log(res)
      },
@@ -831,7 +831,7 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.phonePwdRegister({
-    phone: '180xxxxx',
+    phone: 'xxxxxxxx',
     pwd:'xxxxxxx',
     smsCode:'xxxxxx',
     success (res) {
@@ -862,7 +862,7 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.phonePwdLogin({
-    phone: '180xxxxxx',
+    phone: 'xxxxxx',
     pwd:'xxxxxx',
     success (res) {
          console.log(res)
@@ -891,8 +891,8 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.phoneSmsCodeLogin({
-    phone: '180xxxxxx',
-    smsCode:'120321',
+    phone: 'xxxxxx',
+    smsCode:'xxxxxx',
     success (res) {
          console.log(res)
      },
@@ -919,7 +919,7 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.sendEmailRegisterCode({
-    email: 'daney.hong@quectel.com',
+    email: 'xx.xx@xx.com',
     success (res) {
          console.log(res)
      },
@@ -1038,7 +1038,7 @@ const plugin = requirePlugin('quecPlugin')
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.userPwdReset({
     email: 'xx.xx@xx.xx',
-    code:'321010',
+    code:'xxx',
     success (res) {
          console.log(res)
      },
@@ -1252,8 +1252,8 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.relationPhone({
-     code:'123456',
-     phone:'180xxxxxxxx',
+     code:'xxxxxx',
+     phone:'xxxxxxxx',
      success (res) {
          console.log(res)
      },
@@ -1280,8 +1280,8 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.isEmailRegister({
-     code:'123456',
-     phone:'180xxxxxxxx',
+     code:'xxx',
+     phone:'xxxx',
      success (res) {
          console.log(res)
      },
