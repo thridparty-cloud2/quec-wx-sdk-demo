@@ -9,3 +9,7 @@
 .van-cell__value {
   flex: 2 !important;
 }
+
+.user-info-index--group:nth-child(2) {
+  display: none !important;
+}

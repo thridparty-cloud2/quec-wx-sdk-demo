@@ -1,4 +1,4 @@
-import { goShare, jump } from '../../utils/jump.js'
+import { jump } from '../../utils/jump.js'
 import { getCurPanel } from '../../utils/panel.js'
 let app = getApp()
 const plugin = requirePlugin('quecPlugin')
@@ -61,27 +61,6 @@ Page({
     }
   },
 
-  goSearch (e) {
-    if (e.detail.fid) {
-      this.pageRouter.navigateTo({
-        url: '/mode/house/search/index?item=' + JSON.stringify(e.detail)
-      })
-    } else {
-      this.pageRouter.navigateTo({
-        url: '/mode/non/search/index'
-      })
-    }
-  },
-
-  /**
-   * 跳转到蓝牙配网V2
-   */
-  toNetwork () {
-    this.pageRouter.navigateTo({
-      url: '/ble/v2/scan/index'
-    })
-  },
-
   //去扫码安装
   toScan (e) {
     this.pageRouter.navigateTo({
@@ -90,34 +69,12 @@ Page({
   },
 
   /**
- * 家庭管理
- */
-  familyList (e) {
-    this.pageRouter.navigateTo({
-      url: '/mode/house/family/list/index'
-    })
-  },
-
-  /**
-   * 房间管理
-   */
-  goRoomList (e) {
-    this.pageRouter.navigateTo({
-      url: '/mode/house/room/list/index?info=' + JSON.stringify(e.detail)
-    })
-  },
-  /**
   * 去设备详情
   */
   goDetail (e) {
     getCurPanel(this, e.detail)
   },
-  /**
-   * 去分享页面
-   */
-  goShare (e) {
-    goShare(this, e)
-  },
+
   /**
     * 去添加设备页面
     */
@@ -127,43 +84,12 @@ Page({
     })
   },
 
-  /**
-    * 功能介绍
-    */
-  introduct () {
-    this.pageRouter.navigateTo({
-      url: '/user/introduct/index'
-    })
-  },
 
-  /**
-   * 家居模式介绍
-   */
-  mode () {
-    this.pageRouter.navigateTo({
-      url: '/user/mode/index'
-    })
-  },
-
-  // 跳转到蓝牙配网V1
-  toNear () {
-    this.pageRouter.navigateTo({
-      url: '/ble/v1/scan/index'
-    })
-  },
 
   jump () {
     jump(this)
   },
 
-  /**
-   * 泰和banner连接跳转
-   */
-  bannerLink (e) {
-    this.pageRouter.navigateTo({
-      url: '/saas/taihe/banlink/index?url=' + e.detail
-    })
-  },
 
   /**
    * 生命周期函数--监听页面隐藏

@@ -8,8 +8,6 @@
       "name": "ble",
       "pages": [
         "device_add/index",
-        "v2/scan/index",
-        "v2/config/index",
         "v1/add/index"
       ]
     },
@@ -27,14 +25,6 @@
         "forget/index",
         "register/index",
         "set_pwd/index"
-      ]
-    },
-    {
-      "root": "mode",
-      "name": "mode",
-      "pages": [
-        "non/share/index",
-        "non/search/index"
       ]
     },
     {
@@ -61,7 +51,7 @@
   },
   "plugins": {
     "quecPlugin": {
-      "version": "1.6.0",
+      "version": "1.8.7",
       "provider": "wx5e9a3feb8df9122e"
     }
   },

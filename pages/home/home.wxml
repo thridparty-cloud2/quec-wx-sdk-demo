@@ -1,3 +1,3 @@
 <view class="bgCls content">
-  <device_home model="{{model}}" ver="{{env['bleVersion']}}" isBanner="{{env['isBanner']}}" layout="{{env['layout']}}" isGuide="{{env['isGuide']}}" bindRoomList="goRoomList" bindgoDetail="goDetail" bindtoScan="toScan" bindtoNetwork="toNetwork" bindscanSuccess="scanSuccess" bindtoShare="goShare" bindinvalidDevice="invalidDevice" bindSearch="goSearch" bindfamilyList="familyList" bindMode="mode" bindIntroduct="introduct" bindtoNear="toNear" bindJump="jump" bindLink="bannerLink"></device_home>
+  <device_home model="{{model}}" ver="{{env['bleVersion']}}" isBanner="{{env['isBanner']}}" layout="{{env['layout']}}" isScan="{{env['isScan']}}" isGuide="{{env['isGuide']}}" bindgoDetail="goDetail" bindtoScan="toScan" bindscanSuccess="scanSuccess" bindtoShare="goShare" bindMode="mode" bindIntroduct="introduct" bindtoNear="toNear" bindJump="jump"></device_home>
 </view>
