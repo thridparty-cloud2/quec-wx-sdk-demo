@@ -1454,316 +1454,10 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-## 六、设备分享
-### 1、功能点
-```
-涵盖功能点：
-1、设备分享码展示
-2、刷新
-3、管理分享用户列表
-```
-
-### 2、设备分享接口
-#### 1) shareInfo 
-##### 功能描述
-```
-获取设备分享码text。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| pk | String |  - | 是 | 产品productKey |
-| sn | String |  - | 是 | 设备sn |
-| acceptingExpireAt  | number |  - | 是 | 分享二维码种子失效时间 时间戳（毫秒），表示该分享在此时间戳时间内没有使用，会失效 |
-| sharingExpireAt | number |  - | 否 | 设备使用到期时间 时间戳（毫秒），表示该分享的设备，被分享人可以使用的时间如果不填，则为终生有效，只有授权人主动解绑 |
-| coverMark | number |  1 | 否 | 覆盖标志:1、直接覆盖上条有效分享（默认）(覆盖原有的分享码);2、直接添加，允许多条并存;3、只有分享时间延长了，才允许覆盖上条分 |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecShare.shareInfo({
-     dk:'',
-     pk: '',
-    coverMark: 1,
-     acceptingExpireAt: 30 * 60 * 1000 + (new Date().getTime()),
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 2) getShareUserData 
-##### 功能描述
-```
-管理分享码权限列表。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| pk | String |  - | 是 | 产品productKey |
-| sn | String |  - | 是 | 设备sn |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecShare.getShareUserData({
-     dk:'',
-     pk: '',
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 3) removeShare 
-##### 功能描述
-```
-分享人取消设备分享。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| shareCode | String |  - | 是 | 分享码 |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecShare.removeShare({
-     shareCode:'',
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 4) sharedAccept 
-##### 功能描述
-```
-被分享人接受分享。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| shareCode | String |  - | 是 | 分享码 |
-| deviceName | String |  - | 否 | 设备名称 |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecShare.sharedAccept({
-     shareCode:'',
-     deviceName:'',
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 5) shareRename 
-##### 功能描述
-```
-被分享人重命名分享设备。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| shareCode | String |  - | 是 | 分享码 |
-| deviceName | String |  - | 否 | 设备名称 |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecShare.shareRename({
-     shareCode:'',
-     deviceName:'',
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 6) beSharedRemove 
-##### 功能描述
-```
-被分享人移除分享。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| shareCode | String |  - | 是 | 分享码 |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecShare.beSharedRemove({
-     shareCode:'',
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-## 七、消息中心
-### 1、功能点
-```
-涵盖功能点：
-1、消息（通知、告警、故障）列表展示
-2、删除
-3、标记已读
-4、单条消息已读
-```
-
-### 2、消息中心接口
-#### 1) getMsgList 
-##### 功能描述
-```
-获取消息列表数据。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| page | number |  1 | 是 | 页码 |
-| pageSize | number |  10 | 是 | 页大小 |
-| msgType | number |  - | 1 | 消息类型1-通知； 2-告警； 3-故障 |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecMsg.getMsgList({
-     page:1,
-     pageSize：10，
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 2) msgDelete 
-##### 功能描述
-```
-消息删除。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| msgId | String |  - | 是 | 消息id |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecMsg.msgDelete({
-     msgId:'',
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 3) readMsg 
-##### 功能描述
-```
-标记已读。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| msgType | number |  - | 是 | 1-通知 2-告警 3-故障 |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecMsg.readMsg({
-     msgType:'',
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-#### 4) getMsgNoReadList 
-##### 功能描述
-```
-获取未读消息数量。
-```
-##### 参数
-| 属性     | 类型     | 默认值 | 必填 | 说明                                             |
-| -------- | -------- | ------ | ---- | ------------------------------------------------ |
-| msgType  | number   | -      | 否   | 1-通知 2-告警 3-故障                             |
-| success  | function | -      | 否   | 接口调用成功的回调函数                           |
-| fail     | function | -      | 否   | 接口调用失败的回调函数                           |
-| complete | function | -      | 否   | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecMsg.getMsgNoReadList({
-     msgType:'',
-    success (res) {
-         console.log(res.total)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-## 八、设备控制模块
+## 六、设备控制模块
 ### 1、使用说明
 ```
-涵盖功能点：设备详情通用面板控制、设置、设备分享、告警记录、设备重命名。
+涵盖功能点：设备详情通用面板控制。
 ```
 
 ### 2、设备控制接口
@@ -1852,7 +1546,7 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-## 九、webSocket接口
+## 七、webSocket接口
 ### 1、connect 
 ##### 功能描述
 ```
@@ -1954,7 +1648,7 @@ plugin.socket.send({
 
 ```
 
-## 十、主题配置
+## 八、主题配置
 ### 1、 setLogo 
 ##### 功能描述
 ```
@@ -2003,7 +1697,7 @@ const plugin = requirePlugin('quecPlugin')
  plugin.theme.setTitle('示例DEMO')
 ```
 
-## 十一、用户域配置
+## 九、用户域配置
 ### 1、 setUserDomain 
 ##### 功能描述
 ```

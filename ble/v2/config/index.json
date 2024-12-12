@@ -1,5 +1,0 @@
-{
-  "usingComponents": {
-    "wifi_list": "plugin://quecPlugin/wifi_list"
-  }
-}

@@ -1,1 +1,0 @@
-<wifi_list bindsaveSuccess="saveSuccess" fid="{{fid}}" mode="{{mode}}" succData="{{succData}}" bindFailOut="failOut"></wifi_list>

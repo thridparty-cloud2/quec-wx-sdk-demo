@@ -23,9 +23,10 @@ App({
 
   onShow () {
     let self = this
-    // requirePlugin.async('quecPlugin').then(plugin => {
+
     plugin.theme.setLogo(getEnvConfig().logo)
     plugin.theme.setTitle(getEnvConfig().title)
+
     /** oem主色值 */
     plugin.theme.setSkin({
       primary: self.globalData.envData['primary']
@@ -35,9 +36,6 @@ App({
     plugin.config.setUserDomain(self.globalData.envData['domain'])
     plugin.config.setUserDomainSecret(self.globalData.envData['domainSecret'])
 
-    // }).catch(({ mod, errMsg }) => {
-    //   console.error(`path: ${mod}, ${errMsg}`)
-    // })
   }
 })
 
