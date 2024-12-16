@@ -308,7 +308,7 @@ const plugin = requirePlugin('quecPlugin')
 | characteristicId | string |  - | 是 | 蓝牙特征的 UUID |
 | ssid | string |  - | 是 | Wi-Fi 的 SSID |
 | password | string |  - | 是 | Wi-Fi 设备密码 |
-| isNew | boolean |  'old' | 否 | 是否是新固件（默认老固件） |
+| isNew | boolean |  false | 否 | 新固件true |
 | writeType | string |  - | 否 | 蓝牙特征值的写模式设置，有两种模式，iOS 优先 write，安卓优先 writeNoResponse(基础库 2.22.0 开始支持） |
 | success | function |  - | 否 | 接口调用成功的回调函数 |
 | fail | function |  - | 否 | 接口调用失败的回调函数 |
