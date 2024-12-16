@@ -48,38 +48,14 @@ plugin.config.setUserDomainSecret('用户域密钥')
 涵盖功能点：
 蓝牙搜索及设备列表、网络配置、网络配置结果;
 ```
-### 2、实现方式
-```
-提供两种使用方式：
-1、含页面布局组件：提供页面及整体配网流程，引用页面组件即可。
-2、提供配网js接口，需要使用者根据业务自己编写页面。
-```
-### 3、含页面布局组件
-```
-在json文件定义需要引入的自定义组件时,使用plugin://协议指明插件的引用名和自定义组件名。
-例如：
-{
-  "usingComponents": {
-    "wifi_scan":"plugin://quecPlugin/wifi_scan", // 蓝牙配网扫描添加
-    "wifi_list":"plugin://quecPlugin/wifi_list", // 蓝牙配网添加成功后配置
-  }
-}
-```
 
-组件效果图：
-![链接](./images/doc/ble.jpg)
-
-|组件       | 属性    | 说明          |类型  | 默认值 |必填 | 事件 |
-| ----      | ----   | ----          |----  |----   |---- | ---- |
-| wifi_scan |        |               | -    |-      | -   |Back-返回跳转页面<br>List-设备配置页面      |
-| wifi_list |succData| 配网成功的数据 |array |-      | 是   |saveSuccess-保存成功跳转页面   |
-
-### 4、蓝牙配网接口
-#### 1) openBle
+### 2、蓝牙配网接口
+#### 1) openBleAndLoc
 ##### 功能描述
 ```
-初始化蓝牙模块。
+开启蓝牙模块。(含开启蓝牙及定位权限)
 ```
+
 ##### 参数
 |属性 | 类型 | 默认值 |必填 |说明 |
 | ---- | ---- | ---- |---- |---- |
@@ -88,18 +64,14 @@ plugin.config.setUserDomainSecret('用户域密钥')
 | complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
 
 ##### 返回码
-|Code | 说明 |
-| ---- | ---- |
-| 200 | 蓝牙初始化成功 |
-| 100000 | 手机蓝牙开启失败 |
-| 100001 | 手机蓝牙不可用, 请开启蓝牙再试 |
-| 100002 | 获取本机蓝牙适配器状态失败 |
-| 100003 | 蓝牙搜索功能打开失败 |
+```
+返回同微信API错误码。
+```
 
 ##### 示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
- plugin.quecBle.openBle({
+ plugin.quecBle.openBleAndLoc({
     success (res) {
          console.log(res)
      },
@@ -109,7 +81,37 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-#### 2) onBLEDeviceFound
+#### 2) closeBle
+##### 功能描述
+```
+关闭蓝牙模块。
+```
+##### 参数
+|属性 | 类型 | 默认值 |必填 |说明 |
+| ---- | ---- | ---- |---- |---- |
+| success | function |  - | 否 | 接口调用成功的回调函数 |
+| fail | function |  - | 否 | 接口调用失败的回调函数 |
+| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
+
+##### 返回码
+```
+返回同微信API错误码。
+```
+
+##### 示例代码
+```
+const plugin = requirePlugin('quecPlugin')
+ plugin.quecBle.closeBle({
+    success (res) {
+         console.log(res)
+     },
+     fail (res) {
+        console.log(JSON.stringify(res))
+      }
+ })
+```
+
+#### 3) onBLEDeviceFoundV2
 ##### 功能描述
 ```
 搜索附近的蓝牙设备。
@@ -127,39 +129,8 @@ const plugin = requirePlugin('quecPlugin')
 ##### 示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
-plugin.quecBle.onBLEDeviceFound((res)=>{
+plugin.quecBle.onBLEDeviceFoundV2((res)=>{
    console.log(res)
- })
-```
-
-#### 3) closeBle
-##### 功能描述
-```
-关闭蓝牙模块。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### 返回码
-|Code | 说明 |
-| ---- | ---- |
-| 200 | 蓝牙模块关闭成功 |
-| 100014 | 蓝牙模块关闭失败 |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecBle.closeBle({
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
  })
 ```
 
@@ -176,10 +147,9 @@ const plugin = requirePlugin('quecPlugin')
 | complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
 
 ##### 返回码
-|Code | 说明 |
-| ---- | ---- |
-| 200 | 附近的蓝牙外围设备搜寻停止成功 |
-| 100015 | 附近的蓝牙外围设备搜寻停止失败 |
+```
+返回同微信API错误码。
+```
 
 ##### 示例代码
 ```
@@ -217,17 +187,9 @@ const plugin = requirePlugin('quecPlugin')
 | characteristicId | string |  设备特征ID | 
 
 ##### 返回码
-|Code | 说明 |
-| ---- | ---- |
-| 200 | 蓝牙初始化成功 |
-| 100000 | 手机蓝牙开启失败 |
-| 100001 | 手机蓝牙不可用, 请开启蓝牙再试 |
-| 100002 | 获取本机蓝牙适配器状态失败 |
-| 100003 | 蓝牙搜索功能打开失败 |
-| 100005 | 连接蓝牙失败 |
-| 100006 | 蓝牙获取失败 |
-| 100007 | 获取特征值失败 |
-| 100013 | 设备不存在 |
+```
+返回同微信API错误码。
+```
 
 ##### 示例代码
 ```
@@ -270,10 +232,9 @@ const plugin = requirePlugin('quecPlugin')
 | characteristicId | string |  设备特征ID |
 
 ##### 返回码
-|Code | 说明 |
-| ---- | ---- |
-| 200 | 启用低功耗蓝牙设备特征值变化时的notify功能成功 |
-| 100008 | 启用低功耗蓝牙设备特征值变化时的notify功能失败 |
+```
+返回同微信API错误码。
+```
 
 ##### 示例代码
 ```
@@ -320,9 +281,9 @@ const plugin = requirePlugin('quecPlugin')
 | networkState | number |  1表示写入成功 |
 
 ##### 返回码
-|Code | 说明 |
-| ---- | ---- |
-| 100009 | 写入数据失败 |
+```
+返回同微信API错误码。
+```
 
 ##### 示例代码
 ```
@@ -342,15 +303,16 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-#### 8) onBLECharacteristicValueChange
+#### 8) onBLECharacteristicValueChangeV2
 ##### 功能描述
 ```
-监听蓝牙低功耗设备的特征值变化事件。
+监听蓝牙低功耗设备的特征值变化事件。（兼容新、老固件）
 必须先调用 openNotifyBLE 接口才能接收到设备推送的绑定信息。
 ```
 ##### 参数
 |属性 | 类型 | 默认值 |必填 |说明 |
 | ---- | ---- | ---- |---- |---- |
+| isNew | boolean |  'old' | 否 | 是否是新固件（默认老固件） |
 | success | function |  - | 否 | 接口调用成功的回调函数 |
 | fail | function |  - | 否 | 接口调用失败的回调函数 |
 | complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
@@ -364,14 +326,14 @@ const plugin = requirePlugin('quecPlugin')
 | networkState |number |  2 表示配网成功 |
 
 ##### 返回码
-|Code | 说明 |
-| ---- | ---- |
-| 100011 | 低功耗蓝牙设备的特征值监听失败 |
+```
+返回同微信API错误码。
+```
 
 ##### 示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
- plugin.quecBle.onBLECharacteristicValueChange({
+ plugin.quecBle.onBLECharacteristicValueChangeV2({
     success (res) {
          console.log(res)
      },
@@ -396,15 +358,15 @@ const plugin = requirePlugin('quecPlugin')
 | complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
 
 ##### 返回码
-|Code | 说明 |
-| ---- | ---- |
-| 100010 | 低功耗蓝牙设备的连接断开失败 |
+```
+返回同微信API错误码。
+```
 
 ##### 示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecBle.closeBLEConnection({
-     deviceId:'',
+    deviceId:'',
     success (res) {
          console.log(res)
      },
@@ -414,7 +376,38 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-#### 10) getCurentWifi
+#### 10) getBluetoothStateChange
+##### 功能描述
+```
+监听蓝牙适配器状态变化事件。
+```
+##### 参数
+|属性 | 类型 | 默认值 |必填 |说明 |
+| ---- | ---- | ---- |---- |---- |
+| success | function |  - | 否 | 接口调用成功的回调函数 |
+| fail | function |  - | 否 | 接口调用失败的回调函数 |
+| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
+
+##### Object.success回调（res）
+|属性 | 类型 | 说明 |
+| ---- | ---- | ---- |
+| available | boolean |  蓝牙适配器是否可用 |
+| discovering | boolean | 蓝牙适配器是否处于搜索状态 |
+
+##### 示例代码
+```
+const plugin = requirePlugin('quecPlugin')
+plugin.quecBle.getBluetoothStateChange({
+  success (res) {
+      console.log(res)
+  },
+  fail (res) {
+    console.log(JSON.stringify(res))
+  }
+})
+```
+
+#### 11) getCurentWifi
 ##### 功能描述
 ```
 获取当前已连接wifi信息。
@@ -450,7 +443,7 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-#### 11) closeWifi
+#### 12) closeWifi
 ##### 功能描述
 ```
 关闭Wi-Fi模块。
@@ -482,87 +475,7 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-#### 12) openBleAndLoc
-##### 功能描述
-```
-开启蓝牙模块。(含开启蓝牙及定位权限)
-```
-
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### 返回码
-|Code | 说明 |
-| ---- | ---- |
-| 200 | wiFi模块关闭成功 |
-| 100012 | wiFi模块关闭失败 |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecBle.openBleAndLoc({
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 13) onBLEDeviceFoundV2
-##### 功能描述
-```
-搜索附近的蓝牙设备。（解析蓝牙设备的广播数据段中pk、dk）
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| callback | function |  - | 否 | 蓝牙低功耗设备的特征值变化事件的回调函数 |
-
-##### Object.success回调（res）
-|属性 | 类型 | 说明 |
-| ---- | ---- | ---- |
-| devices | Array Object |  搜索到的设备列表 |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
-plugin.quecBle.onBLEDeviceFoundV2((res)=>{
-   console.log(res)
- })
-```
-
-#### 14) getBluetoothStateChange
-##### 功能描述
-```
-监听蓝牙适配器状态变化事件。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
-plugin.quecBle.getBluetoothStateChange({
-  success (res) {
-      console.log(res)
-  },
-  fail (res) {
-    console.log(JSON.stringify(res))
-  }
-})
-```
-
-#### 15) connectWifi
+#### 13) connectWifi
 ##### 功能描述
 ```
 连接wifi。（跳转到wifi系统设置页面）
@@ -591,46 +504,6 @@ plugin.quecBle.connectWifi({
 })
 ```
 
-#### 16) onBLECharacteristicValueChangeV2
-##### 功能描述
-```
-监听蓝牙低功耗设备的特征值变化事件。（兼容新、老固件）
-必须先调用 openNotifyBLE 接口才能接收到设备推送的绑定信息。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| isNew | boolean |  'old' | 否 | 是否是新固件（默认老固件） |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### Object.success回调（res）
-|属性 | 类型 | 说明 |
-| ---- | ---- | ---- |
-| productKey | string |  产品Productkey |
-| deviceKey | string|  设备Devicekey |
-| bindCode |string |  绑定信息 |
-| networkState |number |  2 表示配网成功 |
-
-##### 返回码
-|Code | 说明 |
-| ---- | ---- |
-| 100011 | 低功耗蓝牙设备的特征值监听失败 |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecBle.onBLECharacteristicValueChangeV2({
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
 ## 四、注册、登录、忘记密码、个人中心
 ### 1、功能点
 ```
@@ -639,7 +512,6 @@ const plugin = requirePlugin('quecPlugin')
 2、手机号/邮箱密码登录、微信一键登录、验证码登录
 3、手机号/邮箱忘记密码
 4、个人信息-展示、修改头像、修改昵称、修改密码、注销账户、退出登录;
-6、关于- 标题、版本、电话（点击可拨打）
 ```
 
 ### 2、微信一键登录具体实现
@@ -1288,7 +1160,6 @@ const plugin = requirePlugin('quecPlugin')
       }
  })
 ```
-
 
 ## 五、设备管理
 ### 1、功能点
