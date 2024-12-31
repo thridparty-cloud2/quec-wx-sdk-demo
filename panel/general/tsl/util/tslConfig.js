@@ -59,6 +59,13 @@ export const TSL_ATTR_DATA_TYPE_ARRAY = 'ARRAY'
  * @type {string}
  */
 export const TSL_ATTR_DATA_TYPE_STRUCT = 'STRUCT'
+
+/**
+ * 物模型属性类型---RAW
+ * @type {string}
+ */
+export const TSL_ATTR_DATA_TYPE_RAW = 'RAW'
+
 /**
  * 物模型---写
  * @type {string}

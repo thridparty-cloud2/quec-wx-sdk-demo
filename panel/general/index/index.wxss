@@ -1,0 +1,3 @@
+.van-button {
+  height: var(--button-default-height, 44px) !important;
+}

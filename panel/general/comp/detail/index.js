@@ -96,15 +96,14 @@ Component({
               let valData = custData.customizeTslInfo
               for (let vlm of valData) {
                 if (vlm.resourceCode === alm.code) {
-
                   alm.vdata = (vlm.resourceValce ? vlm.resourceValce : '')
-
                 }
               }
             } else {
               alm.vdata = ''
             }
           }
+          console.log(propData)
           self.fmtAttrData(propData)
         },
         fail (fail) { }
@@ -189,8 +188,11 @@ Component({
                 }
               })
             }
+
+            console.log(attrData)
           }
         },
+
       })
     },
 
@@ -205,6 +207,7 @@ Component({
 
     // 属性下发
     sendAttr (e) {
+      console.log(e)
       const { pk, dk, deviceStatus, i18n } = this.data
       if (deviceStatus === '离线' || deviceStatus === '0') {
         return plugin.jsUtil.tip(i18n['offLine'])

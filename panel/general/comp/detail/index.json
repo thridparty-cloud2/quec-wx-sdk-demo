@@ -7,6 +7,7 @@
     "w_bool": "../../tsl/w_bool/index",
     "rw_number": "../../tsl/rw_number/index",
     "rw_enum": "../../tsl/rw_enum/index",
-    "general": "../../tsl/general/index"
+    "general": "../../tsl/general/index",
+    "rw_raw": "../../tsl/rw_raw/index"
   }
 }

@@ -26,6 +26,11 @@
               <rw_enum tslData="{{item}}" deviceStatus="{{deviceStatus}}" bindsendAttr="sendAttr"></rw_enum>
             </van-col>
           </block>
+          <block wx:elif="{{item.dataType == TSLConfig.TSL_ATTR_DATA_TYPE_RAW}}">
+            <van-col span="24">
+              <rw_raw tslData="{{item}}" deviceStatus="{{deviceStatus}}" bindsubmit="sendAttr"></rw_raw>
+            </van-col>
+          </block>
         </block>
       </block>
     </van-row>
