@@ -23,7 +23,7 @@
 1）在您的小程序代码：app.json文件中
 "plugins": {
   "quecPlugin": {
-    "version": "1.3.1",
+    "version": "1.8.7",
     "provider": "wx5e9a3feb8df9122e"
   }
 }
@@ -789,7 +789,7 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.sendEmailRegisterCode({
-    email: 'daney.hong@quectel.com',
+    email: 'xx.xx@xx.com',
     success (res) {
          console.log(res)
      },
@@ -818,7 +818,7 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.emailPwdRegister({
-    email: 'daney.hong@quectel.com',
+    email: 'xx.xx@xx.com',
     pwd:'a123456',
     code:'160210',
     success (res) {
@@ -848,7 +848,7 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.emailPwdLogin({
-    email: 'daney.hong@quectel.com',
+    email: 'xx.xx@xx.com',
     pwd:'a123456',
     success (res) {
          console.log(res)
@@ -876,7 +876,7 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.sendEmailRepwdCode({
-    email: 'daney.hong@quectel.com',
+    email: 'xx.xx@xx.com',
     success (res) {
          console.log(res)
      },
@@ -907,7 +907,7 @@ const plugin = requirePlugin('quecPlugin')
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.userPwdReset({
-    email: 'daney.hong@quectel.com',
+    email: 'xx.xx@xx.com',
     code:'321010',
     success (res) {
          console.log(res)
