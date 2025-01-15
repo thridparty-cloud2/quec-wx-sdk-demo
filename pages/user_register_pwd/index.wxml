@@ -1,2 +1,0 @@
-<nav_bar title="设置登录密码"></nav_bar>
-<user_register_pwd curItem="{{curItem}}" bindregSuccess="regSuccess" bindemailCodeValid="emailCodeValid"></user_register_pwd>

@@ -1,25 +1,19 @@
+import { toLogin, toHouseHome, getEnvConfig } from './utils/tool.js'
 const plugin = requirePlugin('quecPlugin')
-import { toBase64 } from '/utils/tool.js'
 App({
   globalData: {
-
+    baseImgUrl: 'https://iot-oss.quectelcn.com/wxsdk_img/example/',
+    envData: getEnvConfig()
   },
 
   onLaunch () {
-    /**
-     * token过期跳转到登录页面
-     */
+
     plugin.config.setToLoginFn(() => {
-      plugin.config.setUserInfo('')
-      wx.redirectTo({
-        url: '/pages/login/index'
-      })
+      toLogin()
     })
 
-    wx.loadFontFace({
-      family: 'Bitstream Vera Serif Bold',
-      source: 'url("https://img.yzcdn.cn/vant/vant-icon-96970a.woff2;https://at.alicdn.com/t/font_2553510_iv4v8nulyz.woff2?t=1649083952952")',
-      success: console.log
+    plugin.config.setHouseFn(() => {
+      toHouseHome()
     })
   },
 
@@ -28,20 +22,20 @@ App({
   },
 
   onShow () {
+    let self = this
+
+    plugin.theme.setLogo(getEnvConfig().logo)
+    plugin.theme.setTitle(getEnvConfig().title)
+
+    /** oem主色值 */
     plugin.theme.setSkin({
-      primary: 'green'
+      primary: self.globalData.envData['primary']
     })
 
-    plugin.theme.setLogo(toBase64('/images/mine/headImage.png'))
-    plugin.theme.setTitle('示例DEMO')
-    //如客户有自己的用户域及密钥，请设置成自己的哦
-    //plugin.config.setUserDomain('用户域')
-    //plugin.config.setUserDomainSecret('用户域密钥')
+    //oem用户域
+    plugin.config.setUserDomain(self.globalData.envData['domain'])
+    plugin.config.setUserDomainSecret(self.globalData.envData['domainSecret'])
 
-    wx.getSystemInfoAsync({
-      success: (res) => {
-        this.globalData.systemInfo = res
-      }
-    })
   }
 })
+

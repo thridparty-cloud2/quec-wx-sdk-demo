@@ -1,8 +1,34 @@
-/* pages/home/home.wxss */
+@import '/asset/txtarea.wxss';
+
+page {
+  overflow: hidden !important;
+}
+
 .van-nav-bar__title {
   padding-left: 30rpx !important;
 }
 
 .main {
   padding: 30rpx;
+}
+
+.van-tabs__scroll {
+  background-color: transparent !important;
+}
+
+.image-index--van-image {
+  width: 100px;
+  height: 100px;
+}
+
+.attent .van-icon-arrow-left:before,
+.attent .van-icon:before {
+  font-size: 12px !important;
+  vertical-align: top !important;
+  padding: 2px !important;
+}
+
+
+.comps-nav-bar-index--sdk-icon.comps-nav-bar-index--search {
+  display: none !important;
 }

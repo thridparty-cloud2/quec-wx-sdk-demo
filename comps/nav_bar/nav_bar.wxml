@@ -1,0 +1,18 @@
+<van-nav-bar class="listH" custom-class="van-nav-bar" fixed="{{true}}" placeholder="{{true}}" z-index="80" border="{{false}}">
+  <view slot="left" class="leftIcon">
+    <view wx:if="{{!isHome}}" class="back" catchtap="back">
+      <van-icon name="arrow-left" color="black" size="22px" />
+    </view>
+    <view wx:if="{{homeUrl.length>0}}" class="home" catchtap="home">
+      <van-icon name="wap-home-o" color="black" size="22px" />
+    </view>
+  </view>
+  <view slot="title" class="{{isHome ? 'titCls' :''}}">
+    <view class="{{from=='detail' ? 'ntxt' : ''}}">{{title}}</view>
+  </view>
+  <view wx:if="{{homeTab}}" slot="right" class="rightIcon" catchtap="search">
+    <view class="navSearch">
+      <text class="sdk-icon search"></text>
+    </view>
+  </view>
+</van-nav-bar>

@@ -1,4 +1,0 @@
-<nav_bar title="分享他人"></nav_bar>
-<view class="container">
-  <device_share curItem="{{curDevice}}" bindinvalidDevice="invalidDevice"></device_share>
-</view>

@@ -1,0 +1,2 @@
+<nav_bar title="添加设备" backUrl="/pages/home/home" isTab="{{true}}"></nav_bar>
+<device_add item="{{dItem}}" bindaddSuccess="addSuccess" bindtoFamily="toFamily" bindscanSuccess="scanSuccess"></device_add>

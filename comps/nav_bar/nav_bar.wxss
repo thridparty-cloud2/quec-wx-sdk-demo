@@ -1,0 +1,32 @@
+@import '../../asset/icon.wxss';
+
+
+.rightIcon {
+  padding-top: 0;
+}
+
+.navSearch {
+  width: 64rpx;
+  height: 64rpx;
+  text-align: center;
+  line-height: 66rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.596637);
+}
+
+.sdk-icon.search {
+  font-size: 16px;
+}
+
+.titCls {
+  font-size: 20px;
+  font-weight: 500;
+  color: #080F19;
+}
+
+.ntxt {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 220px;
+}

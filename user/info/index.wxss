@@ -1,0 +1,15 @@
+.van-cell {
+  padding: 40rpx !important;
+}
+
+.van-icon-arrow {
+  color: #BFBFBF !important;
+}
+
+.van-cell__value {
+  flex: 2 !important;
+}
+
+.user-info-index--group:nth-child(2) {
+  display: none !important;
+}

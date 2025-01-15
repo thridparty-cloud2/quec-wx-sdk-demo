@@ -1,2 +1,0 @@
-<nav_bar title="网络配置"></nav_bar>
-<bluetooth_wifi deviceId="{{deviceId}}" bindwifiSuccess="wifiSuccess"></bluetooth_wifi>

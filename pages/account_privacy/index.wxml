@@ -1,2 +1,0 @@
-<nav_bar title="隐私政策" backUrl="../account_about/index"></nav_bar>
-<web-view src="{{PRIVACY_URL}}"></web-view>

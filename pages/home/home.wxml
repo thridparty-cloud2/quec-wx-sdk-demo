@@ -1,5 +1,3 @@
-<nav_bar title="设备列表" isHome="{{true}}" homeTab="{{true}}"></nav_bar>
-<view class="content">
-  <device_list isRefresh="{{isRefresh}}" sHeight="{{scrollHeight}}" bindgoDetail="goDetail" bindtoShare="goShare" bindscanSuccess="scanSuccess" bindaddSuccess="addSuccess" bindrenameSuccess="renameSuccess" bindunbindSuccess="unbindSuccess" bindinvalidDevice="invalidDevice"></device_list>
-  <install_button id="install-btn" bindinvalidDevice="invalidDevice" />
+<view class="bgCls content">
+  <device_home model="{{model}}" ver="{{env['bleVersion']}}" isBanner="{{env['isBanner']}}" layout="{{env['layout']}}" isScan="{{env['isScan']}}" isGuide="{{env['isGuide']}}" bindgoDetail="goDetail" bindtoScan="toScan" bindscanSuccess="scanSuccess" bindtoShare="goShare" bindMode="mode" bindIntroduct="introduct" bindtoNear="toNear" bindJump="jump"></device_home>
 </view>

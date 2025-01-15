@@ -1,5 +1,0 @@
-{
-  "usingComponents": {
-    "bluetooth_wifi": "plugin://quecPlugin/bluetooth_wifi"
-  }
-}

@@ -1,0 +1,2 @@
+<nav_bar title="{{curDevice.deviceName}}"></nav_bar>
+<noData img="{{noDataImg}}" tip1="没有可设置的功能哦～" bflag="{{false}}"></noData>

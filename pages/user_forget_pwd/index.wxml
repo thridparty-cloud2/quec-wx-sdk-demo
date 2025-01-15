@@ -1,4 +1,0 @@
-<nav_bar title="找回密码"></nav_bar>
-<view class="container">
-  <user_forget_pwd bindvalidateSuccess='validateSuccess'></user_forget_pwd>
-</view>

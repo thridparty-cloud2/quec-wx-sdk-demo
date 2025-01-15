@@ -1,4 +1,0 @@
-<nav_bar title="安装WiFi+Ble设备" backUrl="/pages/home/home" isTab="true"></nav_bar>
-<view class="page">
-  <bluetooth_scan bindbleSuccess="bleSuccess" bindback="handleBack"></bluetooth_scan>
-</view>

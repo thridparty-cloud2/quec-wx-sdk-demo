@@ -1,2 +1,0 @@
-<nav_bar title="添加设备"></nav_bar>
-<device_add item="{{dItem}}" bindaddSuccess="addSuccess" bindscanSuccess="scanSuccess"></device_add>

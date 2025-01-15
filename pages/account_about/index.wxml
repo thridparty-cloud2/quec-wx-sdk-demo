@@ -1,2 +1,0 @@
-<nav_bar title="关于我们" backUrl="../mine/mine" isTab="true"></nav_bar>
-<account_about isProtocol="{{true}}" isPrivacy="{{true}}"></account_about>

@@ -1,4 +1,0 @@
-<view class="agreement">
-  <van-checkbox value="{{ checked }}" name="checked" icon-size="18px" checked-color="{{checkColor}}" bind:change="onChange">我已阅读并同意</van-checkbox>
-  <view class="protocol"><text class="txt" bindtap="toProtocol">服务协议</text> <text class="and">及</text><text class="txt" bindtap="toPrivacy">隐私政策</text></view>
-</view>

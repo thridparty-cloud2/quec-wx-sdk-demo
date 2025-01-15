@@ -1,2 +1,0 @@
-<nav_bar title="修改登录密码"></nav_bar>
-<account_edit_pwd bindchangePwdSuccess="changePwdSuccess"></account_edit_pwd>

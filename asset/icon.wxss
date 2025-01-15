@@ -1,0 +1,510 @@
+@font-face {
+  font-family: "sdk-icon";
+  src: url('https://quec-pro-pass2.oss-cn-shanghai.aliyuncs.com/wxsdk_img/assest/iconfont/1_5_0/iconfont.woff2') format('woff2'),
+  url('https://quec-pro-pass2.oss-cn-shanghai.aliyuncs.com/wxsdk_img/assest/iconfont/1_5_0/iconfont.woff') format('woff'),
+  url('https://quec-pro-pass2.oss-cn-shanghai.aliyuncs.com/wxsdk_img/assest/iconfont/1_5_0/iconfont.ttf') format('truetype');
+}
+
+.sdk-icon {
+  font-family: "sdk-icon" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.kaifa:before {
+  content: "\e733";
+}
+
+.dingshi1:before {
+  content: "\e734";
+}
+
+.yanshi:before {
+  content: "\e735";
+}
+
+.guanfa:before {
+  content: "\e731";
+}
+
+.jiance:before {
+  content: "\e732";
+}
+
+.huaban:before {
+  content: "\e730";
+}
+
+.dengdai:before {
+  content: "\e72e";
+}
+
+.yihuifu:before {
+  content: "\e72f";
+}
+
+.shuaxinasinshuju:before {
+  content: "\e777";
+}
+
+.shidu:before {
+  content: "\e72b";
+}
+
+.jilu:before {
+  content: "\e724";
+}
+
+.qianjin:before {
+  content: "\e72c";
+}
+
+.gengduo:before {
+  content: "\e72d";
+}
+
+.gongzuotai:before {
+  content: "\e726";
+}
+
+.dingshi:before {
+  content: "\e727";
+}
+
+.huhuan:before {
+  content: "\e728";
+}
+
+.wendu:before {
+  content: "\e725";
+}
+
+.shijian:before {
+  content: "\e729";
+}
+
+.shuaxin:before {
+  content: "\e72a";
+}
+
+.a-2-chufashijian-xiala:before {
+  content: "\e640";
+}
+
+.createautomation:before {
+  content: "\e63d";
+}
+
+.a-3-chufashijian:before {
+  content: "\e63e";
+}
+
+.a-2-guanbi:before {
+  content: "\e63f";
+}
+
+.delete:before {
+  content: "\e63c";
+}
+
+.zhineng-huidu:before {
+  content: "\e63a";
+}
+
+.zhineng-jiaodian1:before {
+  content: "\e622";
+}
+
+.chuangjianfenzu:before {
+  content: "\e61a";
+}
+
+.a-Logrizhi:before {
+  content: "\e620";
+}
+
+.chuangjianchangjing:before {
+  content: "\e608";
+}
+
+.jian:before {
+  content: "\e692";
+}
+
+.jia:before {
+  content: "\e693";
+}
+
+.About:before {
+  content: "\e690";
+}
+
+.settings:before {
+  content: "\e691";
+}
+
+.yichuyonghu:before {
+  content: "\e68f";
+}
+
+.shangchuanshibai:before {
+  content: "\e686";
+}
+
+.qiehuanwangluo:before {
+  content: "\e687";
+}
+
+.mima:before {
+  content: "\e688";
+}
+
+.bianji:before {
+  content: "\e689";
+}
+
+.add2:before {
+  content: "\e68a";
+}
+
+.yincang:before {
+  content: "\e68b";
+}
+
+.tianjiapeiwangshebei:before {
+  content: "\e68c";
+}
+
+.yincang-1:before {
+  content: "\e68d";
+}
+
+.mima-1:before {
+  content: "\e68e";
+}
+
+.home:before {
+  content: "\e680";
+}
+
+.home2:before {
+  content: "\e681";
+}
+
+.my:before {
+  content: "\e682";
+}
+
+.news:before {
+  content: "\e683";
+}
+
+.news2:before {
+  content: "\e684";
+}
+
+.my2:before {
+  content: "\e685";
+}
+
+.choose1:before {
+  content: "\e67b";
+}
+
+.add1:before {
+  content: "\e67c";
+}
+
+.close:before {
+  content: "\e67d";
+}
+
+.search:before {
+  content: "\e67e";
+}
+
+.warning:before {
+  content: "\e67f";
+}
+
+.discovery:before {
+  content: "\e679";
+}
+
+.scanning:before {
+  content: "\e67a";
+}
+
+.order:before {
+  content: "\e677";
+}
+
+.del_room:before {
+  content: "\e678";
+}
+
+.rename:before {
+  content: "\e672";
+}
+
+.common:before {
+  content: "\e673";
+}
+
+.share:before {
+  content: "\e674";
+}
+
+.add_common:before {
+  content: "\e675";
+}
+
+.move:before {
+  content: "\e676";
+}
+
+.choose:before {
+  content: "\e66b";
+}
+
+.shezhi:before {
+  content: "\e66c";
+}
+
+.uncheck:before {
+  content: "\e66d";
+}
+
+.check:before {
+  content: "\e66e";
+}
+
+.xiala:before {
+  content: "\e66f";
+}
+
+.add:before {
+  content: "\e670";
+}
+
+.a-Frame1338:before {
+  content: "\e664";
+}
+
+.my-fill:before {
+  content: "\e601";
+}
+
+.statistical-fill:before {
+  content: "\e603";
+}
+
+.route-fill:before {
+  content: "\e604";
+}
+
+.home-fill:before {
+  content: "\e605";
+}
+
+.warning-fill:before {
+  content: "\e607";
+}
+
+.equipment-fill:before {
+  content: "\e60a";
+}
+
+.about-fill:before {
+  content: "\e609";
+}
+
+.order-fill:before {
+  content: "\e60b";
+}
+
+.fan-fill:before {
+  content: "\e60c";
+}
+
+.circulation-fill:before {
+  content: "\e60d";
+}
+
+.water-level-fill:before {
+  content: "\e60e";
+}
+
+.hot-fill:before {
+  content: "\e60f";
+}
+
+.constant-temperature-fill:before {
+  content: "\e610";
+}
+
+.plan:before {
+  content: "\e611";
+}
+
+.other-arg:before {
+  content: "\e612";
+}
+
+.wraning:before {
+  content: "\e613";
+}
+
+.setting:before {
+  content: "\e614";
+}
+
+.water-fill:before {
+  content: "\e615";
+}
+
+.electricity-hot-fill:before {
+  content: "\e616";
+}
+
+.edit-fill:before {
+  content: "\e617";
+}
+
+.edit:before {
+  content: "\e618";
+}
+
+.scan:before {
+  content: "\e619";
+}
+
+.icon_lock-on:before {
+  content: "\e61b";
+}
+
+.icon_chart-pie:before {
+  content: "\e61e";
+}
+
+.hide-1:before {
+  content: "\e61f";
+}
+
+.icon_link:before {
+  content: "\e621";
+}
+
+.compress-fill:before {
+  content: "\e623";
+}
+
+.replay-water-fill:before {
+  content: "\e624";
+}
+
+.give-water-fill:before {
+  content: "\e625";
+}
+
+.hide:before {
+  content: "\e61c";
+}
+
+.a-icon_on1:before {
+  content: "\e61d";
+}
+
+.icon_delicious:before {
+  content: "\e626";
+}
+
+.icon_fan:before {
+  content: "\e627";
+}
+
+.a-icon_Setupthe:before {
+  content: "\e628";
+}
+
+.a-icon_Setupthe2:before {
+  content: "\e629";
+}
+
+.icon_state:before {
+  content: "\e62b";
+}
+
+.icon_state2:before {
+  content: "\e62c";
+}
+
+.a-icon_Oilbottle:before {
+  content: "\e62d";
+}
+
+.icon_on:before {
+  content: "\e62e";
+}
+
+.a-icon_Fuelconsumption:before {
+  content: "\e62f";
+}
+
+.icon_fan2:before {
+  content: "\e62a";
+}
+
+.icon_delete:before {
+  content: "\e633";
+}
+
+.icon_screening:before {
+  content: "\e634";
+}
+
+.a-icon_Theeditor:before {
+  content: "\e635";
+}
+
+.icon_batch:before {
+  content: "\e636";
+}
+
+.icon_unbundling:before {
+  content: "\e637";
+}
+
+.a-icon_Moreandmore:before {
+  content: "\e639";
+}
+
+.a-icon_Themap:before {
+  content: "\e63b";
+}
+
+.icon_unit:before {
+  content: "\e630";
+}
+
+.icon_application:before {
+  content: "\e631";
+}
+
+.device:before {
+  content: "\e632";
+}
+
+.workbench:before {
+  content: "\e638";
+}
+
+.wifi:before {
+  content: "\e8c1";
+}
+
+.pwd:before {
+  content: "\e766";
+}

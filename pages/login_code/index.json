@@ -1,7 +1,0 @@
-{
-  "disableScroll": true,
-  "usingComponents": {
-    "user_login_code": "plugin://quecPlugin/user_login_code",
-    "protocol": "../../components/protocol/index"
-  }
-}

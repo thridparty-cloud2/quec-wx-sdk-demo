@@ -1,0 +1,28 @@
+<view class="tsl_vcol">
+  <view class="boxflex">
+    <view class="tsl_val f2"><text>{{tslData.name}}</text></view>
+    <view class="tsl_txt f1 right" catchtap="setArgs"><text>{{tslVal}}</text><text class="unit">{{unit}}</text>
+      <van-icon name="arrow" color="{{skin['arrow']}}" size="12px" />
+    </view>
+  </view>
+  <view class="act boxflex">
+    <view class="action" catchtap="minus">
+      <view class="sdk-icon jia"></view>
+    </view>
+    <view class="action" catchtap="plus">
+      <view class="sdk-icon jian"></view>
+    </view>
+  </view>
+  <view class="vSlider">
+    <slider block-size="16" disabled="{{(deviceStatus === '离线' || deviceStatus === '0') ? true : false}}" bindchange="onChange" value="{{tslVal}}" min="{{min}}" max="{{max}}" step="{{step}}" activeColor="{{skin['primary']}}" />
+  </view>
+</view>
+
+<van-dialog use-slot show="{{argVisible}}" width="{{313}}" overlayStyle="background-color:rgba(0,0,0,.4)" bind:close="onClose" confirm-button-color="{{skin['confirm']}}" cancel-button-color="{{skin['cancel']}}" bind:confirm="confirmArgs" transition="none" show-cancel-button>
+  <view class="argCls">
+    <view class="tit">{{i18n['setArgs']}}</view>
+    <view class="argInput">
+      <van-field model:value="{{ param }}" size="large" custom-style="background-color:#F7F8FC;" name="{{param}}" bind:change="paramChange" placeholder="{{i18n['argsHolder']}}" border="{{ false }}" maxlength='{{20}}' />
+    </view>
+  </view>
+</van-dialog>

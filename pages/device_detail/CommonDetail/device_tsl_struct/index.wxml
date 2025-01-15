@@ -1,4 +1,0 @@
-<nav_bar title="{{attrData.name}}"></nav_bar>
-<view class="main">
-  <device_tsl_edit_struct attrData="{{attrData}}" bindeditStructText="editStructText" pk="{{pk}}" dk="{{dk}}" textDetail="{{textDetail}}" bindback="handleBack" bindsubmit="handleBack"></device_tsl_edit_struct>
-</view>

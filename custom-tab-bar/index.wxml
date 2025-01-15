@@ -1,8 +1,8 @@
-<view class="tab-bar">
-  <view wx:for="{{list}}" wx:key="index" class="tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
+<view class="tab-main-bar">
+  <view wx:for="{{list}}" wx:key="index" class="tab-main-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" catchtap="switchTab">
     <view class="imgCon">
-      <image class="iconimg" src="{{selected == index ? item.selectedIconPath : item.iconPath}}"></image>
+      <view class="{{selected == index ? item.selectedIconPath : item.iconPath}}"></view>
     </view>
-    <view style="font-size:12px;color: {{selected == index ? selectedColor : color}}">{{item.text}}{{a}}</view>
+    <view class="txt" style="color: {{selected == index ? selectedColor : color}}">{{item.text}}</view>
   </view>
 </view>

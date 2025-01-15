@@ -21,3 +21,4 @@ package-lock.json
 
 node_modules/
 miniprogram_npm/
+.idea/

@@ -1,0 +1,12 @@
+<nav_bar title="关于" backUrl="/pages/mine/mine" isTab="{{true}}"></nav_bar>
+<view class="p_main">
+  <view class="head">
+    <view class="about_icon">
+      <van-image src="{{env['logo']}}" width="70" height="70" radius="12px" use-loading-slot>
+        <van-loading slot="loading" type="spinner" size="20" vertical />
+      </van-image>
+    </view>
+    <view class="txt">{{env['title']}}{{version ? version : '1.0.0'}}</view>
+  </view>
+  <view class="contact"><text>{{i18n['contactus']}}: </text><text class="tel" style="color:{{skin['primary']}}" catchtap="{{!(env['phone'].indexOf('@') > 0) ?'call':''}}">{{env['phone']}}</text></view>
+</view>

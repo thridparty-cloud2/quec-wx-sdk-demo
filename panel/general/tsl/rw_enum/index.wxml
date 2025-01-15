@@ -1,0 +1,9 @@
+<view class="tsl_vcol">
+  <view class="tsl_val"><text class="title">{{tslData.name}}</text></view>
+  <view class="tsl_txt" catchtap="showSel"><text>{{tslVal ? tslVal : ''}}</text>
+    <van-icon name="arrow" color="{{skin['arrow']}}" size="12px" />
+  </view>
+  <view>
+    <van-action-sheet show="{{ show }}" actions="{{ tslData.specs }}" bind:cancel="onClose" bind:select="onSelect" cancel-text="{{i18n['cancel']}}" />
+  </view>
+</view>

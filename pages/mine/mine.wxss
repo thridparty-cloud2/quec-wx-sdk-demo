@@ -1,7 +1,7 @@
-page,
-.mine {
-  background: #ffffff;
-  height: 100%;
+@import '/asset/icon.wxss';
+
+page {
+  overflow: hidden;
 }
 
 .van-nav-bar__title {
@@ -9,13 +9,13 @@ page,
 }
 
 .header {
-  min-height: 400rpx;
-  background-color: #f9f8fb;
+  min-height: 280rpx;
   display: flex;
   flex-direction: row;
-  padding: 0 30rpx;
+  padding: 0 88rpx 0 66rpx;
   justify-content: space-between;
   align-items: center;
+  padding-top: 140rpx;
 }
 
 .header .left {
@@ -32,26 +32,72 @@ page,
 }
 
 .van-cell {
-  padding-top: 80rpx !important;
+  padding: 40rpx 30rpx !important;
 }
 
 .van-icon-arrow {
   color: #BFBFBF !important;
 }
 
-.cellImg {
-  width: 24px;
-  height: 24px;
-  padding-right: 20rpx;
-}
-
 .cellTitle {
   font-size: 16px;
   color: #333333;
+  font-weight: 500;
+  padding-left: 20rpx;
 }
 
 .hInfo .phone {
   color: #999;
   font-size: 14px;
   padding-left: 30rpx;
+}
+
+.hInfo .tip {
+  font-size: 12px;
+  color: #999999;
+  padding-left: 30rpx;
+}
+
+.menu {
+  margin: 0 50rpx;
+  border-radius: 16px;
+  padding: 30rpx 16rpx;
+  background: #FFFFFF;
+}
+
+.himg {
+  background: #ffffff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+
+.sdk-icon.settings,
+.sdk-icon.About,
+.sdk-icon.news {
+  font-size: 24px;
+}
+
+.msg {
+  position: relative;
+}
+
+.unread {
+  width: 10rpx;
+  height: 10rpx;
+  background: #FF4E45;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  right: 0rpx;
+  top: 5rpx;
+}
+
+.sdk-icon.huaban {
+  font-size: 20px;
+  padding-left: 6rpx;
+}
+
+.pleft {
+  padding-left: 24rpx;
 }

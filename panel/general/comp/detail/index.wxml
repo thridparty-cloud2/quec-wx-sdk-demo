@@ -1,0 +1,38 @@
+<scroll-view scroll-y="{{hasDataList}}" style="height:{{sHeight}}px" enhanced="{{true}}">
+  <view class="detail">
+    <van-row>
+      <block wx:for="{{attrData}}" wx:key="index" wx:for-item="item">
+        <block wx:if="{{item.subType === TSLConfig.TSL_SUBTYPE_R}}"></block>
+        <block wx:else>
+          <block wx:if="{{item.dataType === TSLConfig.TSL_ATTR_DATA_TYPE_INT || item.dataType === TSLConfig.TSL_ATTR_DATA_TYPE_FLOAT || item.dataType === TSLConfig.TSL_ATTR_DATA_TYPE_DOUBLE}}">
+            <van-col span="24">
+              <rw_number tslData="{{item}}" deviceStatus="{{deviceStatus}}" bindsendAttr="sendAttr"></rw_number>
+            </van-col>
+          </block>
+          <block wx:elif="{{item.dataType === TSLConfig.TSL_ATTR_DATA_TYPE_BOOL}}">
+            <block wx:if="{{item.subType === TSLConfig.TSL_SUBTYPE_RW}}">
+              <van-col span="12">
+                <rw_bool tslData="{{item}}" deviceStatus="{{deviceStatus}}" bindsendAttr="sendAttr"></rw_bool>
+              </van-col>
+            </block>
+            <block wx:elif="{{item.subType === TSLConfig.TSL_SUBTYPE_W}}">
+              <van-col span="12">
+                <w_bool tslData="{{item}}" deviceStatus="{{deviceStatus}}" bindsendAttr="sendAttr"></w_bool>
+              </van-col>
+            </block>
+          </block>
+          <block wx:elif="{{item.dataType === TSLConfig.TSL_ATTR_DATA_TYPE_ENUM}}">
+            <van-col span="12">
+              <rw_enum tslData="{{item}}" deviceStatus="{{deviceStatus}}" bindsendAttr="sendAttr"></rw_enum>
+            </van-col>
+          </block>
+          <block wx:elif="{{item.dataType == TSLConfig.TSL_ATTR_DATA_TYPE_RAW}}">
+            <van-col span="24">
+              <rw_raw tslData="{{item}}" deviceStatus="{{deviceStatus}}" bindsubmit="sendAttr"></rw_raw>
+            </van-col>
+          </block>
+        </block>
+      </block>
+    </van-row>
+  </view>
+</scroll-view>

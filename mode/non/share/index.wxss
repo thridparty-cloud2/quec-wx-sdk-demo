@@ -1,0 +1,8 @@
+page {
+  height: 100%;
+}
+
+.container {
+  height: calc(100% - 90px);
+  overflow: hidden;
+}

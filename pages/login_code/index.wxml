@@ -1,7 +1,0 @@
-<nav_bar title="验证码登录"></nav_bar>
-<view class="container">
-  <user_login_code bindloginSuccess='loginSuccess' protocolCheck='{{checked}}'></user_login_code>
-  <view class="protocol">
-    <protocol bindchangeProtocol='changeProtocol' />
-  </view>
-</view>

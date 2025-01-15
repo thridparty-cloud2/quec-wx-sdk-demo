@@ -1,5 +1,0 @@
-{
-  "usingComponents": {
-    "device_wifi_add": "plugin://quecPlugin/device_wifi_add"
-  }
-}
