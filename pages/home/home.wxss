@@ -28,7 +28,6 @@ page {
   padding: 2px !important;
 }
 
-
-.comps-nav-bar-index--sdk-icon.comps-nav-bar-index--search {
+.col-index--van-col:nth-child(2) {
   display: none !important;
 }

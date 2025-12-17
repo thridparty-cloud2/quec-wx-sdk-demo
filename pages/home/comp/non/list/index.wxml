@@ -1,0 +1,20 @@
+<view style="height:{{(model.brand==='HUAWEI' && model.model==='VTR-AL00') ? (sTop+60): (sTop+40)}}px;">
+  <block wx:if="{{isEdit}}">
+    <van-transition name="fade">
+      <view class="selCls">
+        <sel bindisEdit="getSelIsEdit" selDevice="{{selDevice}}"></sel>
+      </view>
+    </van-transition>
+  </block>
+  <block wx:else>
+    <van-transition name="fade">
+      <home_nav title="-" mode="{{mode}}" navRefresh="{{navRefresh}}" bindSearch="goSearch" bindJump="jump"></home_nav>
+    </van-transition>
+  </block>
+</view>
+<view class="list">
+  <view class="all">全部设备</view>
+  <dlist mode="{{mode}}" isRefresh="{{isRefresh}}" from="home" isEdit="{{isEdit}}" isValadd="{{isValadd}}" bindselDevice="getselDevice" bindedit="getEdit" bindgoDetail="goDetail" bindscanSuccess="scanSuccess" bindMode="mode" bindIntroduct="introduct" bindtoNetwork="toNetwork" bindJump="jump" bindtoNear="toNear" bindnoScanAndNear="noScanAndNear"></dlist>
+</view>
+<install_button wx:if="{{isSet && !isEdit &&  (env['isScan']||env['isNetwork'])}}" id="install-btn" bindinvalidDevice="invalidDevice" bindtoNetwork="toNetwork" bindtoScan="toScan" bindtoNear="toNear" bindJump="jump" />
+<tool wx:if="{{isEdit && selDevice.length>0}}" selDevice="{{selDevice}}" bindShare="Share" bindrenameSuccess="renameSuccess" bindunbindSuccess="unbindSuccess"></tool>

@@ -1,0 +1,86 @@
+@import "/asset/icon.wxss";
+
+.sendDynamic {
+  height: 58px;
+  width: 58px;
+  bottom: 240rpx;
+  right: 50rpx;
+  position: fixed;
+  z-index: 99999;
+}
+
+.mask-con {
+  transition: 0.5s;
+  position: fixed;
+  height: 58px;
+  width: 58px;
+  bottom: -100rpx;
+  right: 50rpx;
+  opacity: 0;
+  box-shadow: 0 4px 12px rgba(0, 145, 255, 0.1);
+  border-radius: 100%;
+  text-align: center;
+  line-height: 58px;
+  z-index: 99998;
+}
+
+.mask-con-show {
+  bottom: 200rpx;
+  opacity: 1;
+}
+
+.shadow {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.gateway-box {
+  bottom: 470rpx;
+  right: 50rpx;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.device-box {
+  bottom: 338rpx;
+  right: 50rpx;
+  position: fixed;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  height: 58px;
+  width: 58px;
+  background: #ffffff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 58px;
+}
+
+.tips {
+  width: 85px;
+  height: 34px;
+  margin-right: 8rpx;
+}
+
+.sdk-icon.add {
+  color: #ffffff;
+  font-size: 28px;
+}
+
+.sdk-icon.scanning,
+.sdk-icon.discovery {
+  font-size: 24px;
+}
+
+.addAn {
+  transform: rotate(45deg);
+  transition: all 3s;
+}

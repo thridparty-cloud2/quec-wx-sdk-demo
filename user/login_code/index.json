@@ -1,6 +1,6 @@
 {
   "disableScroll": true,
   "usingComponents": {
-    "user_login_code": "plugin://quecPlugin/user_login_code"
+    "user_login_code": "../comp/login_code/index"
   }
 }

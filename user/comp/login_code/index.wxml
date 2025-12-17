@@ -1,0 +1,15 @@
+<view class="ubox">
+  <view class="uh2">{{i18n['loginCode']}}</view>
+  <view class="udesc padt" style="color: {{skin['text_h3']}};">{{i18n['codeLoginTip']}}</view>
+  <view class="inputItem">
+    <van-field model:value="{{ phone }}" name="phone" type="number" placeholder="{{i18n['loginPhone']}}" clearable size="large" bind:focus="phoneFocus" bind:blur="phoneBlur" border="{{false}}" />
+    <line flag="{{phonefocus}}"></line>
+  </view>
+  <view class="btns">
+    <van-button catchtap="{{btnDisabled ? '' :'sendCode'}}" disabled="{{phone.length < 11 || btnDisabled}}" custom-class="pluginBtn" custom-style="{{'border-radius:'+skin['radius']}}" block color="{{skin['primary']}}">{{i18n['getCode']}}</van-button>
+  </view>
+  <view class="jump">
+    <view class="t1" catchtap="topwdLogin" style="color: {{skin['text_h3']}};">{{i18n['pwdLogin']}}</view>
+    <view class="t2" catchtap="toRegister" style="color: {{skin['text_h3']}};">{{i18n['accountReg']}}</view>
+  </view>
+</view>

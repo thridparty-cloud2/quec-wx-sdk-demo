@@ -1,0 +1,111 @@
+// 回显布尔、枚举的值
+function getEnumName(attr, value) {
+  if (value == null) return "";
+  var text = value;
+  if (attr.dataType === "ENUM" || attr.dataType === "BOOL") {
+    if (!attr.specs || attr.specs.length <= 0) {
+      return "";
+    }
+    attr.specs.forEach(function (el) {
+      if (el.value.toString() === value.toString()) {
+        text = el.name;
+      }
+    });
+  }
+  return text;
+}
+
+function getModeName(mode, value) {
+  var list = mode.filter(function (e) {
+    return e.id === JSON.parse(value);
+  });
+  return (list[0] && list[0].name) || "";
+}
+
+// 转数字
+function toNumber(value) {
+  return Number(value);
+}
+
+function toFixed(value, num) {
+  return toNumber(value).toFixed(num);
+}
+
+// 转字符串
+function toString(value) {
+  return value.toString();
+}
+
+/**
+ * 判断数组中是否包含某一项
+ * @param arrs
+ * @param item
+ */
+function includes(arrs = [], item) {
+  return arrs.indexOf(item) !== -1;
+}
+
+function isNull(data) {
+  var arr = [undefined, null, ""];
+  return arr.indexOf(data) !== -1;
+}
+
+function formatEmpty(data) {
+  return isNull(data) ? "" : data;
+}
+
+function formatDate(value, options = {}) {
+  var time = getDate(value);
+  var year = time.getFullYear();
+  var month = time.getMonth() + 1;
+  var date = time.getDate();
+  var hour = time.getHours();
+  var minute = time.getMinutes();
+  var second = time.getSeconds();
+  var dateSplit = options.dateSplit ? options.dateSplit : "-";
+  var timeSplit = options.timeSplit ? options.timeSplit : ":";
+  month = month < 10 ? "0" + month : month;
+  date = date < 10 ? "0" + date : date;
+  hour = hour < 10 ? "0" + hour : hour;
+  minute = minute < 10 ? "0" + minute : minute;
+  second = second < 10 ? "0" + second : second;
+  if (options && typeof options.format === "string") {
+    return options.format
+      .replace("yyyy", year)
+      .replace("MM", month)
+      .replace("DD", date)
+      .replace("HH", hour)
+      .replace("mm", minute)
+      .replace("ss", second);
+  }
+  return (
+    year +
+    dateSplit +
+    month +
+    dateSplit +
+    date +
+    " " +
+    hour +
+    timeSplit +
+    minute +
+    timeSplit +
+    second
+  );
+}
+
+function getMapValByKey(key, map) {
+  return map[key];
+}
+
+module.exports = {
+  getEnumName: getEnumName,
+  getModeName: getModeName,
+  toNumber: toNumber,
+  toFixed: toFixed,
+  toString: toString,
+  includes: includes,
+  isNull: isNull,
+  formatEmpty: formatEmpty,
+  formatDate: formatDate,
+  getMapValByKey: getMapValByKey,
+};

@@ -1,4 +1,4 @@
-<view class="bgCls">
+<view class="bgCls" style="background:linear-gradient(180deg, #B6DFFF 0%, #F7F8FC {{gradientHeight+'%'}})">
   <view class="mine">
     <view class="header" catchtap="goUserInfo">
       <view class="left">
@@ -6,17 +6,17 @@
           <van-loading slot="loading" type="spinner" size="20" vertical />
         </van-image>
         <view class="hInfo">
-          <view class="txt">{{isToken ? nikeName : '未设置昵称'}}</view>
-          <view wx:if="{{isFinish}}" class="tip">查看并编辑个人资料</view>
+          <view class="txt">{{isToken ? nikeName : '未登录'}}</view>
+          <view class="tip">{{isToken ? '查看并编辑个人资料' : '点击登录'}}</view>
         </view>
       </view>
     </view>
     <view class="menu">
       <van-cell is-link border="{{false}}" catchtap="goUserAbout">
         <view slot="icon">
-          <view class="sdk-icon About"></view>
+          <view class="sdk-icon guanyuwomen"></view>
         </view>
-        <view slot="title" class="cellTitle">关于</view>
+        <view slot="title" class="cellTitle">关于我们</view>
       </van-cell>
     </view>
   </view>

@@ -1,0 +1,27 @@
+@import '../../css/user.wxss';
+
+.login {
+  text-align: center;
+  padding: 200rpx 0 0;
+}
+
+.login_btn {
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  line-height: 96rpx;
+  border-radius: 65px;
+  color: #323233;
+  background: #ffffff;
+  border: 1px solid #ebedf0;
+}
+
+.startBtns {
+  margin: 280rpx 0 0;
+}
+
+.protocol {
+  padding: 50rpx 0 20rpx;
+}

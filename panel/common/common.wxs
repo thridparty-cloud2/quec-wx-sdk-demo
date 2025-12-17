@@ -1,12 +1,12 @@
 // 回显布尔、枚举的值
 function getEnumName (attr, value) {
   var text = value
-  if (attr.dataType === 'ENUM' || attr.dataType === 'BOOL') {
+  if (attr.dataType === "ENUM" || attr.dataType === "BOOL") {
     if (!attr.specs || attr.specs.length <= 0) {
-      return ''
+      return ""
     }
     attr.specs.forEach(function (el) {
-      if (el.value.toString() === (value.toString())) {
+      if (el.value.toString() === value.toString()) {
         text = el.name
       }
     })
@@ -14,11 +14,57 @@ function getEnumName (attr, value) {
   return text
 }
 
+// 获取唤醒词显示名称（设置页）
+function getWakeWordName (wakeWordObj) {
+  if (!wakeWordObj || !wakeWordObj.vdata) {
+    return ""
+  }
+  // 情况1：接口获取的字符串类型
+  if (typeof wakeWordObj.vdata === "string") {
+    var vdata = JSON.parse(wakeWordObj.vdata)
+    if (
+      vdata &&
+      vdata.length > 0 &&
+      vdata[0].value &&
+      vdata[0].value.length > 0
+    ) {
+      // 查找type为"text"的第一个项目
+      for (var i = 0; i < vdata[0].value.length; i++) {
+        var item = vdata[0].value[i]
+        if (item.type === "text" && item.value) {
+          return item.value
+        }
+      }
+    }
+  }
+
+  // 情况2：对象数组或“字符串包裹对象数组”格式，统一解析出 displayText
+  if (wakeWordObj.vdata) {
+    var arr = null
+    if (wakeWordObj.vdata.constructor === "String") {
+      arr = JSON.parse(wakeWordObj.vdata)
+    } else if (wakeWordObj.vdata.constructor === "Array") {
+      arr = wakeWordObj.vdata
+    }
+    if (arr && arr.constructor === "Array" && arr.length > 0) {
+      var first = arr[0]
+      var val = first.value !== undefined ? first.value : first
+      if (val && val.constructor === "String") {
+        val = JSON.parse(val)
+      }
+      if (val && val.displayText !== undefined) {
+        return val.displayText
+      }
+    }
+  }
+  return ""
+}
+
 function getModeName (mode, value) {
   var list = mode.filter(function (e) {
     return e.id === JSON.parse(value)
   })
-  return list[0] && list[0].name || ''
+  return (list[0] && list[0].name) || ""
 }
 
 // 转数字
@@ -40,7 +86,7 @@ function getStructValue (data, code, hasUnit) {
   var value = undefined
   if (data !== undefined) {
     data.specs.forEach(function (item) {
-      if (item.code === code && !IsEmpty(item.vdata)) {
+      if (item.code === code && !isEmpty(item.vdata)) {
         if (hasUnit) {
           value = item.vdata + item.specs.unit
         } else {
@@ -57,7 +103,7 @@ function getStructValue (data, code, hasUnit) {
 function getStruct (data, code) {
   var value = undefined
   data.specs.forEach(function (item) {
-    if (item.code === code && !IsEmpty(item.vdata)) {
+    if (item.code === code && !isEmpty(item.vdata)) {
       value = item
     }
   })
@@ -66,27 +112,27 @@ function getStruct (data, code) {
 
 // 处理时间
 function handleTime (h, m) {
-  var value = ''
-  if (!IsEmpty(h)) {
+  var value = ""
+  if (!isEmpty(h)) {
     h = h.toString()
   }
-  if (!IsEmpty(m)) {
+  if (!isEmpty(m)) {
     m = m.toString()
   }
   if (h && h.length === 1) {
-    h = '0' + h
+    h = "0" + h
   }
   if (m && m.length === 1) {
-    m = '0' + m
+    m = "0" + m
   }
   if (h && m) {
-    value = h + ':' + m
+    value = h + ":" + m
   } else if (!h && !m) {
-    value = '--'
+    value = "--"
   } else if (h && !m) {
-    value = h + ':--'
+    value = h + ":--"
   } else if (!h && m) {
-    value = '--:' + m
+    value = "--:" + m
   }
   return value
 }
@@ -94,7 +140,7 @@ function handleTime (h, m) {
 // 用于wxs遍历对象
 function objectKeys (obj) {
   var str = JSON.stringify(obj)
-  var reg = getRegExp('"(\w+)":|[{}]', "g")
+  var reg = getRegExp('"(w+)":|[{}]', "g")
   var keys = []
   var nested = 0
   var result = null
@@ -118,10 +164,108 @@ function objectKeys (obj) {
   return keys
 }
 
-function IsEmpty (value) {
-  return ((value == null) || (value == undefined) || (value.length == 0))
+/**
+ * @description 转换物模型空值
+ */
+function parseNullTslValue (value) {
+  return value == null ? "--" : value
 }
 
+/**
+ * @description 判断值为空
+ */
+function isEmpty (value) {
+  if (value == null) return true
+  if (value.length === 0) return true
+  return false
+}
+function isEmptyObj (obj) {
+  if (JSON.stringify(obj) === "{}") return true
+  return false
+}
+
+/**
+ * @description 判断是否为 INT 类型物模型
+ */
+function isIntTsl (attr) {
+  return attr && attr.dataType === "INT"
+}
+
+/**
+ * @description 判断是否为浮点型类型物模型
+ */
+function isDecimalTsl (attr) {
+  return attr && (attr.dataType === "FLOAT" || attr.dataType === "DOUBLE")
+}
+
+/**
+ * @description 判断是否为 数值 类型物模型
+ */
+function isNumberTsl (attr) {
+  return isIntTsl(attr) || isDecimalTsl(attr)
+}
+
+/**
+ * @description 判断是否为 枚举 类型物模型
+ */
+function isEnumTsl (attr) {
+  return attr && attr.dataType === "ENUM"
+}
+
+/**
+ * @description 判断是否为 布尔 类型物模型
+ */
+function isBooleanTsl (attr) {
+  return attr && attr.dataType === "BOOL"
+}
+
+/**
+ * @description 判断是否为 文本 类型物模型
+ */
+function isTextTsl (attr) {
+  return attr && attr.dataType === "TEXT"
+}
+
+/**
+ * @description 判断是否为 只读 物模型
+ */
+function isReadOnlyTsl (attr) {
+  return attr && attr.subType === "R"
+}
+
+/**
+ * @description 判断是否为 读写 物模型
+ */
+function isReadAndWriteTsl (attr) {
+  return attr && attr.subType === "RW"
+}
+
+function isWriteOnlyTsl (attr) {
+  return attr && attr.subType === "W"
+}
+
+function getRoundByStep (attr) {
+  var value = attr.vdata
+  if (attr && attr.specs && value != null) {
+    var step = attr.specs.step
+    var accuracy = step.split(".")[1] || 0
+
+    if (accuracy == 0) {
+      return Number(value).toFixed(accuracy)
+    } else {
+      return Number(value).toFixed(accuracy.length)
+    }
+  } else {
+    return value
+  }
+}
+
+function isAllEmptyObj (objList) {
+  var flag = objList.every(function (obj) {
+    return isEmptyObj(obj)
+  })
+  return flag
+}
 
 module.exports = {
   getEnumName: getEnumName,
@@ -131,5 +275,20 @@ module.exports = {
   toString: toString,
   getStructValue: getStructValue,
   handleTime: handleTime,
-  getStruct: getStruct
+  getStruct: getStruct,
+  isEmpty: isEmpty,
+  isEmptyObj: isEmptyObj,
+  isIntTsl: isIntTsl,
+  isDecimalTsl: isDecimalTsl,
+  isNumberTsl: isNumberTsl,
+  isEnumTsl: isEnumTsl,
+  isBooleanTsl: isBooleanTsl,
+  isTextTsl: isTextTsl,
+  isReadOnlyTsl: isReadOnlyTsl,
+  isReadAndWriteTsl: isReadAndWriteTsl,
+  isWriteOnlyTsl: isWriteOnlyTsl,
+  parseNullTslValue: parseNullTslValue,
+  getRoundByStep: getRoundByStep,
+  isAllEmptyObj: isAllEmptyObj,
+  getWakeWordName: getWakeWordName,
 }

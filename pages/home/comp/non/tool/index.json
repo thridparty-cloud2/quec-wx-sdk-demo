@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-field": "@vant/weapp/field/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "confirm_tip": "plugin://quecPlugin/confirm_tip"
+  }
+}

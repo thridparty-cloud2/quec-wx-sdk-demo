@@ -3,33 +3,44 @@
 */
 export function goShare (obj, e) {
   obj.pageRouter.navigateTo({
-    url: `/mode/non/share/index?item=${encodeURIComponent(JSON.stringify(e.detail))}`,
+    url: `/mode/share/device/index?item=${encodeURIComponent(JSON.stringify(e.detail))}`,
   })
 }
 
 /**
  * 没有token跳转到登录页
  */
-export function jump (obj) {
-  obj.pageRouter.navigateTo({
-    url: '/user/index/index'
-  })
+export function jump (obj, fromObj = {}) {
+  if (JSON.stringify(fromObj) !== '{}') {
+    obj.pageRouter.navigateTo({
+      url: '/user/index/index?from=' + JSON.stringify(fromObj)
+    })
+  } else {
+    obj.pageRouter.navigateTo({
+      url: '/user/index/index'
+    })
+  }
 }
 
 /**
  * 跳转到首页
  */
-export function home (obj, flag) {
+export function home (obj, flag, from) {
   if (flag) {
     obj.pageRouter.switchTab({
       url: '/pages/home/home'
     })
   } else {
-    obj.pageRouter.reLaunch({
-      url: '/pages/home/home'
-    })
+    if (from) {
+      obj.pageRouter.navigateTo({
+        url: '/mode/share/accept/index?from=' + from
+      })
+    } else {
+      obj.pageRouter.reLaunch({
+        url: '/pages/home/home'
+      })
+    }
   }
-
 }
 
 /**

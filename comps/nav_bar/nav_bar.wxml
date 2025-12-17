@@ -8,11 +8,22 @@
     </view>
   </view>
   <view slot="title" class="{{isHome ? 'titCls' :''}}">
-    <view class="{{from=='detail' ? 'ntxt' : ''}}">{{title}}</view>
+    <view class="{{(from=='detail' || from =='ai') ? 'ntxt' : ''}}">{{title}}</view>
   </view>
   <view wx:if="{{homeTab}}" slot="right" class="rightIcon" catchtap="search">
     <view class="navSearch">
       <text class="sdk-icon search"></text>
     </view>
   </view>
+  <view wx:if="{{setting}}" slot="right" class="rightIcon" catchtap="toSetting">
+    <view class="navSetting">
+      <text class="sdk-icon shezhi2" style="font-size: 25px;"></text>
+    </view>
+  </view>
+  <view wx:if="{{icon}}" slot="right" class="rightIcon" catchtap="iconEv">
+    <view class="navIcon">
+      <text class="sdk-icon {{icon}}" style="font-size: 25px;"></text>
+    </view>
+  </view>
+
 </van-nav-bar>

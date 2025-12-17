@@ -1,7 +1,7 @@
 {
   "usingComponents": {
-    "user_start": "plugin://quecPlugin/user_start",
-    "wx_login": "plugin://quecPlugin/wx_login",
+    "user_start": "../comp/start/index",
+    "wx_login": "../comp/wx_login/index",
     "wx_info": "../../comps/wx_info/index"
   }
 }

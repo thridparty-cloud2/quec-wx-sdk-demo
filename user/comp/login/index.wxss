@@ -1,0 +1,25 @@
+@import '../../css/user.wxss';
+@import '/asset/icon.wxss';
+
+.footer {
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.footer text {
+  font-size: 14px;
+  color: #666666;
+  padding: 40rpx 0;
+}
+
+.footer .txt {
+  color: #0091FF;
+
+}
+
+.btnItem {
+  margin: 40rpx 0;
+}

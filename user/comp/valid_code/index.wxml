@@ -1,0 +1,14 @@
+<view class="ubox">
+  <view class="uh2">{{i18n['validcodeTit']}}</view>
+  <view class="udesc padt" style="color: {{skin['text_h3']}};">{{i18n['validcodeTip1']}}{{isEmail? i18n['validcodeTip2']: i18n['validcodeTip3']}}: {{uname}}</view>
+  <view class="main">
+    <view class="flex-box">
+      <block wx:for="{{6}}" wx:key="item">
+        <input data-index="{{index}}" class="{{((code.length === index && isVFocus) || code[index].length>0) ? 'active' : ''}}" type="number" value="{{code.length>=index+1 ? code[index] : ''}}" disabled maxlength="1" catchtap="tapFn"></input>
+      </block>
+    </view>
+    <input type="number" value="{{code}}" class="vcode" maxlength="6" focus="{{isVFocus}}" bindinput="showVCode"></input>
+  </view>
+  <view wx:if="{{times>0}}" class="time">{{times}}{{i18n['validcodeTip4']}}</view>
+  <view wx:else class="time" style="color:{{skin['primary']}}" catchtap="reGet">{{i18n['retryGet']}}</view>
+</view>

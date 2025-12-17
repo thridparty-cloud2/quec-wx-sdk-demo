@@ -113,7 +113,6 @@ Component({
       let sendData = [{
         [tslData.code]: JSON.stringify(+data)
       }]
-      console.log(sendData)
       this.triggerEvent('sendAttr', {
         code: tslData.code,
         value: data,

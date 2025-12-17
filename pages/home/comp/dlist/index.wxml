@@ -1,0 +1,32 @@
+<block wx:if="{{isToken && hasDataList}}">
+  <block wx:if="{{isFinish}}">
+    <scroll-view scroll-y="{{hasDataList}}" class="scrollContainer" style="height:{{(deviceData.length<=3 && !isEdit && isFinish && env['isGuide'] )?'auto':(from=='search'?sHeight:sHei)}}px;" refresher-enabled="{{true}}" bindrefresherrefresh="refreshList" bindscrolltolower="getMoreList" lower-threshold="{{200}}" refresher-triggered="{{triggered}}">
+      <van-row>
+        <view class="pmain" style="height:{{(deviceData.length<=3 && !isEdit && isCommon && isFinish)?'auto':sHeight+'px'}};">
+          <view wx:for="{{deviceData}}" wx:key="index" wx:for-item="item">
+            <dItem item="{{item}}" isEdit="{{isEdit}}" isLayout="{{true}}" mode="{{mode}}" isShare="{{item.shareCode}}" data-item="{{item}}" data-frole="{{frole}}" catchlongpress="longpress" catchtap="tap"></dItem>
+          </view>
+          <view class="seat-box"></view>
+        </view>
+      </van-row>
+    </scroll-view>
+  </block>
+</block>
+<block wx:else>
+  <block wx:if="{{from==='home'}}">
+    <view class="noCon" style="width: {{env['isLine']?'100%':'50%'}};">
+      <home_add show="{{deviceData.length==0}}" fid="{{fid}}" frid="{{frid}}" frole="{{frole}}" bindJump="jump" bindtoNear="toNear" bindscanSuccess="scanFn" bindtoNetwork="toNetwork" bindnoScanAndNear="noScanAndNear"></home_add>
+    </view>
+  </block>
+  <block wx:elif="{{from==='search'}}">
+    <view class="noData hei">
+      <view class="img">
+        <image src="{{noSearchImg}}" />
+      </view>
+      <view class="txt">
+        <text wx:if="{{searchName.length===0 && page.total===0}}">{{i18n['searchNoTxt']}}</text>
+        <text wx:else>{{i18n['searchNoData']}}</text>
+      </view>
+    </view>
+  </block>
+</block>

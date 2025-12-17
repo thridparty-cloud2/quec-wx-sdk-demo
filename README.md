@@ -1,29 +1,25 @@
-# 微信小程序SDK使用说明
+微信小程序SDK使用说明
 
-## 一、功能列表
+# 一、功能列表
 |功能模块 | 
 | -------  |  
-| 蓝牙配网 |
-| 注册、登录、忘记密码、个人中心 |
-| 设备管理 | 
-| 设备控制 |
-| webSocket接口 |
-| 用户域配置 | 
-| 主题配置 |
+| 用户模块 |
+| 设备管理 |
 
-## 二、快速上手
-### 1、运行demo
+
+# 二、快速上手
+## 1、运行demo
 ```
 1）下载微信开发者工具,下载地址：https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html
 2）下载该demo代码至本地，运行npm install
 3）在微信开发者工具中导入项目-选择工具-构建npm，即可在模拟器中看到效果
 ```
-### 2、在已有小程序中引用SDK
+## 2、在已有小程序中引用SDK
 ```
 1）在您的小程序代码：app.json文件中
 "plugins": {
   "quecPlugin": {
-    "version": "1.8.7",
+    "version": "2.3.4",
     "provider": "wx5e9a3feb8df9122e"
   }
 }
@@ -35,477 +31,17 @@ plugin.config.setUserDomainSecret('用户域密钥')
 
 3）授权：可将AppID和AppSecret提供给我们进行授权后，点击微信开发者工具-清缓存，然后点击“编译”即可正常运行。
 ```
-### 3、特别说明
+## 3、特别说明
 ```
 因微信官方限制,详见：https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/getPhoneNumber.html,
 建议使用企业小程序，个人小程序，手机号信息将无法获取，微信一键登录功能将不能正常使用。
 其他登录方式可正常使用。
 ```
 
-## 三、蓝牙配网
-### 1、功能点
-```
-涵盖功能点：
-蓝牙搜索及设备列表、网络配置、网络配置结果;
-```
 
-### 2、蓝牙配网接口
-#### 1) openBleAndLoc
-##### 功能描述
-```
-开启蓝牙模块。(含开启蓝牙及定位权限)
-```
+# 三、用户模块
 
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### 返回码
-```
-返回同微信API错误码。
-```
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecBle.openBleAndLoc({
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 2) closeBle
-##### 功能描述
-```
-关闭蓝牙模块。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### 返回码
-```
-返回同微信API错误码。
-```
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecBle.closeBle({
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 3) onBLEDeviceFoundV2
-##### 功能描述
-```
-搜索附近的蓝牙设备。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| callback | function |  - | 否 | 蓝牙低功耗设备的特征值变化事件的回调函数 |
-
-##### Object.success回调（res）
-|属性 | 类型 | 说明 |
-| ---- | ---- | ---- |
-| devices | Array Object |  搜索到的设备列表 |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
-plugin.quecBle.onBLEDeviceFoundV2((res)=>{
-   console.log(res)
- })
-```
-
-#### 4) stopBleScan
-##### 功能描述
-```
-停止搜寻附近的蓝牙外围设备。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### 返回码
-```
-返回同微信API错误码。
-```
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecBle.stopBleScan({
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 5) connectBLE
-##### 功能描述
-```
-连接蓝牙低功耗设备。
-```
-
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| deviceId | string |  - | 是 | 蓝牙设备 id |
-| openDeviceFound | boolean |  false | 否 | 开启搜寻附近的蓝牙外围设备（如不是通过蓝牙搜索获取的deviceId,请传true） |
-| timeout | number |  - | 否 | 超时时间，单位 ms，不填表示不会超时 |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### Object.success回调（res）
-|属性 | 类型 | 说明 |
-| ---- | ---- | ---- |
-| serviceId | string |  设备服务ID | 
-| characteristicId | string |  设备特征ID | 
-
-##### 返回码
-```
-返回同微信API错误码。
-```
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecBle.connectBLE({
-     deviceId:"",
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 6) openNotifyBLE
-##### 功能描述
-```
-启用蓝牙低功耗设备特征值变化时的 otify功能，订阅特征。
-注意：必须设备的特征支持 notify 或者 indicate 才可以成功调用。
-另外，必须先启用 wx.notifyBLECharacteristicValueChange才能监听到设备 characteristicValueChange 事件。
-```
-
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| deviceId | string |  - | 是 | 蓝牙设备 id |
-| serviceId | string |  - | 是 | 蓝牙特征对应服务的 UUID |
-| characteristicId | string |  - | 是 | 蓝牙特征的 UUID |
-| state | boolean |  true | 是 | 是否启用 notify |
-| type | string |  indication | 是 | 设置特征订阅类型，有效值有 notification 和 indication |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### Object.success回调（res）
-|属性 | 类型 | 说明 |
-| ---- | ---- | ---- |
-| serviceId | string |  设备服务ID |
-| characteristicId | string |  设备特征ID |
-
-##### 返回码
-```
-返回同微信API错误码。
-```
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecBle.openNotifyBLE({
-     deviceId:'',
-     serviceId:'',
-     characteristicId:'',
-     state:true,
-     type:'notification',
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 7) writeBLECharacteristicValue
-##### 功能描述
-```
-向蓝牙低功耗设备特征值中写入二进制数据。
-注意：必须设备的特征支持 write 才可以成功调用。
-```
-
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| deviceId | string |  - | 是 | 蓝牙设备 id |
-| serviceId | string |  - | 是 | 蓝牙特征对应服务的 UUID |
-| characteristicId | string |  - | 是 | 蓝牙特征的 UUID |
-| ssid | string |  - | 是 | Wi-Fi 的 SSID |
-| password | string |  - | 是 | Wi-Fi 设备密码 |
-| isNew | boolean |  false | 否 | 新固件true |
-| writeType | string |  - | 否 | 蓝牙特征值的写模式设置，有两种模式，iOS 优先 write，安卓优先 writeNoResponse(基础库 2.22.0 开始支持） |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### Object.success回调（res）
-|属性 | 类型 | 说明 |
-| ---- | ---- | ---- |
-| networkState | number |  1表示写入成功 |
-
-##### 返回码
-```
-返回同微信API错误码。
-```
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecBle.writeBLECharacteristicValue({
-     deviceId:'',
-     serviceId:'',
-     characteristicId:'',
-     ssid:'',
-     password:'',
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 8) onBLECharacteristicValueChangeV2
-##### 功能描述
-```
-监听蓝牙低功耗设备的特征值变化事件。（兼容新、老固件）
-必须先调用 openNotifyBLE 接口才能接收到设备推送的绑定信息。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| isNew | boolean |  'old' | 否 | 是否是新固件（默认老固件） |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### Object.success回调（res）
-|属性 | 类型 | 说明 |
-| ---- | ---- | ---- |
-| productKey | string |  产品Productkey |
-| deviceKey | string|  设备Devicekey |
-| bindCode |string |  绑定信息 |
-| networkState |number |  2 表示配网成功 |
-
-##### 返回码
-```
-返回同微信API错误码。
-```
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecBle.onBLECharacteristicValueChangeV2({
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 9) closeBLEConnection
-##### 功能描述
-```
-断开与蓝牙低功耗设备的连接。
-```
-
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| deviceId | string |  - | 是 | 蓝牙设备id |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### 返回码
-```
-返回同微信API错误码。
-```
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecBle.closeBLEConnection({
-    deviceId:'',
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 10) getBluetoothStateChange
-##### 功能描述
-```
-监听蓝牙适配器状态变化事件。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### Object.success回调（res）
-|属性 | 类型 | 说明 |
-| ---- | ---- | ---- |
-| available | boolean |  蓝牙适配器是否可用 |
-| discovering | boolean | 蓝牙适配器是否处于搜索状态 |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
-plugin.quecBle.getBluetoothStateChange({
-  success (res) {
-      console.log(res)
-  },
-  fail (res) {
-    console.log(JSON.stringify(res))
-  }
-})
-```
-
-#### 11) getCurentWifi
-##### 功能描述
-```
-获取当前已连接wifi信息。
-```
-
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function | - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### Object.success回调（res）
-|属性 | 类型 | 说明 |
-| ---- | ---- | ---- |
-| ssid | string |  Wi-Fi 的 SSID |
-
-##### 返回码
-|Code | 说明 |
-| ---- | ---- |
-| 100004 | wifi获取失败 |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecBle.getCurentWifi({
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 12) closeWifi
-##### 功能描述
-```
-关闭Wi-Fi模块。
-```
-
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### 返回码
-|Code | 说明 |
-| ---- | ---- |
-| 200 | wiFi模块关闭成功 |
-| 100012 | wiFi模块关闭失败 |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecBle.closeWifi({
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 13) connectWifi
-##### 功能描述
-```
-连接wifi。（跳转到wifi系统设置页面）
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| SSID | string |  - | 是 | Wi-Fi设备SSID |
-| password | string |  - | 是 | Wi-Fi设备密码 |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
-plugin.quecBle.connectWifi({
-  SSID:'',
-  password:'',
-  success (res) {
-    console.log(res)
-  },
-  fail (res) {
-    console.log(JSON.stringify(res))
-  }
-})
-```
-
-## 四、注册、登录、忘记密码、个人中心
-### 1、功能点
+## 1、功能点
 ```
 涵盖功能点：
 1、手机号/邮箱注册
@@ -514,38 +50,17 @@ plugin.quecBle.connectWifi({
 4、个人信息-展示、修改头像、修改昵称、修改密码、注销账户、退出登录;
 ```
 
-### 2、微信一键登录具体实现
-```
-在插件开发中，部分API受限制，无法在插件中直接使用，如：获取用户信息，获取用户号码等，因此微信一键登录组件，采用抽象节点的方式实现。
-1)小程序miniprogram端app.json中，配置插件信息
-  "plugins": {
-    "quecPlugin": {
-      "version": "1.3.1",
-      "provider": "wx5e9a3feb8df9122e"
-    }
-  }
+## 2、注册、登录、忘记密码、个人中心接口
 
-2)小程序miniprogram端components中新建wx_info组件，将用户信息getUserInfo及手机号信息getPhoneNumber通过事件绑定传递出去,同时设置如下属性：
-phoneVisible-是否展示获取用户号码授权弹框
-isCheck-是否勾选用户协议
+### 1) 微信一键登录：wxLogin 
 
-3）小程序端页面调用：
-json文件中配置
-"usingComponents": {
-  "wx_login": "plugin://quecPlugin/wx_login",
-  "wx_info": "../../components/wx_info/index"
-}
-wxml文件中：
- <wx_login generic:wx_info="wx_info" agreecheck="{{checked}}" bindwxLoginSuccess="loginResult"></wx_login>
-```
+功能描述
 
-### 3、注册、登录、忘记密码、个人中心接口
-#### 1) wxLogin 
-##### 功能描述
 ```
 微信一键登录。
 ```
-##### 参数
+
+参数
 |属性 | 类型 | 默认值 |必填 |说明 |
 | ---- | ---- | ---- |---- |---- |
 | appId | string |  - | 是 | 微信appId |
@@ -558,7 +73,8 @@ wxml文件中：
 | success | function |  - | 否 | 接口调用成功的回调函数 |
 | fail | function |  - | 否 | 接口调用失败的回调函数 |
 | complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-##### 示例代码
+
+示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
 第一次调用拿到random
@@ -593,12 +109,14 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-#### 2) sendPhoneSmsCode
-##### 功能描述
+### 2)发送手机短信验证码：sendPhoneSmsCode
+
+功能描述
 ```
 发送手机短信验证码。
 ```
-##### 参数
+
+参数
 | 属性   | 类型     | 默认值 | 必填 | 说明           |
 | ------ | -------- | ------ | ---- | --------------|
 | phone | string   | - | 是   | 手机号  |
@@ -608,7 +126,7 @@ const plugin = requirePlugin('quecPlugin')
 | fail     | function | -  | 否   | 接口调用失败的回调函数                           |
 | complete | function | -  | 否   | 接口调用结束的回调函数（调用成功、失败都会执行） |
 
-##### 示例代码
+示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.sendPhoneSmsCode({
@@ -624,12 +142,14 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-#### 3) validateSmsCode
-##### 功能描述
+### 3) 验证短信验证码：validateSmsCode
+
+功能描述
 ```
 验证短信验证码。
 ```
-##### 参数
+
+参数
 | 属性              | 类型     | 默认值 | 必填 | 说明                                             |
 | ----------------- | -------- | ------ | ---- | ------------------------------------------------ |
 | phone             | string   | -      | 是   | 手机号                                           |
@@ -639,7 +159,7 @@ const plugin = requirePlugin('quecPlugin')
 | fail              | function | -      | 否   | 接口调用失败的回调函数                           |
 | complete          | function | -      | 否   | 接口调用结束的回调函数（调用成功、失败都会执行） |
 
-##### 示例代码
+示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.validateSmsCode({
@@ -655,39 +175,15 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-#### 4) isPhoneRegister
-##### 功能描述
-```
-验证手机号是否注册。
-```
-##### 参数
-| 属性              | 类型     | 默认值 | 必填 | 说明                                             |
-| ----------------- | -------- | ------ | ---- | ------------------------------------------------ |
-| phone             | string   | -      | 是   | 手机号                                           |
-| success           | function | -      | 否   | 接口调用成功的回调函数                           |
-| fail              | function | -      | 否   | 接口调用失败的回调函数                           |
-| complete          | function | -      | 否   | 接口调用结束的回调函数（调用成功、失败都会执行） |
+### 5) 手机号注册:phonePwdRegister
 
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecUser.isPhoneRegister({
-    phone: '180xxxxxxxx',
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 5) phonePwdRegister
-##### 功能描述
+功能描述
 ```
 手机号注册。
+
 ```
-##### 参数
+
+参数
 | 属性              | 类型     | 默认值 | 必填 | 说明                                             |
 | ----------------- | -------- | ------ | ---- | ------------------------------------------------ |
 | phone             | string   | -      | 是   | 手机号                                           |
@@ -697,7 +193,7 @@ const plugin = requirePlugin('quecPlugin')
 | fail              | function | -      | 否   | 接口调用失败的回调函数                           |
 | complete          | function | -      | 否   | 接口调用结束的回调函数（调用成功、失败都会执行） |
 
-##### 示例代码
+示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.phonePwdRegister({
@@ -713,12 +209,14 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-#### 6) phonePwdLogin
-##### 功能描述
+### 6) 手机号密码登录: phonePwdLogin
+
+功能描述
 ```
 手机号密码登录。
 ```
-##### 参数
+
+参数
 | 属性              | 类型     | 默认值 | 必填 | 说明                                             |
 | ----------------- | -------- | ------ | ---- | ------------------------------------------------ |
 | internationalCode | string   | '86'   | 否   | 国家码                                           |
@@ -728,7 +226,7 @@ const plugin = requirePlugin('quecPlugin')
 | fail              | function | -      | 否   | 接口调用失败的回调函数                           |
 | complete          | function | -      | 否   | 接口调用结束的回调函数（调用成功、失败都会执行） |
 
-##### 示例代码
+示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.phonePwdLogin({
@@ -743,12 +241,14 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-#### 7) phoneSmsCodeLogin
-##### 功能描述
+### 7) 手机号验证码登录:phoneSmsCodeLogin
+
+功能描述
 ```
 手机号验证码登录。
 ```
-##### 参数
+
+参数
 | 属性              | 类型     | 默认值 | 必填 | 说明                                             |
 | ----------------- | -------- | ------ | ---- | ------------------------------------------------ |
 | phone             | string   | -      | 是   | 手机号                                           |
@@ -757,7 +257,7 @@ const plugin = requirePlugin('quecPlugin')
 | fail              | function | -      | 否   | 接口调用失败的回调函数                           |
 | complete          | function | -      | 否   | 接口调用结束的回调函数（调用成功、失败都会执行） |
 
-##### 示例代码
+示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.phoneSmsCodeLogin({
@@ -772,126 +272,14 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-#### 8) sendEmailRegisterCode
-##### 功能描述
-```
-发送邮件注册验证码。
-```
-##### 参数
-| 属性              | 类型     | 默认值 | 必填 | 说明                                             |
-| ----------------- | -------- | ------ | ---- | ------------------------------------------------ |
-| email             | string   | -      | 是   | 邮箱                                           |
-| success           | function | -      | 否   | 接口调用成功的回调函数                           |
-| fail              | function | -      | 否   | 接口调用失败的回调函数                           |
-| complete          | function | -      | 否   | 接口调用结束的回调函数（调用成功、失败都会执行） |
+### 8) 重置密码:userPwdReset
 
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecUser.sendEmailRegisterCode({
-    email: 'xx.xx@xx.com',
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 9) emailPwdRegister
-##### 功能描述
-```
-邮箱注册。
-```
-##### 参数
-| 属性              | 类型     | 默认值 | 必填 | 说明                                         |
-| ----------------- | --------| ------ | ---- | ------------------------------------------- |
-| email             | string   | -     | 是   | 邮箱                                         |
-| pwd               | string   | -     | 是   | 密码                                         |
-| code              | string   | -     | 是   | 验证码                                       |
-| success           | function | -     | 否   | 接口调用成功的回调函数                         |
-| fail              | function | -     | 否   | 接口调用失败的回调函数                         |
-| complete          | function | -     | 否   | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecUser.emailPwdRegister({
-    email: 'xx.xx@xx.com',
-    pwd:'a123456',
-    code:'160210',
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 10) emailPwdLogin
-##### 功能描述
-```
-邮箱密码登录。
-```
-##### 参数
-| 属性              | 类型     | 默认值 | 必填 | 说明                                             |
-| ----------------- | -------- | ------ | ---- | ------------------------------------------------ |
-| email             | string   | -      | 是   | 邮箱                                       |
-| pwd               |    string      |    -    |   是   |         密码                                         |
-| success           | function | -      | 否   | 接口调用成功的回调函数                           |
-| fail              | function | -      | 否   | 接口调用失败的回调函数                           |
-| complete          | function | -      | 否   | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecUser.emailPwdLogin({
-    email: 'xx.xx@xx.com',
-    pwd:'a123456',
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 11) sendEmailRepwdCode
-##### 功能描述
-```
-发送邮件重置验证码。
-```
-##### 参数
-| 属性              | 类型     | 默认值 | 必填 | 说明                                             |
-| ----------------- | -------- | ------ | ---- | ------------------------------------------------ |
-| email             | string   | -      | 是   | 邮箱                                       |
-| success           | function | -      | 否   | 接口调用成功的回调函数                           |
-| fail              | function | -      | 否   | 接口调用失败的回调函数                           |
-| complete          | function | -      | 否   | 接口调用结束的回调函数（调用成功、失败都会执行） |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecUser.sendEmailRepwdCode({
-    email: 'xx.xx@xx.com',
-    success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 12) userPwdReset
-##### 功能描述
+功能描述
 ```
 通过手机号码或邮箱重置用户密码。（手机号码或邮箱 二选一）
 ```
-##### 参数
+
+参数
 | 属性     | 类型     | 默认值 | 必填 | 说明                                             |
 | -------- | -------- | ------ | ---- | ------------------------------------------------ |
 | code     | string   | -      | 是   | 验证码                                           |
@@ -903,7 +291,7 @@ const plugin = requirePlugin('quecPlugin')
 | fail     | function | -      | 否   | 接口调用失败的回调函数                           |
 | complete | function | -      | 否   | 接口调用结束的回调函数（调用成功、失败都会执行） |
 
-##### 示例代码
+示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.userPwdReset({
@@ -918,43 +306,14 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-#### 13) validateEmailCode
-##### 功能描述
-```
-验证邮箱短信验证码是否有效
-```
-##### 参数
-| 属性     | 类型     | 默认值 | 必填 | 说明                                             |
-| -------- | -------- | ------ | ---- | ------------------------------------------------ |
-| code     | string   | -      | 是   | 验证码                                           |
-| email    |   string      | -       |    否  |        邮箱                                          |
-| isDisabled                  |    number      |    1    |   否   | 验证码验证后是否失效，1：失效 2：不失效，默认 1   |
-| success  | function | -      | 否   | 接口调用成功的回调函数                           |
-| fail     | function | -      | 否   | 接口调用失败的回调函数                           |
-| complete | function | -      | 否   | 接口调用结束的回调函数（调用成功、失败都会执行） |
+### 9) 发送邮件验证码:sendEmail
 
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
-plugin.quecUser.validateEmailCode({
-   code: '123456',
-   email: 'xx@qq.com',
-   isDisabled: 2,
-   success (res) {
-        console.log(res)
-   },
-  fail (res) {
-    console.log(JSON.stringify(res))
-  }
- })
-```
-
-#### 14) sendEmail
-##### 功能描述
+功能描述
 ```
 发送邮件验证码(注销/关联手机号)
 ```
-##### 参数
+
+参数
 | 属性     | 类型     | 默认值  | 必填 | 说明                                             |
 | --------| -------- | ------ | ---- | ------------------------------------------------ |
 | email    | string   | -      | 是  |  收件人邮箱                                        |
@@ -962,7 +321,7 @@ plugin.quecUser.validateEmailCode({
 | fail     | function | -      | 否   | 接口调用失败的回调函数                           |
 | complete | function | -      | 否   | 接口调用结束的回调函数（调用成功、失败都会执行） |
 
-##### 示例代码
+示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
 plugin.quecUser.sendEmail({
@@ -976,19 +335,21 @@ plugin.quecUser.sendEmail({
  })
 ```
 
-#### 15) getUInfo
-##### 功能描述
+### 10) 获取用户信息:getUInfo
+
+功能描述
 ```
 获取用户信息。
 ```
-##### 参数
+
+参数
 |属性 | 类型 | 默认值 |必填 |说明 |
 | ---- | ---- | ---- |---- |---- |
 | success | function |  - | 否 | 接口调用成功的回调函数 |
 | fail | function |  - | 否 | 接口调用失败的回调函数 |
 | complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
 
-##### 示例代码
+示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.getUInfo({
@@ -1001,19 +362,21 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-#### 16) userLogout 
-##### 功能描述
+### 11) 退出登录: userLogout 
+
+功能描述
 ```
 退出登录。
 ```
-##### 参数
+
+参数
 |属性 | 类型 | 默认值 |必填 |说明 |
 | ---- | ---- | ---- |---- |---- |
 | success | function |  - | 否 | 接口调用成功的回调函数 |
 | fail | function |  - | 否 | 接口调用失败的回调函数 |
 | complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
 
-##### 示例代码
+示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.userLogout({
@@ -1026,19 +389,22 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-#### 17) userCancel 
-##### 功能描述
+### 12) 用户注销:userCancel 
+
+功能描述
 ```
 用户注销。
 ```
-##### 参数
+
+参数
 |属性 | 类型 | 默认值 |必填 |说明 |
 | ---- | ---- | ---- |---- |---- |
 | type | number |  默认为 7 天后删除 | 否 | 删除类型：1- 立即删除<br> 2- 7天后删除 |
 | success | function |  - | 否 | 接口调用成功的回调函数 |
 | fail | function |  - | 否 | 接口调用失败的回调函数 |
 | complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-##### 示例代码
+
+示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.userCancel({
@@ -1052,19 +418,22 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-#### 18) editNickname 
-##### 功能描述
+### 13) 修改昵称: editNickname 
+
+功能描述
 ```
 修改昵称。
 ```
-##### 参数
+
+参数
 |属性 | 类型 | 默认值 |必填 |说明 |
 | ---- | ---- | ---- |---- |---- |
 | nikeName | string |  - | 是 | 昵称 |
 | success | function |  - | 否 | 接口调用成功的回调函数 |
 | fail | function |  - | 否 | 接口调用失败的回调函数 |
 | complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-##### 示例代码
+
+示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecUser.editNickname({
@@ -1078,113 +447,30 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-#### 19) editHeadImg 
-##### 功能描述
-```
-修改头像。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| headImage | String |  - | 是 | 修改头像地址 |
-| success | function |  - | 否 | 接口调用成功的回调函数 |
-| fail | function |  - | 否 | 接口调用失败的回调函数 |
-| complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecUser.editHeadImg({
-    headImage:'',
-    success (res) {
-      console.log(res)
-    },
-    fail (res) {
-     console.log(JSON.stringify(res))
-  }
- })
-```
+# 五、设备管理
 
-#### 20) relationPhone 
-##### 功能描述
-```
-关联手机号。
-```
-##### 参数
-| 属性     | 类型     | 默认值 | 必填 | 说明                                            |
-| -------- | -------- | ------ | ---- | ----------------------------------------------|
-| code   |  string    |  -     |   是   |    验证码  |
-| phone  | string  | -    |   是   |   手机号   |
-| success  | function | -      | 否   | 接口调用成功的回调函数                           |
-| fail     | function | -      | 否   | 接口调用失败的回调函数                           |
-| complete | function | -      | 否   | 接口调用结束的回调函数（调用成功、失败都会执行）    |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecUser.relationPhone({
-     code:'123456',
-     phone:'180xxxxxxxx',
-     success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-#### 21) isEmailRegister 
-##### 功能描述
-```
-邮箱是否注册
-```
-##### 参数
-| 属性     | 类型     | 默认值 | 必填 | 说明                                            |
-| -------- | -------- | ------ | ---- | ----------------------------------------------|
-| email   |  string    |  -    |   是   |    邮箱  |
-| success  | function | -      | 否   | 接口调用成功的回调函数                           |
-| fail     | function | -      | 否   | 接口调用失败的回调函数                           |
-| complete | function | -      | 否   | 接口调用结束的回调函数（调用成功、失败都会执行）    |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.quecUser.isEmailRegister({
-     code:'123456',
-     phone:'180xxxxxxxx',
-     success (res) {
-         console.log(res)
-     },
-     fail (res) {
-        console.log(JSON.stringify(res))
-      }
- })
-```
-
-## 五、设备管理
-### 1、功能点
+## 1、功能点
 ```
 涵盖功能点：设备扫描安装、设备列表（展示、重命名、删除）、设备搜索
 ```
 
-### 2、设备管理接口
-#### 1) scan 
-##### 功能描述
+## 2、设备管理接口
+
+### 1) 扫描设备安装二维码:scan 
+
+功能描述
 ```
 设备安装二维码扫描。
 ```
-##### 参数
+
+参数
 |属性 | 类型 | 默认值 |必填 |说明 |
 | ---- | ---- | ---- |---- |---- |
 | success | function |  - | 否 | 接口调用成功的回调函数 |
 | fail | function |  - | 否 | 接口调用失败的回调函数 |
 | complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
-##### 返回码
-|Code | 说明 | 
-| ---- | ---- | 
-| 110000 | 二维码不正确，请重新扫描 | 
 
-##### 示例代码
+示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecManage.scan({

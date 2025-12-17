@@ -1,13 +1,18 @@
 {
   "component": true,
   "usingComponents": {
-    "van-row": "../../../../miniprogram_npm/@vant/weapp/row/index",
-    "van-col": "../../../../miniprogram_npm/@vant/weapp/col/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "r_bool": "../../tsl/r_bool/index",
     "rw_bool": "../../tsl/rw_bool/index",
     "w_bool": "../../tsl/w_bool/index",
+    "r_number": "../../tsl/r_number/index",
     "rw_number": "../../tsl/rw_number/index",
+    "r_date": "../../tsl/r_date/index",
+    "rw_date": "../../tsl/rw_date/index",
+    "r_enum": "../../tsl/r_enum/index",
     "rw_enum": "../../tsl/rw_enum/index",
     "general": "../../tsl/general/index",
-    "rw_raw": "../../tsl/rw_raw/index"
+    "noData": "plugin://quecPlugin/noData"
   }
 }

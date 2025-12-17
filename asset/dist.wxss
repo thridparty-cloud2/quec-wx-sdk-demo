@@ -1,0 +1,254 @@
+.pmain {
+  margin-right: 30rpx;
+}
+
+.fbox {
+  display: flex;
+  flex-direction: row;
+}
+
+.con {
+  background: #ffffff;
+  margin: 0 0 20rpx 20rpx;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.con1 {
+  padding: 30rpx 20rpx;
+}
+
+.con2 {
+  padding: 20rpx;
+}
+
+.l {
+  overflow: hidden;
+  flex: 8;
+}
+
+.op {
+  flex: 2;
+}
+
+.col1 {
+  position: relative;
+}
+
+.col1 {
+  padding: 20rpx 0 0;
+}
+
+.room {
+  position: absolute;
+  right: 14rpx;
+  top: 30rpx;
+  margin-left: 10rpx;
+  width: 46%;
+  height: 26px;
+  text-align: center;
+  z-index: 11;
+}
+
+.room1 {
+  width: 80px;
+  text-align: center;
+  margin-bottom: 10rpx;
+}
+
+.room1 .txt,
+.room .txt {
+  background: #F7F8FC;
+  padding: 10rpx;
+  font-size: 11px;
+  border-radius: 12px;
+  color: #999999;
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.room1 .txt {
+  padding: 10rpx 10rpx 10rpx 20rpx;
+  box-sizing: border-box;
+}
+
+.room2 {
+  width: 46%;
+}
+
+.son {
+  color: #2DBC66;
+}
+
+.soff {
+  color: #999999;
+}
+
+.don {
+  background: #2DBC66;
+}
+
+.doff {
+  background: #999999;
+}
+
+.status {
+  font-size: 12px;
+  height: 34rpx;
+}
+
+.s1,
+.s2 {
+  padding-top: 10rpx;
+}
+
+.status .dot {
+  width: 6rpx;
+  height: 6rpx;
+  display: inline-block;
+  margin: 0 6rpx;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+.dinfo {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.d1 {
+  padding: 0 0 0 20rpx;
+  overflow: hidden;
+  width: 100%;
+}
+
+.d1 .dname {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.d1 .name {
+  max-width: 100%;
+}
+
+.d2 .name {
+  max-width: 90%;
+}
+
+.d2 {
+  padding: 20rpx 0 0 0;
+}
+
+.checkCls {
+  position: absolute;
+  z-index: 13;
+}
+
+.cls1 {
+  right: 20rpx;
+  bottom: 8rpx;
+}
+
+.cls2 {
+  right: 20rpx;
+  bottom: 30rpx;
+}
+
+.d1 .dname .name {
+  padding-top: 6rpx;
+}
+
+.dname .name {
+  font-size: 14px;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.ellipse {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 60rpx;
+}
+
+.dimg {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.dimg .img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+.dname {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 90%;
+}
+
+.dtxt {
+  color: #999999;
+  font-size: 12px;
+  line-height: 44rpx;
+}
+
+.deviceList {
+  padding-bottom: 66px;
+}
+
+.item .right {
+  padding-right: 30rpx;
+}
+
+.btns {
+  margin-top: 40rpx;
+}
+
+.addBtn {
+  font-size: 16px;
+  border-radius: 10px;
+  width: 50% !important;
+  margin: 0 auto;
+}
+
+.addBtn .add {
+  color: #ffffff;
+  font-size: 16px;
+  padding-right: 16rpx;
+}
+
+.noCon {
+  width: 50%;
+}
+
+.ohide {
+  overflow: hidden;
+}
+
+.hei50 {
+  height: 50px;
+}
+
+.boxsizing {
+  box-sizing: border-box;
+}
+
+
+
+/*一行展示一个设备*/

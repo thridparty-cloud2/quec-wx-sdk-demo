@@ -1,0 +1,93 @@
+/* 600加粗 */
+.f_600 {
+  font-weight: 600;
+}
+
+/* 500加粗 */
+.f_500 {
+  font-weight: 500;
+}
+
+/*圆角*/
+.radius12 {
+  border-radius: 12px;
+}
+
+/* 字号 */
+.size18 {
+  font-size: 18px;
+}
+
+.size16 {
+  font-size: 16px;
+}
+
+.size14 {
+  font-size: 14px;
+}
+
+.size12 {
+  font-size: 12px;
+}
+
+/* 文本色值 */
+.c_6B6F75 {
+  color: #6B6F75;
+}
+
+.c_0091ff {
+  color: #0091ff;
+}
+
+.c_080F19 {
+  color: #080F19;
+}
+
+.c_FF4219 {
+  color: #FF4219;
+}
+
+.c_9C9FA3 {
+  color: #9C9FA3;
+}
+
+.c_00CF63 {
+  color: #00CF63;
+}
+
+.c_ed5d4f {
+  color: #ED5D4F !important;
+}
+
+.c_333333 {
+  color: #333333;
+}
+
+.c_999999 {
+  color: #999999;
+}
+
+.c_9CA1AB {
+  color: #9CA1AB
+}
+
+.c_FF8717 {
+  color: #FF8717;
+}
+
+/*背景*/
+.bg_F7F8FC {
+  background: #F7F8FC;
+}
+
+.bg_E6E7E8 {
+  background: #E6E7E8;
+}
+
+.bg_FF4219 {
+  background: #FF4219;
+}
+
+.bg_ffffff {
+  background: #ffffff;
+}

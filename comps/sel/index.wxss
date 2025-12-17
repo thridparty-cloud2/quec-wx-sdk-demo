@@ -1,0 +1,31 @@
+.sel {
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 80;
+}
+
+.st {
+  padding-top: 40px;
+  position: relative;
+  line-height: 30px;
+  top: 0;
+  height: 30px;
+  text-align: center;
+}
+
+.close {
+  width: 80px;
+  height: 30px;
+  line-height: 36px;
+  position: absolute;
+  left: -15px;
+}
+
+.txt {
+  color: #080F19;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.165px;
+}

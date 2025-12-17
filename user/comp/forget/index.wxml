@@ -1,0 +1,12 @@
+<view class="ubox">
+  <view class="uh2">{{title}}</view>
+  <view class="udesc padt" style="color: {{skin['text_h3']}};">{{desc}}</view>
+  <view class="inputItem">
+    <van-field model:value="{{ uname }}" name="uname" clearable bind:focus="unameFocus" bind:blur="unameBlur" placeholder="{{i18n['loginUnamePlace']}}" size="large" border="{{false}}" readonly="{{type == 4 ? true : false}}" />
+    <line flag="{{unamefocus}}"></line>
+  </view>
+  <view class="btns">
+    <van-button custom-class="pluginBtn" custom-style="{{'border-radius:'+skin['radius']}}" disabled="{{uname.length === 0 || btnDisabled}}" block color="{{skin['primary']}}" catchtap="{{btnDisabled ? '' : 'sendCode'}}">{{i18n['getCode']}}</van-button>
+  </view>
+</view>
+<confirm_tip visible="{{noRegShow}}" title="" tip="{{i18n['forgetTit']}}" tipAlign="center" confirmTxt="{{i18n['goReg']}}" bindCancel="onClose" bindConfirm="toRegister"></confirm_tip>

@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "device_home": "plugin://quecPlugin/device_home"
+    "device_home": "./comp/home/index"
   },
   "disableSwipeBack": true,
   "navigationBarTitleText": ""

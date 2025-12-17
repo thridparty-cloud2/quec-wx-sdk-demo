@@ -1,11 +1,11 @@
 <view wx:if="{{isCheck}}">
-  <van-button custom-class="cust-btn" block catchtap="getUserInfo" color="{{primaryColor}}">微信用户一键登录</van-button>
+  <van-button custom-class="cust-btn" block catchtap="getUserInfo" color="{{primaryColor}}">{{env['appid']=='wx803cf0e39e2c0d88' ?'一键登入':'一键登录'}}</van-button>
 </view>
 <view wx:else>
-  <van-button custom-class="cust-btn" block catchtap="checkTip" color="{{primaryColor}}">微信用户一键登录</van-button>
+  <van-button custom-class="cust-btn" block catchtap="checkTip" color="{{primaryColor}}">{{env['appid']=='wx803cf0e39e2c0d88' ?'一键登入':'一键登录'}}</van-button>
 </view>
 <!-- 绑定手机号 -->
-<van-dialog z-index="99999" class="get-phone-dialog" use-slot title="绑定手机号" confirm-button-text="微信一键绑定" show="{{phoneVisible}}" theme="round-button" confirm-button-open-type="getPhoneNumber" confirm-button-color="green" bind:getphonenumber="getPhoneNumber">
+<van-dialog z-index="99999" class="get-phone-dialog" use-slot title="绑定手机号" confirm-button-text="{{env['appid']=='wx803cf0e39e2c0d88' ?'一键登入':'一键登录'}}" show="{{phoneVisible}}" theme="round-button" confirm-button-open-type="getPhoneNumber" confirm-button-color="white" bind:getphonenumber="getPhoneNumber">
   <view class="get-phone-tip">登录将申请获取您的手机号</view>
 </van-dialog>
 

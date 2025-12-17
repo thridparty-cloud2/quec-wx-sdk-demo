@@ -1,75 +1,79 @@
-import { home, jump } from '../../utils/jump.js'
+import { home, jump } from "../../utils/jump.js";
 
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     phoneVisible: false,
-    phoneInfo: {}
+    phoneInfo: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad (options) {
-
-  },
+  onLoad(options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady () {
-
-  },
+  onReady() {},
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow () {
+  onShow() {},
 
-  },
-
-  goNikeName (e) {
+  goNikeName(e) {
     wx.redirectTo({
-      url: '/user/nickname/index?nikeName=' + e.detail,
-    })
+      url: "/user/nickname/index?nikeName=" + e.detail,
+    });
   },
 
-  logoutSuccess () {
-    home(this)
+  logoutSuccess() {
+    home(this);
   },
 
-  jump () {
-    jump(this)
+  goChangePwd(e) {
+    this.pageRouter.navigateTo({
+      url: "/user/edit_pwd/index?uname=" + e.detail,
+    });
+  },
+
+  /**手机号授权 */
+  relatePhone() {
+    this.setData({
+      phoneVisible: true,
+    });
+  },
+
+  getPhoneInfo(e) {
+    this.setData({
+      phoneInfo: e.detail,
+    });
+  },
+
+  jump() {
+    jump(this);
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide () {
-
-  },
+  onHide() {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload () {
-
-  },
+  onUnload() {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh () {
-
-  },
+  onPullDownRefresh() {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom () {
-
-  }
-})
+  onReachBottom() {},
+});

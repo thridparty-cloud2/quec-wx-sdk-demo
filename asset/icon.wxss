@@ -1,8 +1,8 @@
 @font-face {
   font-family: "sdk-icon";
-  src: url('https://quec-pro-pass2.oss-cn-shanghai.aliyuncs.com/wxsdk_img/assest/iconfont/1_5_0/iconfont.woff2') format('woff2'),
-  url('https://quec-pro-pass2.oss-cn-shanghai.aliyuncs.com/wxsdk_img/assest/iconfont/1_5_0/iconfont.woff') format('woff'),
-  url('https://quec-pro-pass2.oss-cn-shanghai.aliyuncs.com/wxsdk_img/assest/iconfont/1_5_0/iconfont.ttf') format('truetype');
+  src: url('https://quec-pro-pass2.oss-cn-shanghai.aliyuncs.com/wxsdk_img/assest/iconfont/2_3_5/iconfont.woff2?v=1.1') format('woff2'),
+    url('https://quec-pro-pass2.oss-cn-shanghai.aliyuncs.com/wxsdk_img/assest/iconfont/2_3_5/iconfont.woff?v=1.1') format('woff'),
+    url('https://quec-pro-pass2.oss-cn-shanghai.aliyuncs.com/wxsdk_img/assest/iconfont/2_3_5/iconfont.ttf?v=1.1') format('truetype');
 }
 
 .sdk-icon {
@@ -11,6 +11,138 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.diyinliang:before {
+  content: "\e73f";
+}
+
+.gaoyinliang:before {
+  content: "\e740";
+}
+
+.guanbi:before {
+  content: "\e73e";
+}
+
+.adjust:before {
+  content: "\e73d";
+}
+
+.writing:before {
+  content: "\e73b";
+}
+
+.a-Frame1:before {
+  content: "\e645";
+}
+
+.copy1:before {
+  content: "\e644";
+}
+
+.shanchu1:before {
+  content: "\e73c";
+}
+
+.juese_del:before {
+  content: "\e8c2";
+}
+
+.icon_dingdan:before {
+  content: "\e73a";
+}
+
+.jiesuogengduo:before {
+  content: "\e606";
+}
+
+.goumaikelongshengyin:before {
+  content: "\e602";
+}
+
+.selected:before {
+  content: "\e738";
+}
+
+.no_select:before {
+  content: "\e739";
+}
+
+.shengyinpeizhi:before {
+  content: "\e736";
+}
+
+.liaotianjilu:before {
+  content: "\e737";
+}
+
+.jiaose:before {
+  content: "\e722";
+}
+
+.dingdan:before {
+  content: "\e723";
+}
+
+.shezhi2:before {
+  content: "\e721";
+}
+
+.a-shangchengxuanzhong:before {
+  content: "\e71f";
+}
+
+.a-shangchengweixuanzhong:before {
+  content: "\e720";
+}
+
+.icon_qiye_xuanzhong2:before {
+  content: "\e697";
+}
+
+.icon_qiye_weixuanzhong:before {
+  content: "\e696";
+}
+
+.xiala1:before {
+  content: "\e643";
+}
+
+.yinliang:before {
+  content: "\e641";
+}
+
+.shiting:before {
+  content: "\e642";
+}
+
+.lanya:before {
+  content: "\e758";
+}
+
+.copy:before {
+  content: "\e6ce";
+}
+
+.shezhi1:before {
+  content: "\e706";
+}
+
+.yijianfankui:before {
+  content: "\e707";
+}
+
+.xiaoxizhongxin:before {
+  content: "\e708";
+}
+
+.wendang:before {
+  content: "\e709";
+}
+
+.guanyuwomen:before {
+  content: "\e70a";
 }
 
 .kaifa:before {

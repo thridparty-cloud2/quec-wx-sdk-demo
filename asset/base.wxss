@@ -1,9 +1,60 @@
-.elipse {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+@import '/asset/color.wxss';
+
+.group {
+  margin-top: 30rpx;
 }
 
+.btns {
+  margin: 80rpx 0 40rpx;
+}
+
+.btnItem {
+  margin: 20rpx 0;
+}
+
+.cellTitle {
+  font-size: 16px;
+  color: #080F19;
+}
+
+.pluginBtn {
+  font-size: 16px !important;
+  border-radius: 10px;
+}
+
+.bg_fff {
+  background: #FFFFFF;
+}
+
+.fixBtn {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 40rpx 40rpx 60rpx;
+  z-index: 99;
+}
+
+.houseBtn {
+  font-size: 16px;
+  text-align: center;
+  background: #ffff;
+  padding: 30rpx;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.renameTit {
+  text-align: center;
+  padding: 40rpx;
+  color: #080F19;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.block {
+  padding: 0 40rpx 40rpx;
+}
 
 .fbox {
   display: flex;
@@ -14,33 +65,69 @@
   justify-content: space-between;
 }
 
-.itemCenter {
+.fboxleft {
+  justify-content: space-between;
+}
+
+.icenter {
   align-items: center;
 }
 
-/* 500加粗 */
-.f_500 {
+.fboxEnd {
+  justify-content: flex-end;
+}
+
+.elipse {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.gap {
+  margin: 30rpx 30rpx 0;
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 10rpx;
+}
+
+.gap_nobg {
+  margin: 20rpx 20rpx 0;
+  padding: 10rpx;
+}
+
+.imgSize {
+  width: 240px;
+  height: 140px;
+}
+
+.f1 {
+  flex: 1;
+}
+
+.flex-2 {
+  flex: 2;
+}
+
+.flex-3 {
+  flex: 3;
+}
+
+.center {
+  text-align: center;
+}
+
+.scIn {
+  margin-right: 15px;
+}
+
+.renameTit {
+  text-align: center;
+  padding: 40rpx;
+  color: #080F19;
+  font-size: 18px;
   font-weight: 500;
 }
 
-/*圆角*/
-.radius12 {
-  border-radius: 12px;
-}
-
-/* 字号 */
-.size18 {
-  font-size: 18px;
-}
-
-.size16 {
-  font-size: 16px;
-}
-
-.size14 {
-  font-size: 14px;
-}
-
-.size12 {
-  font-size: 12px;
+.block {
+  padding: 0 40rpx 40rpx;
 }

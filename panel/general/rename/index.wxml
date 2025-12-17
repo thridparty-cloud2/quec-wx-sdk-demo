@@ -1,0 +1,2 @@
+<nav_bar title="重命名"></nav_bar>
+<rename curItem="{{curItem}}" bindrenameSuccess="renameSuccess"></rename>

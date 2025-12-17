@@ -1,22 +1,24 @@
-import { jump } from '../../utils/jump.js'
-const plugin = requirePlugin('quecPlugin')
+import { jump } from "../../utils/jump.js"
+import { getDifLang } from "../../utils/dLang.js"
+
+const plugin = requirePlugin("quecPlugin")
 const app = getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    headImage: '',
-    nikeName: '',
-    phonenumber: '',
-    email: '',
+    headImage: "",
+    nikeName: "",
+    phonenumber: "",
+    email: "",
     baseImgUrl: app.globalData.baseImgUrl,
     gradientHeight: 150,
     isFinish: false,
     MsgNum: 0,
     isToken: false,
-    env: app.globalData.envData
+    env: app.globalData.envData,
+    valaddTxt: {},
   },
 
   /**
@@ -24,54 +26,49 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      gradientHeight: (150 / wx.getWindowInfo().windowHeight).toFixed(2) * 100
+      gradientHeight: (150 / wx.getWindowInfo().windowHeight).toFixed(2) * 100,
+    })
+
+    let diff = getDifLang()
+    let valTxt = {
+      telTit: diff["valadd"].telTit,
+      more: diff["valadd"].more,
+      smsTit: diff["valadd"].smsTit,
+      serTit: diff["valadd"].serTit,
+      set: diff["valadd"].set,
+    }
+    this.setData({
+      valaddTxt: valTxt,
     })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-
-  },
+  onReady: function () { },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
     let self = this
-    if (typeof self.getTabBar === 'function' && self.getTabBar()) {
+    if (typeof self.getTabBar === "function" && self.getTabBar()) {
       self.setData({
-        isToken: plugin.config.getToken()
+        isToken: plugin.config.getToken(),
       })
       if (plugin.config.getToken()) {
         self.initUinfo()
-        plugin.quecMsg.getMsgStats({
-          success (res) {
-            if (res.data) {
-              let data = res.data
-              let num = Number(data.fault.unRead) + Number(data.inform.unRead) + Number(data.warning.unRead)
-              self.setData({
-                MsgNum: num
-              })
-            }
-          },
-          fail (res) {
-            self.setData({
-              MsgNum: 0
-            })
-          }
-        })
       } else {
         let imgs = plugin.config.getHeadImg(false)
         self.setData({
-          headImage: imgs[0]
+          headImage: imgs[0],
         })
       }
       wx.nextTick(() => {
         self.getTabBar().setData({
-          selected: 2
+          selected: 1
         })
+
       })
     }
   },
@@ -88,19 +85,19 @@ Page({
           hImg = imgs[0]
         }
         self.setData({
-          headImage: hImg
+          headImage: hImg,
         })
         self.setData({
-          nikeName: result.nikeName ? result.nikeName : ''
+          nikeName: result.nikeName ? result.nikeName : "",
         })
       },
       fail (res) { },
       complete () {
         wx.hideToast()
         self.setData({
-          isFinish: true
+          isFinish: true,
         })
-      }
+      },
     })
   },
 
@@ -108,40 +105,47 @@ Page({
    * 个人中心
    */
   goUserInfo () {
-    this.pageRouter.navigateTo({
-      url: '/user/info/index'
-    })
+    let self = this
+    if (self.data.isToken) {
+      self.pageRouter.navigateTo({
+        url: "/user/info/index",
+      })
+    } else {
+      jump(self)
+    }
   },
   /**
-   * 关于我们 
+   * 关于我们
    */
   goUserAbout () {
+    let self = this
     this.pageRouter.navigateTo({
-      url: '/user/about/v2/home/index'
-    })
-  },
-  /**
-   * 系统设置
-   */
-  goSetting () {
-    this.pageRouter.navigateTo({
-      url: '/user/setting/index'
+      url: "/user/about/v2/home/index",
     })
   },
 
+  verifyToken () {
+    if (!this.data.isToken) {
+      this.pageRouter.navigateTo({
+        url: "/user/index/index",
+      })
+      return false
+    }
+    return true
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-
-  },
+  onHide: function () { },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function () { },
 
-  },
-
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage () { },
 })

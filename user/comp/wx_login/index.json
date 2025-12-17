@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {},
+  "componentGenerics": {
+    "wx_info": true
+  }
+}

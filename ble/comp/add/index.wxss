@@ -1,0 +1,15 @@
+.group {
+  margin: 30rpx;
+}
+
+.btns {
+  margin: 90rpx 30rpx 40rpx;
+}
+
+.addBtn {
+  font-size: 16px;
+}
+
+.btnItem {
+  margin: 20rpx 0;
+}

@@ -1,0 +1,4 @@
+<view class="logout">
+  <view class="houseBtn" catchtap="logout" style="color:{{skin['subary']}};border-radius:{{skin['radius']}}">{{i18n['logoutBtn']}}</view>
+</view>
+<confirm_tip visible="{{logoutVisible}}" title="{{i18n['warmTip']}}" tip="{{i18n['logoutTip']}}" bindCancel="onClose" bindConfirm="confirmLogout"></confirm_tip>

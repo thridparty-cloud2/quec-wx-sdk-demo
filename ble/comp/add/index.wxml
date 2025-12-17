@@ -1,0 +1,13 @@
+<form bindsubmit="{{deviceName.length>0 ? 'addSubmit' :''}}">
+  <view class="group">
+    <van-field type="textarea" model:value="{{item.shareCode ? item.shareCode : item.sn }}" label="{{i18n['sn']}}" placeholder="{{i18n['snHolder']}}" border="{{ false }}" maxlength="200" right-icon="scan" readonly bind:click-icon="saoma" title-width="4.8em" autosize />
+  </view>
+  <view class="group">
+    <van-field type="textarea" model:value="{{ deviceName }}" label="{{i18n['dname']}}" placeholder="{{i18n['dnameHolder']}}" border="{{ false }}" maxlength="64" bind:change="changeDeviceName" bind:blur="blurDeviceName" title-width="5em" autosize />
+  </view>
+  <view class="btns">
+    <view class="btnItem">
+      <van-button custom-class="addBtn" custom-style="{{'border-radius:'+skin['radius']}}" disabled="{{deviceName.length>0 ? false : true}}" block form-type="submit" color="{{skin['primary']}}">{{i18n['confirmBtn']}}</van-button>
+    </view>
+  </view>
+</form>

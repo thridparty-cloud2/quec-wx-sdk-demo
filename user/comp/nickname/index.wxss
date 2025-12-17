@@ -1,0 +1,16 @@
+@import '../../css/user.wxss';
+
+.tips {
+  font-size: 12px;
+  margin: 30rpx;
+  color: #999999;
+}
+
+.nicknameBtn {
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.btns {
+  margin: 80rpx 30rpx 40rpx;
+}

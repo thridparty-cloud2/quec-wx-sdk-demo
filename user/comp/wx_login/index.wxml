@@ -1,0 +1,1 @@
+<wx_info bind:getPhoneNumber="getPhoneNumber" bind:getUserInfo="getUserInfo" phoneVisible="{{phoneNoVisible}}" isCheck="{{agreecheck}}" />

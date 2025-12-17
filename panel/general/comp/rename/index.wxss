@@ -1,0 +1,22 @@
+.group {
+  margin-top: 30rpx;
+}
+
+.tips {
+  font-size: 12px;
+  margin: 30rpx;
+  color: #999999;
+}
+
+.btns {
+  margin: 90rpx 30rpx 40rpx;
+}
+
+.dnameBtn {
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.btnItem {
+  margin: 20rpx 0;
+}

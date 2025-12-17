@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "user_set_pwd": "plugin://quecPlugin/user_set_pwd"
+    "user_set_pwd": "../comp/set_pwd/index"
   }
 }
