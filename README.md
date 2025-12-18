@@ -574,7 +574,7 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-## 5、 unbind 
+## 5、 设备删除：unbind 
 
 功能描述
 ```
