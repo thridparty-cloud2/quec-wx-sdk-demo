@@ -449,14 +449,7 @@ const plugin = requirePlugin('quecPlugin')
 
 # 五、设备管理
 
-## 1、功能点
-```
-涵盖功能点：设备扫描安装、设备列表（展示、重命名、删除）、设备搜索
-```
-
-## 2、设备管理接口
-
-### 1) 扫描设备安装二维码:scan 
+## 1、 扫描设备安装二维码: scan 
 
 功能描述
 ```
@@ -483,12 +476,14 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-#### 2) bindSubmit 
-##### 功能描述
+## 2、 添加设备: bindSubmit 
+
+功能描述
 ```
 添加设备。
 ```
-##### 参数
+
+参数
 |属性 | 类型 | 默认值 |必填 |说明 |
 | ---- | ---- | ---- |---- |---- |
 | pk | String |  - | 是 | 产品productKey |
@@ -498,12 +493,7 @@ const plugin = requirePlugin('quecPlugin')
 | fail | function |  - | 否 | 接口调用失败的回调函数 |
 | complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
 
-##### 返回码
-|Code | 说明 | 
-| ---- | ---- | 
-| 200 | 设备添加成功 | 
-
-##### 示例代码
+示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecManage.bindSubmit({
@@ -519,12 +509,14 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-#### 3) getDeviceList 
-##### 功能描述
+## 3、 设备列表: getDeviceList 
+
+功能描述
 ```
 获取设备列表。
 ```
-##### 参数
+
+参数
 |属性 | 类型 | 默认值 |必填 |说明 |
 | ---- | ---- | ---- |---- |---- |
 | page | number |  - | 是 | 页码 |
@@ -534,27 +526,29 @@ const plugin = requirePlugin('quecPlugin')
 | fail | function |  - | 否 | 接口调用失败的回调函数 |
 | complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
 
-##### 示例代码
+示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecManage.getDeviceList({
      page:1,
      pageSize:10,
     success (res) {
-         console.log(res)
+        console.log(res)
      },
      fail (res) {
         console.log(JSON.stringify(res))
-      }
+     }
  })
 ```
 
-#### 4) rename 
-##### 功能描述
+## 4、 修改设备名称: rename 
+
+功能描述
 ```
 修改设备名称。
 ```
-##### 参数
+
+参数
 |属性 | 类型 | 默认值 |必填 |说明 |
 | ---- | ---- | ---- |---- |---- |
 | pk | String |  - | 是 | 产品productKey |
@@ -564,7 +558,7 @@ const plugin = requirePlugin('quecPlugin')
 | fail | function |  - | 否 | 接口调用失败的回调函数 |
 | complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
 
-##### 示例代码
+示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecManage.rename({
@@ -580,12 +574,14 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-#### 5) unbind 
-##### 功能描述
+## 5、 unbind 
+
+功能描述
 ```
 设备删除。
 ```
-##### 参数
+
+参数
 |属性 | 类型 | 默认值 |必填 |说明 |
 | ---- | ---- | ---- |---- |---- |
 | pk | String |  - | 是 | 产品productKey |
@@ -594,7 +590,7 @@ const plugin = requirePlugin('quecPlugin')
 | fail | function |  - | 否 | 接口调用失败的回调函数 |
 | complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
 
-##### 示例代码
+示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecManage.unbind({
@@ -609,19 +605,16 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-## 六、设备控制模块
-### 1、使用说明
-```
-涵盖功能点：设备详情通用面板控制。
-```
+# 六、设备控制模块
 
-### 2、设备控制接口
-#### 1) getTslList 
-##### 功能描述
+## 1、 获取所有物模型属性：getTslList 
+
+功能描述
 ```
 获取当前设备的物模型属性（不含属性值）。
 ```
-##### 参数
+
+参数
 |属性 | 类型 | 默认值 |必填 |说明 |
 | ---- | ---- | ---- |---- |---- |
 | pk | string |  - | 是 | 产品productkey |
@@ -629,7 +622,7 @@ const plugin = requirePlugin('quecPlugin')
 | fail | function |  - | 否 | 接口调用失败的回调函数 |
 | complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
 
-##### 示例代码
+示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecManage.getTslList({
@@ -643,12 +636,14 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-#### 2) getTslVal 
-##### 功能描述
+## 2、 物模型有值数据：getTslVal 
+
+功能描述
 ```
 获取当前设备的物模型属性有值的数据。
 ```
-##### 参数
+
+参数
 |属性 | 类型 | 默认值 |必填 |说明 |
 | ---- | ---- | ---- |---- |---- |
 | pk | string |  - | 是 | 产品productkey |
@@ -657,7 +652,7 @@ const plugin = requirePlugin('quecPlugin')
 | fail | function |  - | 否 | 接口调用失败的回调函数 |
 | complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
 
-##### 示例代码
+示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecManage.getTslVal({
@@ -672,12 +667,16 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-#### 3) deviceInfo 
-##### 功能描述
+## 3、 设备详情信息：deviceInfo 
+
+功能描述
+
 ```
 获取设备详情信息
 ```
-##### 参数
+
+参数
+
 |属性 | 类型 | 默认值 |必填 |说明 |
 | ---- | ---- | ---- |---- |---- |
 | pk | string |  - | 是 | 产品productkey |
@@ -686,7 +685,7 @@ const plugin = requirePlugin('quecPlugin')
 | fail | function |  - | 否 | 接口调用失败的回调函数 |
 | complete | function |  - | 否 | 接口调用结束的回调函数（调用成功、失败都会执行） |
 
-##### 示例代码
+示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.quecManage.deviceInfo({
@@ -701,13 +700,17 @@ const plugin = requirePlugin('quecPlugin')
  })
 ```
 
-## 七、webSocket接口
-### 1、connect 
-##### 功能描述
+## 4、webSocket接口
+
+### 1）连接：connect 
+
+功能描述
 ```
 webSocket连接。
 ```
-##### 参数
+
+参数
+
 |属性 | 类型 | 默认值 |必填 |说明 |
 | ---- | ---- | ---- |---- |---- |
 | userid | string |  - | 是 | 用户id |
@@ -722,7 +725,8 @@ webSocket连接。
 | error | function |  - | 否 | 接收云端发送的错误信息回调 |
 | fail | function |  - | 否 | 失败回调 |
 
-##### 示例代码
+示例代码
+
 ```
 const plugin = requirePlugin('quecPlugin')
 plugin.socket.connect({
@@ -757,29 +761,33 @@ plugin.socket.connect({
 })
 ```
 
-### 2、close 
-##### 功能描述
+### 2）关闭：close 
+
+功能描述
 ```
 webSocket关闭。
 ```
-##### 参数
+
+参数
 |属性 | 类型 | 默认值 |必填 |说明 |
 | ---- | ---- | ---- |---- |---- |
 | success | function |  - | 否 | 成功回调 |
 | fail | function |  - | 否 | 失败回调 |
 
-##### 示例代码
+示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
  plugin.socket.close()
 ```
 
-### 3、 send
-##### 功能描述
+### 3） 指令下发：send
+
+功能描述
 ```
 指令下发
 ```
-##### 参数
+
+参数
 |属性 | 类型 | 默认值 |必填 |说明 |
 | ---- | ---- | ---- |---- |---- |
 | pk | string |  - | 是 | ProductKey|
@@ -789,7 +797,7 @@ const plugin = requirePlugin('quecPlugin')
 | success | function |  - | 否 | 成功回调 |
 | fail | function |  - | 否 | 失败回调 |
 
-##### 示例代码
+示例代码
 ```
 const plugin = requirePlugin('quecPlugin')
 plugin.socket.send({
@@ -800,106 +808,4 @@ plugin.socket.send({
     success (res) {},
     fail (res) { }
 })
-
-```
-
-## 八、主题配置
-### 1、 setLogo 
-##### 功能描述
-```
-设置logo。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| url | string |  - | 是 | logo 图片路径|
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.theme.setLogo(url)
-```
-
-### 2、 setSkin
-##### 功能描述
-```
-设置换肤。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| style | object | skin = { primary: '#ec5c51', //主题色 radius: '10px', //圆角 text_h2: '#333333',//一级文本颜色 text_h3: '#666666',//二级文本颜色  text_h4: '#999999',//三级文本颜色 line: '#BFBFBF',//线条颜色 arrow: '#BFBFBF',//箭头颜色 cancel: '#999999'//弹框取消文字颜色}  | 是 | 需要设置的选项object|
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.theme.setSkin({primary:'#396CDB'})
-```
-
-### 3、 setTitle
-##### 功能描述
-```
-设置小程序名称。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| title | string |  | 否 | 设置小程序名称|
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
- plugin.theme.setTitle('示例DEMO')
-```
-
-## 九、用户域配置
-### 1、 setUserDomain 
-##### 功能描述
-```
-设置用户域。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| url | string |  -  | 否 | 设置用户域 |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
-plugin.config.setUserDomain('xxx')
-```
-### 2、 setUserDomainSecret 
-##### 功能描述
-```
-设置用户域密钥。
-```
-##### 参数
-|属性 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| url | string | -  | 否 | 设置用户域密钥 |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
-plugin.config.setUserDomainSecret('xx')
-```
-
-### 3、 setToLoginFn 
-##### 功能描述
-```
-token过期回调函数。
-```
-##### 参数
-|回调函数 | 类型 | 默认值 |必填 |说明 |
-| ---- | ---- | ---- |---- |---- |
-| function | function |  | 是 | token过期回调函数 |
-
-##### 示例代码
-```
-const plugin = requirePlugin('quecPlugin')
-  plugin.config.setToLoginFn(() => {
-      wx.redirectTo({
-        url: '/pages/login/index'
-      })
-    })
 ```
