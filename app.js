@@ -1,4 +1,4 @@
-import { toLogin, toHouseHome, getEnvConfig } from './utils/tool.js'
+import { toLogin, getEnvConfig } from './utils/tool.js'
 const plugin = requirePlugin('quecPlugin')
 App({
   globalData: {
@@ -10,10 +10,6 @@ App({
 
     plugin.config.setToLoginFn(() => {
       toLogin()
-    })
-
-    plugin.config.setHouseFn(() => {
-      toHouseHome()
     })
   },
 

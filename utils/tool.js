@@ -36,24 +36,6 @@ export function getEnvConfig () {
 }
 
 /**
- * 本地图片地址转base64
- * @param {*} imgUrl - 本地图片路径
- */
-export function toBase64 (imgUrl) {
-  let bimg = "data:image/png;base64," + wx.getFileSystemManager().readFileSync(imgUrl, "base64")
-  return bimg
-}
-
-/**
- * 家居接口返回5041，跳转到首页刷新列表
- */
-export function toHouseHome () {
-  wx.reLaunch({
-    url: '/pages/home/home'
-  })
-}
-
-/**
  * 判断是否为空值
  */
 export function isNull (value) {

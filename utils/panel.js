@@ -1,11 +1,5 @@
 const plugin = requirePlugin("quecPlugin")
 
-const panelId = {
-  1: "general", //生产环境通用面板
-}
-
-export default panelId
-
 /**
  * @param {*} obj - 当前组件对象
  * @param {*} item - {pk,dk,shareCode}
@@ -35,31 +29,25 @@ function getWxPanel (obj, item) {
     pk: item.productKey,
     success (res) {
       if (res.code === 200) {
-        if (res.data && res.data.uid) {
-          data.path = panelId[res.data.uid] ? panelId[res.data.uid] : panelId[1]
-          goDetail(obj, data)
-        } else {
-          data.path = panelId[1]
+        if (res.data) {
+          data.path = 'general'
           goDetail(obj, data)
         }
       }
     },
     fail (res) {
-      data.path = panelId[1]
+      data.path = 'general'
       goDetail(obj, data)
     },
   })
 }
 
 function goDetail (obj, data) {
-  // console.log('goDetail:')
-  // console.log(data)
   obj.pageRouter.navigateTo({
     url: `/panel/general/index/index?item=${encodeURIComponent(
       JSON.stringify(data.item)
     )}`
   })
-
 }
 
 function TslError (obj, data) {
