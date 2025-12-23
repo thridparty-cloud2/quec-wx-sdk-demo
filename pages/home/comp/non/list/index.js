@@ -19,9 +19,6 @@ Component({
       type: Object,
       value: {}
     },
-    valaddTxt: {
-      type: Object
-    }
   },
 
   /**

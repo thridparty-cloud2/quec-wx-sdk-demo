@@ -2,14 +2,14 @@
   <block wx:if="{{isComplete}}">
     <van-transition name="fade">
       <block wx:if="{{mode}}">
-        <house_device model="{{model}}" mode="{{mode}}" modeRefresh="{{modeRefresh}}" valaddTxt="{{valaddTxt}}" bindRoomList="goRoomList" bindgoDetail="goDetail" bindscanSuccess="scanSuccess" bindtoShare="goShare" bindtoNetwork="toNetwork" bindtoScan="toScan" bindfamilyList="familyList" bindSearch="goHouseSearch" bindMode="mode" bindIntroduct="introduct" bindtoNear="toNear" bindLink="toLink" bindnoScanAndNear="noScanAndNear" bindTel="goTel" bindSms="goSms"></house_device>
+        <house_device model="{{model}}" mode="{{mode}}" modeRefresh="{{modeRefresh}}" bindRoomList="goRoomList" bindgoDetail="goDetail" bindscanSuccess="scanSuccess" bindtoShare="goShare" bindtoNetwork="toNetwork" bindtoScan="toScan" bindfamilyList="familyList" bindSearch="goHouseSearch" bindMode="mode" bindIntroduct="introduct" bindtoNear="toNear" bindLink="toLink" bindnoScanAndNear="noScanAndNear" bindTel="goTel" bindSms="goSms"></house_device>
       </block>
       <block wx:else>
-        <non_house_device model="{{model}}" mode="{{mode}}" modeRefresh="{{modeRefresh}}" valaddTxt="{{valaddTxt}}" bindgoDetail="goDetail" bindscanSuccess="scanSuccess" bindtoShare="goShare" bindtoNetwork="toNetwork" bindtoScan="toScan" bindSearch="goNonHouseSearch" bindMode="mode" bindIntroduct="introduct" bindtoNear="toNear" bindLink="toLink" bindJump="jump" bindnoScanAndNear="noScanAndNear" bindTel="goTel" bindSms="goSms"></non_house_device>
+        <non_house_device model="{{model}}" mode="{{mode}}" modeRefresh="{{modeRefresh}}" bindgoDetail="goDetail" bindscanSuccess="scanSuccess" bindtoShare="goShare" bindtoNetwork="toNetwork" bindtoScan="toScan" bindSearch="goNonHouseSearch" bindMode="mode" bindIntroduct="introduct" bindtoNear="toNear" bindLink="toLink" bindJump="jump" bindnoScanAndNear="noScanAndNear" bindTel="goTel" bindSms="goSms"></non_house_device>
       </block>
     </van-transition>
   </block>
 </block>
 <block wx:else>
-  <non_house_device model="{{model}}" mode="{{mode}}" modeRefresh="{{modeRefresh}}" valaddTxt="{{valaddTxt}}" bindgoDetail="goDetail" bindscanSuccess="scanSuccess" bindtoShare="goShare" bindtoNetwork="toNetwork" bindtoScan="toScan" bindSearch="goNonHouseSearch" bindMode="mode" bindIntroduct="introduct" bindtoNear="toNear" bindLink="toLink" bindJump="jump" bindnoScanAndNear="noScanAndNear" bindTel="goTel" bindSms="goSms"></non_house_device>
+  <non_house_device model="{{model}}" mode="{{mode}}" modeRefresh="{{modeRefresh}}" bindgoDetail="goDetail" bindscanSuccess="scanSuccess" bindtoShare="goShare" bindtoNetwork="toNetwork" bindtoScan="toScan" bindSearch="goNonHouseSearch" bindMode="mode" bindIntroduct="introduct" bindtoNear="toNear" bindLink="toLink" bindJump="jump" bindnoScanAndNear="noScanAndNear" bindTel="goTel" bindSms="goSms"></non_house_device>
 </block>
