@@ -9,13 +9,13 @@ page {
 }
 
 .header {
-  min-height: 280rpx;
+  min-height: 230rpx;
   display: flex;
   flex-direction: row;
   padding: 0 88rpx 0 66rpx;
   justify-content: space-between;
   align-items: center;
-  padding-top: 140rpx;
+  padding-top: 130rpx;
 }
 
 .header .left {
@@ -58,11 +58,17 @@ page {
   padding-left: 30rpx;
 }
 
-.menu {
+.menu,
+.valadd {
   margin: 0 50rpx;
   border-radius: 16px;
-  padding: 30rpx 16rpx;
+  padding: 20rpx 16rpx;
   background: #FFFFFF;
+}
+
+.valadd {
+  padding: 12rpx 0;
+  margin: 0 50rpx 30rpx;
 }
 
 .himg {
@@ -89,12 +95,12 @@ page {
   border-radius: 50%;
   display: inline-block;
   position: absolute;
-  right: 0rpx;
+  right: -6rpx;
   top: 5rpx;
 }
 
-.sdk-icon.huaban {
-  font-size: 20px;
+.sdk-icon {
+  font-size: 22px;
   padding-left: 6rpx;
 }
 

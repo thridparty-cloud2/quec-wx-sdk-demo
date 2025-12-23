@@ -1,0 +1,21 @@
+.van-cell {
+  padding: 16px !important;
+}
+
+.cTitle {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.val {
+  color: #9C9FA3;
+  font-size: 14px;
+}
+
+.van-cell__title {
+  flex: 1 !important;
+}
+
+.van-cell__value {
+  flex: 3 !important;
+}

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "rename": "../comp/rename/index"
+  }
+}

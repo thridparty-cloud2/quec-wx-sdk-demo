@@ -1,0 +1,19 @@
+<view class="bar">
+  <block wx:for="{{tab}}" wx:key="index">
+    <view class="bar-item" data-item="{{item}}" catchtap="{{item.disabled?'':'goEvent'}}">
+      <view class="{{item.disabled ? 'dis' :''}}">
+        <view class="{{item.icon}}"></view>
+        <view class="txt">{{item.name}}</view>
+      </view>
+    </view>
+  </block>
+</view>
+<!-- 重命名 -->
+<van-dialog use-slot show="{{renameVisible}}" width="{{275}}" overlayStyle="background-color:rgba(0,0,0,.4)" zIndex="999999" bind:close="onClose" confirm-button-text="确定" confirm-button-color="{{skin['confirm']}}" cancel-button-color="{{skin['cancel']}}" bind:confirm="confirmRename" transition="none" show-cancel-button>
+  <view class="renameTit">{{i18n['rename']}}</view>
+  <view class="block">
+    <van-field type="textarea" model:value="{{ deviceName }}" custom-style="background:#F7F8FC;border-radius:12px;" name="deviceName" bind:change="dnameChange" placeholder="{{i18n['newDeviceName']}}" maxlength="64" border="{{ false }}" />
+  </view>
+</van-dialog>
+<!-- 删除单设备 -->
+<confirm_tip visible="{{delVisible}}" title="确定要删除「{{currentItem.deviceName}}」吗" tip="设备删除后，其关联的自动化、场景将移除该设备" bindConfirm="delConfirm"></confirm_tip>

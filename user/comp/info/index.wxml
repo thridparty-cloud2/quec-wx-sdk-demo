@@ -1,0 +1,79 @@
+<view class="personal p_main">
+  <view class="group">
+    <view class="uploadImg" catchtap="pickImg">
+      <view class="profile">
+        <view class="profileTitle" style="color: {{skin['text_h2']}};">{{i18n['headName']}}</view>
+        <view class="profileInfo">
+          <van-image round width="3.6rem" height="3.6rem" class="img" fit="fill" src="{{headImage ? headImage : imgs[0].url}}" use-loading-slot>
+            <van-loading slot="loading" type="spinner" size="20" vertical />
+          </van-image>
+          <van-icon slot="right-icon" name="arrow" color="{{skin['arrow']}}" />
+        </view>
+      </view>
+    </view>
+    <van-cell catchtap="goNikeName">
+      <view slot="title" class="cellTitle" style="color: {{skin['text_h2']}};">
+        {{i18n['nikeName']}}
+      </view>
+      <view class="val" style="color: {{skin['text_h3']}};">{{nikeName}}</view>
+      <van-icon slot="right-icon" name="arrow" color="{{skin['arrow']}}" />
+    </van-cell>
+    <block wx:if="{{phone.length>0 || email.length>0}}">
+      <van-cell link-type="navigateTo" border="{{false}}">
+        <view slot="title" class="cellTitle" style="color: {{skin['text_h2']}};">
+          {{i18n['account']}}
+        </view>
+        <view class="val" style="color: {{skin['text_h3']}};">
+          <text wx:if="{{phone}}">{{phone}}</text>
+          <text wx:elif="{{email}}">{{email}}</text>
+        </view>
+      </van-cell>
+    </block>
+    <block wx:else>
+      <van-cell wx:if="{{isWechat}}" link-type="navigateTo" border="{{false}}" catchtap="relatePhone">
+        <view slot="title" class="cellTitle" style="color: {{skin['text_h2']}};">
+          {{i18n['phone']}}
+        </view>
+        <view class="val" style="color: {{skin['text_h3']}};">
+          <text>{{i18n['beAuth']}}</text>
+        </view>
+        <van-icon slot="right-icon" name="arrow" color="{{skin['arrow']}}" />
+      </van-cell>
+    </block>
+  </view>
+  <view wx:if="{{isToken}}" class="fixBtn btnBg">
+    <logout bindlogoutSuccess="logoutSuccess"></logout>
+  </view>
+</view>
+<!-- 修改头像 -->
+<van-popup wx:if="{{headShow}}" show="{{ headShow }}" round position="bottom" z-index="{{99}}" overlay-style="background-color:rgba(0,0,0,.4)" custom-class="sheetCls" bind:close="headClose">
+  <view class="sheet">
+    <view class="title">
+      <view class="headBtn cancel" catchtap="headClose">{{i18n['cancel']}}</view>
+      <view class="txt">{{i18n['selHeadName']}}</view>
+      <view class="headBtn confirm" catchtap="editHeadImg" style="color:{{skin['primary']}}">
+        {{i18n['confirmBtn']}}
+      </view>
+    </view>
+    <view class="con">
+      <block wx:for="{{imgs}}" wx:key="index" wx:for-item="item">
+        <view class="img" data-img="{{item}}" catchtap="checkImg">
+          <view class="cls {{item.check ? 'active' :''}}">
+            <image style="border-color: {{item.check?skin['primary']:''}};" width="100" height="100" src="{{item.url}}" />
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</van-popup>
+<!-- 待授权弹框 -->
+<van-popup wx:if="{{authVisible}}" show="{{ authVisible }}" round position="bottom" z-index="{{99}}" custom-style="position:fixed;height:{{keyHeight>0 ?'80%':'46%'}}" overlay-style="background-color:rgba(0,0,0,.4)" custom-class="authCls">
+  <view class="sheet">
+    <view class="title">
+      <view class="txt">{{i18n['authPhone']}}</view>
+      <view class="tcls" catchtap="authClose">
+        <van-icon name="cross" color="#999999" size="20px" />
+      </view>
+    </view>
+  </view>
+</van-popup>

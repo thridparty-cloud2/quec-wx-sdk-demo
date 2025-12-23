@@ -1,13 +1,12 @@
-const plugin = requirePlugin('quecPlugin')
+const plugin = requirePlugin("quecPlugin")
 
 const panelId = {
-  1: 'general', //生产环境通用面板
+  1: "general", //生产环境通用面板
 }
 
 export default panelId
 
 /**
- *
  * @param {*} obj - 当前组件对象
  * @param {*} item - {pk,dk,shareCode}
  */
@@ -21,11 +20,12 @@ export function getCurPanel (obj, item) {
       } else {
         TslError(obj, data)
       }
-    }, fail (res) {
+    },
+    fail (res) {
       if (res.code === 5193) {
         TslError(obj, data)
       }
-    }
+    },
   })
 }
 
@@ -36,14 +36,15 @@ function getWxPanel (obj, item) {
     success (res) {
       if (res.code === 200) {
         if (res.data && res.data.uid) {
-          data.path = (panelId[res.data.uid] ? panelId[res.data.uid] : panelId[1])
+          data.path = panelId[res.data.uid] ? panelId[res.data.uid] : panelId[1]
           goDetail(obj, data)
         } else {
           data.path = panelId[1]
           goDetail(obj, data)
         }
       }
-    }, fail (res) {
+    },
+    fail (res) {
       data.path = panelId[1]
       goDetail(obj, data)
     },
@@ -51,9 +52,14 @@ function getWxPanel (obj, item) {
 }
 
 function goDetail (obj, data) {
+  // console.log('goDetail:')
+  // console.log(data)
   obj.pageRouter.navigateTo({
-    url: `/panel/${data.path}/index/index?item=${encodeURIComponent(JSON.stringify(data.item))}`
+    url: `/panel/general/index/index?item=${encodeURIComponent(
+      JSON.stringify(data.item)
+    )}`
   })
+
 }
 
 function TslError (obj, data) {

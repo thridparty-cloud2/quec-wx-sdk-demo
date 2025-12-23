@@ -1,0 +1,13 @@
+<view class="p_main">
+  <form bindsubmit="nicknameSubmit">
+    <view class="group">
+      <van-field model:value="{{ nikeName }}" label="{{i18n['nikeName']}}" placeholder="{{i18n['nicknamePlaceholder']}}" border="{{ false }}" maxlength="10" bind:change="changeNickname" bind:blur="blurNickname" title-width="3em" />
+    </view>
+    <View class="tips">{{i18n['nicknameValidTip']}}</View>
+    <view class="btns">
+      <view class="btnItem">
+        <van-button custom-class="nicknameBtn" custom-style="{{'border-radius:'+skin['radius']}}" disabled="{{nikeName.length>0 ? false : true}}" block form-type="submit" color="{{skin['primary']}}">{{i18n['confirmBtn']}}</van-button>
+      </view>
+    </view>
+  </form>
+</view>

@@ -1,0 +1,21 @@
+.agreement {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.tcon {
+  text-align: left;
+}
+
+.tcon .txt {
+  font-size: 12px;
+  color: #666666;
+  line-height: 22px;
+  display: inline-block;
+}
+
+.pad {
+  padding: 0 2rpx;
+  color: #0091FF;
+}

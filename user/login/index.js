@@ -8,7 +8,8 @@ Page({
    */
   data: {
     env: app.globalData.envData,
-    gradientHeight: 100
+    gradientHeight: 100,
+    from: ''
   },
 
   /**
@@ -19,6 +20,11 @@ Page({
     self.setData({
       gradientHeight: (200 / wx.getWindowInfo().windowHeight).toFixed(2) * 100
     })
+    if (options.from) {
+      this.setData({
+        from: options.from
+      })
+    }
   },
   // 跳转验证码登录
   toCodeLogin () {
@@ -34,7 +40,9 @@ Page({
   },
   // 登录成功
   loginSuccess () {
-    home(this)
+    let self = this
+    let { from } = self.data
+    home(this, false, from)
   },
 
   // 跳转注册

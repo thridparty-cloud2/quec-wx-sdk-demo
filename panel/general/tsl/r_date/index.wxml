@@ -1,0 +1,7 @@
+<view class="tsl_vcol">
+  <view class="tsl_val"><text>{{tslData.name}}</text></view>
+  <view class="tsl_txt"><text>{{tslVal ? tslVal:' '}}</text>
+    <van-icon color="{{skin['arrow']}}" size="14px" />
+  </view>
+
+</view>

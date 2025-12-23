@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "user_valid_code": "plugin://quecPlugin/user_valid_code"
+    "user_valid_code": "../comp/valid_code/index"
   }
 }

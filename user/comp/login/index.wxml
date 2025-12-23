@@ -1,0 +1,31 @@
+<view class="ubox">
+  <view class="uh2 padt">{{i18n['accountLogin']}}</view>
+  <form bindsubmit="{{btnDisabled ? '' : 'loginSubmit'}}">
+    <view class="inputItem">
+      <van-field model:value="{{ uname }}" name="uname" placeholder="{{i18n['loginUnamePlace']}}" bind:change="changeUname" bind:focus="unameFocus" bind:blur="unameBlur" size="large" clearable border="{{false}}" />
+      <line flag="{{unamefocus}}"></line>
+    </view>
+    <view class="inputItem">
+      <view class="cls">
+        <van-field custom-style="{{pwdfocus?'padding-right:30px!important':''}}" model:value="{{ pwd }}" name="pwd" password="{{invisiblePwd}}" placeholder="{{i18n['loginPwdPlace']}}" size="large" minlength="6" maxlength="20" use-button-slot bind:change="changePwd" bind:focus="pwdFocus" bind:blur="pwdBlur" clearable border="{{false}}">
+          <view slot="right-icon" wx:if="{{pwd.length>0}}" class="pwdState" catchtap="changePwdState">
+            <view class="sdk-icon {{invisiblePwd ? 'yincang' :'yincang-1'}}"></view>
+          </view>
+        </van-field>
+        <line flag="{{pwdfocus}}"></line>
+      </view>
+    </view>
+    <view class="btns">
+      <view class="btnItem">
+        <van-button custom-class="pluginBtn" custom-style="{{'border-radius:'+skin['radius']}}" disabled="{{!(uname.length>0 && pwd.length>=6) || btnDisabled}}" block color="{{skin['primary']}}" form-type="submit">{{i18n['login']}}</van-button>
+      </view>
+    </view>
+    <view class="jump">
+      <view class="t1" catchtap="toCodeLogin" style="color: {{skin['text_h3']}};">{{i18n['loginCode']}}</view>
+      <view class="t2" catchtap="toForgetPwd" style="color: {{skin['text_h3']}};">{{i18n['forgetPwd']}}</view>
+    </view>
+  </form>
+  <view class="footer"><text>{{i18n['noAcc']}}</text><text class="txt" style="color:{{skin['primary']}}" bindtap="toRegister">{{i18n['accountReg']}}</text></view>
+</view>
+
+<confirm_tip visible="{{tipShow}}" isFmtTitle="{{isFmtTitle}}" fmtTitle1="{{fmtTitle1}}" fmtTitle2="{{fmtTitle2}}" fmtTitle3="{{fmtTitle3}}" title="{{tipcon}}" confirmTxt="{{confirmTxt}}" cancelTxt="{{cancelTxt}}" isCancel="{{isCancel}}" bindCancel="onClose" bindConfirm="tipConfirm"></confirm_tip>

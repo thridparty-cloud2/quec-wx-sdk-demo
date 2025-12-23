@@ -7,8 +7,7 @@
       "root": "ble",
       "name": "ble",
       "pages": [
-        "device_add/index",
-        "v1/add/index"
+        "device_add/index"
       ]
     },
     {
@@ -51,7 +50,7 @@
   },
   "plugins": {
     "quecPlugin": {
-      "version": "1.8.7",
+      "version": "2.3.4",
       "provider": "wx5e9a3feb8df9122e"
     }
   },

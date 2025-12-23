@@ -1,0 +1,11 @@
+<view class="tsl_vcol" catchtap="showDate">
+  <view class="tsl_val"><text class="title">{{tslData.name}}</text></view>
+  <view class="tsl_txt"><text>{{ tslVal ? tslVal : ' ' }}</text>
+    <van-icon name="arrow" color="{{skin['arrow']}}" size="14px" />
+  </view>
+</view>
+<van-popup show="{{ showFlag }}" round position="bottom" custom-style="height: 60%;" overlay-style="background-color:rgba(0,0,0,.4)">
+  <view class="dayPicker">
+    <van-datetime-picker type="datetime" value="{{ changeDate }}" bind:input="dayInput" bind:confirm="dayConfirm" bind:cancel="dayCancel" item-height="60" />
+  </view>
+</van-popup>

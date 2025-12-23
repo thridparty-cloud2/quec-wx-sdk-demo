@@ -1,0 +1,9 @@
+<block wx:if="{{item.logoImage}}">
+  <image class="size" src="{{item.logoImage}}" />
+</block>
+<block wx:elif="{{item.productIcon}}">
+  <image class="size" src="{{item.productIcon}}" />
+</block>
+<block wx:else>
+  <image class="size" src="{{deviceImg}}" />
+</block>

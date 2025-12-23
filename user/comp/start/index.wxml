@@ -1,0 +1,13 @@
+<view class="login">
+  <view class="logo">
+    <van-image width="84" height="84" src="{{loginSrc}}" radius="12px" use-loading-slot>
+      <van-loading slot="loading" type="spinner" size="20" vertical />
+    </van-image>
+  </view>
+  <view class="startBtns">
+    <view catchtap="toLogin" class="login_btn" custom-style="{{'border-radius:'+skin['radius']}}">{{i18n['phoneEmailLogin']}}</view>
+  </view>
+  <view class="protocol">
+    <protocol bindchangeProtocol="changeProtocol" bindtoProtocol="toProtocol" bindtoPrivacy="toPrivacy" />
+  </view>
+</view>

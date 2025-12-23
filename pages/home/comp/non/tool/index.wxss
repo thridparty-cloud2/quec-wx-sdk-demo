@@ -1,0 +1,31 @@
+@import "/asset/icon.wxss";
+
+.renameTit {
+  text-align: center;
+  padding: 40rpx;
+  color: #333333;
+  font-size: 18px;
+}
+
+.block {
+  padding: 0 40rpx 40rpx;
+}
+
+.delTip {
+  color: #333333;
+  text-align: left;
+  line-height: 48rpx;
+  font-size: 14px;
+}
+
+.sdk-icon {
+  font-size: 22px;
+}
+
+.sdk-icon.delete {
+  font-size: 18px;
+}
+
+.dis {
+  opacity: 0.4;
+}

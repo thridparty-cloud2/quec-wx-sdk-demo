@@ -1,0 +1,31 @@
+<van-transition name="fade">
+  <view wx:if="{{(env['isScan'] || env['isNetwork']) && show}}" class="home_add" data-fid="{{fid}}" catchtap="show">
+    <text class="sdk-icon add"></text>
+    <text class="txt">添加设备</text>
+  </view>
+  <view wx:else class="home_add" catchtap="noScanAndNear">
+    <text class="sdk-icon add"></text>
+    <text class="txt">添加设备</text>
+  </view>
+</van-transition>
+<van-dialog use-slot show="{{selShow}}" width="{{275}}" bind:close="onClose" transition="none" overlayStyle="background-color:rgba(0,0,0,.4)" zIndex="999999" show-confirm-button="{{false}}" root-portal="{{true}}">
+  <view class="dtitle">
+    <text>选择添加方式</text>
+    <view class="cls" catchtap="onClose">
+      <van-icon name="cross" color="#B9B9B9" size="22px" />
+    </view>
+  </view>
+  <view class="con">
+    <view wx:if="{{env['isScan']}}" class="item" catchtap="scan">
+      <view class="left">
+        <view class="icon">
+          <view class="sdk-icon scanning"></view>
+        </view>
+        <view class="dtxt">扫码添加</view>
+      </view>
+      <view class="right">
+        <van-icon class="arrow" name="arrow" />
+      </view>
+    </view>
+  </view>
+</van-dialog>

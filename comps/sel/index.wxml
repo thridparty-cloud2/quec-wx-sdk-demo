@@ -1,0 +1,28 @@
+<view class="sel" style="height:{{saveTop+40}}px;">
+  <block wx:if="{{from =='scene'}}">
+    <view class="st" style="padding-top: {{saveTop+6}}px;background: #ffffff;">
+      <view class="close" catchtap="back">
+        <van-icon size="24px" color="{{skin['text_h2']}}" name="arrow-left" />
+      </view>
+      <text class="txt">{{i18n['seled1']}} {{selNo}} {{i18n['seled2']}}</text>
+      <!-- <text wx:if="{{selNo>0}}" class="txt">{{i18n['seled1']}} {{selNo}} {{i18n['seled2']}}</text>
+      <text wx:else class="txt">选择设备</text> -->
+    </view>
+  </block>
+  <block wx:elif="{{from =='group'}}">
+    <view class="st" style="padding-top: {{saveTop+6}}px;">
+      <view class="close" catchtap="back">
+        <van-icon size="24px" color="{{skin['text_h2']}}" name="arrow-left" />
+      </view>
+      <text class="txt">{{i18n['seled1']}} {{selNo}} 项</text>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="st" style="padding-top: {{saveTop+6}}px;">
+      <view class="close" catchtap="close">
+        <van-icon size="24px" color="{{skin['text_h2']}}" name="cross" />
+      </view>
+      <text class="txt">{{i18n['seled1']}} {{selNo}} {{i18n['seled2']}}</text>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,101 @@
+@import '/asset/icon.wxss';
+
+.home_add {
+  background: linear-gradient(0deg, #FFFFFF, #FFFFFF), rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(18.3484px);
+  padding: 20rpx;
+  margin: 0 20rpx 0 30rpx;
+  border-radius: 10px;
+  text-align: center;
+  min-height: 210rpx;
+  line-height: 210rpx;
+}
+
+.sdk-icon.add {
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid #9C9FA3;
+  border-radius: 50%;
+  color: #9C9FA3;
+  font-size: 12px;
+  padding: 8rpx;
+}
+
+.txt {
+  color: #9C9FA3;
+  padding-left: 20rpx;
+  font-size: 14px;
+}
+
+.dtitle {
+  font-size: 18px;
+  text-align: center;
+  padding: 50rpx 0;
+  position: relative;
+  font-weight: 500;
+  color: #333333;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  background: #F7F8FC;
+  margin-bottom: 30rpx;
+  border-radius: 8px;
+  padding: 26rpx 30rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.con {
+  padding: 10rpx 40rpx 30rpx;
+}
+
+.icon {
+  width: 64rpx;
+  height: 64rpx;
+  background: #FFFFFF;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 64rpx;
+  margin-right: 20rpx;
+}
+
+.dtxt {
+  line-height: 64rpx;
+  color: #333333;
+  font-size: 16px;
+}
+
+.sdk-icon.scanning,
+.sdk-icon.discovery {
+  font-size: 18px;
+}
+
+.left {
+  display: flex;
+  flex-direction: row;
+}
+
+.right {
+  width: 40rpx;
+  height: 40rpx;
+  background: #f1f1f1;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 34rpx;
+}
+
+.arrow {
+  color: #bfbfbf;
+  font-size: 12px;
+}
+
+.cls {
+  position: absolute;
+  right: 20rpx;
+  top: 18rpx;
+  width: 100rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}

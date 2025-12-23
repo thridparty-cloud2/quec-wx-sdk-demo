@@ -1,3 +1,5 @@
+@import '/asset/nav.wxss';
+
 .head {
   display: flex;
   min-height: 640rpx;
@@ -31,4 +33,8 @@
   color: #9C9FA3;
   padding-top: 30rpx;
   font-weight: 500;
+}
+
+.van-image {
+  padding: 10px;
 }

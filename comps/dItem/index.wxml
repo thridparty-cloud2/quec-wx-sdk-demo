@@ -1,0 +1,68 @@
+<van-col span="{{(isLayout && env['layout'] == 1) ? 24 :12}}">
+  <view class="con con{{env['layout']}}">
+    <block wx:if="{{isLayout && env['layout'] == 1}}">
+      <view class="col{{env['layout']}} fbox">
+        <view class="l fbox">
+          <dImg class="dimg" item="{{item}}"></dImg>
+          <view class="d{{env['layout']}} ">
+            <view class="dname fbox fboxat">
+              <view class="nowrap name">{{item.deviceName}}</view>
+              <block wx:if="{{mode}}">
+                <view wx:if="{{isShare}}" class="room{{layout}}">
+                  <text class="txt">共享设备</text>
+                </view>
+                <view wx:else class="room{{env['layout']}}">
+                  <text class="txt">{{item.tag}}</text>
+                </view>
+              </block>
+              <block wx:else>
+                <view wx:if="{{isShare}}" class="room{{env['layout']}}">
+                  <text class="txt">共享设备</text>
+                </view>
+              </block>
+            </view>
+            <view class="op">
+              <view class="status s{{env['layout']}}" style="{{item.onlineStatus==1 ? 'color:#0091FF':'color:'+skin['text_h3']}}">
+                <text wx:if="{{item.isOta && item.onlineStatus==1}}" class="updating-text">升级中</text>
+                <text wx:else>{{onlineStatus[item.onlineStatus]}}</text>
+              </view>
+              <view wx:if="{{isEdit}}" class="checkCls cls{{env['layout']}}">
+                <van-checkbox value="{{ item.check }}" disabled="{{isDis}}" icon-size="16px" checked-color="#0091FF"></van-checkbox>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="col{{env['layout']}} hei50 ohide fbox">
+        <dImg class="dimg" item="{{item}}"></dImg>
+        <block wx:if="{{mode}}">
+          <view wx:if="{{isShare}}" class="room">
+            <text class="txt">共享设备</text>
+          </view>
+          <view wx:else class="room">
+            <text class="txt">{{item.tag}}</text>
+          </view>
+        </block>
+        <block wx:else>
+          <view wx:if="{{isShare}}" class="room">
+            <text class="txt">共享设备</text>
+          </view>
+        </block>
+      </view>
+      <view class="dinfo d{{env['layout']}} hei50 boxsizing ohide">
+        <view class="dname">
+          <view class="nowrap name">{{item.deviceName}}</view>
+          <view class="status s{{env['layout']}}" style="{{item.onlineStatus==1 ? 'color:#0091FF':'color:'+skin['text_h3']}}">
+            <text wx:if="{{item.isOta && item.onlineStatus==1}}" class="updating-text">升级中</text>
+            <text wx:else>{{onlineStatus[item.onlineStatus]}}</text>
+          </view>
+        </view>
+        <view wx:if="{{isEdit}}" class="checkCls cls{{env['layout']}}">
+          <van-checkbox value="{{ item.check }}" disabled="{{isDis}}" icon-size="16px" checked-color="#0091FF"></van-checkbox>
+        </view>
+      </view>
+    </block>
+  </view>
+</van-col>

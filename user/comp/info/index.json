@@ -1,0 +1,12 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-cell": "@vant/weapp/cell/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-loading": "@vant/weapp/loading/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "logout": "../logout/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-popup": "@vant/weapp/popup/index"
+  }
+}

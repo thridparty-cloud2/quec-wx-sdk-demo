@@ -1,8 +1,8 @@
 @import '../../asset/icon.wxss';
 
-
 .rightIcon {
   padding-top: 0;
+  padding-right: 190rpx;
 }
 
 .navSearch {
@@ -14,8 +14,22 @@
   background: rgba(255, 255, 255, 0.596637);
 }
 
+.navSetting {
+  width: 64rpx;
+  height: 64rpx;
+  text-align: center;
+  line-height: 66rpx;
+  border: 1px solid rgba(151, 151, 151, .2);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .6);
+}
+
 .sdk-icon.search {
   font-size: 16px;
+}
+
+.sdk-icon.settings {
+  font-size: 25px;
 }
 
 .titCls {
@@ -28,5 +42,15 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  width: 220px;
+  width: 180px;
+}
+
+.navIcon {
+  width: 64rpx;
+  height: 64rpx;
+  text-align: center;
+  line-height: 66rpx;
+  border: 1px solid rgba(151, 151, 151, .2);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .6);
 }

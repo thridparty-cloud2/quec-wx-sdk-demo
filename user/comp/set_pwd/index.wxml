@@ -1,0 +1,26 @@
+<view class="ubox">
+  <view class="uh2">{{title}}</view>
+  <view class="udesc padt" style="color: {{skin['text_h3']}};">{{i18n['pwdDesc']}}</view>
+  <form bindsubmit="{{(pwd.length < 6 || confirmPwd.length < 6 || btnDisabled) ? '' :'formSubmit'}}" class="main">
+    <view class="inputItem">
+      <van-field custom-style="{{pwdfocus?'padding-right:30px!important':''}}" model:value="{{ pwd }}" name="pwd" clearable placeholder="{{i18n['newPwd']}}" maxlength="{{20}}" password="{{invisiblePwd}}" size="large" use-button-slot bind:change="changePwd" bind:focus="pwdFocus" bind:blur="pwdBlur" border="{{false}}">
+        <view wx:if="{{pwd.length>0 && pwdfocus}}" class="pwdState" catchtap="changePwdState" slot='right-icon'>
+          <view class="sdk-icon {{invisiblePwd ? 'yincang' :'yincang-1'}}"></view>
+        </view>
+      </van-field>
+      <line flag="{{pwdfocus}}"></line>
+    </view>
+    <view class="inputItem">
+      <van-field custom-style="{{confirmpwdfocus?'padding-right:30px!important':''}}" model:value="{{ confirmPwd }}" name="confirmPwd" clearable placeholder="{{i18n['confirmPwd']}}" maxlength="{{20}}" size="large" password="{{invisibleConfirmPwdPwd}}" use-button-slot bind:change="changeConfirmPwd" bind:focus="confirmpwdFocus" bind:blur="confirmpwdBlur" border="{{false}}">
+        <view wx:if="{{confirmPwd.length>0 && confirmpwdfocus}}" catchtap="changeConfirmPwdState" class="pwdState" slot='right-icon'>
+          <view class="sdk-icon {{invisibleConfirmPwdPwd ? 'yincang' :'yincang-1'}}"></view>
+        </view>
+      </van-field>
+      <line flag="{{confirmpwdfocus}}"></line>
+    </view>
+
+    <view class="btns">
+      <van-button custom-class="pluginBtn" custom-style="{{'border-radius:'+skin['radius']}}" disabled="{{pwd.length < 6 || confirmPwd.length < 6 || btnDisabled}}" block color="{{skin['primary']}}" form-type="{{pwd.length < 6 || confirmPwd.length < 6 ? '' : 'submit'}}">{{i18n['resetNow']}}</van-button>
+    </view>
+  </form>
+</view>

@@ -1,0 +1,30 @@
+.list {
+  padding-top: 30rpx;
+}
+
+.gray {
+  color: #999999;
+}
+
+.btns {
+  margin-top: 40rpx;
+}
+
+.addBtn {
+  font-size: 16px;
+  border-radius: 10px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.selCls {
+  position: relative;
+}
+
+.all {
+  height: 44px;
+  line-height: 44px;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 0 100rpx 0 30rpx;
+}

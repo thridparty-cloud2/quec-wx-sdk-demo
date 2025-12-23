@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-col": "@vant/weapp/col/index",
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "dImg": "../dImg/index"
+  }
+}

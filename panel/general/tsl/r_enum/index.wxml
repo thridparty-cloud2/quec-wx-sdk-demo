@@ -1,0 +1,4 @@
+<view class="tsl_vcol">
+  <view class="tsl_txt">{{tslData.name}}</view>
+  <view class="tsl_val">{{tslVal ? tslVal : '-'}}</view>
+</view>

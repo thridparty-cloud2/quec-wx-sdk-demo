@@ -10,7 +10,9 @@ Page({
     pk: '',
     dk: '',
     textDetail: {},
-    isSet: true
+    isSet: true,
+    wsBack: false,
+    wsCon: false,
   },
 
   handleBack () {
@@ -49,9 +51,36 @@ Page({
     })
   },
 
+  getwsResult (res) {
+    console.log('getwsResult:')
+    console.log(res)
+    let detail = res.detail
+    this.setData({
+      wsBack: detail.wsBack,
+      wsCon: detail.wsCon
+    })
+  },
+
   editpage (e) {
-
-
+    let item = e.detail
+    const { pk, dk } = this.data
+    switch (item.dataType) {
+      case 'TEXT':
+        this.pageRouter.navigateTo({
+          url: `/panel/general/txt/index?item=${JSON.stringify(item)}`
+        })
+        break
+      case 'ARRAY':
+        this.pageRouter.navigateTo({
+          url: `/panel/general/arr/index?item=${encodeURIComponent(JSON.stringify(item))}`
+        })
+        break
+      case 'STRUCT':
+        this.pageRouter.navigateTo({
+          url: `/panel/general/struct/index?item=${JSON.stringify(item)}&pk=${pk}&dk=${dk}`
+        })
+        break
+    }
   },
 
   invalid (e) {
@@ -84,5 +113,33 @@ Page({
   onReachBottom () {
 
   },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage (res) {
+    // console.log('用户点击右上角分享')
+    // console.log(res)
+    // let item = res.target.dataset.cur
+    // return {
+    //   title: '分享设备' + item.deviceName,
+    //   imageUrl: 'https://iot-oss.quectelcn.com/wxsdk_img/example/images/logo_v1.png',
+    //   path: `/panel/general/index/index?item=${encodeURIComponent(JSON.stringify(item))}`,
+    //   success: function (res) {
+    //     console.log('分享成功')
+    //     console.log(res)
+    //     // 转发成功
+    //     wx.showToast({
+    //       title: "分享成功",
+    //       icon: 'success',
+    //       duration: 2000
+    //     })
+    //   },
+    //   fail: function (res) {
+    //     console.log('分享失败')
+    //   },
+    // }
+
+  }
 
 })

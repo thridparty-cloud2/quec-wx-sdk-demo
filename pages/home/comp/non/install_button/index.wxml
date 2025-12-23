@@ -1,0 +1,22 @@
+<block wx:if="{{!show && (env['isNetwork'] || env['isScan'])}}">
+  <van-transition name="fade">
+    <view class="mask-con {{!hidden ? 'mask-con-show' : ''}} sendDynamic" data-act="add" catchtap="onClickShow">
+      <view class="sendDynamic mask-con {{!hidden ? 'mask-con-show' : ''}}" style="background:{{skin['primary']}};">
+        <view class="sdk-icon add {{isAdd ? 'addAn' : ''}}"></view>
+      </view>
+    </view>
+  </van-transition>
+</block>
+<van-overlay show="{{show}}" duration="{{2}}" custom-style="background-color:rgba(0,0,0,.4);z-index:999">
+  <view wx:if="{{env['isScan']}}" class="gateway-box" style="bottom:340rpx" catchtap="toScan">
+    <image class="tips" src="{{baseImgUrl}}images/install/saoma_tip.png"></image>
+    <view class="icon">
+      <view class="sdk-icon scanning"></view>
+    </view>
+  </view>
+  <view class="mask-con-show sendDynamic" data-act="close" bindtap="onClickShow">
+    <view class="icon" style="background:{{skin['primary']}};">
+      <view class="sdk-icon add {{isAdd ? 'addAn' : ''}}"></view>
+    </view>
+  </view>
+</van-overlay>

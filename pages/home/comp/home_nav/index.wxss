@@ -1,0 +1,167 @@
+@import '/asset/icon.wxss';
+
+/*
+*  导航
+*/
+.houseNav {
+  position: relative;
+  height: 87px;
+}
+
+.tit {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+  width: 320rpx;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.tit .ft {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.mcon {
+  position: relative;
+}
+
+.dropFamily {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  top: 90px;
+  left: 10px;
+  width: 70%;
+  border-radius: 8px;
+  background: #F7F8FC;
+  z-index: 999999;
+}
+
+.pad {
+  padding: 4px;
+}
+
+.mt {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #ffffff;
+  padding: 0 32rpx;
+  height: 52px;
+  line-height: 52px;
+}
+
+.manage {
+  padding: 0 32rpx;
+  background: #ffffff;
+}
+
+.mt.line {
+  border-top: .5px solid #EFEFEF;
+  padding: 0;
+}
+
+.mt.active {
+  background: #F7F8FC;
+}
+
+.mt .title {
+  color: #333333;
+  font-weight: 500;
+  font-size: 16px;
+  width: 68%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.mt .num {
+  color: #999999;
+  font-size: 13px;
+}
+
+.check {
+  background: #F7F8FC;
+}
+
+.joinCon {
+  padding: 40rpx;
+}
+
+.joinCon .title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.joinCon .tip {
+  text-align: center;
+  padding: 40rpx 40rpx 0;
+  font-size: 14px;
+  color: #666666;
+}
+
+.join {
+  color: #ED5D4F;
+  border: 0.5px solid rgba(237, 93, 79, 0.5);
+  border-radius: 2px;
+  font-size: 12px;
+  letter-spacing: 0.16px;
+  margin: 26rpx 8rpx;
+  letter-spacing: 0.16px;
+  height: 20px;
+  line-height: 20px;
+  padding: 4rpx 8rpx;
+}
+
+.xiala {
+  font-size: 12px;
+  padding-left: 3px;
+  padding-top: 20rpx;
+}
+
+.rightIcon {
+  padding-right: 200rpx;
+}
+
+.navSearch {
+  width: 64rpx;
+  height: 64rpx;
+  text-align: center;
+  line-height: 66rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.596637);
+}
+
+.sdk-icon.search {
+  font-size: 16px;
+}
+
+.sdk-icon.shezhi {
+  font-size: 24px;
+}
+
+.sdk-icon.choose {
+  color: #ED5D4F;
+  font-size: 18px;
+}
+
+.tit.st {
+  font-size: 20px !important;
+}
+
+.pt{
+  padding-top: 20rpx;
+}
+
+.nt {
+
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}

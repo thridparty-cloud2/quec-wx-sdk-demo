@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "confirm_tip": "plugin://quecPlugin/confirm_tip"
+  }
+}

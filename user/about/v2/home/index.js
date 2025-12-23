@@ -17,7 +17,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad (options) {
-    console.log('load')
+
   },
 
   /**
@@ -31,7 +31,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow () {
-    console.log('show')
     this.setData({
       i18n: plugin.main.getLang(),
       skin: plugin.main.getSkin(),

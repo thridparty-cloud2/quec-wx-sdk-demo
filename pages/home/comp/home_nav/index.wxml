@@ -1,0 +1,53 @@
+<view class="houseNav" style="height: {{(saveTop>0) ? (saveTop+40): 87}}px;">
+  <van-nav-bar class="listH" custom-class="van-nav-bar" fixed="{{true}}" placeholder="{{true}}" z-index="80" border="{{false}}">
+    <view slot="left">
+      <view wx:if="{{page === 'search'}}" class="back" catchtap="back">
+        <van-icon name="arrow-left" color="black" size="22px" />
+      </view>
+    </view>
+    <view slot="title">
+      <view wx:if="{{page === 'home'}}">
+        <view wx:if="{{mode}}">
+          <view class="tit" catchtap="{{(curFamily.familyName && commonFinish) ? 'showFamily':''}}">
+            <view class="ft pt">{{curFamily.familyName?curFamily.familyName:title}}</view>
+            <view class="sdk-icon xiala"></view>
+          </view>
+        </view>
+        <view wx:else>
+          <view class="tit pt nt">{{i18n['myDevice']}}</view>
+        </view>
+      </view>
+    </view>
+  </van-nav-bar>
+</view>
+<van-overlay show="{{ familyShow }}" z-index="9999998" root-portal="{{true}}" custom-style="background-color:rgba(0,0,0,.4)" bind:click="hideFamily">
+  <view class="dropFamily" style="top:{{(model.brand==='HUAWEI' && model.model==='VTR-AL00') ? (saveTop+60): (saveTop+40)}}px">
+    <view class="pad">
+      <scroll-view scroll-y="{{hasDataList}}" style="height: {{(scrollHeight>500) ? 500 : scrollHeight}}px;" enhanced="{{true}}" show-scrollbar="{{false}}" refresher-triggered="{{triggered}}">
+        <block wx:for="{{familyList}}" wx:key="index" wx:for-item="item">
+          <view class="mt {{item.fid===curFamily.fid ?'active':''}}" data-item="{{item}}" catchtap="{{item.vJoin?'':'check'}}">
+            <view class="title">{{item.familyName}}</view>
+            <view wx:if="{{item.fid===curFamily.fid}}">
+              <view class="sdk-icon choose" style="color: {{skin['primary']}};"></view>
+            </view>
+            <view wx:if="{{item.vJoin}}" class="join" style="color: {{skin['primary']}};border-color: {{skin['primary']}};" data-join="{{item}}" catchtap="join">
+              {{i18n['noJoin']}}
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+      <view class="manage" catchtap="goFamilyList">
+        <view class="mt line">
+          <view class="title">{{i18n['familyManage']}}</view>
+          <view class="sdk-icon shezhi"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</van-overlay>
+<van-dialog show="{{joinVisible}}" width="{{275}}" zIndex="999999" overlayStyle="background-color:rgba(0,0,0,.4)" bind:cancel="joinCancel" bind:confirm="joinConfirm" confirmButtonText="{{i18n['join']}}" cancelButtonText="{{i18n['joinReuse']}}" confirm-button-color="{{skin['confirm']}}" cancel-button-color="{{skin['cancel']}}" show-cancel-button use-slot>
+  <view class="joinCon">
+    <view class="title">{{i18n['join']}}"{{joinItem.familyName}}"</view>
+    <view class="tip">{{i18n['joinTip']}}</view>
+  </view>
+</van-dialog>

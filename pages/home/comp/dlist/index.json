@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-row": "@vant/weapp/row/index",
+    "home_add": "../home_add/index",
+    "dItem": "../../../../comps/dItem/index"
+  }
+}

@@ -1,0 +1,22 @@
+.group {
+  margin-top: 30rpx;
+}
+
+.cellTitle {
+  font-size: 16px;
+  color: #333333;
+  font-weight: 500;
+}
+
+.val {
+  color: #666666;
+  font-size: 14px;
+  padding-right: 10rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.van-cell {
+  padding: 16px !important;
+}

@@ -1,0 +1,12 @@
+<view class="ubox">
+  <view class="uh2 padt">{{i18n['welRegTitle']}}</view>
+  <view class="inputItem">
+    <van-field model:value="{{ uname }}" name="uname" placeholder="{{i18n['unamePlace']}}" bind:focus="unameFocus" bind:blur="unameBlur" size="large" border="{{false}}" clearable />
+    <line flag="{{unamefocus}}"></line>
+  </view>
+  <view class="btns">
+    <van-button custom-class="pluginBtn" custom-style="{{'border-radius:'+skin['radius']}}" catchtap="{{btnDisabled ? '' : 'sendCode'}}" color="{{skin['primary']}}" disabled="{{uname.length === 0 || btnDisabled}}" block>{{i18n['getCode']}} </van-button>
+  </view>
+</view>
+
+<confirm_tip visible="{{existShow}}" title="" tip="{{i18n['regCunzai']}}" confirmTxt="{{i18n['goLogin']}}" bindCancel="onClose" bindConfirm="toLogin"></confirm_tip>

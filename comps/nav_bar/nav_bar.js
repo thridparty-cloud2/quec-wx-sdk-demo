@@ -33,11 +33,19 @@ Component({
       type: Boolean,
       value: false
     },
+    setting: {
+      type: Boolean,
+      value: false
+    },
     isWs: {
       type: Boolean,
       value: false
     },
     from: {
+      type: String,
+      value: ''
+    },
+    icon: {
       type: String,
       value: ''
     }
@@ -61,27 +69,24 @@ Component({
   methods: {
     back () {
       let self = this
-      if (self.data.backUrl) {
-        if (self.data.isTab) {
-          this.pageRouter.switchTab({
-            url: self.data.backUrl
-          })
+      if (self.data.from == 'ai' || self.data.from == 'upgrade') {
+        self.triggerEvent('BackTip')
+      } else {
+        if (self.data.backUrl) {
+          if (self.data.isTab) {
+            this.pageRouter.switchTab({
+              url: self.data.backUrl
+            })
+          } else {
+            this.pageRouter.redirectTo({
+              url: self.data.backUrl
+            })
+          }
         } else {
-          this.pageRouter.redirectTo({
-            url: self.data.backUrl
+          this.pageRouter.navigateBack({
+            delta: 1,
           })
         }
-      } else {
-        // if (self.data.isWs) {
-        // requirePlugin.async('quecPlugin').then(plugin => {
-        // plugin.webSocket.closeSocket()
-        // }).catch(({ mod, errMsg }) => {
-        //   console.error(`path: ${mod}, ${errMsg}`)
-        // })
-        // }
-        this.pageRouter.navigateBack({
-          delta: 1,
-        })
       }
     },
     home () {
@@ -96,8 +101,18 @@ Component({
     },
     search () {
       this.pageRouter.navigateTo({
-        url: '/mode/non/search/index',
+        url: '/pages/home/sub/non/search/index',
       })
+    },
+    toSetting () {
+      this.triggerEvent("onSettingClick", { msg: "导航栏被点击了" })
+    },
+
+    /**
+     * 订单
+     */
+    iconEv () {
+      this.triggerEvent("IconEv", { msg: "图标被点击了" })
     }
   }
 })

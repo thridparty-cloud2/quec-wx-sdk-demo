@@ -1,0 +1,9 @@
+<view class="agreement">
+  <van-checkbox value="{{ checked }}" name="checked" icon-size="14px" checked-color="{{skin['primary']}}" bind:change="onChange"></van-checkbox>
+  <view class="tcon">
+    <view class="txt" data-check="{{checked}}" catchtap="txtChange">{{i18n['protocalTxt1']}}</view>
+    <view class="txt pad" style="color:{{skin['primary']}}" catchtap="toProtocol">{{i18n['protocalTxt2']}}</view>
+    <view class="txt">及</view>
+    <view class="txt pad" style="color:{{skin['primary']}}" catchtap="toPrivacy">{{i18n['protocalTxt3']}}</view>
+  </view>
+</view>

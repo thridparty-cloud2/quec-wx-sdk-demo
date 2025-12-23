@@ -1,5 +1,6 @@
 
 const plugin = requirePlugin('quecPlugin')
+let app = getApp()
 
 Component({
   /**
@@ -22,6 +23,7 @@ Component({
   data: {
     primaryColor: '',
     authVisible: false,
+    env: app.globalData.envData,
   },
 
   lifetimes: {

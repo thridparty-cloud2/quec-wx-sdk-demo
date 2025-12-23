@@ -1,6 +1,0 @@
-<view class="bgCls" style="background:linear-gradient(180deg, #B6DFFF 0%, #F7F8FC {{gradientHeight+'%'}})">
-  <nav_bar title="分享他人"></nav_bar>
-  <view class="container">
-    <device_share curItem="{{curDevice}}" bindinvalidDevice="invalidDevice"></device_share>
-  </view>
-</view>

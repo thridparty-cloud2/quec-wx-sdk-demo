@@ -1,5 +1,6 @@
 import { home } from "../../utils/jump.js"
 let app = getApp()
+
 Page({
 
   /**
@@ -8,13 +9,18 @@ Page({
   data: {
     checked: false,
     env: app.globalData.envData,
+    from: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad (options) {
-
+    if (options.from) {
+      this.setData({
+        from: options.from
+      })
+    }
   },
 
   /**
@@ -34,9 +40,17 @@ Page({
    * 去登陆页面
    */
   toLogin () {
-    this.pageRouter.navigateTo({
-      url: '/user/login/index'
-    })
+    let { from } = this.data
+    if (from) {
+      this.pageRouter.navigateTo({
+        url: '/user/login/index?from=' + from
+      })
+    } else {
+      this.pageRouter.navigateTo({
+        url: '/user/login/index'
+      })
+    }
+
   },
 
   // 勾选用户协议
@@ -52,8 +66,9 @@ Page({
     */
   wxLoginResult (e) {
     let self = this
+    let { from } = self.data
     if (e.detail) {
-      home(self)
+      home(self, false, from)
     }
   },
 

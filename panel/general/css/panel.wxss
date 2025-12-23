@@ -46,6 +46,9 @@
   color: #333333;
   height: 28px;
   line-height: 28px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .tsl_txt {

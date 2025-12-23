@@ -1,0 +1,8 @@
+.van-nav-bar {
+  text-align: center !important;
+  padding-left: 0;
+}
+
+.van-nav-bar__title {
+  padding-left: 0 !important;
+}
