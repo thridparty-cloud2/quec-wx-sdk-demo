@@ -30,7 +30,18 @@ plugin.config.setUserDomain('用户域')
 plugin.config.setUserDomainSecret('用户域密钥')
 
 3）在env.js中
-  '更改为您小程序appid': {}
+  '更改为您小程序appid': {
+    title: '示例DEMO',
+    logo: 'https://iot-oss.quectelcn.com/wxsdk_img/test/headImage.png',
+    PRIVACY_VERSION: 'demo_privacy_zh_v1',
+    PROTOCOL_VERSION: 'demo_service_zh_v1',
+    phone: 'xxxx-xxxxxxxx',
+    layout: 2,
+    isScan: true, 
+    primary: 'green', 
+    domain: '您的用户域',//用户域
+    domainSecret: '您的用户域密钥'//用户域密钥
+  }
 
 4）project.config.json中,appid:'更改为您小程序appid'
 
