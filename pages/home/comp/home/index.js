@@ -14,10 +14,6 @@ Component({
       type: Boolean,
       value: true
     },
-    valaddTxt: {
-      type: Object
-    }
-
   },
 
   /**

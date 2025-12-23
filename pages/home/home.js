@@ -1,6 +1,5 @@
 import { goShare, jump } from "../../utils/jump.js"
 import { getCurPanel } from "../../utils/panel.js"
-import { getDifLang } from "../../utils/dLang.js"
 
 let app = getApp()
 const plugin = requirePlugin("quecPlugin")
@@ -14,7 +13,6 @@ Page({
     env: app.globalData.envData,
     isToken: false,
     attentionShow: false,
-    valaddTxt: {},
   },
 
   /**
@@ -24,17 +22,6 @@ Page({
     let self = this
     self.setData({
       gradientHeight: (150 / wx.getWindowInfo().windowHeight).toFixed(2) * 100,
-    })
-
-    let diff = getDifLang()
-    let valTxt = {
-      telTit: diff["valadd"].telTit,
-      more: diff["valadd"].more,
-      smsTit: diff["valadd"].smsTit,
-      serTit: diff["valadd"].serTit,
-    }
-    self.setData({
-      valaddTxt: valTxt,
     })
 
     wx.getSystemInfoAsync({

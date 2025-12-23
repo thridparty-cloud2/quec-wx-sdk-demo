@@ -1,5 +1,5 @@
 import { jump } from "../../utils/jump.js"
-import { getDifLang } from "../../utils/dLang.js"
+
 
 const plugin = requirePlugin("quecPlugin")
 const app = getApp()
@@ -18,7 +18,7 @@ Page({
     MsgNum: 0,
     isToken: false,
     env: app.globalData.envData,
-    valaddTxt: {},
+
   },
 
   /**
@@ -29,17 +29,6 @@ Page({
       gradientHeight: (150 / wx.getWindowInfo().windowHeight).toFixed(2) * 100,
     })
 
-    let diff = getDifLang()
-    let valTxt = {
-      telTit: diff["valadd"].telTit,
-      more: diff["valadd"].more,
-      smsTit: diff["valadd"].smsTit,
-      serTit: diff["valadd"].serTit,
-      set: diff["valadd"].set,
-    }
-    this.setData({
-      valaddTxt: valTxt,
-    })
   },
 
   /**
