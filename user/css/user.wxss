@@ -1,4 +1,5 @@
 @import "/asset/base.wxss";
+@import "/asset/pop.wxss";
 
 .ubox {
   padding: 40rpx 50rpx;
