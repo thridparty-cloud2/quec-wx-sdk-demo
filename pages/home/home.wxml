@@ -1,3 +1,9 @@
-<view class="bgCls content" style="background: #F7F8FC url('https://iot-oss.quectelcn.com/wxsdk_img/example/images/home_bg.png?v=1.02') no-repeat;background-size: contain;">
-  <device_home model="{{model}}" appid="{{env['appid']}}" bindgoDetail="goDetail" bindtoScan="toScan" bindtoNetwork="toNetwork" bindscanSuccess="scanSuccess" bindtoShare="goShare" bindinvalidDevice="invalidDevice" bindMode="mode" bindIntroduct="introduct" bindtoNear="toNear" bindJump="jump"></device_home>
+<view class="bgCls content">
+  <view wx:if="{{env['ATTENTATION_URL'] && isToken}}" class="attent">
+    <attention vshow="{{attentionShow}}"></attention>
+  </view>
+  <view wx:if="{{env['dtu']['show']}}">
+    <sao_enter></sao_enter>
+  </view>
+  <device_home model="{{model}}" valaddTxt="{{valaddTxt}}" appid="{{env['appid']}}" bindRoomList="goRoomList" bindgoDetail="goDetail" bindtoScan="toScan" bindtoNetwork="toNetwork" bindscanSuccess="scanSuccess" bindtoShare="goShare" bindinvalidDevice="invalidDevice" bindSearch="goSearch" bindfamilyList="familyList" bindMode="mode" bindIntroduct="introduct" bindtoNear="toNear" bindJump="jump" bindLink="bannerLink" bindnoScanAndNear="noScanAndNear" bindTel="goTel" bindSms="goSms"></device_home>
 </view>

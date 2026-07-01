@@ -1,0 +1,7 @@
+var isSelected = function(value, selectedWeeks) {
+  return selectedWeeks.indexOf(value) > -1;
+}
+
+module.exports = {
+  isSelected: isSelected
+};

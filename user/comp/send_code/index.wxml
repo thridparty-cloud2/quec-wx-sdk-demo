@@ -1,0 +1,16 @@
+<form bindsubmit="sendSubmit">
+  <view class="main">
+    <van-field model:value="{{ uname }}" name="uname" title-width="4.4em" focus="{{true}}" readonly="{{type==7}}" placeholder="{{label}}" label="{{label}}" adjust-position="{{false}}" bind:focus="inputFocus" bind:blur="inputBlur" />
+    <van-field model:value="{{ code }}" label-class="labelCls" name="code" title-width="4.4em" type="number" placeholder="{{isPhone ? i18n['phoneHolder'] : i18n['emailHolder']}}" label="{{i18n['codeValid']}}" maxlength="6" use-button-slot clearable adjust-position="{{false}}" bind:focus="inputFocus" bind:blur="inputBlur">
+      <van-button slot="button" custom-class="getCodeBtn {{uname.length <= 0 || codeDisabled ? 'getCodeDisBtn' :''}}" size="small" disabled="{{uname.length <= 0 || codeDisabled}}" color="{{(uname.length <= 0 || codeDisabled) ? '#ebedf0':skin['primary']}}" plain="{{(uname.length <= 0 || codeDisabled) ? false:true}}" catchtap="sendCode">
+        <text class="{{codeDisabled ? 'c999':''}}">{{codeText}}</text>
+      </van-button>
+    </van-field>
+    <view wx:if="{{isShow}}" class="desc">
+      <text class="txt">{{i18n['regTip1']}}{{isPhone?i18n['regTip2']:i18n['regTip3']}}: {{uname}}</text>
+    </view>
+  </view>
+  <view class="btns">
+    <van-button custom-class="pluginBtn" custom-style="{{'border-radius:'+skin['radius']}}" color="{{skin['primary']}}" disabled="{{uname.length === 0 || code.length < 6}}" block form-type="{{uname.length === 0 || code.length < 6 ? '' : 'submit'}}">{{btnTxt}}</van-button>
+  </view>
+</form>

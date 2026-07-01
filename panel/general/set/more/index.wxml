@@ -1,0 +1,22 @@
+<nav_bar title="设备信息"></nav_bar>
+<view class="more">
+  <view class="dimg">
+    <image src="{{curItem.logoImage ? curItem.logoImage : defaultImg}}" mode="" />
+  </view>
+  <van-cell border="{{false}}" catchtap="{{role !==3 ? 'rename':''}}">
+    <view slot="title" class="cTitle f_500">设备名称</view>
+    <view class="val elipse">{{curItem.deviceName}}</view>
+    <van-icon wx:if="{{role !==3}}" slot="right-icon" size="12px" name="arrow" color="{{skin['arrow']}}" />
+  </van-cell>
+  <van-cell border="{{false}}">
+    <view slot="title" class="cTitle f_500">设备ID</view>
+    <view class="mval fbox fboxEnd">
+      <view class="txt elipse">{{curItem.deviceTag}}</view>
+      <view class="copyT" data-text="{{curItem.deviceTag}}" catchtap="onCopy">
+        <view class="sdk-icon copy"></view>
+      </view>
+    </view>
+  </van-cell>
+</view>
+
+<dname visible="{{renameVisible}}" curItem="{{curItem}}" bindrenameSuccess="renameSucc"></dname>

@@ -1,0 +1,8 @@
+<view class="clock-setting-content">
+  <van-field value="{{ clockName }}" label="名称" placeholder="闹钟" input-align="right" custom-class="name-field" label-class="label-class" bind:input="onClockNameChange" maxlength="20" />
+  <van-cell-group inset custom-class="cell-group">
+    <van-cell title="重复" value="{{repeatText}}" is-link custom-class="set-cell" border="{{false}}" value-class="value-class" title-style="font-size:16px; font-weight:500; color:#080F19;" bind:click="showPopup" data-type="repeat" />
+    <van-cell title="铃声" value="{{ringtoneText}}" is-link custom-class="set-cell" border="{{false}}" value-class="value-class" title-style="font-size:16px; font-weight:500; color:#080F19;" bind:click="showPopup" data-type="ringtone" />
+  </van-cell-group>
+  <ck-common-popup show="{{showDialog}}" title="{{dialogTitle}}" options="{{dialogOptions}}" selectedValue="{{dialogSelectedValue}}" selectedValues="{{dialogSelectedValues}}" multiSelect="{{dialogMultiSelect}}" bind:confirm="onDialogConfirm" bind:cancel="onDialogCancel" bind:close="onDialogCancel" />
+</view>

@@ -43,22 +43,23 @@ export function sendCode (uname, cb_phone, cb_email) {
  */
 export function sendPhoneCode (phone, type, scb, fcb, comcb) {
   plugin.jsUtil.load()
-  let SMS = plugin.jsConst.SMS
-  let ssid = SMS['SSID']['C1'] //国内
-  let stid = ''
+  //短信类型（1-密码重置 2-登录 3-注册 4-注销 5-添加推送人）
+  let codeType 
   if (type == 1) {//登录
-    stid = SMS['STID']['C2']
-  } else if (type == 2 || type == 4) {//忘记密码
-    stid = SMS['STID']['C2']
-  } else if (type == 3) { //注册
-    stid = SMS['STID']['C3']
-  } else if (type == 7) {//注销
-    stid = SMS['STID']['C7']
+    codeType=2 //2-登录
+  }else if(type == 2){//忘记密码
+    codeType=1 //1-密码重置
+  }else if(type == 3){//注册
+    codeType=3 //3-注册
+  }else if(type == 4){//忘记密码
+    codeType=1 //1-密码重置
+  }else if(type == 7){//注销
+    codeType=4 //4-注销
   }
-  plugin.quecUser.sendPhoneSmsCode({
+  console.log('codeType:'+codeType)
+  plugin.quecUser.sendPhoneSmsCodeV2({
+    codeType,
     phone: phone,
-    ssid,//国内
-    stid,
     success (res) {
       plugin.jsUtil.tip(plugin.main.getLang()['sendSucc'])
       plugin.jsUtil.delayCb(() => {
@@ -83,8 +84,9 @@ export function sendPhoneCode (phone, type, scb, fcb, comcb) {
  */
 export function sendForgetEmailCode (email, scb, fcb, comcb) {
   plugin.jsUtil.load(8000)
-  plugin.quecUser.sendEmailRepwdCode({
+  plugin.quecUser.sendEmailV2({
     email,
+    emailType:2,
     success (res) {
       plugin.jsUtil.tip(plugin.main.getLang()['sendSucc'])
       plugin.jsUtil.delayCb(() => {
@@ -106,8 +108,9 @@ export function sendForgetEmailCode (email, scb, fcb, comcb) {
  */
 export function sendRegEmailCode (email, scb, fcb, comcb) {
   plugin.jsUtil.load(15000)
-  plugin.quecUser.sendEmailRegisterCode({
+  plugin.quecUser.sendEmailV2({
     email,
+    emailType:1,
     success (res) {
       plugin.jsUtil.tip(plugin.main.getLang()['sendSucc'])
       plugin.jsUtil.delayCb(() => {
@@ -196,8 +199,9 @@ export function sendCodeWithNoPhoneValid (uname, type, cb_phone, cb_email, fcb) 
  */
 export function sendEmailCode (email, scb, fcb, comcb) {
   plugin.jsUtil.load(6000)
-  plugin.quecUser.sendEmail({
+  plugin.quecUser.sendEmailV2({
     email,
+    emailType:5,
     success (res) {
       if (scb) {
         scb()
@@ -219,17 +223,3 @@ export function sendEmailCode (email, scb, fcb, comcb) {
   })
 }
 
-/**
- * 电话短信语音
- * 设置设备id和语言信息
- */
-export function setDeviceInfo () {
-  plugin.valadd.setDeviceInfo({
-    success (res) {
-      console.log(res)
-    },
-    fail (res) {
-      console.log(res)
-    }
-  })
-}

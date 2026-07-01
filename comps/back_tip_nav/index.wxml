@@ -1,0 +1,11 @@
+<van-nav-bar class="listH" custom-class="van-nav-bar" fixed="{{true}}" placeholder="{{true}}" z-index="80" border="{{false}}">
+  <view slot="left" class="leftIcon">
+    <view wx:if="{{showBack}}" class="back" catchtap="back">
+      <van-icon name="arrow-left" color="black" size="22px" />
+    </view>
+  </view>
+  <view slot="title">{{title}}</view>
+  <view wx:if="{{rightTxt}}" slot="right" class="rightIcon">
+    <view style="color: {{skin['cancel']}};" catchtap="onDelete"> {{rightTxt}}</view>
+  </view>
+</van-nav-bar>

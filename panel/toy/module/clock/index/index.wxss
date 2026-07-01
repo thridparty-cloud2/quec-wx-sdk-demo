@@ -1,0 +1,51 @@
+@import "/asset/icon.wxss";
+@import "/asset/smart.wxss";
+@import "/asset/nav.wxss";
+
+page {
+  overflow-y: hidden;
+}
+
+.clocks-content {
+  padding: 0 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.clocks-scroll {
+  height: 89vh;
+}
+
+.clock-add-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 16px 12px;
+  gap: 8px;
+}
+
+.icon-content {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #e8f5ff;
+}
+
+.add-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.seat-box {
+  height: 40px;
+}
+
+.seat-box-top {
+  height: 10px;
+}

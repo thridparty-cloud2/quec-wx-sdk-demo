@@ -1,0 +1,101 @@
+@import '/asset/base.wxss';
+
+.pic {
+  background: linear-gradient(180deg, #EAEAEA 0%, #DDD 100%);
+  box-shadow: 0 1px 10.3px rgba(2, 50, 118, 0.25);
+  border-radius: 50%;
+  border: 2px solid #FFF;
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  left: 5%;
+  top: -15px;
+  z-index: 12;
+}
+
+.pic .icon {
+  margin: 8rpx auto;
+}
+
+.status {
+  padding: 2px 6px;
+  border-radius: 10px;
+  background: #FFF;
+  text-align: center;
+  font-size: 12px;
+  position: absolute;
+  left: 6px;
+  top: 28px;
+  z-index: 13;
+}
+
+.status.on {
+  color: #000;
+}
+
+.status.off {
+  color: #CECFD1;
+}
+
+.strength {
+  padding: 0 6px 0 0;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 1px solid #FFF;
+  background: rgba(255, 255, 255, 0.80);
+  position: absolute;
+  left: 34%;
+  top: -2px;
+  z-index: 11;
+}
+
+.bat {
+  margin-left: 16px;
+  justify-content: flex-start;
+  height: 24px;
+}
+
+.line {
+  width: 1px;
+  height: 10px;
+  background: #FFF;
+  margin: 0 8rpx 0 10rpx;
+  position: relative;
+  top: 0;
+}
+
+.signal .val {
+  color: #4C3033;
+  font-size: 12px;
+  padding-left: 8rpx;
+}
+
+.signal .val,
+.signal .img {
+  vertical-align: middle;
+}
+
+.signal .val .unit {
+  color: #4C3033;
+  font-size: 8px;
+}
+
+.size22 {
+  width: 22px;
+  height: 34px;
+}
+
+.icon {
+  display: block;
+  margin: 0 auto;
+}
+
+.isize12 {
+  width: 14px;
+  height: 14px;
+}
+
+.vermid {
+  vertical-align: middle;
+}

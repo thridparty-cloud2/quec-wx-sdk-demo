@@ -1,0 +1,6 @@
+/* user/about/v1/video/index.wxss */
+
+video {
+  width: 100%;
+  height: 300px;
+}

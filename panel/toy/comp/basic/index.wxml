@@ -1,0 +1,27 @@
+<view class="pic">
+  <image class="size22 icon" src="{{role.rolePicUrl ? role.rolePicUrl : tConst.roleSmall}}" mode="aspectFit" />
+</view>
+<view wx:if="{{device.onlineStatus == 1}}" class="status on">在线中</view>
+<view wx:else class="status off">离线...</view>
+<view class="strength">
+  <view class="bat fbox icenter">
+    <view class="type">
+      <!-- networkType  1-wifi 2-蜂窝 3-NB 5-蓝牙 -->
+      <block wx:if="{{device.onlineStatus == 1}}">
+        <!-- wifi -->
+        <image wx:if="{{device.networkType == 1}}" class="isize12" src="{{tConst.typeWifi}}" mode="aspectFit" />
+        <!-- 4G  -->
+        <image wx:else class="isize12" src="{{tConst.type4G}}" mode="aspectFit" />
+      </block>
+      <block wx:else>
+        <!-- 离线 -->
+        <image class="isize12 vermid" src="{{tConst.typeOff}}" mode="aspectFit" />
+      </block>
+    </view>
+    <view class="line"></view>
+    <view class="signal fbox icenter">
+      <charging statusStTsl="{{chargeStatusStTsl}}" percentStTsl="{{batteryPercentStTsl}}"></charging>
+      <text wx:if="{{batteryPercentStTsl.vdata}}" class="val">{{batteryPercentStTsl.vdata}}<text class="unit">%</text></text>
+    </view>
+  </view>
+</view>

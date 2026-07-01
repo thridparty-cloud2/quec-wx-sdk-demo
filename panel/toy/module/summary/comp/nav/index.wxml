@@ -1,0 +1,12 @@
+<van-nav-bar class="listH" custom-class="van-nav-bar" fixed="{{true}}" placeholder="{{true}}" z-index="80" border="{{false}}">
+  <view slot="left" class="leftIcon">
+    <view wx:if="{{showBack}}" class="back" catchtap="back">
+      <van-icon name="arrow-left" color="#080F19" size="22px" />
+    </view>
+  </view>
+  <view slot="title" class="titleContainer" catchtap="openCalendar">
+    <view class="dateTitle">{{selectedDate}}</view>
+    <van-icon name="arrow-{{arrowDirection}}" color="#080F19" size="12px" class="arrowIcon" />
+  </view>
+  <view slot="right" class="rightIcon"></view>
+</van-nav-bar>

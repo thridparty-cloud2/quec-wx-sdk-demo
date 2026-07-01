@@ -1,0 +1,76 @@
+<wxs module="tools" src="../../../../../utils/common.wxs"></wxs>
+<view class="main-page">
+  <nav_bar title="我的订单"></nav_bar>
+  <scroll-view class="order_list" scroll-y="{{true}}" refresher-enabled="{{true}}" refresher-triggered="{{loading}}" bindrefresherrefresh="handleRefresh" bindscrolltolower="handleScrollToLower" bindrefresherabort="handleRefresherAbort" enhanced="{{true}}" show-scrollbar="{{false}}" refresher-default-style="none">
+    <view class="scroll-content">
+      <view wx:if="{{orderList.length === 0}}" class="empty-wrapper">
+        <image src="{{noDataImg}}" class="empty-img" mode="aspectFit" />
+        <text class="empty-text">暂无订单</text>
+      </view>
+      <view wx:for="{{orderList}}" wx:key="orderNo" data-item="{{item}}" catchtap="toDetail">
+        <view class="item {{(item.salePackage.packageType === 'AI_VOICE_CLONE' || item.salePackage.packageType === 'AI_VOICE_CLONE_RENEW') ? 'item-flat' : ''}}">
+          <!-- 订单标题和状态 -->
+          <view class="fbox fboxat">
+            <view class="package-name-title">{{item.salePackage.packageName}}</view>
+            <view class="status">
+              <text wx:if="{{item.orderStatus === 'INIT' || item.orderStatus === 'UNPAID'}}" class="size14 c_FF8717 f_600 wait-pay">待支付</text>
+              <text wx:elif="{{item.orderStatus === 'COMPLETED'}}" class="size14 c_080F19 f_600">订单完成</text>
+              <text wx:elif="{{item.orderStatus === 'DELIVERING'}}" class="size14 c_080F19 f_600">发货中</text>
+              <text wx:else class="size14 c_080F19 f_600">订单关闭</text>
+            </view>
+          </view>
+          <!-- 商品信息 -->
+          <view class="con fbox fboxat">
+            <view class="left">
+              <view class="fbox">
+                <image class="img" src="{{packageTypeImgMap[item.salePackage.packageType] || defaultPackageImg}}" mode="aspectFit" />
+                <view class="info {{(item.salePackage.packageType === 'AI_VOICE_CLONE' || item.salePackage.packageType === 'AI_VOICE_CLONE_RENEW') ? 'info-flat' : (item.orderStatus === 'COMPLETED' ? 'pay-complete' : '')}}">
+                  <view class="package-type-wrapper">
+                    <view class="name size14 c_080F19 f_600 {{(item.salePackage.packageType === 'AI_VOICE_CLONE' || item.salePackage.packageType === 'AI_VOICE_CLONE_RENEW') ? 'close-package-text' : ''}} {{item.salePackage.packageType === 'setmeal' ? 'setmeal-class' : ''}}">
+                      <text wx:if="{{item.salePackage.packageType === 'SMS'}}">短信服务</text>
+                      <text wx:elif="{{item.salePackage.packageType === 'VOICE'}}">电话服务</text>
+                      <text wx:elif="{{item.salePackage.packageType === 'setmeal' || item.salePackage.packageType === 'flowpackage'}}">{{item.salePackage.packageDesc || '设备流量服务'}}</text>
+                      <text wx:elif="{{item.salePackage.packageType === 'AI_VOICE_CLONE' || item.salePackage.packageType === 'AI_VOICE_CLONE_RENEW'}}">{{item.salePackage.packageDesc || '声音复刻'}}</text>
+                      <text wx:elif="{{item.salePackage.packageType === 'AI_VOICE_PRINT' || item.salePackage.packageType === 'AI_VOICE_PRINT_RENEW'}}">{{item.salePackage.packageDesc || '声纹识别'}}</text>
+                      <text wx:elif="{{item.salePackage.packageType === 'AI_CHAT' || item.salePackage.packageType === 'AI_CHAT_RESOURCE_PACKAGE'}}">{{item.salePackage.packageDesc || 'AI对讲'}}</text>
+                      <text wx:elif="{{item.salePackage.packageType === 'AI_MUSIC'}}">{{item.salePackage.packageDesc || '音乐服务'}}</text>
+                      <text wx:else>未知服务</text>
+                    </view>
+                    <view class="right">
+                      <text class="size12">{{ tools.getMapValByKey(item.salePackage.packageCurrencyCode, currencyUnitMap)}}</text>
+                      <text class="size14 c_080F19 f_600">{{tools.toFixed(item.orderPrice, 2)}}</text>
+                    </view>
+                  </view>
+                  <view wx:if="{{item.goodsList[0].period}}" class="limit size14 c_9C9FA3">
+                    <!-- <text class="{{(item.salePackage.packageType === 'AI_VOICE_CLONE' || item.salePackage.packageType === 'AI_VOICE_CLONE_RENEW') ? 'limit-time' : ''}}">{{item.goodsList[0].period}}{{ tools.getMapValByKey(item.goodsList[0].periodUnit, periodUnitMap)}}</text> -->
+                    <text wx:if="{{item.salePackage.packageType !== 'AI_CHAT' && item.salePackage.packageType !== 'AI_CHAT_RESOURCE_PACKAGE'}}">x{{item.salePackage.quantity}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <!-- 价格信息 -->
+          <view class="total">
+            <text wx:if="{{item.orderStatus === 'INIT' || item.orderStatus === 'UNPAID'}}" class="size14 c_080F19">需付款</text>
+            <text wx:elif="{{item.orderStatus === 'COMPLETED'}}" class="size14 c_080F19">实付款</text>
+            <text wx:else class="size14 c_080F19">应付款</text>
+            <text decode="{{true}}">&nbsp;&nbsp;</text>
+            <text class="size12 f_400">{{ tools.getMapValByKey(item.salePackage.packageCurrencyCode, currencyUnitMap)}}</text>
+            <text class="size16 f_600">{{tools.toFixed(item.duePayPrice, 2)}}</text>
+          </view>
+          <!-- 操作按钮（仅待支付状态显示） -->
+          <view wx:if="{{item.orderStatus === 'INIT' || item.orderStatus === 'UNPAID'}}" class="act fbox fboxEnd">
+            <view class="op cancel size12 c_6B6F75" data-item="{{item}}" catchtap="openCancelDialog">
+              取消订单
+            </view>
+            <view class="op pay size12" data-item="{{item}}" catchtap="handlePay">去支付</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<!-- 付款信息弹窗 -->
+<pay_info visible="{{payInfoVisible}}" package="{{currentPlan}}" device="{{curDevice}}" ctype="{{currentPlan.salePackage.packageType}}" amount="{{currentPlan.salePackage.quantity}}" bind:close="closePay" bindGiveup="closePay" bindPaySuccess="successPay" bindContinue="continuePay" />
+<confirm_tip visible="{{cancelShow}}" title="确认取消订单？" tip="是否确认取消该订单" confirmColor="{{skin['primary']}}" cancelColor="{{skin['text_h2']}}" confirmTxt="确认" cancelTxt="取消" bindConfirm="cancelOrder"></confirm_tip>
+<sos_warn device="{{curDevice}}" />

@@ -1,5 +1,5 @@
 import { addRecord } from '../../util/record.js'
-import { sendPhoneCode, sendForgetEmailCode, sendRegEmailCode, validateSmsCode, validateEmailCode, setDeviceInfo } from '../../util/tool.js'
+import { sendPhoneCode, sendForgetEmailCode, sendRegEmailCode, validateSmsCode, validateEmailCode } from '../../util/tool.js'
 
 const plugin = requirePlugin('quecPlugin')
 
@@ -42,7 +42,9 @@ Component({
     skin: '',
     isEmail: '',
     isVFocus: false,
-    timer: null
+    timer: null,
+    fromSetPwdBack: false,
+    allowManualInput: false
   },
 
   lifetimes: {
@@ -63,6 +65,13 @@ Component({
 
   pageLifetimes: {
     show: function () {
+      if (this.data.fromSetPwdBack) {
+        this.clearVal()
+        this.setData({
+          fromSetPwdBack: false,
+        })
+        return
+      }
       this.initShow()
       this.doLoop()
     },
@@ -86,6 +95,12 @@ Component({
   methods: {
     showVCode: function (e) {
       let self = this
+      if (!self.data.allowManualInput) {
+        self.setData({
+          code: '',
+        })
+        return
+      }
       let val = e.detail.value
       self.setData({
         code: e.detail.value,
@@ -98,6 +113,7 @@ Component({
     tapFn (e) {
       this.setData({
         isVFocus: true,
+        allowManualInput: true,
       })
     },
 
@@ -180,7 +196,9 @@ Component({
       let self = this
       self.setData({
         times: 60,
-        code: ''
+        code: '',
+        allowManualInput: false,
+        isVFocus: false,
       })
       self.doLoop()
     },
@@ -234,7 +252,6 @@ Component({
         smsCode: code,
         success (res) {
           if (res.data.accessToken && res.data.accessToken.token) {
-            setDeviceInfo()
             addRecord(2, 2, self)
             plugin.jsUtil.tip(self.data.i18n['loginSuccTip'], 'success')
             plugin.config.clearStorageByKey('scene')
@@ -279,6 +296,9 @@ Component({
         self.codeLogin(uname, code)
       } else {
         clearInterval(self.data.timer)
+        self.setData({
+          fromSetPwdBack: true,
+        })
         let info = { uname, code, type }
         self.triggerEvent('codeSuccess', info)
       }
@@ -303,7 +323,8 @@ Component({
       self.setData({
         code: '',
         times: 0,
-        isVFocus: false
+        isVFocus: false,
+        allowManualInput: false,
       })
       clearInterval(self.data.timer)
     },
@@ -316,7 +337,8 @@ Component({
       self.setData({
         code: '',
         times: 60,
-        isVFocus: false
+        isVFocus: false,
+        allowManualInput: false,
       })
     }
   }

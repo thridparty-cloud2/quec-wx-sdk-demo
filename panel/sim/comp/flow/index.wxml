@@ -1,0 +1,21 @@
+<!-- 续费套餐 -->
+<view class="tips {{isExpired ===true ? 'expired':''}}" wx:if="{{packageType=='EDU_SIM_RETAIL' ? (isFinish && iccId !==null && (time==7||time==0) && showWarning) :(isFinish && iccId !==null && time<=7 && showWarning)}}">
+  <!-- <view class="tips {{isExpired ===true ? 'expired':''}}" wx:if="{{isFinish && iccId !==null && time<=7 && showWarning}}"> -->
+  <view class="container">
+    <view class="bac" wx:if="{{!isExpired && !isTodayExpire}}">
+      您的设备流量服务剩余{{time}}天到期，为了不影响后续使用，请
+      <text bindtap="goFlow" class="jump">尽快充值</text>
+    </view>
+    <view class="bac" wx:elif="{{isTodayExpire}}">
+      您的设备流量服务将于今日 23:59 到期，为了不影响后续使用,请
+      <text bindtap="goFlow" class="jump">尽快充值</text>
+    </view>
+    <view class="bac-expired" wx:else>
+      您的设备流量服务已到期，为了不影响后续使用，请
+      <text bindtap="goFlow" class="jump">尽快充值</text>
+    </view>
+    <view wx:if="{{packageType=='EDU_SIM_RETAIL'  && ((!isExpired && !isTodayExpire) || isTodayExpire)}}" class="close" catchtap="close">
+      <van-icon class="crs" name="cross" size="18px" />
+    </view>
+  </view>
+</view>

@@ -1,0 +1,31 @@
+<view class="target-stat-info-card">
+  <view class="target-info">
+    <view wx:if="{{showStatus}}" class="target-status {{statusClass}}">{{statusText}}</view>
+    <view class="target-icon-name">
+      <view class="icon-cont">
+        <image class="t-icon" mode="aspectFit" src="{{babyTask.taskIcon}}" />
+      </view>
+      <view class="t-name">{{babyTask.taskName}}</view>
+    </view>
+  </view>
+  <view class="target-stat">
+    <view class="card-item">
+      <view class="stat-text">
+        <view class="days">{{finishNum}}d</view>
+        <view class="desc">累计完成</view>
+      </view>
+      <view class="stat-icon">
+        <image class="icon" src="{{checkDayIcon}}" mode="aspectFit"></image>
+      </view>
+    </view>
+    <view class="card-item">
+      <view class="stat-text">
+        <view class="task-count">{{continueNum}}d</view>
+        <view class="desc">连续完成</view>
+      </view>
+      <view class="stat-icon">
+        <image class="icon" src="{{taskConutIcon}}" mode="aspectFit"></image>
+      </view>
+    </view>
+  </view>
+</view>

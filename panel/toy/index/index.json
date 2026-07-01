@@ -1,0 +1,16 @@
+{
+  "usingComponents": {
+    "volume_slider": "../comp/volume_slider/index",
+    "basic": "../comp/basic/index",
+    "role_pic": "../comp/role_pic/index",
+    "role_set": "../comp/role_set/index",
+    "feature": "../comp/feature/index",
+    "cload_ota_pop": "../../ota/cloud/pop/index",
+    "network": "../../comp/network/index",
+    "risk_guide": "../comp/risk_guide/index",
+    "resource_warn": "../comp/resource_warn/index",
+    "sim_flow": "../../sim/comp/flow/index",
+    "sim_recharge": "../../sim/comp/recharge/index",
+    "sos_warn": "../comp/sos_warn/index"
+  }
+}

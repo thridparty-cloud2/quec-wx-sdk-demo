@@ -1,0 +1,46 @@
+.role-menu-content {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 24px;
+  padding: 24px 16px;
+  margin-top: 8px;
+  background-color: #fff;
+}
+
+.menu-cell {
+  display: flex;
+  align-items: center;
+  min-width: 100px;
+  min-height: 24px;
+}
+
+.menu-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #080f19;
+  margin-left: 8px;
+}
+
+.menu-text {
+  max-width: 165px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #9c9fa3;
+  margin-right: 4px;
+  word-break: break-all;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-clamp: 1;
+  box-orient: vertical;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.right {
+  justify-content: flex-end;
+}

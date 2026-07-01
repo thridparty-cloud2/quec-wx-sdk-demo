@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "send_code": "../send_code/index"
+  }
+}

@@ -1,0 +1,21 @@
+<view class="role-info">
+  <image class="role-pic" mode="aspectFit" src="{{currentRoleInfo.rolePicUrl || defaultRoleInfo.rolePicUrl}}" />
+  <view class="role-name">{{currentRoleInfo.roleName || defaultRoleInfo.roleName || ''}}</view>
+  <view class="role-des">{{currentRoleInfo.roleDesc || defaultRoleInfo.roleDesc || ''}}</view>
+  <block wx:if="{{currentRoleInfo.roleType === 'device'}}">
+    <view class="driver"></view>
+    <view class="role-prompt-container">
+      <block wx:if="{{roleDetailLoading}}">
+        <view class="role-prompt-loading">
+          <van-loading type="spinner" size="16px" vertical="true" />
+          <text class="loading-text">加载中...</text>
+        </view>
+      </block>
+      <view wx:else class="role-prompt">{{deviceRolePrompt}}</view>
+    </view>
+    <view class="edit-btn" bindtap="toEditRole">
+      <view class="sdk-icon writing"></view>
+      <view class="edit-text">编辑</view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,30 @@
+<view class="task-list-content">
+  <view class="list-title">任务列表</view>
+  <scroll-view scroll-y="{{true}}" style="height: {{ isEmpty ? '100%' : '100vh' }};" show-scrollbar="{{false}}" enhanced="{{true}}">
+    <block wx:for="{{weekTaskList}}" wx:key="*this" wx:for-item="taskItem">
+      <view class="task-item" bindtap="toTargetStat" data-task="{{taskItem}}">
+        <view class="task-icon">
+          <image class="icon" src="{{taskItem.taskIcon}}" mode="aspectFit"></image>
+        </view>
+        <view class="task-name">{{taskItem.taskName}}</view>
+        <view class="task-status">
+          <block wx:for="{{taskItem.babyTaskDayList}}" wx:key="date" wx:for-item="day">
+            <block wx:if="{{day.status === 'todo'}}">
+              <view class="pending-status"></view>
+            </block>
+            <block wx:elif="{{day.status === 'unfinish'}}">
+              <image class="status-icon" src="{{unfinishedIcon}}" mode="aspectFit"></image>
+            </block>
+            <block wx:else>
+              <image class="status-icon" src="{{day.status === 'finish' ? doneIcon : delOrEndIcon}}" mode="aspectFit"></image>
+            </block>
+          </block>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{isEmpty}}">
+      <noData img="{{emptyImg}}" tip1="空空的，没有任务" bflag="{{false}}"></noData>
+    </block>
+    <view class="seat-box"></view>
+  </scroll-view>
+</view>

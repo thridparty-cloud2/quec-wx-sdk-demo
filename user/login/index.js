@@ -8,7 +8,6 @@ Page({
    */
   data: {
     env: app.globalData.envData,
-    gradientHeight: 100,
     from: ''
   },
 
@@ -17,9 +16,6 @@ Page({
    */
   onLoad (options) {
     let self = this
-    self.setData({
-      gradientHeight: (200 / wx.getWindowInfo().windowHeight).toFixed(2) * 100
-    })
     if (options.from) {
       this.setData({
         from: options.from
@@ -28,9 +24,7 @@ Page({
   },
   // 跳转验证码登录
   toCodeLogin () {
-    this.pageRouter.navigateTo({
-      url: '/user/login_code/index',
-    })
+    // Demo: login_code 页面已移除
   },
   // 跳转忘记密码
   toForgetPwd () {

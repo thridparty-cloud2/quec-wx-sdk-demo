@@ -1,0 +1,37 @@
+@import '/asset/base.wxss';
+
+.netError {
+  padding: 40rpx;
+  text-align: center;
+}
+
+.netError .h4 {
+  padding: 20rpx 0 20rpx;
+}
+
+.errimg {
+  width: 72px;
+  height: 72px;
+}
+
+.gut {
+  margin: 0 10rpx;
+}
+
+.netError .txt {
+  text-align: left;
+  padding: 0 40rpx;
+}
+
+.netError .txt .p1 {
+  line-height: 22px;
+}
+
+.sbtn {
+  margin-top: 60rpx;
+}
+
+.netbtn {
+  font-size: 16px !important;
+  height: 52px !important;
+}

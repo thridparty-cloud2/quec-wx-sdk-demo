@@ -1,0 +1,7 @@
+<van-transition name="fade">
+  <view class="mask-con sendDynamic" data-act="add" catchtap="sao">
+    <view class="sendDynamic mask-con" style="background:#0091FF;">
+      <view class="sdk-icon scanning"></view>
+    </view>
+  </view>
+</van-transition>

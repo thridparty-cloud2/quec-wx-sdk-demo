@@ -1,0 +1,2 @@
+<nav_bar title="操作视频"></nav_bar>
+<video id="myVideo" src="{{env['VEDIO_URL']}}" binderror="videoErrorCallback"></video>

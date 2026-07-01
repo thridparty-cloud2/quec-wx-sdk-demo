@@ -13,6 +13,8 @@
     "r_enum": "../../tsl/r_enum/index",
     "rw_enum": "../../tsl/rw_enum/index",
     "general": "../../tsl/general/index",
-    "noData": "plugin://quecPlugin/noData"
+    "noData": "/comps/noData",
+    "netError": "../../../comp/netError/index",
+    "cload_ota_pop": "../../../ota/cloud/pop/index"
   }
 }

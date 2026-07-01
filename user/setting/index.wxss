@@ -1,0 +1,127 @@
+@import '/asset/nav.wxss';
+@import '/asset/base.wxss';
+
+page {
+  overflow: hidden;
+}
+
+.van-cell__title {
+  flex: 3 !important;
+}
+
+.van-cell__value {
+  flex: 1;
+}
+
+.h4 {
+  font-size: 12px;
+  color: #9C9FA3;
+  line-height: 22px;
+  padding: 10rpx 0 10rpx 30rpx;
+
+}
+
+.modeTip {
+  padding: 40rpx 60rpx;
+  font-size: 14px;
+  line-height: 44rpx;
+  text-align: left;
+  color: #333333;
+}
+
+.cellTitle {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.custCell {
+  padding: 15px !important;
+}
+
+.houseCls {
+  height: 80%;
+  overflow: hidden;
+}
+
+.house {
+  height: 100%;
+  position: relative;
+  z-index: 100;
+}
+
+.hbg {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: .2;
+  z-index: 101;
+}
+
+.house .title {
+  text-align: center;
+  position: relative;
+  height: 60px;
+  line-height: 60px;
+  z-index: 105;
+}
+
+.house .title .close {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  height: 60px;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.house .title .txt {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333333;
+}
+
+.house .img {
+  width: 264px;
+  height: 477px;
+  position: absolute;
+  top: 180rpx;
+  left: 50%;
+  margin-left: -132px;
+  z-index: 103;
+}
+
+.house .qipao {
+  width: 375px;
+  height: 440px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 102;
+}
+
+.house .qipao image,
+.house .img image {
+  width: 100%;
+  height: 100%;
+}
+
+.house .detail {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.enterBtn {
+  position: absolute;
+  bottom: 40rpx;
+  left: 0;
+  width: 100%;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  z-index: 104;
+}

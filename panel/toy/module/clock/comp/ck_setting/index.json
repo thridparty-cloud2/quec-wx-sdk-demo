@@ -1,0 +1,10 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-field": "@vant/weapp/field/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "ck-common-popup": "../ck_common_popup/index"
+  }
+}

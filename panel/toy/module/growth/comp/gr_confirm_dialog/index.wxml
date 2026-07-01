@@ -1,0 +1,17 @@
+<van-dialog
+  root-portal="true"
+  id="{{id}}"
+  overlayStyle="{{overlayStyle}}"
+  custom-class="{{customClass}}"
+  width="{{width}}"
+  show="{{show}}"
+  title="{{title}}"
+  message="{{message}}"
+  show-cancel-button
+  cancel-button-text="{{cancelText}}"
+  confirm-button-text="{{confirmText}}"
+  cancel-button-class="{{cancelButtonClass}}"
+  confirm-button-class="{{confirmButtonClass}}"
+  bind:cancel="onCancel"
+  bind:confirm="onConfirm"
+/>

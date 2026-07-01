@@ -1,0 +1,65 @@
+@import "/asset/nav.wxss";
+
+page {
+  overflow: hidden;
+}
+
+.bgCls {
+  height: 100vh;
+  overflow: hidden;
+  background-color: #f1f4f7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.role-memory-content {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+}
+
+.action-card {
+  padding: 16px 12px 16px 12px;
+  border-radius: 12px;
+  background-color: #fff;
+  margin-top: 20px;
+  gap: 4px;
+}
+
+.action-clean-record,
+.action-clean-memory {
+  font-size: 16px;
+  font-weight: 500;
+  color: #080f19;
+}
+
+.action-clean-record {
+  margin-bottom: 4px;
+}
+
+.action-clean-tip,
+.memory-des {
+  font-size: 12px;
+  font-weight: 400;
+  color: #6b6f75;
+}
+
+.memory-des {
+  margin-top: 8px;
+  margin-left: 12px;
+}
+
+.cancel-btn,
+.confirm-btn {
+  font-size: 16px;
+  font-weight: 500;
+  color: #080f19;
+}
+
+.confirm-btn {
+  color: #ff4219;
+}

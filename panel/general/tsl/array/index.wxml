@@ -1,0 +1,16 @@
+<form bindsubmit="formSubmit">
+  <view class="p_main">
+    <scroll-view scroll-y="true" class="scrollContainer" style="height: {{winHeight - nav_scroll_height}}px;" scroll-into-view="{{toView}}">
+      <block wx:if="{{isFinish}}">
+        <view wx:for="{{dataArr}}" wx:key="index" wx:for-item="item">
+          <van-field wx:if="{{fieldType}}" size="large" model:value="{{ item }}" placeholder="{{i18n['attrHolder']}}" bind:change="changeVal" data-index="{{index}}" adjust-position="{{false}}" id="input{{index}}" bind:focus="keyboardOcclusion" bind:blur="offKeyboardOcclusion" />
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <view class="btns">
+    <view class="btnItem">
+      <van-button custom-class="tslBtn" custom-style="{{'border-radius:'+skin['radius']}}" block form-type="submit" color="{{skin['primary']}}">{{i18n['confirmBtn']}}</van-button>
+    </view>
+  </view>
+</form>

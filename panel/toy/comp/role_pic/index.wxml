@@ -1,0 +1,22 @@
+<view>
+  <view class="chuo">
+    <view wx:if="{{isTip}}" class="con">
+      <text>戳戳我试试看！可以看到不一样的我呐~</text>
+      <view class="arrow">
+        <image class="arrow_size" src="{{tConst.clickArrow}}" mode="aspectFit" />
+      </view>
+    </view>
+  </view>
+  <image class="bgImg" src="{{tConst.roleBg}}" mode="aspectFit" />
+  <!-- <van-transition name="fade" duration="{{1000}}">
+    <image catchtap="{{isAn ? 'chuo' : ''}}" class="rolePic {{(isAn&&isChuo) ? 'sGif' :'sNormal'}}" src="{{isChuo ? tConst.clickZiyou :roleImg }}" mode="aspectFit" />
+  </van-transition> -->
+  <block wx:if="{{isClick}}">
+    <van-transition name="fade" duration="{{1000}}">
+      <image catchtap="{{isAn ? 'chuo' : ''}}" class="rolePic {{(isAn&&isChuo) ? 'sGif' :'sNormal'}}" src="{{isChuo ? tConst.clickZiyou :roleImg }}" mode="aspectFit" />
+    </van-transition>
+  </block>
+  <block wx:else>
+    <image catchtap="{{isAn ? 'chuo' : ''}}" class="rolePic {{(isAn&&isChuo) ? 'sGif' :'sNormal'}}" src="{{isChuo ? tConst.clickZiyou :roleImg }}" mode="aspectFit" />
+  </block>
+</view>

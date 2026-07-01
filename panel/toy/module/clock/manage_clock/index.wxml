@@ -1,0 +1,7 @@
+<nav_bar title="{{pageTitle}}" back="{{true}}" style="background-color: #FFF; z-index: 9999;"></nav_bar>
+<view class="add-clock-content">
+  <time-picker bindchange="onTimeChange" isEditMode="{{isEdit}}" eHour="{{eHour}}" eMinute="{{eMinute}}" />
+  <clock-setting editPropData="{{editPropData}}" bindrepeatChange="onRepeatChange" bindringtoneChange="onRingtoneChange" bindclockNameChange="onClockNameChange"></clock-setting>
+  <button class="save-btn" bindtap="generalSaveAciton">保存</button>
+</view>
+<sos_warn device="{{deviceInfo}}" />

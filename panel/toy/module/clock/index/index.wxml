@@ -1,0 +1,20 @@
+<nav_bar title="闹钟" back="{{true}}"></nav_bar>
+<view class="clocks-content">
+  <block wx:if="{{clocks.length > 0}}">
+    <scroll-view class="clocks-scroll" scroll-y enhanced="{{true}}" show-scrollbar="{{false}}" bindscrolltolower="onReachBottomToLoad">
+      <view class="seat-box-top"></view>
+      <clock-swipe-cell clocks="{{item}}" wx:for="{{clocks}}" wx:key="id" delColor="#FF5555" delWord="删除" rightWidth="60" binddelete="deleteClock" bindedit="toEditClock" bindswitch="switchClockCheck"></clock-swipe-cell>
+      <view class="clock-add-btn" bindtap="toAddClocks">
+        <view class="icon-content">
+          <text class="sdk-icon jian"></text>
+        </view>
+        <view class="add-text">添加闹钟</view>
+      </view>
+      <view class="seat-box"></view>
+    </scroll-view>
+  </block>
+  <block wx:else>
+    <noData img="{{emptyImg}}" tip1="暂无闹钟设置" bflag="{{true}}" butxt="添加闹钟" bindAct="toAddClocks"></noData>
+  </block>
+</view>
+<sos_warn device="{{deviceInfo}}" />

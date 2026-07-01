@@ -1,0 +1,28 @@
+<view class="sug-analysis-content">
+  <!-- Tabs -->
+  <view class="tab-content">
+    <view wx:for="{{tabs}}" wx:key="index" class="tab-item" data-index="{{item.index}}" bindtap="switchTab">
+      <view class="tab-item-text {{currentTab === item.index ? 'isSelect' : ''}}">
+        {{item.name}}
+      </view>
+      <image wx:if="{{currentTab === item.index}}" class="tab-line" src="{{tabLineIcon}}" />
+    </view>
+  </view>
+  <view class="content-container">
+    <view wx:for="{{contentData}}" wx:key="tabIndex" wx:if="{{currentTab === item.tabIndex}}">
+      <view wx:for="{{item.sections}}" wx:for-item="section" wx:key="title" class="content-detail fade-in" style="{{section.compact ? 'padding-bottom: 16px;' : ''}}">
+        <block wx:if="{{section.contents.length > 0}}">
+          <view class="content-title" style="background-color: {{section.bgColor}}">
+            <van-image class="title-icon" width="20" height="20" src="{{section.icon}}" />
+            <view class="title-text">{{section.title}}</view>
+          </view>
+          <view class="content-card">
+            <view class="list-content">
+              <text wx:for="{{section.contents}}" wx:for-item="content" wx:key="*this" class="content-text-item {{content.isLastNumbered ? 'last-numbered-item' : ''}}">{{content.text}}</text>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

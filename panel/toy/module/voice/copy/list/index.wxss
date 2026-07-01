@@ -1,0 +1,693 @@
+@import "/asset/nav.wxss";
+@import "/asset/base.wxss";
+@import "/asset/icon.wxss";
+
+page,
+.roleMain {
+  overflow: hidden;
+  padding: 0;
+}
+
+.van-nav-bar {
+  background-color: #f7f8fc !important;
+}
+
+.main {
+  flex: 1;
+  width: 94%;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 120px;
+}
+
+/* 两种声音的tab栏 */
+
+.role-list .van-tabs__scroll {
+  background-color: transparent;
+}
+
+.van-tabs--line {
+  height: 56px !important;
+}
+
+.role-list .role-tabs {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  align-items: center;
+  height: 56px;
+}
+
+.role-list .role-tab {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: auto;
+  padding: 0 12px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.role-list .role-tab view {
+  overflow: visible !important;
+  white-space: nowrap;
+}
+
+.role-list .tab-active {
+  color: #000;
+}
+
+/* 声音标题与icon样式 */
+.voice-title-with-icon {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.voice-title-with-icon .voice-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.voice-title-with-icon .voice-name-row {
+  margin-bottom: -4px;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.voice-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #080f19;
+}
+
+.clone-voice-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: #6b6f75;
+}
+
+.voice-title-with-icon .voice-status-row {
+  font-size: 12px;
+  color: #6b6f75;
+}
+
+.voice-title-with-icon .empty-state-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #9c9fa3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 声音的cell的外层容器 */
+
+.role-scroll {
+  width: 100%;
+  box-sizing: border-box;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.role-scroll.speed-expanded {
+  height: calc(80vh - 80px);
+}
+
+/* 默认声音的cell */
+
+.role-list .role-item {
+  background-color: #fff !important;
+  width: 100%;
+  height: 74px;
+  padding: 12px !important;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+/* 复刻声音的cell */
+
+.role-scroll .role-item-copy-empty {
+  border: 1px dashed var(--stroke-active, #9c9fa3);
+}
+
+.role-scroll .role-item-copy-empty .role-item-copy-cell {
+  background-color: transparent !important;
+}
+
+.role-scroll .role-item-copy-normal {
+  border: 1px solid transparent;
+  /* 默认透明边框 */
+}
+
+.role-scroll .role-item-copy-selected {
+  border: 1px solid var(--stroke-active, #0091ff);
+}
+
+.training-times {
+  color: #0091ff !important;
+}
+
+.role-item-copy-label {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  flex-shrink: 1;
+  /* 如果被 flex 包裹 */
+}
+
+/* 基础样式 */
+.role-item-copy {
+  height: 110px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 99%;
+}
+
+/* 空状态样式 */
+.empty-state-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 64px;
+  opacity: 0.3;
+}
+
+.empty-state-text {
+  font-size: 16px;
+  color: #9c9fa3;
+  margin-top: 26px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.role-item-copy-cell {
+  display: flex;
+  background-color: #fff !important;
+  width: 100%;
+  height: 76px;
+  padding: 12px !important;
+  border-radius: 12px 12px 0px 0px;
+  flex-direction: row !important;
+}
+
+.rename {
+  font-size: 24px !important;
+}
+
+.role-item-copy-cell-right-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.sdk-icon {
+  font-size: 16px;
+}
+
+.adjust {
+  font-size: 24px !important;
+}
+
+.role-item-right-radio {
+  margin-left: 12px;
+}
+
+.role-item-copy-serve {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: 400;
+  font-size: 12px;
+  color: #6b6f75;
+  padding-left: 13px;
+  height: 30px;
+  background-color: #fafafa;
+  border-radius: 12px;
+}
+
+.role-scroll .role-item-right-radio .van-radio__label {
+  width: 0 !important;
+  padding: 0 !important;
+}
+
+/* 复刻声音的按钮 */
+
+.role-list .create-cus-role-button {
+  width: 99%;
+  border-radius: 12px;
+  height: 65px !important;
+  box-sizing: border-box;
+  border: 1px dashed var(--stroke-active, #9c9fa3) !important;
+  background: #f7f8fc !important;
+  margin-bottom: 10vh;
+}
+
+/* 按钮文本和图标容器*/
+.create-cus-role-button .button-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.button-container .button-text {
+  margin-left: 15rpx;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* 克隆声音列表数据为空时的按钮样式 */
+.empty-state-container .empty-voice-button {
+  border-radius: 32px;
+  width: 200px;
+  height: 50px !important;
+}
+
+.empty-voice-button .button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty-voice-button .voice-button-text {
+  margin-left: 15rpx;
+}
+
+.empty-state-icon {
+  width: 240px;
+  height: 140px;
+}
+
+.role-list .create-cus-role-button .van-button__text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #6b6f75;
+}
+
+/* 复刻声音录音按钮和的确定声音选择的按钮组 */
+
+.role-list .group-btns {
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  gap: 12px;
+  z-index: 100;
+  padding: 12px;
+  padding-bottom: 36px;
+  width: 94%;
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.8) 20%,
+      rgba(255, 255, 255, 1) 100%);
+}
+
+.group-btns .group-btn2 {
+  flex: 2;
+}
+
+.group-btns .group-btn {
+  flex: 1;
+}
+
+.role-list .change-role-button .van-button__text {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.role-list .group-btn2 .van-button--plain {
+  background-color: #ffffff !important;
+}
+
+/* 编辑复刻声音名称的dialog */
+.copy-voice-edit-name {
+  border-radius: 8px;
+  background: #f7f8fc;
+  margin: 20px;
+  padding: 14px 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.copy_voice_rename_dialog .van-dialog__header {
+  color: #080f19 !important;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.copy_voice_rename_dialog-confirm-text {
+  color: #0091ff !important;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.publish-confirm-dialog .van-dialog__header {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* 发布确认对话框样式 */
+.publish-dialog-content {
+  padding: 20px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #6b6f75;
+}
+
+.publish-dialog-line {
+  text-align: center;
+}
+
+.publish-dialog-times {
+  color: #0091ff;
+  font-weight: 400;
+}
+
+/* 声音复刻弹框相关样式 */
+.copy-voice-popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 20px;
+}
+
+.copy-voice-popup-title {
+  color: #080f19 !important;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.copy-voice-popup-precautions {
+  color: #080f19;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: start;
+}
+
+.copy-voice-popup-precautions-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 16px 20px;
+  gap: 12px;
+}
+
+.copy-voice-popup-precautions .time-text {
+  color: #ff6600;
+}
+
+.lang-btn-selected {
+  color: #0091ff !important;
+}
+
+.copy-voice-popup-lang-change .change-lang-icon {
+  margin-left: 8px;
+}
+
+.copy-voice-popup-btn1 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20rpx;
+}
+
+.copy-voice-popup-btn1 .btn {
+  flex: 1;
+}
+
+.copy-voice-popup-btn1 .grey-color .van-button__text {
+  color: var(--text-black-2, #6b6f75);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.record-btn {
+  width: 90%;
+  height: 54px;
+  box-sizing: border-box;
+  background-color: #f5f5f5;
+  text-align: center;
+  border-radius: 7px;
+  border: none;
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 80%;
+}
+
+.record-btn-red {
+  background: linear-gradient(90deg, #ff4219 0%, #ff4219 100%);
+  background-size: 100% 100%;
+}
+
+.record-btn-blue {
+  background: linear-gradient(90deg, #0091ff 0%, #0091ff 100%);
+  background-size: 100% 100%;
+}
+
+.record-btn-text {
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  z-index: 1;
+  position: relative;
+}
+
+.record-btn-blue .record-btn-text,
+.record-btn-red .record-btn-text {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.text-red {
+  color: red;
+}
+
+/* 购买服务popup样式 */
+.order-voice-popup-container {
+  border-radius: 20rpx 20rpx 0 0;
+}
+
+.order-voice-popup {
+  padding: 40rpx 32rpx;
+  background: #fff;
+}
+
+.order-voice-popup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.order-popup-icon {
+  margin-bottom: 24rpx;
+}
+
+.order-popup-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #080f19;
+  margin-bottom: 16rpx;
+  text-align: center;
+}
+
+.order-popup-desc {
+  font-size: 28rpx;
+  color: #6b6f75;
+  text-align: center;
+}
+
+.order-voice-popup-btn {
+  display: flex;
+  gap: 24rpx;
+}
+
+.order-voice-popup-btn .btn {
+  flex: 1;
+}
+
+.grey-color {
+  background-color: #f7f8fc !important;
+  color: #6b6f75 !important;
+  border: 1rpx solid #e5e7eb !important;
+}
+
+.statusText {
+  color: #ff6600 !important;
+}
+
+.voidImg {
+  width: 36px;
+  height: 36px;
+  margin-right: 24rpx;
+}
+
+.sys-voice-title {
+  font-size: 16px;
+  color: #080f19;
+  font-weight: 600;
+}
+
+.sys-voice-label {
+  font-size: 14px;
+  color: #6b6f75;
+  font-weight: 400;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 语速调节卡片样式 */
+.speed-control-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  overflow: hidden;
+}
+
+.speed-control-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.speed-control-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #080f19;
+}
+
+.speed-control-current {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.speed-label {
+  font-size: 14px;
+  color: #6b6f75;
+  margin-right: 4px;
+}
+
+.speed-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0091ff;
+}
+
+.speed-text {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.speed-control-content {
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.speed-control-content.show {
+  padding-top: 12px;
+  max-height: 200px;
+  opacity: 1;
+}
+
+.speed-control-content.hidden {
+  max-height: 0;
+  opacity: 0;
+}
+
+.speed-slider-container {
+  padding: 0 16px;
+  height: 36px;
+}
+
+.speed-min-label,
+.speed-max-label {
+  font-size: 12px;
+  color: #9c9fa3;
+  min-width: 20px;
+}
+
+.speed-buttons {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+  background-color: #f7f8fc;
+}
+
+.speed-button {
+  width: 102px;
+  height: 32px;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 2;
+  transition: all 0.2s ease;
+}
+
+.speed-button.active {
+  background-color: #0091ff;
+}
+
+.speed-button-text {
+  font-size: 12px;
+  color: #6b6f75;
+  font-weight: 600;
+}
+
+.speed-button.active .speed-button-text {
+  color: #fff;
+}
+
+.van-dialog__button .van-button__text {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+
+.van-nav-bar__title {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+
+.role-item-copy-empty .voice-title-with-icon .voice-content {
+  align-items: center;
+}
+
+.role-item-copy-empty .voice-title-with-icon .voice-content .voice-name-row {
+  max-width: none;
+  width: 100%;
+}

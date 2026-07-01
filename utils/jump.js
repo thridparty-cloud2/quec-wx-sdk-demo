@@ -2,9 +2,7 @@
 * 去分享页面
 */
 export function goShare (obj, e) {
-  obj.pageRouter.navigateTo({
-    url: `/mode/share/device/index?item=${encodeURIComponent(JSON.stringify(e.detail))}`,
-  })
+  // Demo: mode/share 已移除
 }
 
 /**
@@ -32,8 +30,9 @@ export function home (obj, flag, from) {
     })
   } else {
     if (from) {
-      obj.pageRouter.navigateTo({
-        url: '/mode/share/accept/index?from=' + from
+      // Demo: mode/share 已移除，直接跳转首页
+      obj.pageRouter.reLaunch({
+        url: '/pages/home/home'
       })
     } else {
       obj.pageRouter.reLaunch({

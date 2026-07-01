@@ -1,0 +1,23 @@
+.block .title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333333;
+  text-align: center;
+  padding: 60rpx 50rpx 30rpx;
+  line-height: 48rpx;
+  word-break: break-all;
+}
+
+.block .title text {
+  color: #ED5D4F;
+  padding: 0 2rpx;
+}
+
+.block .tip {
+  padding: 0 50rpx 60rpx;
+  font-size: 14px;
+  color: #333333;
+  line-height: 44rpx;
+  word-break: break-all;
+  white-space: normal;
+}

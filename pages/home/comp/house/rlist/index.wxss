@@ -1,0 +1,87 @@
+@import '/asset/house.wxss';
+@import '/asset/icon.wxss';
+@import '/asset/noData.wxss';
+
+.li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20rpx;
+  align-items: center;
+  border-radius: 8px;
+  background: #ffffff;
+  margin: 0 40rpx 20rpx 0;
+  height: 50px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.li text {
+  display: block;
+}
+
+.rname {
+  color: #000000;
+  font-size: 16px;
+}
+
+.no {
+  color: #999999;
+  font-size: 12px;
+}
+
+
+.noData .img {
+  margin: 0 auto 40rpx;
+}
+
+.btnBg {
+  background: #F7F8FC;
+}
+
+.btns {
+  margin: 40rpx;
+}
+
+.room {
+  padding-left: 40rpx;
+  padding-right: 16rpx;
+  margin-top: 20rpx;
+}
+
+.addBtn {
+  font-size: 16px;
+  border-radius: 10px;
+  width: 50% !important;
+  margin: 0 auto;
+}
+
+.addBtn .add {
+  color: #ffffff;
+  font-size: 16px;
+  padding-right: 16rpx;
+}
+
+.dialTit {
+  text-align: center;
+  padding: 40rpx 40rpx 20rpx;
+  color: #333333;
+  font-size: 18px;
+}
+
+.block {
+  padding: 20rpx 40rpx 40rpx;
+}
+
+.sdk-icon.add {
+  padding-right: 10rpx;
+}
+
+.addRbtn {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 40rpx;
+  z-index: 99;
+}

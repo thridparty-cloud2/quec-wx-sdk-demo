@@ -1,0 +1,18 @@
+<view class="swipe-cell-container" bindtouchstart="onTouchStart" bindtouchmove="onTouchMove" bindtouchend="onTouchEnd">
+  <view class="swipe-cell-content" style="{{contentStyle}}">
+    <view class="clock-item" catchtap="toEditClock">
+      <view class="clock-item-info">
+        <view class="clock-item-time">{{clockTime}}</view>
+        <view class="clock-item-name">{{clockName}}</view>
+        <view class="clock-item-repeat">{{clockRepeat}}</view>
+      </view>
+      <view class="clock-item-switch {{ switchDisabled ? 'disabled' : '' }}" style="opacity: {{ switchOpacity }};" catchtap="preventBubble">
+        <van-switch checked="{{ switchCheck }}" bind:change="switchChange" size="24px" inactive-color="#e8e8e8" active-color="#0091FF" />
+      </view>
+    </view>
+    <view class="delete-btn" bindtap="onDelete" data-index="{{id}}" style="width: {{rightWidth}}px; background-color: {{delColor}};">
+      <text class="sdk-icon delete"></text>
+      <view class="del-text">{{delWord}}</view>
+    </view>
+  </view>
+</view>

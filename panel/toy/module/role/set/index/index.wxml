@@ -1,0 +1,18 @@
+<view class="contain">
+  <nav_bar title="角色设置"></nav_bar>
+  <view class="role-set-content">
+    <scroll-view class="scroll-view" scroll-y="true" enhanced="{{true}}" show-scrollbar="{{false}}" bindtouchstart="onSwipeStart" bindtouchmove="onSwipeMove" bindtouchend="onSwipeEnd">
+      <set_role_picker id="rolePickerComp" rolesList="{{rolesList}}" currentRoleId="{{currentRoleId}}" defaultRoleInfo="{{defaultRoleInfo}}" activeRoleId="{{selectedRoleId}}" canAddRole="{{!isShareDevice}}" bind:roleSelected="onRoleSelected" bind:toAddRole="toAddRole"></set_role_picker>
+      <view class="swipe-area">
+        <set_role_info currentRoleInfo="{{currentRoleInfo}}" defaultRoleInfo="{{defaultRoleInfo}}" deviceRolePrompt="{{deviceRolePrompt}}" roleDetailLoading="{{roleDetailLoading}}" bind:toEditRole="toEditRole"></set_role_info>
+        <set_role_menu currentRoleInfo="{{currentRoleInfo}}" rolesList="{{rolesList}}" bind:toVoiceConfig="toVoiceConfig"></set_role_menu>
+      </view>
+    </scroll-view>
+    <button class="change-btn" wx:if="{{currentRoleId !== selectedRoleId}}" bindtap="changeRole">
+      确定切换
+    </button>
+  </view>
+</view>
+<!-- 网络异常弹框 -->
+<network bindExit="closeWsSocket" bindReconnect="reconnectWsV2" bindManual="closeWsSocket"></network>
+<sos_warn device="{{deviceInfo}}" />

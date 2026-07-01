@@ -1,0 +1,128 @@
+page {
+  overflow: hidden;
+}
+
+.btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 52px;
+  background: #ffffff;
+  backdrop-filter: blur(5px);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding: 20rpx 30rpx 50rpx;
+  z-index: 99;
+}
+
+.seList {
+  margin-top: 20rpx;
+}
+
+.day {
+  font-size: 12px;
+  color: #6B6F75;
+}
+
+.item {
+  background: #ffffff;
+  margin: 20rpx 0;
+  padding: 30rpx;
+  border-radius: 12px;
+}
+
+.item .img image {
+  width: 40px;
+  height: 40px;
+}
+
+.info {
+  padding-left: 20rpx;
+}
+
+.info .tit {
+  font-size: 16px;
+  font-weight: 500;
+  color: #080F19;
+}
+
+.info .txt {
+  font-size: 12px;
+  padding: 6rpx 0;
+}
+
+.info .txt text {
+  padding-left: 10rpx;
+}
+
+.gbtn {
+  text-align: center;
+  margin-top: 50rpx;
+}
+
+.smartBtn {
+  font-size: 16px !important;
+  height: 52px !important;
+  line-height: 52px !important;
+}
+
+.action {
+  height: 100%;
+  overflow: hidden;
+}
+
+.center {
+  text-align: center;
+}
+
+.action .op {
+  padding: 20rpx;
+  width: 40px;
+  text-align: center;
+  border-radius: 12px;
+}
+
+.action .op text {
+  display: block;
+  color: #ffffff;
+}
+
+.action .op .txt {
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.adds {
+  text-align: center;
+  padding: 30rpx 0;
+  background: #ffffff;
+}
+
+.sicon {
+  width: 56rpx;
+  height: 56rpx;
+  background: #E0F2FF;
+  border-radius: 50%;
+  line-height: 56rpx;
+  text-align: center;
+}
+
+.jian {
+  font-size: 26px;
+  color: #0091FF;
+}
+
+.adds .t {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.adds .txt {
+  color: #080F19;
+  font-size: 16px;
+  padding-left: 20rpx;
+}
+
+.m0 {
+  margin: 0;
+}

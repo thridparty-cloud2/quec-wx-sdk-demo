@@ -2,12 +2,10 @@
 
 page,
 .container {
-  background: url('https://iot-oss.quectelcn.com/wxsdk_img/example/images/indexbg.png?v=1.02') left top;
   overflow: hidden;
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  background-size: cover;
 }
 
 .start {
@@ -32,7 +30,3 @@ page,
 .van-checkbox {
   display: inline-flex !important;
 }
-
-/* .image-index--van-image {
-  padding: 10px;
-} */

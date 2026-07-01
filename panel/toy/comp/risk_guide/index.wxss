@@ -1,0 +1,57 @@
+.gbg {
+  height: 160px;
+  position: relative;
+}
+
+.gbg .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+}
+
+.gcon {
+  padding: 24rpx 40rpx 24rpx;
+}
+
+.gcon .tit {
+  text-align: center;
+  color: #080f19;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.gcon .h4 {
+  color: #080f19;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 0 0 16rpx;
+}
+
+.gcon .txt {
+  color: #6b6f75;
+  font-size: 14px;
+  line-height: 22px;
+  padding-bottom: 48rpx;
+}
+
+.sizebg {
+  width: 100%;
+  height: 160px;
+}
+
+.gbtn {
+  padding: 0 55rpx 24rpx;
+}
+
+.gud-btn {
+  font-size: 16px !important;
+  font-weight: 500;
+  border-radius: 27px !important;
+  width: 96%;
+  padding: 14px 56px !important;
+}

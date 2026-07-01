@@ -280,7 +280,7 @@ export function sortByPlanId (a, b) {
  */
 export function getHouseAuth (options) {
   const { fid, success, fail, complete } = options
-  plugin.quecHouse.getCurrentFamily({
+  plugin.smartHome.getCurrentFamily({
     fid,
     success (res) {
       console.log(res)

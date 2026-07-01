@@ -1,0 +1,119 @@
+<wxs src="../../../common/common.wxs" module="tools" />
+<view class="p_main">
+  <form bindsubmit="formSubmit">
+    <view class="con">
+      <view class="operation">
+        <view class="action">
+          <view class="txt">{{i18n['structTip']}}</view>
+          <view class="switch">
+            <van-switch checked="{{ actionVal }}" bind:change="actionChange" size="18px" active-color="{{skin['primary']}}" inactive-color="{{skin['switch_dis']}}" />
+          </view>
+        </view>
+        <view wx:if="{{actionVal}}" data-choose="{{isChoose}}" class="all" catchtap="chooseAll"><text>{{chooseText}}</text></view>
+      </view>
+      <view wx:for="{{dataArr}}" wx:key="index" wx:for-item="item">
+        <block wx:if="{{item.dataType === TSLConfig.TSL_ATTR_DATA_TYPE_BOOL}}">
+          <block wx:if="{{subType === TSLConfig.TSL_SUBTYPE_RW}}">
+            <view>
+              <view class="item">
+                <view class="left">
+                  <van-checkbox wx:if="{{actionVal}}" value="{{ item.checkVal }}" name="item.checkVal" icon-size="18px" checked-color="{{skin['primary']}}" bind:change="onCheckChange" data-key="{{index}}" data-item="{{item}}" />
+                  <view class="cellTitle elipse">{{item.name}}</view>
+                </view>
+                <view class="right">
+                  <van-switch checked="{{ item.vdata  }}" bind:change="boolChange" data-key="{{index}}" data-item="{{item}}" size="18px" active-color="{{skin['primary']}}" inactive-color="{{skin['switch_dis']}}" />
+                </view>
+              </view>
+            </view>
+          </block>
+          <block wx:elif="{{subType === TSLConfig.TSL_SUBTYPE_W}}">
+            <view>
+              <view class="item">
+                <view class="left">
+                  <van-checkbox wx:if="{{actionVal}}" value="{{ item.checkVal }}" name="item.checkVal" icon-size="18px" checked-color="{{skin['primary']}}" bind:change="onCheckChange" data-key="{{index}}" data-item="{{item}}" />
+                  <view class="cellTitle elipse" data-key="{{index}}" data-item="{{item}}" catchtap="setBool">{{item.name}}</view>
+                </view>
+                <view class="right" data-key="{{index}}" data-item="{{item}}" catchtap="setBool">
+                  <view class="val elipse">{{item.vdata ? tools.getEnumName(item,item.vdata) : ''}}</view>
+                  <van-icon name="arrow" color="{{skin['arrow']}}" />
+                </view>
+              </view>
+              <van-action-sheet show="{{ boolShow }}" actions="{{ item.specs }}" bind:cancel="onBoolClose" bind:select="onBoolSelect" cancel-text="{{i18n['cancel']}}" />
+            </view>
+          </block>
+        </block>
+        <block wx:elif="{{item.dataType === TSLConfig.TSL_ATTR_DATA_TYPE_INT || item.dataType === TSLConfig.TSL_ATTR_DATA_TYPE_FLOAT || item.dataType === TSLConfig.TSL_ATTR_DATA_TYPE_DOUBLE}}">
+          <view class="item" data-key="{{index}}" data-item="{{item}}" catchtap="setNumber">
+            <view class="left">
+              <van-checkbox wx:if="{{actionVal}}" value="{{ item.checkVal }}" name="item.checkVal" icon-size="18px" checked-color="{{skin['primary']}}" bind:change="onCheckChange" data-key="{{index}}" data-item="{{item}}" />
+              <view class="cellTitle elipse" data-key="{{index}}" data-item="{{item}}" catchtap="setNumber">{{item.name}}</view>
+            </view>
+            <view class="right" data-key="{{index}}" data-item="{{item}}" catchtap="setNumber">
+              <view class="val elipse">{{item.vdata?item.vdata:''}}</view>
+              <van-icon name="arrow" color="{{skin['arrow']}}" />
+            </view>
+          </view>
+        </block>
+        <block wx:elif="{{item.dataType === TSLConfig.TSL_ATTR_DATA_TYPE_ENUM}}">
+          <view>
+            <view class="item" data-key="{{index}}" data-item="{{item}}" catchtap="setEnum">
+              <view class="left">
+                <van-checkbox wx:if="{{actionVal}}" value="{{ item.checkVal }}" name="item.checkVal" icon-size="18px" checked-color="{{skin['primary']}}" bind:change="onCheckChange" data-key="{{index}}" data-item="{{item}}" />
+                <view class="cellTitle elipse" data-key="{{index}}" data-item="{{item}}" catchtap="setEnum">{{item.name}}</view>
+              </view>
+              <view class="right" data-key="{{index}}" data-item="{{item}}" catchtap="setEnum">
+                <view class="val elipse">{{item.vdata ? tools.getEnumName(item,item.vdata) : ''}}</view>
+                <van-icon name="arrow" color="{{skin['arrow']}}" />
+              </view>
+            </view>
+          </view>
+        </block>
+        <block wx:elif="{{item.dataType === TSLConfig.TSL_ATTR_DATA_TYPE_TEXT}}">
+          <view class="item" data-key="{{index}}" data-item="{{item}}" catchtap="setText">
+            <view class="left">
+              <van-checkbox wx:if="{{actionVal}}" value="{{ item.checkVal }}" name="item.checkVal" icon-size="18px" checked-color="{{skin['primary']}}" bind:change="onCheckChange" data-key="{{index}}" data-item="{{item}}" />
+              <view class="cellTitle elipse" data-key="{{index}}" data-item="{{item}}" catchtap="setText">{{item.name}}</view>
+            </view>
+            <view class="right" data-key="{{index}}" data-item="{{item}}" catchtap="setText">
+              <view class="val elipse">{{item.vdata?item.vdata:''}}</view>
+              <van-icon name="arrow" color="{{skin['arrow']}}" />
+            </view>
+          </view>
+        </block>
+        <block wx:elif="{{item.dataType === TSLConfig.TSL_ATTR_DATA_TYPE_DATE}}">
+          <view>
+            <view class="item" data-key="{{index}}" data-item="{{item}}" catchtap="setDate">
+              <view class="left">
+                <van-checkbox wx:if="{{actionVal}}" value="{{ item.checkVal }}" name="item.checkVal" icon-size="18px" checked-color="{{skin['primary']}}" bind:change="onCheckChange" data-key="{{index}}" data-item="{{item}}" />
+                <view class="cellTitle elipse" data-key="{{index}}" data-item="{{item}}" catchtap="setDate">{{item.name}}</view>
+              </view>
+              <view class="right" data-key="{{index}}" data-item="{{item}}" catchtap="setDate">
+                <view class="val elipse">{{item.datafmt ? item.datafmt :''}}</view>
+                <van-icon name="arrow" color="{{skin['arrow']}}" />
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="btns">
+      <view class="btnItem">
+        <van-button custom-class="tslBtn" custom-style="{{'border-radius:'+skin['radius']}}" block form-type="submit" color="{{skin['primary']}}">{{i18n['confirmBtn']}}</van-button>
+      </view>
+    </view>
+  </form>
+</view>
+
+<van-popup show="{{ dateShow }}" round position="bottom" overlay-style="background-color:rgba(0,0,0,.4)" custom-style="height: 60%;">
+  <view class="dayPicker">
+    <van-datetime-picker type="datetime" value="{{ numberItem.vdata }}" bind:change="dayInput" bind:confirm="dayConfirm" bind:cancel="dayCancel" item-height="60" />
+  </view>
+</van-popup>
+
+<van-action-sheet wx:if="{{enumShow}}" show="{{ enumShow }}" actions="{{ numberItem.specs }}" bind:cancel="onEnumClose" bind:select="onEnumSelect" cancel-text="{{i18n['cancel']}}" />
+
+<van-dialog use-slot show="{{argVisible}}" width="{{313}}" overlayStyle="background-color:rgba(0,0,0,.4)" title="{{i18n['setArgs']}}" bind:before-close="{{beforeClose}}" bind:close="onClose" confirm-button-color="{{skin['confirm']}}" cancel-button-color="{{skin['cancel']}}" bind:confirm="confirmArgs" show-cancel-button>
+  <view class="argInput">
+    <van-field model:value="{{ numberItem.vdata }}" name="{{numberItem.vdata}}" custom-style="background-color:#F7F8FC;" bind:change="paramChange" placeholder="{{i18n['argsHolder']}}" border="{{ false }}" />
+  </view>
+</van-dialog>

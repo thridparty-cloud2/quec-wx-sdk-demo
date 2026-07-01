@@ -1,0 +1,5 @@
+<view class="logout">
+  <view class="unbindBtn" catchtap="unbind">移除设备</view>
+</view>
+
+<confirm_tip visible="{{unbindVisible}}" title="确认移除设备?" tip="移除后，设备将从列表中移除。" bindCancel="onClose" bindConfirm="confirm"></confirm_tip>

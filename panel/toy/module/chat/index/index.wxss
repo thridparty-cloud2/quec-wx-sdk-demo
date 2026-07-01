@@ -1,0 +1,19 @@
+page {
+  overflow: hidden;
+}
+
+.van-nav-bar {
+  background-color: #f7f8fc !important;
+}
+
+.van-nav-bar__title {
+  margin-left: calc(50% - 75px) !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+}
+
+.action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

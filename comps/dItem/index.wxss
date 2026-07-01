@@ -1,1 +1,2 @@
-@import "/asset/dist.wxss";
+@import '/asset/dist.wxss';
+@import '/asset/ota.wxss';

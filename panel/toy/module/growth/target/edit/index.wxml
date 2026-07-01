@@ -1,0 +1,15 @@
+<nav_bar title="修改目标"></nav_bar>
+<view class="edit-target-conten">
+  <gr-target-edit-info editData="{{ editData }}" />
+  <gr-cycle-card editData="{{ editData }}" startTimeStr="{{startTimeStr}}" endTimeStr="{{endTimeStr}}" bind:weekChange="onWeekChange" bind:openDatePicker="openDatePicker" />
+  <gr-date-picker bind:dateChange="dateChange" title="{{timeType === 'start' ? '开始时间' : '结束时间'}}" show="{{pickerShow}}" min-date="{{minDate}}" year="{{pickerYear}}" month="{{pickerMonth}}" day="{{pickerDay}}"></gr-date-picker>
+  <view class="del">
+    <view class="del-btn" bindtap="secondConfirmDelete">
+      <view class="sdk-icon shanchu1"></view>
+      <view class="del-text">删除任务</view>
+    </view>
+  </view>
+  <gr-footer-button disabled="{{ repeatDays.length === 0 }}" bind:click="editTaskInfo" />
+  <gr-confirm-dialog show="{{ showDialog }}" title="提示" message="确认删除该任务？" cancelText="取消" confirmText="确定" bind:cancel="onDialogCancel" bind:confirm="onDialogConfirm" />
+</view>
+<sos_warn device="{{deviceInfo}}" />

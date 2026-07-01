@@ -1,0 +1,5 @@
+<nav_bar title="{{attrData.name}}"></nav_bar>
+<view class="main">
+  <struct_txt attrData="{{attrData}}" curkey="{{curkey}}" bindback="handleBack"></struct_txt>
+</view>
+<netError netErrorVis="{{netErrorVis}}" conColor="#0091FF" bindExit="exitToHome" bindReconnect="reconnectPopup"></netError>

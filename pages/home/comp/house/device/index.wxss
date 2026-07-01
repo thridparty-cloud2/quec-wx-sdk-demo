@@ -1,0 +1,139 @@
+@import '/asset/icon.wxss';
+@import '/asset/tab.wxss';
+
+.list,
+page {
+  height: 100%;
+  overflow: hidden;
+}
+
+.list {
+  position: relative;
+  padding-top: 14rpx;
+}
+
+.more {
+  position: absolute;
+  right: 30rpx;
+  top: 30rpx;
+  z-index: 99990;
+}
+
+.scrollContainer {
+  height: 100%;
+  overflow: hidden;
+}
+
+.pmain {
+  margin-right: 30rpx;
+}
+
+.sroom {
+  width: 30px;
+  text-align: right;
+}
+
+.con {
+  padding: 30rpx;
+  background: #ffffff;
+  margin: 30rpx 0 0 30rpx;
+  border-radius: 4px;
+}
+
+.room .txt {
+  background: #F7F8FC;
+  padding: 10rpx 20rpx;
+  font-size: 12px;
+  border-radius: 10px;
+  color: #999999;
+}
+
+.btns {
+  margin-top: 40rpx;
+}
+
+.addBtn {
+  font-size: 16px;
+  border-radius: 10px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.mcon {
+  position: relative;
+}
+
+.dropMenu {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 16rpx 8rpx 16rpx 32rpx;
+  position: absolute;
+  right: 16px;
+  width: 40%;
+}
+
+.mt {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30rpx 10rpx;
+  box-sizing: border-box;
+  height: 52px;
+  overflow: hidden;
+}
+
+.mt.line {
+  border-top: .5px solid #EFEFEF;
+}
+
+.mt .title {
+  color: #333333;
+  font-weight: 500;
+  font-size: 16px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.cur .title {
+  font-weight: bold;
+}
+
+.mt .num {
+  color: #999999;
+  font-size: 13px;
+}
+
+.wrapCls {
+  padding: 0 100rpx 0 30rpx;
+}
+
+.wrapClsEdit {
+  padding: 0 30rpx;
+}
+
+.van-tabs__line {
+  background-color: var(--tabs-bottom-bar-color, #ED5D4F) !important;
+}
+
+.room-icon {
+  color: #212121;
+  font-size: 26px;
+}
+
+.selCls {
+  position: relative;
+}
+
+.dlistCls {
+  padding-top: 16rpx;
+}
+
+.sdk-icon.shezhi {
+  font-size: 24px;
+}
+
+.vadd {
+  margin-top: 10px;
+}

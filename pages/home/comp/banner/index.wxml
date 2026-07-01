@@ -1,0 +1,12 @@
+<view class="banner">
+  <block wx:if="{{bData.length>0}}">
+    <swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="{{interVal*1000}}" class="shei">
+      <swiper-item class="sit" wx:for="{{bData}}" wx:key="index" wx:for-item="item">
+        <image class="simg" src="{{item.filePath}}" mode="fill" data-item="{{item}}" catchtap="{{item.skipLink ? 'link':''}}" />
+      </swiper-item>
+    </swiper>
+  </block>
+  <block wx:else>
+    <image class="simg" src="{{env['defaultBanner'] ? env['defaultBanner'] : defaultImg}}" mode="widthFix" />
+  </block>
+</view>

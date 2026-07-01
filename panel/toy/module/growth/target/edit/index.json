@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "gr-date-picker": "../../comp/gr_date_picker/index",
+    "gr-target-edit-info": "../../comp/gr_target_edit_info/index",
+    "gr-cycle-card": "../../comp/gr_cycle_card/index",
+    "gr-footer-button": "../../comp/gr_footer_button/index",
+    "gr-confirm-dialog": "../../comp/gr_confirm_dialog/index",
+    "sos_warn": "../../../../comp/sos_warn/index"
+  }
+}

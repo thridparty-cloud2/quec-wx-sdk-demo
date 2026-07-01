@@ -1,0 +1,64 @@
+<view class="msgCon" style="top:{{saveTop}}px">
+  <view class="back" catchtap="back">
+    <van-icon name="arrow-left" color="black" size="22px" />
+  </view>
+  <van-tabs active="{{ active }}" color="{{skin['primary']}}" line-width="{{20}}" bind:change="tabChange" tab-class="tabCls" tab-active-class="tabActive" wrap-class="wrapCls">
+    <van-tab title="设备" name="device" dot="{{(deviceNoRead > 0) ? true :false}}">
+      <block wx:if="{{isFinish}}">
+        <view class="main" wx:if="{{msgData.length>0}}">
+          <view class="readBtn" style="{{(deviceNoRead > 0) ? '' : 'opacity:0.4'}}">
+            <view class="rBtn" data-type="{{active}}" catchtap="{{(deviceNoRead > 0) ? 'readAll' :''}}">
+              {{i18n['signRead']}}
+            </view>
+          </view>
+          <view class="con">
+            <scroll-view scroll-y="{{hasDataList}}" refresher-enabled="{{true}}" style="height:{{sHeight}}px" bindrefresherrefresh="refreshList" bindscrolltolower="getMoreList" refresher-triggered="{{triggered}}">
+              <msg_list msgData="{{msgData}}" firstLabel="{{firstLabel}}" binddelSuccess="delSuccess" bindreadSuccess="readSuccess" bindnoRead="getNoMsg" bindgoDetail="goDetail" bindLogDetail="LogDetail" bindAutoDetail="AutoDetail"></msg_list>
+            </scroll-view>
+          </view>
+        </view>
+        <view wx:else>
+          <noData img="{{noDataImg}}" tip1="{{i18n['msgNoDataTip2']}}" bflag="{{false}}" catchtap="refreshList"></noData>
+        </view>
+      </block>
+    </van-tab>
+    <van-tab wx:if="{{env['isScene'] || env['isAuto'] || env['isGroup']}}" title="智能" name="smart" dot="{{(smartNoRead > 0) ? true :false}}">
+      <block wx:if="{{isFinish}}">
+        <view class="main" wx:if="{{msgData.length>0}}">
+          <view class="readBtn" style="{{(smartNoRead > 0) ? '' : 'opacity:0.4'}}">
+            <view class="rBtn" data-type="{{active}}" catchtap="{{(smartNoRead > 0) ? 'readAll' :''}}">
+              {{i18n['signRead']}}
+            </view>
+          </view>
+          <view class="con">
+            <scroll-view scroll-y="{{hasDataList}}" refresher-enabled="{{true}}" style="height:{{sHeight}}px" bindrefresherrefresh="refreshList" bindscrolltolower="getMoreList" refresher-triggered="{{triggered}}">
+              <msg_list msgData="{{msgData}}" firstLabel="{{firstLabel}}" binddelSuccess="delSuccess" bindreadSuccess="readSuccess" bindnoRead="getNoMsg" bindgoDetail="goDetail" bindLogDetail="LogDetail" bindAutoDetail="AutoDetail"></msg_list>
+            </scroll-view>
+          </view>
+        </view>
+        <view wx:else>
+          <noData img="{{noDataImg}}" tip1="{{i18n['msgNoDataTip2']}}" bflag="{{false}}" catchtap="refreshList"></noData>
+        </view>
+      </block>
+    </van-tab>
+    <van-tab title="系统" name="system" dot="{{(systemNoRead > 0) ? true :false}}">
+      <block wx:if="{{isFinish}}">
+        <view class="main" wx:if="{{msgData.length>0}}">
+          <view class="readBtn" style="{{(systemNoRead > 0) ? '' : 'opacity:0.4'}}">
+            <view class="rBtn" data-type="{{active}}" catchtap="{{(systemNoRead > 0) ? 'readAll' :''}}">
+              {{i18n['signRead']}}
+            </view>
+          </view>
+          <view class="con">
+            <scroll-view scroll-y="{{hasDataList}}" refresher-enabled="{{true}}" style="height:{{sHeight}}px" bindrefresherrefresh="refreshList" bindscrolltolower="getMoreList" refresher-triggered="{{triggered}}">
+              <msg_list msgData="{{msgData}}" firstLabel="{{firstLabel}}" binddelSuccess="delSuccess" bindreadSuccess="readSuccess" bindnoRead="getNoMsg" bindgoDetail="goDetail" bindLogDetail="LogDetail" bindAutoDetail="AutoDetail" bindOpenService="OpenService"></msg_list>
+            </scroll-view>
+          </view>
+        </view>
+        <view wx:else>
+          <noData img="{{noDataImg}}" tip1="{{i18n['msgNoDataTip2']}}" bflag="{{false}}" catchtap="refreshList"></noData>
+        </view>
+      </block>
+    </van-tab>
+  </van-tabs>
+</view>

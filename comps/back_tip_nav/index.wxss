@@ -1,0 +1,9 @@
+.rightIcon {
+  padding-top: 0;
+  padding-right: 200rpx;
+}
+
+.titCls {
+  font-size: 24px;
+  font-weight: 500;
+}

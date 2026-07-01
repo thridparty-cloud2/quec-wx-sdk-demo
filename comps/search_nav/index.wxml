@@ -1,0 +1,6 @@
+<van-search model:value="{{ deviceName }}" custom-class="c-search" field-class="search-field" input-class="search-input" cancel-class="search-cancel" placeholder="{{i18n['searchHolder']}}" focus="{{isFoucs}}" maxlength="64" bind:search="onSearch" bind:clear="clear" use-left-icon-slot use-action-slot>
+  <view slot="left-icon">
+    <view class="sdk-icon search"></view>
+  </view>
+  <view slot="action" bind:tap="onSearch" class="action" style="background: {{skin['primary']}};"><text class="fsize">{{i18n['search']}}</text></view>
+</van-search>

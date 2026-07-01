@@ -1,0 +1,19 @@
+<view class="cancel">
+  <view class="title">
+    <view class="tit">{{i18n['cancelTit']}}？</view>
+    <view class="skip" catchtap="skip">{{i18n['jump']}}</view>
+  </view>
+  <view class="reson">
+    <van-checkbox-group value="{{ result }}" bind:change="onChange">
+      <van-checkbox name="20" checked-color="{{skin['primary']}}">{{i18n['cause1']}}</van-checkbox>
+      <van-checkbox name="21" checked-color="{{skin['primary']}}">{{i18n['cause2']}}</van-checkbox>
+      <van-checkbox name="22" checked-color="{{skin['primary']}}">{{i18n['cause3']}}</van-checkbox>
+      <van-checkbox name="23" checked-color="{{skin['primary']}}">{{i18n['cause4']}}</van-checkbox>
+      <van-checkbox wx:if="{{isHouse}}" name="24" checked-color="{{skin['primary']}}">{{i18n['cause5']}}</van-checkbox>
+      <van-checkbox name="25" checked-color="{{skin['primary']}}">{{i18n['cause6']}}</van-checkbox>
+    </van-checkbox-group>
+  </view>
+  <view class="btns">
+    <van-button type="info" custom-class="cancelBtn" custom-style="{{'border-radius:'+skin['radius']}}" block color="{{skin['primary']}}" disabled="{{result.length == 0}}" catchtap="{{result.length == 1 ? 'tj' : ''}}">{{i18n['cansetj']}}</van-button>
+  </view>
+</view>

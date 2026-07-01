@@ -6,6 +6,8 @@
     "sel": "../../../../../comps/sel/index",
     "install_button": "../install_button/index",
     "home_nav": "../../home_nav/index",
-    "van-transition": "@vant/weapp/transition/index"
+    "van-transition": "@vant/weapp/transition/index",
+    "banner": "../../banner/index",
+    "valadd_enter": "../../../../../comps/valadd_enter/index"
   }
 }

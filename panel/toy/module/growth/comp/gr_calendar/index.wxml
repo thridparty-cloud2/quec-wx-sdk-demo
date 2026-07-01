@@ -1,0 +1,23 @@
+<view class="cal">
+  <view class="cal-header">
+    <!-- TODO: 图标待上传oss使用 -->
+    <van-icon name="arrow-left" bindtap="prevMonth" size="16px" custom-class="arrow-left" />
+    <view class="month">{{ year }}年{{ month }}月</view>
+    <van-icon name="arrow" bindtap="nextMonth" size="16px" custom-class="arrow-right" />
+  </view>
+  <view class="week-row">
+    <block wx:for="{{ weekNames }}" wx:key="*this">
+      <view class="week-cell">{{ item }}</view>
+    </block>
+  </view>
+  <view class="grid">
+    <block wx:for="{{ days }}" wx:key="index">
+      <view class="cell {{ item.isToday ? 'today' : '' }} {{ item.inMonth ? '' : 'out-month' }}">
+        <view class="date">{{ item.dateNum }}</view>
+        <view class="mark gray" wx:if="{{ item.hasGray }}"></view>
+        <image class="mark checked" wx:if="{{ item.hasChecked }}" src="{{ checkDayIcon }}" mode="aspectFit" />
+        <image class="mark checked" wx:if="{{ item.hasUnfinished }}" src="{{ unfinishedIcon }}" mode="aspectFit" />
+      </view>
+    </block>
+  </view>
+</view>

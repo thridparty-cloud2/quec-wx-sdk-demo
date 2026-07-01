@@ -1,4 +1,4 @@
-<view class="bgCls" style="background:linear-gradient(180deg, #B6DFFF 0%, #F7F8FC {{gradientHeight+'%'}})">
+<view class="bgCls">
   <view class="mine">
     <view class="header" catchtap="goUserInfo">
       <view class="left">
@@ -11,12 +11,28 @@
         </view>
       </view>
     </view>
+    <view wx:if="{{env['isPushTel'] || env['isPushSms']}}" class="valadd">
+      <valadd_enter show="{{true}}" from="mine" valaddTxt="{{valaddTxt}}" bindTel="goTel" bindSms="goSms"></valadd_enter>
+    </view>
     <view class="menu">
+
       <van-cell is-link border="{{false}}" catchtap="goUserAbout">
         <view slot="icon">
           <view class="sdk-icon guanyuwomen"></view>
         </view>
         <view slot="title" class="cellTitle">关于我们</view>
+      </van-cell>
+      <van-cell wx:if="{{env['isHelp']}}" is-link border="{{false}}" catchtap="goHelp">
+        <view slot="icon">
+          <view class="sdk-icon wendang"></view>
+        </view>
+        <view slot="title" class="cellTitle">帮助文档</view>
+      </van-cell>
+      <van-cell wx:if="{{env['feedback']}}" is-link border="{{false}}" catchtap="goFeedback">
+        <view slot="icon">
+          <view class="sdk-icon yijianfankui"></view>
+        </view>
+        <view slot="title" class="cellTitle pleft">意见反馈</view>
       </van-cell>
     </view>
   </view>

@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-    "device_home": "./comp/home/index"
+    "device_home": "./comp/home/index",
+    "attention": "../../comps/attention/index",
+    "sao_enter": "../../comps/sao_enter/index"
   },
   "disableSwipeBack": true,
   "navigationBarTitleText": ""

@@ -1,0 +1,3 @@
+<view class="group">
+  <send_code type="7" uname="{{uname}}" bindconfrimCancel="confirmCancel"></send_code>
+</view>

@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "statistic": "../comp/statistic/index",
+    "highlights": "../comp/highlights/index",
+    "sug_analysis": "../comp/sug_analysis/index",
+    "noData": "/comps/noData"
+  }
+}

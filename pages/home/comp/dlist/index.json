@@ -2,7 +2,9 @@
   "component": true,
   "usingComponents": {
     "van-row": "@vant/weapp/row/index",
+    "new_guide": "../new_guide/index",
     "home_add": "../home_add/index",
+    "scene_home": "../scene/index",
     "dItem": "../../../../comps/dItem/index"
   }
 }

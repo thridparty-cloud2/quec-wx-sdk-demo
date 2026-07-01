@@ -1,5 +1,5 @@
 const plugin = requirePlugin('quecPlugin')
-
+let app = getApp()
 Component({
   /**
    * 组件的属性列表
@@ -23,7 +23,8 @@ Component({
     i18n: '',
     skin: '',
     fid: '',
-    mode: false
+    mode: false,
+    env: app.globalData.envData,
   },
 
   pageLifetimes: {
@@ -52,13 +53,13 @@ Component({
      */
     initHouse () {
       let self = this
-      plugin.jsUtil.getMode({
+      plugin.core.getMode({
         success (res) {
           self.setData({
             mode: res.data.enabledFamilyMode
           })
           if (res.data.enabledFamilyMode) {
-            plugin.jsUtil.getFid({
+            plugin.core.getFid({
               success (res) {
                 self.setData({
                   fid: res.fid

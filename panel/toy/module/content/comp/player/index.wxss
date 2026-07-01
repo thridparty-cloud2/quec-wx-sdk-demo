@@ -1,0 +1,87 @@
+@import '/asset/base.wxss';
+
+.player {
+  position: fixed;
+  height: 64px;
+  background: #fff;
+  bottom: 20px;
+  left: 1%;
+  right: 1%;
+  border-radius: 12px 32px 32px 12px;
+  box-shadow: 0 0 8px 0 rgba(15, 25, 37, 0.13);
+  box-sizing: border-box;
+  width: 98%;
+}
+
+.close {
+  position: absolute;
+  right: 3px;
+  top: -15px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info {
+  overflow: hidden;
+}
+
+.info .txt {
+  padding-left: 20rpx;
+  color: rgba(0, 0, 0, 0.80);
+  font-size: 14px;
+  line-height: 22px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.dis .info .txt {
+  color: #CECFD1;
+}
+
+.pos {
+  position: relative;
+}
+
+.chunk {
+  width: 160px;
+  height: 64px;
+  padding: 10rpx 30rpx 10rpx 20rpx;
+  box-sizing: border-box;
+}
+
+.prev,
+.next,
+.bo {
+  height: 64px;
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+}
+
+.prev,
+.next {
+  width: 24px;
+}
+
+.bo {
+  width: 36px;
+}
+
+.size64 {
+  width: 64px;
+  height: 64px;
+}
+
+.size24 {
+  width: 24px;
+  height: 24px;
+}
+
+.size36 {
+  width: 36px;
+  height: 36px;
+}

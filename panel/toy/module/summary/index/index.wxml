@@ -1,0 +1,9 @@
+<view class="bgCls" style="background:linear-gradient(180deg, #B6DFFF 0%, #F7F8FC {{gradientHeight+'%'}})">
+  <view class="nav-calendar-container">
+    <summary-nav id="summaryNav" show-back="{{true}}" selectedDate="{{navSelDate}}" bind:showCalendar="showCalendar"></summary-nav>
+    <summary-calendar visible="{{calendarVisible}}" eventDates="{{eventDates}}" bind:dateSelect="onDateSelect" bind:hideCalendar="hideCalendar" bind:monthChange="onMonthChange"></summary-calendar>
+  </view>
+  <summary-switch-popup title="互动总结" curRoleId="{{curRoleId}}" rolesList="{{rolesList}}" summaryConData="{{summaryConData}}" bind:select="onRoleSelect"></summary-switch-popup>
+  <summary-content summaryConData="{{summaryConData}}" duration="{{duration}}" showSuggestion="{{showSuggestion}}"></summary-content>
+</view>
+<sos_warn device="{{deviceInfo}}" />

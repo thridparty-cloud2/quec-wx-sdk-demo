@@ -7,6 +7,7 @@
     "van-icon": "@vant/weapp/icon/index",
     "logout": "../logout/index",
     "van-button": "@vant/weapp/button/index",
+    "send_code": "../send_code/index",
     "van-popup": "@vant/weapp/popup/index"
   }
 }

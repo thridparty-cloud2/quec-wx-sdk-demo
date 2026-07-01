@@ -133,6 +133,14 @@ Component({
         dk,
         success(res) {
           const { propData, custData } = res;
+          if (res && res.custData) {
+            self.setData({
+              deviceData: custData.deviceData,
+            });
+            console.log("当前设备的信息", self.data.deviceData);
+            const iccId = self.data.deviceData.iccId;
+            self.triggerEvent("iccId", { iccId });
+          }
           for (let alm of propData) {
             if (custData && custData.customizeTslInfo) {
               let valData = custData.customizeTslInfo;
@@ -458,15 +466,14 @@ Component({
     sendAttr(e) {
       let self = this;
       const { pk, dk, deviceStatus, i18n } = self.data;
-      if (deviceStatus === "离线" || deviceStatus === "0") {
+      if (deviceStatus === "离线" || deviceStatus === "0" || deviceStatus === 0) {
         return plugin.jsUtil.tip(i18n["offLine"]);
       }
       const { sendData, code, value } = e.detail;
       // 记录当前用户点击的物模型
       self.data.curAttrName = code;
       self.data.curAttrValue = value;
-      if (!sendData || sendData.length === 0)
-        return plugin.jsUtil.tip(self.data.i18n["noAattr"]);
+      if (!sendData || sendData.length === 0) return plugin.jsUtil.tip(self.data.i18n["noAattr"]);
       const type = TSLConfig.TSL_ATTR_DATA_WRITE_ATTR;
       // plugin.jsUtil.tip(this.data.i18n['loading'], 'loading')
 

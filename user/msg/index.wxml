@@ -1,0 +1,1 @@
+<msg_list sHeight="{{scrollHieght}}" bindgoDetail="toDetail" binddelSuccess="delSuccess" bindreadSuccess="readSuccess" isSet="{{isSet}}" bindTslError="TslError" bindBack="Back" bindLogDetail="LogDetail" bindAutoDetail="AutoDetail" bindOpenService="OpenService"></msg_list>

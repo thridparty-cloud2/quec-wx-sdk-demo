@@ -1,0 +1,21 @@
+<view class="selector-content">
+  <scroll-view scroll-y="{{true}}" style="height: 100vh;" show-scrollbar="{{false}}" enhanced="{{true}}">
+    <view class="seat-box _top"></view>
+    <block wx:for="{{renderList}}" wx:key="categoryType" wx:for-item="cat" wx:for-index="ci">
+      <view class="selector-tab" style="background-color: {{cat.bgColor}}" data-index="{{ci}}" bindtap="onTabExpand">
+        <view class="tab-title">{{cat.categoryName}}</view>
+        <view class="sdk-icon xiala {{cat.expanded ? 'expanded' : ''}}"></view>
+      </view>
+      <view wx:if="{{cat.expanded}}" class="target-content">
+        <view class="target-item {{task.disabled ? 'disabled' : ''}}" bindtap="onTargetSelect" wx:for="{{cat.tasks}}" wx:key="id" wx:for-item="task" wx:for-index="ti" data-cindex="{{ci}}" data-index="{{ti}}">
+          <view class="target-icon {{task.selected ? 'has-selected' : ''}}">
+            <image class="icon-img" mode="aspectFit" src="{{task.iconUrl}}" />
+          </view>
+          <image wx:if="{{task.selected}}" class="check-icon" mode="aspectFit" src="{{checkIcon}}" />
+          <view class="target-name">{{task.name}}</view>
+        </view>
+      </view>
+    </block>
+    <view class="seat-box"></view>
+  </scroll-view>
+</view>

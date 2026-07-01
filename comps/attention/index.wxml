@@ -1,0 +1,21 @@
+<!-- 公众号关注 -->
+<view class="attention" style="width:{{open?'270':'42'}}px">
+  <view class="con">
+    <view class="enter" catchtap="open">
+      <block wx:if="{{open}}">
+        <van-icon class="icon" name="arrow-left" />
+      </block>
+      <block wx:else>
+        <van-icon class="icon" name="arrow" />
+      </block>
+    </view>
+    <block wx:if="{{open}}">
+      <van-transition name="fade-left" duration="{{100}}">
+        <view class="fbox itemCenter">
+          <view class="txt">关注微信公众号，接收告警信息</view>
+          <view class="guanzhu" catchtap="play"><text>关注</text></view>
+        </view>
+      </van-transition>
+    </block>
+  </view>
+</view>

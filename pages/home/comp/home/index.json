@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
+    "house_device": "../house/device/index",
     "non_house_device": "../non/list/index",
     "van-transition": "@vant/weapp/transition/index"
   }

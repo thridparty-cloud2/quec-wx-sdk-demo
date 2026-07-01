@@ -1,0 +1,27 @@
+.updating-text::after {
+  content: '...';
+  display: inline-block;
+  width: 1.2em;
+  text-align: left;
+  overflow: hidden;
+  vertical-align: bottom;
+  animation: dotAnimation 1.5s infinite step-start;
+}
+
+@keyframes dotAnimation {
+  0% {
+    width: 0;
+  }
+
+  33% {
+    width: 0.4em;
+  }
+
+  66% {
+    width: 0.8em;
+  }
+
+  100% {
+    width: 1.2em;
+  }
+}

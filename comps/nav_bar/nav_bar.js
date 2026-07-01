@@ -74,9 +74,16 @@ Component({
       } else {
         if (self.data.backUrl) {
           if (self.data.isTab) {
-            this.pageRouter.switchTab({
-              url: self.data.backUrl
-            })
+            const pages = getCurrentPages()
+            if (pages.length > 1) {
+              this.pageRouter.navigateBack({
+                delta: 1,
+              })
+            } else {
+              this.pageRouter.switchTab({
+                url: self.data.backUrl
+              })
+            }
           } else {
             this.pageRouter.redirectTo({
               url: self.data.backUrl

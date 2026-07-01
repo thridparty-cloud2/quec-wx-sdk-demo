@@ -1,0 +1,20 @@
+@import "/asset/nav.wxss";
+
+.van-tabs__scroll {
+  background-color: transparent !important;
+}
+
+.van-tab--active {
+  color: rgba(0, 0, 0, 0.90) !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+}
+
+.van-tabs__line {
+  background-color: transparent !important;
+  background: url("https://iot-oss.quectelcn.com/wxsdk_img/ai/new/tab_line.png") no-repeat;
+  background-size: 27px 10px;
+  width: 27px !important;
+  height: 10px !important;
+  bottom: 5px !important;
+}

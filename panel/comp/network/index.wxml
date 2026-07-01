@@ -1,0 +1,21 @@
+<van-popup wx:if="{{netErrorShow}}" show="{{ netErrorShow}}" position="bottom" z-index="{{99999}}" round root-portal close-on-click-overlay="{{false}}" overlay-style="background-color:rgba(0,0,0,.4)" data-popup-ref="networkPopup" bind:close="closePopup">
+  <view class="netError">
+    <view class="h4">网络异常</view>
+    <view class="txt">
+      <view class="p1 size14 c_9C9FA3">1. 设备网络连接异常，请尝试重新连接；</view>
+      <view class="p1 size14 c_9C9FA3">2. 检查手机网络连接是否开启</view>
+    </view>
+    <view class="sbtn fbox fboxat">
+      <view wx:if="{{isBackBtn}}" class="gut f1">
+        <van-button custom-class="netbtn" catchtap="exitToHome" custom-style="border-radius:1111px; color:#6B6F75" block color="#F7F8FC">
+          退出设备
+        </van-button>
+      </view>
+      <view wx:if="{{isConBtn}}" class="gut f1">
+        <van-button custom-class="netbtn" catchtap="reconnectPopup" custom-style="border-radius:1111px" block color="{{conColor}}">
+          重新连接
+        </van-button>
+      </view>
+    </view>
+  </view>
+</van-popup>

@@ -1,12 +1,9 @@
-@import "/asset/base.wxss";
-@import "/asset/icon.wxss";
-@import "/asset/dist.wxss";
+@import '/asset/base.wxss';
+@import '/asset/icon.wxss';
+@import '/asset/dist.wxss';
+@import '/asset/noData.wxss';
 
 .pmain {
   position: relative;
   z-index: 1;
-}
-
-.seat-box {
-  height: 1000px;
 }

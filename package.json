@@ -1,5 +1,5 @@
 {
-  "name": "quec-wx-example",
+  "name": "quec-wx-sdk-demo",
   "version": "1.0.0",
   "description": "",
   "main": ".eslintrc.js",
@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@vant/weapp": "^1.11.1"
+    "@quec-wx-mp/api-saas": "1.0.0",
+    "@quec-wx-mp/plugin-websocket-mqtt": "0.0.5",
+    "@vant/weapp": "1.11.7"
   }
 }

@@ -1,0 +1,25 @@
+<block wx:for="{{msgData}}" wx:key="index" wx:for-item="item">
+  <view class="h2">{{item.dateTime}}</view>
+  <view class="per" wx:for="{{item.list}}" wx:key="i" wx:for-item="it">
+    <van-swipe-cell right-width="64" async-close>
+      <view class="item" data-item="{{it}}" catchtap="goDeviceDetail">
+        <view class="mtitle">
+          <view class="dtitle">
+            <view class="h4">
+              <text class="tit">{{it.title}}</text>
+              <text wx:if="{{!it.isRead}}" class="tag"></text>
+            </view>
+          </view>
+          <view class="time">{{it.fmtHourTime}}</view>
+        </view>
+        <view class="con">{{it.content}}</view>
+      </view>
+      <view class="action" slot="right">
+        <view catchtap="delMsg" class="op" style="background: {{skin['fail']}};" data-item="{{it}}">
+          <text class="sdk-icon delete"></text>
+        </view>
+      </view>
+    </van-swipe-cell>
+    <view class="line"></view>
+  </view>
+</block>

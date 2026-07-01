@@ -1,0 +1,73 @@
+.role-selector {
+  position: relative;
+}
+
+.selector {
+  min-width: 90px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 16px;
+}
+
+.ai-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #080f19;
+  margin-right: 4px;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.popup-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  margin-top: 4px;
+  width: 208px;
+  animation: slideDown 0.3s ease-out;
+}
+
+.popup-content {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 12px 0;
+  display: flex;
+  max-height: 180px;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+}
+
+.option-item.selected {
+  background-color: #0091ff0d;
+}
+
+.option-text-container {
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.option-text {
+  font-size: 16px;
+  color: #080f19;
+  font-weight: 500;
+  flex: 1;
+}

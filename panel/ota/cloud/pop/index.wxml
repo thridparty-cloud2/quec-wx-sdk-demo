@@ -1,0 +1,20 @@
+<!-- 升级弹窗 -->
+<van-popup wx:if="{{visible}}" show="{{ visible }}" round position="center" z-index="{{9999}}" overlay-style="background-color:rgba(0,0,0,.4)" close-on-click-overlay="{{false}}" bind:close="upgradeClose" custom-style="width:310px;">
+  <view class="upgrade">
+    <view class="head">
+      <view class="tit">设备升级</view>
+      <view class="ver">{{plan.planName}}</view>
+    </view>
+    <view class="con">
+      <view class="h4">更新内容：</view>
+      <view class="tip">
+        <view class="txt">{{plan.upgradeVersionInfo}}</view>
+      </view>
+    </view>
+
+    <view class="act">
+      <view class="now raduis" catchtap="goUpgrade">立即升级</view>
+      <view class="no raduis" catchtap="upgradeClose">暂不升级</view>
+    </view>
+  </view>
+</van-popup>

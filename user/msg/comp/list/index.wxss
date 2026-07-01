@@ -1,0 +1,112 @@
+@import '/asset/icon.wxss';
+@import '/asset/base.wxss';
+
+.item {
+  padding: 20rpx 40rpx;
+  background: #ffffff;
+}
+
+.h2 {
+  padding: 20rpx 40rpx 10rpx;
+  font-size: 12px;
+  color: #999999;
+}
+
+.dtitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 75%;
+}
+
+.h4 {
+  line-height: 60rpx;
+  position: relative;
+}
+
+.h4 .tit {
+  font-size: 16px;
+  color: #333333;
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.tag {
+  width: 8rpx;
+  height: 8rpx;
+  background: #FF4E45;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  right: -15rpx;
+  top: 20rpx;
+}
+
+.con {
+  word-break: break-all;
+}
+
+.time,
+.dk,
+.con {
+  color: #999999;
+  font-size: 12px;
+  line-height: 40rpx;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.ellipse {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 60rpx;
+}
+
+.action {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80px;
+  height: 100%;
+}
+
+.action .op {
+  padding: 20rpx;
+  width: 40px;
+  text-align: center;
+  border-radius: 12px;
+  position: relative;
+}
+
+.sdk-icon.delete {
+  color: #ffffff;
+  font-size: 18px;
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  left: 50%;
+  margin-left: -10px;
+}
+
+
+.mtitle {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.per {
+  position: relative;
+}
+
+.line {
+  height: 1px;
+  background: #f9f9f9;
+  position: absolute;
+  left: 16px;
+  width: 100%;
+  bottom: 0;
+  overflow: hidden;
+}

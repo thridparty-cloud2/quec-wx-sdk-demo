@@ -1,0 +1,17 @@
+@import "/asset/icon.wxss";
+
+page {
+  overflow-y: hidden;
+}
+
+.my-package-list {
+  padding: 0 32rpx;
+}
+
+.seat-box {
+  height: 120px;
+}
+
+.top {
+  height: 32rpx;
+}

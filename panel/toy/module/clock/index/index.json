@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "clock-swipe-cell": "../comp/ck_swipe_cell/index",
+    "noData": "/comps/noData",
+    "sos_warn": "../../../comp/sos_warn/index"
+  }
+}

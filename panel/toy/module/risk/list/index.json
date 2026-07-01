@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index",
+    "noData": "/comps/noData",
+    "risk_guide": "../../../comp/risk_guide/index",
+    "sos_warn": "../../../comp/sos_warn/index"
+  }
+}

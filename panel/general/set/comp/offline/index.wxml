@@ -1,0 +1,9 @@
+<van-cell wx:if="{{!argsItem.shareCode}}" border="{{false}}">
+  <view slot="title" class="cTitle f_500">离线提醒</view>
+  <view class="stch">
+    <van-switch checked="{{ offlineTip }}" bind:change="offlineTipChange" active-value="{{1}}" active-color="{{skin['primary']}}" inactive-value="{{0}}" inactive-color="{{skin['switch_dis']}}" size="22px"></van-switch>
+  </view>
+</van-cell>
+
+<!-- 离线提醒 -->
+<confirm_tip visible="{{tipVisible}}" tip="为了避免提醒过于频繁,设备离线超过30分钟后才会提醒。(低功耗设备超过8小时后才会提醒)" confirmColor="{{skin['primary']}}" confirmTxt="我知道了" isCancel="{{false}}" bindConfirm="offlineSet"></confirm_tip>

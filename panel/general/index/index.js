@@ -1,123 +1,122 @@
-import { invalid } from '../../../utils/jump.js'
-
+import { invalid } from "../../../utils/jump.js";
+const plugin = requirePlugin("quecPlugin");
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     curDevice: {},
-    pk: '',
-    dk: '',
+    pk: "",
+    dk: "",
     textDetail: {},
-    isSet: true,
+    isSet: false,
     wsBack: false,
     wsCon: false,
+    iccId: "",
+    isSimFlow: false, // 默认false，saas后台开通true进入充值界面，false 进入原来续费界面
   },
 
-  handleBack () {
-    wx.navigateBack()
+  handleBack() {
+    wx.navigateBack();
+  },
+
+  handleIccId(e) {
+    console.log("父组件拿到的iccid", e.detail.iccId);
+    let self = this;
+    self.setData({
+      iccId: e.detail.iccId ? e.detail.iccId : "",
+    });
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad (options) {
-    let self = this
+  onLoad(options) {
+    let self = this;
     if (options.item) {
-      let dItem = JSON.parse(decodeURIComponent(options.item))
+      let dItem = JSON.parse(decodeURIComponent(options.item));
       self.setData({
         pk: dItem.productKey,
         dk: dItem.deviceKey,
         curDevice: dItem,
-      })
+      });
     }
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady () {
-
-  },
+  onReady() {},
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow () {
+  onShow() {
     // 下发后清除数据
     this.setData({
-      textDetail: {}
-    })
+      textDetail: {},
+    });
   },
 
-  getwsResult (res) {
-    console.log('getwsResult:')
-    console.log(res)
-    let detail = res.detail
+  getwsResult(res) {
+    console.log("getwsResult:");
+    console.log(res);
+    let detail = res.detail;
     this.setData({
       wsBack: detail.wsBack,
-      wsCon: detail.wsCon
-    })
+      wsCon: detail.wsCon,
+    });
   },
 
-  editpage (e) {
-    let item = e.detail
-    const { pk, dk } = this.data
+  editpage(e) {
+    let item = e.detail;
+    const { pk, dk } = this.data;
     switch (item.dataType) {
-      case 'TEXT':
+      case "TEXT":
         this.pageRouter.navigateTo({
-          url: `/panel/general/txt/index?item=${JSON.stringify(item)}`
-        })
-        break
-      case 'ARRAY':
+          url: `/panel/general/txt/index?item=${JSON.stringify(item)}`,
+        });
+        break;
+      case "ARRAY":
         this.pageRouter.navigateTo({
-          url: `/panel/general/arr/index?item=${encodeURIComponent(JSON.stringify(item))}`
-        })
-        break
-      case 'STRUCT':
+          url: `/panel/general/arr/index?item=${encodeURIComponent(JSON.stringify(item))}`,
+        });
+        break;
+      case "STRUCT":
         this.pageRouter.navigateTo({
-          url: `/panel/general/struct/index?item=${JSON.stringify(item)}&pk=${pk}&dk=${dk}`
-        })
-        break
+          url: `/panel/general/struct/index?item=${JSON.stringify(item)}&pk=${pk}&dk=${dk}`,
+        });
+        break;
     }
   },
 
-  invalid (e) {
-    invalid(this)
+  invalid(e) {
+    invalid(this);
   },
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide () {
-
-  },
+  onHide() {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload () {
-
-  },
+  onUnload() {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh () {
-
-  },
+  onPullDownRefresh() {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom () {
-
-  },
+  onReachBottom() {},
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage (res) {
+  onShareAppMessage(res) {
     // console.log('用户点击右上角分享')
     // console.log(res)
     // let item = res.target.dataset.cur
@@ -139,7 +138,5 @@ Page({
     //     console.log('分享失败')
     //   },
     // }
-
-  }
-
-})
+  },
+});

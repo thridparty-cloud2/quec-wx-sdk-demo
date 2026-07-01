@@ -1,0 +1,13 @@
+<view class="swipe-cell-container" bindtouchstart="onTouchStart" bindtouchmove="onTouchMove" bindtouchend="onTouchEnd">
+  <view class="swipe-cell-content" style="{{contentStyle}}">
+    <view class="main-content" bindtap="onContentTap">
+      <slot></slot>
+    </view>
+    <block wx:for="{{actions}}" wx:key="type">
+      <view class="action-btn {{item.type}}-btn" wx:if="{{item.show}}" bindtap="onActionTap" data-type="{{item.type}}" style="width: {{item.width}}px; background-color: {{item.color}}; opacity: {{item.disabled ? 0.35 : 1}};">
+        <text class="sdk-icon {{item.icon}}"></text>
+        <view class="action-text">{{item.text}}</view>
+      </view>
+    </block>
+  </view>
+</view>

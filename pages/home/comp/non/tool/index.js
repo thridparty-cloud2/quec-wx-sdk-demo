@@ -18,12 +18,6 @@ Component({
     tab: [],
     tabData: [
       {
-        name: plugin.main.getLang()['toolShare'],
-        icon: 'sdk-icon share',
-        event: 'share',
-        disabled: false
-      },
-      {
         name: plugin.main.getLang()['toolDel'],
         icon: 'sdk-icon delete',
         event: 'delete',

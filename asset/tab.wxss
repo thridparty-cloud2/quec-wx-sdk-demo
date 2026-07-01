@@ -1,0 +1,16 @@
+.tabCls {
+  padding: 0 60rpx 0 0 !important;
+  text-align: left;
+  flex: none !important;
+  font-size: 18px;
+  color: #9C9FA3;
+}
+
+.tabActive {
+  font-weight: 500 !important;
+  color: #080F19 !important;
+}
+
+.wrapCls {
+  padding: 0 200rpx 0 30rpx;
+}

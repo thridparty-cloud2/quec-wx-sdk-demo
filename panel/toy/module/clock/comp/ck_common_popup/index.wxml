@@ -1,0 +1,15 @@
+<van-popup show="{{show}}" position="bottom" round bind:close="onClose">
+  <view class="popup-container">
+    <view class="popup-header">
+      <view class="header-btn" bind:tap="onCancel">取消</view>
+      <view class="header-title">{{title}}</view>
+      <view class="header-btn confirm-btn" bind:tap="onConfirm">确定</view>
+    </view>
+    <view class="popup-content">
+      <view class="option-item" wx:for="{{displayedOptions}}" wx:key="label" bind:tap="onSelectOption" data-index="{{index}}" data-value="{{item.value}}">
+        <text class="option-text">{{item.label}}</text>
+        <van-icon wx:if="{{item.isSelected}}" name="success" color="#0091FF" size="20px" />
+      </view>
+    </view>
+  </view>
+</van-popup>

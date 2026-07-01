@@ -1,0 +1,18 @@
+<view style="position: relative;height: 300px; z-index: 990;">
+  <view class="feature" animation="{{followerAnimation}}" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" style="top: {{boxTop}}px;">
+    <view class="dragarea"><text></text></view>
+    <view class="con">
+      <block wx:for="{{displayFeatureData}}" wx:key="index">
+        <view class="item {{item.cls}}" data-item="{{item}}" catchtap="goItem">
+          <view class="fbox fboxat icenter">
+            <view class="txt">{{item.title}}</view>
+            <image class="size40" src="{{item.img}}" mode="aspectFit" />
+          </view>
+          <view wx:if="{{item.isLock}}" class="tag">
+            <image class="size36" src="{{tConst.ftag}}" mode="aspectFit" />
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

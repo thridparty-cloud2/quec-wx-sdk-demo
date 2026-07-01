@@ -1,0 +1,19 @@
+<view style="height:{{(model.brand==='HUAWEI' && model.model==='VTR-AL00') ? (sTop+60): (sTop+40)}}px;">
+  <block wx:if="{{isEdit}}">
+    <van-transition name="fade">
+      <view class="selCls">
+        <sel bindisEdit="getSelIsEdit" selDevice="{{selDevice}}"></sel>
+      </view>
+    </van-transition>
+  </block>
+  <block wx:else>
+    <van-transition name="fade">
+      <home_nav title="{{i18n['searchTit']}}" page="search" bindBack="back" bindClearSearch="clear" bindStartSearch="onSearch"></home_nav>
+    </van-transition>
+  </block>
+</view>
+
+<view class="list">
+  <dlist mode="{{false}}" isRefresh="{{isRefresh}}" sHeight="{{sHeight}}" from="search" searchName="{{deviceName}}" isEdit="{{isEdit}}" bindselDevice="getselDevice" bindedit="getEdit" bindgoDetail="goDetail" bindscanSuccess="scanSuccess"></dlist>
+</view>
+<tool wx:if="{{isEdit && selDevice.length>0}}" selDevice="{{selDevice}}" bindShare="Share" bindrenameSuccess="renameSuccess" bindunbindSuccess="unbindSuccess"></tool>

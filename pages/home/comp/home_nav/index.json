@@ -4,6 +4,7 @@
     "van-nav-bar": "@vant/weapp/nav-bar/index",
     "van-icon": "@vant/weapp/icon/index",
     "van-overlay": "@vant/weapp/overlay/index",
-    "van-dialog": "@vant/weapp/dialog/index"
+    "van-dialog": "@vant/weapp/dialog/index",
+    "search_nav": "../../../../comps/search_nav/index"
   }
 }

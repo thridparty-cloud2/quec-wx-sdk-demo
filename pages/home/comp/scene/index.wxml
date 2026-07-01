@@ -1,0 +1,19 @@
+<view wx:if="{{isFinish && sData.length>0}}" style="margin-right:20rpx;">
+  <swiper class="shei" display-multiple-items="{{sData.length>=2 ? 2 : 1}}">
+    <van-row>
+      <swiper-item wx:for="{{sData}}" wx:key="index" wx:for-item="item" class="shei">
+        <van-col span="{{sData.length>=2 ? 24:12}}">
+          <view class="item" data-sceneid="{{item.sceneInfo.sceneId}}" catchtap="excute">
+            <view class="con fbox icenter">
+              <view class="dimg">
+                <image src="{{item.sceneInfo.icon}}" />
+              </view>
+              <view class="name elipse c_080F19 f_500">{{item.sceneInfo.name}}</view>
+            </view>
+            <view class="{{item.isAn ? 'exAn' : ''}}"></view>
+          </view>
+        </van-col>
+      </swiper-item>
+    </van-row>
+  </swiper>
+</view>

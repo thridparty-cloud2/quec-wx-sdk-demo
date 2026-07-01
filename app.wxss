@@ -104,10 +104,6 @@ page {
   right: 0 !important;
 }
 
-.van-field__body--textarea {
-  padding: 0 !important;
-}
-
 .bgCls {
   height: 100%;
   overflow-x: hidden;
@@ -133,4 +129,8 @@ page {
 
 .van-tabs__scroll {
   -webkit-overflow-scrolling: touch !important;
+}
+
+.van-switch__node {
+  box-shadow: none !important;
 }

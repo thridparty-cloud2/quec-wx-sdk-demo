@@ -1,0 +1,111 @@
+@import '/asset/icon.wxss';
+@import '/asset/house.wxss';
+@import '/asset/batch.wxss';
+
+page,
+.moveSheet,
+.sheetCls {
+  background: #F7F8FC !important;
+  overflow: hidden;
+  height: 100%;
+}
+
+.moveSheet .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 40rpx 40rpx 0;
+}
+
+.moveSheet .title .cancel {
+  color: #999999;
+  font-size: 16px;
+}
+
+.moveSheet .title .txt {
+  color: #333333;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.moveSheet .title .finish {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.moveSheet .con {
+  padding: 30rpx 0 0;
+}
+
+.sheetCls {
+  height: 90%;
+}
+
+.moveFailTips {
+  padding: 40rpx 30rpx 20rpx;
+  text-align: center;
+  line-height: 52rpx;
+}
+
+.moveFailTips .tit1 {
+  font-weight: 500;
+  padding-bottom: 16rpx;
+}
+
+.moveFailTips .tit2 {
+  color: #999999;
+  font-size: 14px;
+}
+
+.moveFailTips .tit2 text {
+  font-weight: 500;
+}
+
+.tabMove {
+  padding: 0 8px !important;
+  flex: none !important;
+  font-size: 16px !important;
+  color: #999999 !important;
+}
+
+.wrapCls {
+  padding: 0 40rpx !important;
+}
+
+.tabActive {
+  font-weight: bold !important;
+  color: #333333 !important;
+  opacity: 1 !important;
+}
+
+.renameTit {
+  text-align: center;
+  padding: 40rpx;
+  color: #333333;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.block {
+  padding: 0 40rpx 40rpx;
+}
+
+.delTip {
+  color: #333333;
+  text-align: left;
+  line-height: 48rpx;
+  font-size: 14px;
+}
+
+.cancel,
+.finish {
+  line-height: 24px;
+}
+
+.sdk-icon {
+  font-size: 22px;
+}
+
+.sdk-icon.delete {
+  font-size: 18px;
+}

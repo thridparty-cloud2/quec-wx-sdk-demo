@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "category": "../comp/category/index",
+    "pick": "../comp/pick/index",
+    "player": "../comp/player/index",
+    "van-transition": "@vant/weapp/transition/index",
+    "sos_warn": "../../../comp/sos_warn/index"
+  }
+}

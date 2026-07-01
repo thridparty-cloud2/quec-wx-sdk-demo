@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "gr-date-picker": "../comp/gr_date_picker/index",
+    "gr-footer-button": "../comp/gr_footer_button/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "sos_warn": "../../../comp/sos_warn/index"
+  }
+}

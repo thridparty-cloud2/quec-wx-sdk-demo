@@ -1,0 +1,10 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "msg_list": "../list/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "noData": "/comps/noData"
+  }
+}

@@ -1,0 +1,51 @@
+.step {
+  padding: 30rpx 30rpx 0 100rpx;
+}
+
+.circle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 36rpx;
+}
+
+.line {
+  margin: 12% auto;
+  width: 4rpx;
+  height: 76%;
+}
+
+.left {
+  position: relative;
+  top: 16rpx;
+}
+
+.icon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.right {
+  margin-left: 20rpx;
+}
+
+.right .name {
+  white-space: normal;
+  word-break: break-all;
+}
+
+.right .name .tit {
+  font-size: 12px;
+}
+
+.right .res,
+.right .txt {
+  font-size: 12px;
+}
+
+.right .res {
+  padding-bottom: 30rpx;
+  padding-top: 8rpx;
+}

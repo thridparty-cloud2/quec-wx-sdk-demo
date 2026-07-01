@@ -1,0 +1,83 @@
+<nav_bar title="设置"></nav_bar>
+<wxs src="../../../common/common.wxs" module="tools" />
+
+<view class="set" style="height: {{setHei}}px;">
+  <view class="dinfo fbox fboxat icenter">
+    <view class="left fbox icenter">
+      <view class="imgs">
+        <image src="{{curItem.logoImage ? curItem.logoImage : defaultImg}}" mode="" />
+      </view>
+      <view class="dname">{{curItem.deviceName}}</view>
+    </view>
+    <view wx:if="{{role !==3}}" class="right" catchtap="{{role !==3 ? 'rename':''}}">
+      <view class="modify">
+        <text class="sdk-icon edit"></text>
+      </view>
+    </view>
+  </view>
+  <!-- 设备信息 -->
+  <fun curItem="{{curItem}}" argsItem="{{argsItem}}" role="{{role}}"></fun>
+  <view class="more">
+    <!-- 特色服务 -->
+    <service functionTsl="{{functionTsl}}" curItem="{{curItem}}" curIccId="{{curIccId}}" argsItem="{{argsItem}}" role="{{role}}" from="{{from}}"></service>
+    <!-- 我的订单 -->
+    <van-cell wx:if="{{from ==='ai' && env['ai']['isOrder'] }}" border="{{false}}" data-item="{{curItem}}" catchtap="goOrder">
+      <view slot="title" class="cTitle f_500">我的订单</view>
+      <view class="val"></view>
+      <van-icon slot="right-icon" name="arrow" size="12px" color="{{skin['arrow']}}" />
+    </van-cell>
+  </view>
+  <block wx:if="{{(!argsItem.shareCode) || (argsItem.shareCode && from !=='ai')}}">
+    <view class="line"></view>
+    <view class="tit">设备功能</view>
+  </block>
+  <!-- 告警记录 -->
+  <van-cell wx:if="{{from !=='ai'}}" border="{{false}}" data-item="{{curItem}}" catchtap="goAlarm">
+    <view slot="title" class="cTitle f_500">告警记录</view>
+    <view class="val"></view>
+    <van-icon slot="right-icon" name="arrow" size="12px" color="{{skin['arrow']}}" />
+  </van-cell>
+  <!-- 离线提醒 -->
+  <offline wx:if="{{!argsItem.shareCode && role !==3}}" curItem="{{curItem}}" argsItem="{{argsItem}}"></offline>
+  <!-- AI能力 -->
+  <block wx:if="{{from ==='ai'}}">
+    <!-- 唤醒词  wakeWord -->
+    <van-cell border="false" wx:if="{{wakeWordTsl!==undefined}}" data-item="{{curItem}}" catchtap="openWakeWordHandleVisible">
+      <view slot="title" class="cTitle f_500">{{wakeWordTsl.name}}</view>
+      <view class="val">{{tools.getWakeWordName(wakeWordTsl)}}</view>
+      <van-icon slot="right-icon" name="arrow" size="12px" color="{{skin['arrow']}}" />
+    </van-cell>
+    <!-- 充电状态 chargeStatusSt -->
+    <charging_mode wx:if="{{chargeStatusStTsl!==undefined}}" curItem="{{curItem}}" chargingModeObj="{{chargeStatusStTsl}}" />
+    <!-- 聊天模式 chatModeSt -->
+    <van-cell border="false" wx:if="{{chatModeStTsl!==undefined}}" data-item="{{curItem}}" catchtap="openChatModeHandleVisible" value="">
+      <view slot="title" class="cTitle f_500">{{chatModeStTsl.name}}</view>
+      <view class="val">{{tools.getEnumName(chatModeStTsl, chatModeStTsl.vdata)}}</view>
+      <van-icon slot="right-icon" name="arrow" size="12px" color="{{skin['arrow']}}" />
+    </van-cell>
+    <!-- 设备模式 deviceModeSt -->
+    <van-cell border="false" wx:if="{{deviceModeStTsl!==undefined}}" data-item="{{curItem}}" catchtap="openModeHandleVisible">
+      <view slot="title" class="cTitle f_500">{{deviceModeStTsl.name}}</view>
+      <view class="val">{{tools.getEnumName(deviceModeStTsl, deviceModeStTsl.vdata)}}</view>
+      <van-icon slot="right-icon" name="arrow" size="12px" color="{{skin['arrow']}}" />
+    </van-cell>
+    <!-- 电量  batteryPercentSt -->
+    <battery wx:if="{{batteryPercentStTsl!==undefined}}" curItem="{{curItem}}" batteryObj="{{batteryPercentStTsl}}" />
+  </block>
+  <view wx:if="{{instructUrl}}" class="tit">通用设置</view>
+  <!-- 产品说明书 -->
+  <instruct url="{{instructUrl}}" role="{{role}}"></instruct>
+</view>
+<view wx:if="{{role !==3}}" class="unbind">
+  <unbind curItem="{{curItem}}" bindunbindSuccess="unbindSuccess"></unbind>
+</view>
+<!-- 设备名称重命名 -->
+<dname visible="{{renameVisible}}" curItem="{{curItem}}" bindrenameSuccess="unbindSuccess"></dname>
+<!-- 设备模式弹框 -->
+<device_mode visible="{{modeHandleVisible}}" deviceModeObj="{{deviceModeStTsl}}" curItem="{{curItem}}" wx:if="{{from ==='ai'}}" bind:closeModeHandleVisible="closeModeHandleVisible" />
+<!-- 聊天模式 -->
+<chat_mode visible="{{chatModeHandleVisible}}" chatModeObj="{{chatModeStTsl}}" curItem="{{curItem}}" wx:if="{{from ==='ai'}}" bind:closeChatModeHandleVisible="closeChatModeHandleVisible" />
+<!-- 唤醒词弹窗 -->
+<wake_word visible="{{wakeWordHandleVisible}}" wakeWordObj="{{wakeWordTsl}}" curItem="{{curItem}}" wx:if="{{from ==='ai'}}" bind:closeWakeWordHandleVisible="closeWakeWordHandleVisible" />
+<!-- 网络异常弹框 -->
+<network bindExit="closeWsSocket" bindReconnect="reconnectWsV2" bindManual="closeWsSocket"></network>

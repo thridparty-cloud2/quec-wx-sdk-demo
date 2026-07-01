@@ -1,0 +1,11 @@
+<van-dialog show="{{visible}}" width="{{313}}" zIndex="{{99999}}" overlayStyle="background-color:rgba(0,0,0,.4)" bind:cancel="cancel" bind:confirm="confirm" confirm-button-text="{{confirmTxt}}" cancel-button-text="{{cancelTxt}}" confirm-button-color="{{confirmColor}}" cancel-button-color="{{cancelColor}}" show-cancel-button="{{isCancel}}" use-slot>
+  <view class="block">
+    <block wx:if="{{isFmtTitle}}">
+      <view class="title">{{fmtTitle1}}<text>{{fmtTitle2}}</text>{{fmtTitle3}}</view>
+    </block>
+    <block wx:else>
+      <view wx:if="{{isShowTitle}}" class="title">{{title}}</view>
+    </block>
+    <view wx:if="{{tip}}" class="tip" style="text-align: {{tipAlign}};color:{{tipColor}}">{{tip}}</view>
+  </view>
+</van-dialog>

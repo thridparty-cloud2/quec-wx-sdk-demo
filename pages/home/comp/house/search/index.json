@@ -1,0 +1,10 @@
+{
+  "component": true,
+  "usingComponents": {
+    "dlist": "../../dlist/index",
+    "tool": "../tool/index",
+    "sel": "../../../../../comps/sel/index",
+    "home_nav": "../../home_nav/index",
+    "van-transition": "@vant/weapp/transition/index"
+  }
+}

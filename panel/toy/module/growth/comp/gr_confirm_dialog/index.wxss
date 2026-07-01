@@ -1,0 +1,10 @@
+.cancel-btn,
+.confirm-btn {
+  font-size: 16px;
+  font-weight: 500;
+  color: #080f19;
+}
+
+.confirm-btn {
+  color: #ff4219;
+}

@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "noData": "/comps/noData"
+  }
+}

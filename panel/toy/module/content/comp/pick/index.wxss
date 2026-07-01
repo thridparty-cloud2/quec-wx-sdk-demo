@@ -1,0 +1,55 @@
+@import '/asset/base.wxss';
+@import '../../../../css/style.wxss';
+
+.pick {
+  padding: 40rpx;
+}
+
+.pick .h4 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.pick .change text{
+  font-size: 14px;
+  padding-left: 10rpx;
+}
+
+.pick .change text,
+.pick .change .hyh_img{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.con {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 30rpx 0;
+}
+
+.con .item {
+  text-align: center;
+  overflow: hidden;
+}
+
+.con .item .txt {
+  color: #080F19;
+  font-size: 14px;
+  text-align: left;
+  padding-top: 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.size100 {
+  width: 100px;
+  height: 100px;
+}
+
+.hyh_img{
+  width: 14px;
+  height: 14px;
+}

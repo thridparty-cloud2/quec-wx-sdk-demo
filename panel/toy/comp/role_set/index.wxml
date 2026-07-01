@@ -1,0 +1,17 @@
+<view class="tit">
+  <view class="name">{{role.roleName}}</view>
+</view>
+<view class="fbox fboxat fun">
+  <view class="item pos" catchtap="toRoleMemory" style="visibility: {{showMemory ? 'visible' : 'hidden'}};">
+    <image class="icon1" src="{{tConst.homeMemory}}" mode="aspectFit" />
+    <view class="txt tg">角色记忆</view>
+  </view>
+  <view class="item set" catch:tap="toRoleSet">
+    <image class="icon2" src="{{tConst.roleSet}}" mode="aspectFit" />
+    <view class="txt">角色设置</view>
+  </view>
+  <view class="item pos" bindtap="toChatHistroy">
+    <image class="icon1" src="{{tConst.homeChat}}" mode="aspectFit" />
+    <view class="txt tg">聊天记录</view>
+  </view>
+</view>

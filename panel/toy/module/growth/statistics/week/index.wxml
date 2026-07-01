@@ -1,0 +1,7 @@
+<nav_bar title="周统计"></nav_bar>
+<view class="week-stat-conten">
+  <gr-week-swicther bind:weekChange="onWeekChange"></gr-week-swicther>
+  <gr-week-stat-card statNum="{{statNum}}"></gr-week-stat-card>
+  <gr-week-task-list weekTaskList="{{weekTaskList}}" bind:toTargetStat="toTargetStat"></gr-week-task-list>
+</view>
+<sos_warn device="{{deviceInfo}}" />

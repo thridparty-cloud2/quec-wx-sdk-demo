@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "set_role_picker": "../comp/set_role_picker/index",
+    "set_role_info": "../comp/set_role_info/index",
+    "set_role_menu": "../comp/set_role_menu/index",
+    "network": "../../../../../comp/network/index",
+    "sos_warn": "../../../../comp/sos_warn/index"
+  }
+}

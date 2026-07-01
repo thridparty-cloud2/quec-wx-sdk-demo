@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "noData": "/comps/noData",
+    "gr-swipe-cell": "../comp/gr_swipe_cell/index",
+    "gr-confirm-dialog": "../comp/gr_confirm_dialog/index",
+    "gr-task-section": "../comp/gr_task_section/index",
+    "gr-link-icon": "../comp/gr_link_icon/index",
+    "sos_warn": "../../../comp/sos_warn/index"
+  }
+}

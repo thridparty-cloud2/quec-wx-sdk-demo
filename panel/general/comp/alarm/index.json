@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-steps": "@vant/weapp/steps/index",
+    "noData": "/comps/noData"
+  }
+}

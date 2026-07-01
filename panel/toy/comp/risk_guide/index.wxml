@@ -1,0 +1,18 @@
+<!-- 风险预警一键引导 -->
+<van-popup wx:if="{{visible}}" show="{{ visible }}" round position="bottom" z-index="{{999}}" overlay-style="background-color:rgba(0,0,0,.4)" custom-class="guideCls">
+  <view class="gbg" style="background-image:url({{riskConst.guideIcon}}); background-size:cover; background-repeat:no-repeat; background-position: center;">
+    <view class="close" catchtap="guideClose">
+      <van-icon name="cross" size="24px" />
+    </view>
+  </view>
+  <view class="gcon">
+    <view class="tit">聊天告警</view>
+    <view class="h4">{{riskItem.title}}</view>
+    <view class="txt">{{riskItem.summary}}</view>
+    <view class="gbtn">
+      <van-button custom-class="gud-btn" block color="{{skin['primary']}}" catchtap="guideEv">
+        一键引导
+      </van-button>
+    </view>
+  </view>
+</van-popup>

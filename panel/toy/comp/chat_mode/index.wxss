@@ -1,0 +1,63 @@
+@import '/asset/base.wxss';
+@import '/asset/txtarea.wxss';
+@import '/asset/nav.wxss';
+@import '../../css/set.wxss';
+
+
+.imgs image {
+  width: 48px;
+  height: 48px;
+}
+
+.chat-mode-handle-container {
+  background: #fff;
+  border-radius: 20rpx 20rpx 0 0;
+  padding: 0;
+}
+
+.chat-mode-handle-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx 40rpx;
+}
+
+.cancel-btn {
+  color: #666;
+  font-size: 32rpx;
+}
+
+.chat-mode-handle-title {
+  flex: 1;
+  text-align: center;
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.confirm-btn {
+  color: #1890ff;
+  font-size: 32rpx;
+}
+
+.chat-mode-handle-content {
+  padding: 20rpx 0;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.chat-mode-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx 40rpx;
+}
+
+.chat-mode-item:last-child {
+  border-bottom: none;
+}
+
+.chat-mode-name {
+  font-size: 32rpx;
+  color: #333;
+}

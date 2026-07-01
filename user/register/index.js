@@ -4,7 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    gradientHeight: 100
+   
   },
 
   /**
@@ -12,9 +12,6 @@ Page({
    */
   onLoad (options) {
     let self = this
-    self.setData({
-      gradientHeight: (200 / wx.getWindowInfo().windowHeight).toFixed(2) * 100
-    })
   },
 
   /**

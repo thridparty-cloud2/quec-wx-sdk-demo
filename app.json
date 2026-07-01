@@ -1,9 +1,11 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/home/sub/non/search/index",
     "pages/mine/mine"
   ],
-  "subpackages": [{
+  "subpackages": [
+    {
       "root": "ble",
       "name": "ble",
       "pages": [
@@ -16,14 +18,15 @@
       "pages": [
         "index/index",
         "info/index",
-        "nickname/index",
+        "about/v1/home/index",
+        "about/v1/video/index",
         "about/v2/home/index",
+        "setting/index",
         "login/index",
-        "login_code/index",
         "valid_code/index",
         "forget/index",
         "register/index",
-        "set_pwd/index"
+        "msg/index"
       ]
     },
     {
@@ -31,7 +34,49 @@
       "name": "panel",
       "pages": [
         "no_data/index",
-        "general/index/index"
+        "general/index/index",
+        "general/arr/index",
+        "general/txt/index",
+        "general/struct/index",
+        "general/struct_txt/index",
+        "general/rename/index",
+        "general/alarm/index",
+        "general/set/list/index",
+        "general/set/more/index",
+        "general/set/flow/index",
+        "general/set/recharge/index",
+        "sim/page/flow/index",
+        "sim/page/recharge/index",
+        "ota/cloud/upgrade/index",
+        "toy/index/index",
+        "toy/module/summary/index/index",
+        "toy/module/role/set/index/index",
+        "toy/module/role/memory/index",
+        "toy/module/role/add/index",
+        "toy/module/clock/index/index",
+        "toy/module/clock/manage_clock/index",
+        "toy/module/chat/index/index",
+        "toy/module/content/index/index",
+        "toy/module/content/buy/index",
+        "toy/module/content/album/list/index",
+        "toy/module/content/album/detail/index",
+        "toy/module/voice/print/buy/index",
+        "toy/module/voice/print/list/index",
+        "toy/module/voice/copy/list/index",
+        "toy/module/voice/copy/buy/index",
+        "toy/module/order/list/index",
+        "toy/module/order/detail/index",
+        "toy/module/growth/index/index",
+        "toy/module/growth/info/index",
+        "toy/module/growth/target/select/index",
+        "toy/module/growth/target/edit/index",
+        "toy/module/growth/set_cycle/index",
+        "toy/module/growth/statistics/week/index",
+        "toy/module/growth/statistics/target/index",
+        "toy/module/risk/list/index",
+        "toy/module/risk/detail/index",
+        "toy/module/resource/index/index",
+        "toy/module/resource/mine/index"
       ]
     }
   ],
@@ -50,9 +95,12 @@
   },
   "plugins": {
     "quecPlugin": {
-      "version": "2.3.4",
-      "provider": "wx5e9a3feb8df9122e"
+      "version": "dev-03355e9514f7f45da7ee4813e6789687",
+      "provider": "wx8b0625890b89be58"
     }
+  },
+  "resolveAlias":{
+    "~/*": "/*"
   },
   "usingComponents": {
     "nav_bar": "/comps/nav_bar/nav_bar"
@@ -63,7 +111,8 @@
     "selectedColor": "#3C3C3C",
     "borderStyle": "white",
     "backgroundColor": "#ffffff",
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/home/home",
         "text": "首页"
       },
@@ -73,6 +122,14 @@
       }
     ]
   },
+  "preloadRule": {
+    "pages/home/home": {
+      "network": "wifi",
+      "packages": [
+        "panel"
+      ]
+    }
+  },
   "requiredPrivateInfos": [
     "getLocation",
     "chooseLocation"
@@ -80,6 +137,9 @@
   "permission": {
     "scope.userLocation": {
       "desc": "您的位置信息将用于添加地址"
+    },
+    "scope.record": {
+      "desc": "需要获取您的录音权限"
     }
   },
   "lazyCodeLoading": "requiredComponents",

@@ -1,0 +1,12 @@
+<view class="record {{device.onlineStatus !==1 || device.shareCode ? 'dis' :''}}">
+  <view class="img-box {{isRecording?'recording':''}} {{isCancelArea?'cancel-area':''}}" catchtouchstart="start" catchtouchend="end" catchtouchcancel="cancel" catchtouchmove="touchMove">
+    <view class="ripple" wx:if="{{isRecording}}"></view>
+    <view class="ripple delay" wx:if="{{isRecording}}"></view>
+    <view class="img {{isRecording?'press':''}} {{isCancelArea?'cancel-area':''}}">
+      <image class="size44" src="{{riskConst.voiceIcon}}" mode="" />
+    </view>
+  </view>
+  <view class="txt" wx:if="{{!isRecording}}">按住录音</view>
+  <view class="txt" wx:elif="{{isRecording && !isCancelArea}}">松开发送，上滑取消</view>
+  <view class="txt" wx:elif="{{isRecording && isCancelArea}}">松开取消</view>
+</view>

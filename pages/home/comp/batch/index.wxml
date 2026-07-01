@@ -1,0 +1,25 @@
+<!-- 批量删除设备 -->
+<van-dialog use-slot show="{{delShow}}" width="{{275}}" overlayStyle="background-color:rgba(0,0,0,.4)" zIndex="999999" bind:close="onClose" confirm-button-text="确定" confirm-button-color="{{skin['confirm']}}" cancel-button-color="{{skin['cancel']}}" bind:confirm="multDelConfirm" transition="none" show-cancel-button>
+  <view class="mult">
+    <view class="title">确定要删除以下设备吗？</view>
+    <view class="list">
+      <view wx:for="{{selDevice}}" wx:key="index" class="li">
+        <text>设备名称：{{item.deviceName}}</text>
+      </view>
+    </view>
+    <view class="tip">设备删除后，其关联的自动化、场景将移除该设备</view>
+  </view>
+</van-dialog>
+
+
+<!-- 删除失败设备 -->
+<van-dialog use-slot show="{{delFailShow}}" width="{{275}}" overlayStyle="background-color:rgba(0,0,0,.4)" zIndex="999999" bind:close="onClose" confirm-button-text="我知道了" confirm-button-color="{{skin['confirm']}}" bind:confirm="failConfirm" transition="none" show-cancel-button="{{false}}">
+  <view class="mult">
+    <view class="delTit">以下设备删除失败, 将继续展示在设备列表中：</view>
+    <view class="failList">
+      <view wx:for="{{batchFailList}}" wx:key="index" class="li">
+        <text>设备名称：{{item.deviceName?item.deviceName:'-'}}</text><text>失败原因：{{item.msg?item.msg:'-'}}</text>
+      </view>
+    </view>
+  </view>
+</van-dialog>

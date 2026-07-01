@@ -1,0 +1,10 @@
+<view class="role-menu-content" bindtap="toVoiceConfig">
+  <view class="menu-cell">
+    <van-image width="24px" height="24px" fit="contain" src="{{voiceIcon}}" />
+    <view class="menu-name">声音配置</view>
+  </view>
+  <view class="menu-cell right">
+    <view class="menu-text">{{currentRoleInfo.voiceName ? currentRoleInfo.voiceName : ""  }}</view>
+    <van-icon wx:if="{{rolesList.length !== 0}}" name="arrow" size="16px" color="#CECFD1" />
+  </view>
+</view>

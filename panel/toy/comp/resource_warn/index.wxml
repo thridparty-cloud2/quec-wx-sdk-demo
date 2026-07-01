@@ -1,0 +1,16 @@
+<view class="warn-content" wx:if="{{warnShowStatus && isSaaSAiResSwitchOn && resourceWarnVisible}}">
+  <view wx:if="{{warnStatus === 'all_exhausted'}}" class="warn-row warn-row--clickable" bindtap="toAiPackageRecharge">
+    <text class="warn-text">{{warnText}}</text>
+    <van-icon name="arrow" size="13px" color="#ff6600" />
+  </view>
+  <view wx:elif="{{warnStatus === 'expired_soon'}}" class="warn-row">
+    <text class="warn-text">{{warnText}}</text>
+    <view class="icon-container" bindtap="closeResourceWarn">
+      <van-icon name="cross" size="14px" color="#ff6600" />
+    </view>
+  </view>
+  <view wx:elif="{{warnStatus === 'has_expired'}}" class="warn-row warn-row--clickable" bindtap="toAiPackageRenew">
+    <text class="warn-text">{{warnText}}</text>
+    <van-icon name="arrow" size="13px" color="#ff6600" />
+  </view>
+</view>

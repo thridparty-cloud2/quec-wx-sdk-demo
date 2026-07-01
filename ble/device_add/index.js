@@ -50,9 +50,10 @@ Page({
   },
 
   toFamily (e) {
+    // Demo: ble/v2/config 页面已移除，返回首页
     if (e.detail) {
-      this.pageRouter.redirectTo({
-        url: '/ble/v2/config/index?item=' + e.detail,
+      this.pageRouter.reLaunch({
+        url: '/pages/home/home',
       })
     }
   },

@@ -1,0 +1,57 @@
+@import "/asset/icon.wxss";
+
+.picker-scroll {
+  white-space: nowrap;
+}
+
+.picker-item {
+  margin-right: 16px;
+  display: inline-flex;
+}
+
+.role-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.role-pic-container {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+  background-color: #fff;
+}
+
+.role-pic-container.is_selected {
+  border: 2px solid #0091ff;
+}
+
+.role-pic {
+  width: 29px;
+  height: 38px;
+}
+
+.role-slected-line {
+  width: 12px;
+  height: 4px;
+  border-radius: 6px;
+  background-color: #0091ff;
+}
+
+.sdk-icon.jian {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  background-color: #fff;
+  font-size: 50px;
+  color: #d9d9d9;
+}

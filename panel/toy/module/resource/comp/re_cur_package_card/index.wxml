@@ -1,0 +1,21 @@
+<wxs src="../../js/tool.wxs" module="tool" />
+<view class="current-package-card" wx:if="{{curPackageStatus}}">
+  <view class="package-name package-status">
+    <view class="package-name-text {{currentPackage.status === 'used_up' ? 'text-dimmed' : ''}}">
+      {{currentPackage.name ? currentPackage.name : '--'}}
+    </view>
+    <view class="{{curPackageStatus ? (statusMap[currentPackage.status].class || 'package-status-tag') : 'unavailable'}}">
+      {{statusMap[currentPackage.status].text || currentPackage.status}}
+    </view>
+  </view>
+  <view class="package-expir-date {{currentPackage.status === 'used_up' ? 'text-dimmed' : ''}}">
+    有效期：{{tool.formatTime(currentPackage.startTime) + ' - ' + tool.formatTime(currentPackage.endTime)}}
+  </view>
+  <view class="packages-list-item" wx:if="{{isMoreThan}}" bindtap="toResourcePackageList">
+    <view class="packages-list-item-name">
+      {{currentPackage.name ? currentPackage.name : '--'}}
+    </view>
+    <van-icon name="arrow" color="#999" size="12px" />
+    <view class="package-name-tag">加油包</view>
+  </view>
+</view>

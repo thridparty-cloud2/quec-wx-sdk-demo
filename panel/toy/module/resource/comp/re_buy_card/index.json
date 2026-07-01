@@ -1,0 +1,10 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "re-tab-content": "../re_tab_content/index"
+  }
+}

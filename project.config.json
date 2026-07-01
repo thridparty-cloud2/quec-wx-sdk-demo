@@ -30,7 +30,10 @@
     "minifyWXML": true,
     "localPlugins": false,
     "ignoreUploadUnusedFiles": true,
-    "condition": false
+    "condition": false,
+    "compileWorklet": false,
+    "swc": false,
+    "disableSWC": true
   },
   "condition": {},
   "editorSetting": {
@@ -55,5 +58,7 @@
     ],
     "include": []
   },
-  "appid": "wx2c08f5cd67a21a7b"
+  "appid": "wx2c08f5cd67a21a7b",
+  "libVersion": "3.14.3",
+  "simulatorPluginLibVersion": {}
 }

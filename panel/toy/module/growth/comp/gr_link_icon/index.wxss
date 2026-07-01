@@ -1,0 +1,13 @@
+.link-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  height: 25px;
+  gap: 12px;
+}
+
+.icon-img {
+  width: 24px;
+  height: 24px;
+}

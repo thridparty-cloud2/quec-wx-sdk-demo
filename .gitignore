@@ -12,7 +12,6 @@ package-lock.json
 # Editor directories and files
 .git
 .idea
-.vscode
 *.suo
 *.ntvs*
 *.njsproj
@@ -21,4 +20,3 @@ package-lock.json
 
 node_modules/
 miniprogram_npm/
-.idea/

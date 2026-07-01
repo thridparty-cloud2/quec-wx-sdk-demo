@@ -1,0 +1,163 @@
+@import '../../../../css/style.wxss';
+
+.set {
+  padding: 40rpx;
+  overflow-y: auto;
+}
+
+.item {
+  margin-bottom: 30rpx;
+  border-radius: 12px;
+  border: 2px solid #EFEFEF;
+  background: rgba(255, 255, 255, 0.50);
+  padding: 10rpx 40rpx 40rpx;
+}
+
+.item.active {
+  border: 2px solid #0091FF;
+  background: linear-gradient(0deg, rgba(0, 145, 255, 0.05) 0%, rgba(0, 145, 255, 0.05) 100%), #FFF;
+}
+
+.item .name {
+  color: #080F19;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.002px;
+}
+
+.item .name .rmb {
+  color: #0091FF;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.003px;
+  margin-left: 20rpx;
+}
+
+.item .name .price {
+  color: #0091FF;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0.003px;
+}
+
+.item .desc {
+  padding-top: 10rpx;
+  color: #6B6F75;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.002px;
+}
+
+.sevice {
+  margin-top: 50rpx;
+}
+
+.sevice .h4 {
+  color: #080F19;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.sevice .desc {
+  color: #6B6F75;
+  text-align: justify;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.003px;
+  padding-top: 14rpx;
+}
+
+.sevice .ul {
+  padding: 12rpx 0;
+}
+
+.sevice .desc .p {
+  display: block;
+  line-height: 20px;
+}
+
+.sevice .li {
+  margin-left: 20rpx;
+}
+
+.sevice .li .disc {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background: gray;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+
+.btn .tip {
+  margin-top: 20rpx;
+  font-size: 12px;
+  color: #9C9FA3;
+  display: flex;
+}
+
+.btn .tip .blue {
+  color: #0091FF;
+}
+
+/* 协议弹窗样式 */
+.agreement-popup {
+  padding: 40rpx;
+  background: #fff;
+  border-radius: 20rpx 20rpx 0 0;
+}
+
+.popup-title {
+  color: #080F19;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.popup-content {
+  color: #6B6F75;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.cancel-btn {
+  flex: 1;
+  border-radius: 50rpx !important;
+  height: 52px !important;
+  width: 99px !important;
+  background-color: #f7f8fc !important;
+  font-size: 16px !important;
+  font-weight: 500;
+  border: none !important;
+}
+
+.confirm-btn {
+  /* flex: 1; */
+  width: 224px !important;
+  height: 52px !important;
+  border-radius: 50rpx !important;
+  font-size: 16px !important;
+  font-weight: 500;
+}
+
+.package-name {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.van-nav-bar__title {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+}

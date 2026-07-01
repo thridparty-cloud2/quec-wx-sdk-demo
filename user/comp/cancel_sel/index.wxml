@@ -1,0 +1,17 @@
+<view class="cancel">
+  <view class="icon">
+    <image class="cimg" src="{{cancelImg}}"></image>
+  </view>
+  <view class="note">{{i18n['cacelTip1']}}</view>
+  <view class="ntip">
+    <view class="tit">{{i18n['cancelselTit']}}</view>
+    <view class="per">{{i18n['cancelTip2']}}{{afterSeven}}00:00:00{{i18n['cancelTip3']}}</view>
+    <view class="per">{{i18n['cancelTip4']}}</view>
+  </view>
+  <view class="btns">
+    <van-button type="info" custom-class="cancelBtn" custom-style="{{'border-radius:'+skin['radius']}}" block color="{{skin['primary']}}" disabled="{{!isEnd ? true :false}}" data-type="2" catchtap="{{!isEnd?'':'cancelShow'}}">{{i18n['confirmCancel']}} <text wx:if="{{count>0 && count<10}}">{{count}}s</text></van-button>
+    <view class="cancel_now" data-type="1" catchtap="cancelShow">{{i18n['cancelBtn']}}</view>
+  </view>
+</view>
+
+<confirm_tip visible="{{tipShow}}" title="{{i18n['confirmCancelTip1']}}" tip="{{i18n['confirmCancelTip2']}}{{type==2 ? i18n['after7'] : i18n['ctype1']}}{{i18n['confirmCancelTip3']}}" confirmTxt="{{i18n['cancelTxt']}}" confirmColor="{{skin['subary']}}" bindCancel="onClose" bindConfirm="cancel"></confirm_tip>

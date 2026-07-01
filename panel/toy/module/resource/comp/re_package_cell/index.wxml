@@ -1,0 +1,9 @@
+<wxs src="../../js/tool.wxs" module="tool" />
+<view class="package-cell-item">
+  <view class="package-name {{contentClass}}">{{item.name}}</view>
+  <view class="package-expire {{contentClass}}">
+    <span>有效期:</span>
+    {{tool.formatTime(item.startTime)}} - {{tool.formatTime(item.endTime)}}
+  </view>
+  <view class="status-tag {{statusClass}}">{{statusText}}</view>
+</view>

@@ -75,7 +75,7 @@ Component({
       self.setData({
         btnDisabled: true
       })
-      sendPhoneCode(phone, 2, () => {
+      sendPhoneCode(phone, 1, () => {
         let item = {
           uname: phone,
           type: 1

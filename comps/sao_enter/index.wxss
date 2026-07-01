@@ -1,0 +1,26 @@
+@import '/asset/icon.wxss';
+
+.sendDynamic {
+  height: 58px;
+  width: 58px;
+  bottom: 200rpx;
+  right: 50rpx;
+  position: fixed;
+  z-index: 999999;
+}
+
+.mask-con {
+  transition: 0.5s;
+  height: 58px;
+  width: 58px;
+  opacity: 1;
+  box-shadow: 0 4px 12px rgba(0, 145, 255, .1);
+  border-radius: 100%;
+  text-align: center;
+  line-height: 58px;
+}
+
+.sdk-icon.scanning {
+  color: #ffffff;
+  font-size: 28px;
+}

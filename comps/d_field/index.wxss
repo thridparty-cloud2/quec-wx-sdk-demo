@@ -1,0 +1,11 @@
+.title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333333;
+  text-align: center;
+  padding: 40rpx 0 30rpx;
+}
+
+.block {
+  margin: 0 30rpx 40rpx;
+}

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "re-buy-card": "../comp/re_buy_card/index",
+    "re-cur-package-card": "../comp/re_cur_package_card/index",
+    "noData": "../../../../../comps/noData/index",
+    "sos_warn": "../../../comp/sos_warn/index"
+  }
+}

@@ -1,0 +1,62 @@
+<view wx:if="{{from=='home'}}">
+  <view wx:if="{{telSmSwitch}}" class="enter">
+    <van-row gutter="12">
+      <van-col wx:if="{{env['isPushTel']}}" span="12">
+        <view class="item" catchtap="goTel">
+          <image class="bg" src="{{bgImg}}" mode="" />
+          <view class="icon tel">
+            <image class="telImg" src="{{telImg}}" mode="" />
+          </view>
+          <view class="copytxt">
+            <view class="txt">{{valaddTxt.telTit}}</view>
+            <view class="more">{{valaddTxt.more}}</view>
+          </view>
+        </view>
+      </van-col>
+      <van-col wx:if="{{env['isPushSms']}}" span="12">
+        <view class="item" catchtap="goSms">
+          <image class="bg" src="{{bgImg}}" mode="" />
+          <view class="icon sms">
+            <image class="smsImg" src="{{smsImg}}" mode="" />
+          </view>
+          <view class="copytxt">
+            <view class="txt">{{valaddTxt.smsTit}}</view>
+            <view class="more">{{valaddTxt.more}}</view>
+          </view>
+        </view>
+      </van-col>
+    </van-row>
+    <view class="off" catchtap="off">
+      <image class="cImg" src="{{closeImg}}" mode="" />
+    </view>
+  </view>
+</view>
+<view wx:if="{{from == 'mine'}}" class="mine">
+  <view class="h2">{{valaddTxt.serTit}}</view>
+  <van-row gutter="12">
+    <van-col wx:if="{{env['isPushTel']}}" span="12">
+      <view class="item" catchtap="goTel">
+        <image class="bg" src="{{bgImg}}" mode="" />
+        <view class="icon tel">
+          <image class="telImg" src="{{telImg}}" mode="" />
+        </view>
+        <view class="copytxt">
+          <view class="txt">{{valaddTxt.telTit}}</view>
+          <view class="more">{{valaddTxt.more}}</view>
+        </view>
+      </view>
+    </van-col>
+    <van-col wx:if="{{env['isPushSms']}}" span="12">
+      <view class="item" catchtap="goSms">
+        <image class="bg" src="{{bgImg}}" mode="" />
+        <view class="icon sms">
+          <image class="smsImg" src="{{smsImg}}" mode="" />
+        </view>
+        <view class="copytxt">
+          <view class="txt">{{valaddTxt.smsTit}}</view>
+          <view class="more">{{valaddTxt.more}}</view>
+        </view>
+      </view>
+    </van-col>
+  </van-row>
+</view>

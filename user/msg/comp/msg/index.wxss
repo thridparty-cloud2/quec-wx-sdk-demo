@@ -1,0 +1,74 @@
+.msgCon {
+  position: relative;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  z-index: 60;
+}
+
+.tabCls {
+  padding: 0 10px;
+  text-align: center;
+  flex: none !important;
+  font-size: 16px;
+  color: #999999;
+  position: relative;
+}
+
+.tabActive {
+  font-weight: 500 !important;
+  color: #333333 !important;
+  font-size: 20px;
+}
+
+.wrapCls {
+  padding: 0 100rpx;
+}
+
+.main {
+  background: #F7F8FC;
+  margin-top: 20rpx;
+  position: relative;
+}
+
+.readBtn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  background: #fff;
+}
+
+.rBtn {
+  font-size: 12px;
+  color: #666;
+  padding: 0 16rpx;
+  line-height: 24px;
+  border: 0.5px solid #C9C9C9;
+  border-radius: 5px;
+}
+
+.dot {
+  width: 10rpx;
+  height: 10rpx;
+  background: #FF4E45;
+  border-radius: 50%;
+}
+
+.con {
+  padding-top: 80rpx;
+}
+
+.back {
+  position: absolute;
+  top: 15rpx;
+  left: 0;
+  width: 100rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  z-index: 61;
+}
+
+.van-tab__title__info {
+  top: -6px !important;
+}

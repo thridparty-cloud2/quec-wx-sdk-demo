@@ -1,0 +1,71 @@
+@import "/asset/base.wxss";
+@import "/asset/txtarea.wxss";
+@import "/asset/nav.wxss";
+@import '../../css/set.wxss';
+
+/* 模式选择弹窗样式 */
+.mode-handle-container {
+  background: #fff;
+  border-radius: 16px 16px 0 0;
+  max-height: 60vh;
+}
+
+.mode-handle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+}
+
+.cancel-btn {
+  font-size: 16px;
+  color: #999;
+  padding: 8px 12px;
+}
+
+.mode-handle-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+  text-align: center;
+}
+
+.confirm-btn {
+  font-size: 16px;
+  color: #1989fa;
+  padding: 8px 12px;
+  font-weight: 500;
+}
+
+.mode-handle-content {
+  max-height: 40vh;
+  overflow-y: auto;
+}
+
+.mode-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  transition: background-color 0.2s;
+}
+
+.mode-item:last-child {
+  border-bottom: none;
+}
+
+.mode-item:active {
+  background-color: #f8f8f8;
+}
+
+.mode-name {
+  font-size: 16px;
+  color: #333;
+  flex: 1;
+}
+
+.mode-handle-footer {
+  padding: 16px;
+  border-top: 1px solid #f0f0f0;
+}

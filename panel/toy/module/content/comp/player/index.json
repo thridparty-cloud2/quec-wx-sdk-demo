@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "network": "../../../../../comp/network/index"
+  }
+}

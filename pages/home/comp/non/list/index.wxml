@@ -12,8 +12,10 @@
     </van-transition>
   </block>
 </view>
+<banner wx:if="{{env['isBanner']}}" isRefresh="{{isRefresh}}" bindLink="toLink"></banner>
 <view class="list">
-  <view class="all">全部设备</view>
+  <valadd_enter wx:if="{{(env['isPushTel'] || env['isPushSms'])&&isToken}}" isRefresh="{{isRefresh}}" valaddTxt="{{valaddTxt}}" bindTel="goTel" bindSms="goSms" bindClose="cloeVaddEnter"></valadd_enter>
+  <view wx:if="{{env['showAllTxt']}}" class="all">全部设备</view>
   <dlist mode="{{mode}}" isRefresh="{{isRefresh}}" from="home" isEdit="{{isEdit}}" isValadd="{{isValadd}}" bindselDevice="getselDevice" bindedit="getEdit" bindgoDetail="goDetail" bindscanSuccess="scanSuccess" bindMode="mode" bindIntroduct="introduct" bindtoNetwork="toNetwork" bindJump="jump" bindtoNear="toNear" bindnoScanAndNear="noScanAndNear"></dlist>
 </view>
 <install_button wx:if="{{isSet && !isEdit &&  (env['isScan']||env['isNetwork'])}}" id="install-btn" bindinvalidDevice="invalidDevice" bindtoNetwork="toNetwork" bindtoScan="toScan" bindtoNear="toNear" bindJump="jump" />

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "device_tsl_edit_array": "../tsl/array/index",
+    "netError": "../../comp/netError/index"
+  }
+}

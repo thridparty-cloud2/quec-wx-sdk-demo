@@ -1,0 +1,12 @@
+<view class="noData {{!isAuto?'hei':''}}">
+  <view class="img">
+    <image src="{{img}}" width="240" height="140" />
+  </view>
+  <view class="txt">
+    <text wx:if="{{flag1}}">{{tip1}}</text>
+    <text wx:if="{{flag2}}">{{tip2}}</text>
+  </view>
+  <view wx:if="{{bflag}}" class="gbtn">
+    <van-button type="info" custom-class="noBtn" custom-style="{{'border-radius:'+skin['radius']}}" color="{{skin['primary']}}" catchtap="act"><text wx:if="{{isIcon}}" class="{{iconCls}}"></text>{{butxt}}</van-button>
+  </view>
+</view>

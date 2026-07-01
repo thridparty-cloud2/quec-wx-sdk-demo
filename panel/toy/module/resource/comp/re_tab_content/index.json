@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "re-empty": "../re_empty/index"
+  }
+}

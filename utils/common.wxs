@@ -1,39 +1,39 @@
 // 回显布尔、枚举的值
-function getEnumName(attr, value) {
-  if (value == null) return "";
-  var text = value;
+function getEnumName (attr, value) {
+  if (value == null) return ""
+  var text = value
   if (attr.dataType === "ENUM" || attr.dataType === "BOOL") {
     if (!attr.specs || attr.specs.length <= 0) {
-      return "";
+      return ""
     }
     attr.specs.forEach(function (el) {
       if (el.value.toString() === value.toString()) {
-        text = el.name;
+        text = el.name
       }
-    });
+    })
   }
-  return text;
+  return text
 }
 
-function getModeName(mode, value) {
+function getModeName (mode, value) {
   var list = mode.filter(function (e) {
-    return e.id === JSON.parse(value);
-  });
-  return (list[0] && list[0].name) || "";
+    return e.id === JSON.parse(value)
+  })
+  return (list[0] && list[0].name) || ""
 }
 
 // 转数字
-function toNumber(value) {
-  return Number(value);
+function toNumber (value) {
+  return Number(value)
 }
 
-function toFixed(value, num) {
-  return toNumber(value).toFixed(num);
+function toFixed (value, num) {
+  return toNumber(value).toFixed(num)
 }
 
 // 转字符串
-function toString(value) {
-  return value.toString();
+function toString (value) {
+  return value.toString()
 }
 
 /**
@@ -41,34 +41,34 @@ function toString(value) {
  * @param arrs
  * @param item
  */
-function includes(arrs = [], item) {
-  return arrs.indexOf(item) !== -1;
+function includes (arrs = [], item) {
+  return arrs.indexOf(item) !== -1
 }
 
-function isNull(data) {
-  var arr = [undefined, null, ""];
-  return arr.indexOf(data) !== -1;
+function isNull (data) {
+  var arr = [undefined, null, ""]
+  return arr.indexOf(data) !== -1
 }
 
-function formatEmpty(data) {
-  return isNull(data) ? "" : data;
+function formatEmpty (data) {
+  return isNull(data) ? "" : data
 }
 
-function formatDate(value, options = {}) {
-  var time = getDate(value);
-  var year = time.getFullYear();
-  var month = time.getMonth() + 1;
-  var date = time.getDate();
-  var hour = time.getHours();
-  var minute = time.getMinutes();
-  var second = time.getSeconds();
-  var dateSplit = options.dateSplit ? options.dateSplit : "-";
-  var timeSplit = options.timeSplit ? options.timeSplit : ":";
-  month = month < 10 ? "0" + month : month;
-  date = date < 10 ? "0" + date : date;
-  hour = hour < 10 ? "0" + hour : hour;
-  minute = minute < 10 ? "0" + minute : minute;
-  second = second < 10 ? "0" + second : second;
+function formatDate (value, options = {}) {
+  var time = getDate(value)
+  var year = time.getFullYear()
+  var month = time.getMonth() + 1
+  var date = time.getDate()
+  var hour = time.getHours()
+  var minute = time.getMinutes()
+  var second = time.getSeconds()
+  var dateSplit = options.dateSplit ? options.dateSplit : "-"
+  var timeSplit = options.timeSplit ? options.timeSplit : ":"
+  month = month < 10 ? "0" + month : month
+  date = date < 10 ? "0" + date : date
+  hour = hour < 10 ? "0" + hour : hour
+  minute = minute < 10 ? "0" + minute : minute
+  second = second < 10 ? "0" + second : second
   if (options && typeof options.format === "string") {
     return options.format
       .replace("yyyy", year)
@@ -76,7 +76,7 @@ function formatDate(value, options = {}) {
       .replace("DD", date)
       .replace("HH", hour)
       .replace("mm", minute)
-      .replace("ss", second);
+      .replace("ss", second)
   }
   return (
     year +
@@ -90,11 +90,27 @@ function formatDate(value, options = {}) {
     minute +
     timeSplit +
     second
-  );
+  )
 }
 
-function getMapValByKey(key, map) {
-  return map[key];
+function getMapValByKey (key, map) {
+  return map[key]
+}
+
+/**
+ * 补0为两位小数（不四舍五入，仅补足缺少的位数）
+ * @param value 任意数字或字符串
+ */
+function padZeroToTwo (value) {
+  if (value === undefined || value === null || value === "") return ""
+  var str = value.toString()
+  var parts = str.split(".")
+  var intPart = parts[0]
+  var decPart = parts[1] || ""
+  if (parts.length === 1) return intPart + ".00"
+  if (decPart.length === 0) return intPart + ".00"
+  if (decPart.length === 1) return intPart + "." + decPart + "0"
+  return str
 }
 
 module.exports = {
@@ -108,4 +124,5 @@ module.exports = {
   formatEmpty: formatEmpty,
   formatDate: formatDate,
   getMapValByKey: getMapValByKey,
-};
+  padZeroToTwo: padZeroToTwo,
+}

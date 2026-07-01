@@ -1,0 +1,44 @@
+<block wx:if="{{isFinish}}">
+  <block wx:if="{{rooms.length>0}}">
+    <view class="room">
+      <scroll-view scroll-y="{{hasDataList}}" class="scrollContainer" style="height:{{defaultHeight}}px;" refresher-enabled="{{true}}" bindrefresherrefresh="refreshList" bindscrolltolower="getMoreList" refresher-triggered="{{triggered}}">
+        <block wx:for="{{rooms}}" wx:key="index" wx:for-item="item">
+          <view class="li" data-item="{{item}}" catchtap="liChange">
+            <view class="left">
+              <text class="rname">{{item.roomName}}</text>
+            </view>
+            <view class="right">
+              <van-checkbox value="{{ item.vcheck }}" icon-size="16px" checked-color="{{skin['primary']}}" data-item="{{item}}"></van-checkbox>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+    <view wx:if="{{rooms.length>0}}" class="addRbtn btnBg">
+      <view class="houseBtn" style="color: {{skin['primary']}};border-radius:{{skin['radius']}}" catchtap="addRoomShow"><text class="sdk-icon add" style="color: {{skin['primary']}};"></text>{{i18n['moveNewRoom']}}</view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="noData hei">
+      <view class="img">
+        <van-image src="{{noDataImg}}" width="240" height="140" use-loading-slot>
+          <van-loading slot="loading" type="spinner" size="20" vertical />
+        </van-image>
+      </view>
+      <view class="txt">{{i18n['noRoomTip']}}</view>
+      <view class="btns">
+        <view class="btnItem">
+          <van-button custom-class="addBtn" block color="{{skin['primary']}}" custom-style="{{'border-radius:'+skin['radius']}}" catchtap="addRoomShow"><text class="sdk-icon add"></text>{{i18n['toAdd']}}</van-button>
+        </view>
+      </view>
+    </view>
+  </block>
+</block>
+
+<!-- 移动到新房间 -->
+<van-dialog use-slot show="{{newRoomShow}}" overlayStyle="background-color:rgba(0,0,0,.4)" zIndex="99999999" bind:close="onClose" confirm-button-color="{{skin['primary']}}" cancel-button-color="{{skin['cancel']}}" bind:confirm="addRoom" transition="none" show-cancel-button>
+  <view class="dialTit">{{i18n['enterRoomName']}}</view>
+  <view class="block">
+    <van-field model:value="{{ roomName }}" custom-style="background-color:#F7F8FC;" name="roomName" bind:change="roomNameChange" placeholder="{{i18n['enterRoomNameHolder']}}" maxlength="30" border="{{ false }}" />
+  </view>
+</van-dialog>

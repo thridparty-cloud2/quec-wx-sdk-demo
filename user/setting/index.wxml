@@ -1,0 +1,67 @@
+<nav_bar title="{{valaddTxt.set}}" backUrl="/pages/mine/mine" isTab="{{true}}"></nav_bar>
+<view wx:if="{{env['isHouse'] || mode || env['isPushTel'] || env['isPushSms']}}" class="group">
+  <view wx:if="{{env['isHouse']}}" class="h4">通用</view>
+  <van-cell wx:if="{{env['isHouse']}}" custom-class="custCell" border="{{false}}" label="{{i18n['houseSetTip']}}">
+    <view slot="title" class="cellTitle" style="color: {{skin['text_h2']}};">
+      {{i18n['houseTit']}}
+    </view>
+    <view class="switch">
+      <van-switch checked="{{ mode }}" bind:change="modeChange" active-color="{{skin['primary']}}" inactive-color="{{skin['switch_dis']}}" size="22px"></van-switch>
+    </view>
+  </van-cell>
+  <view wx:if="{{mode && env['isHouse']}}">
+    <van-cell custom-class="custCell" is-link link-type="navigateTo" catchtap="toHouse" border="{{false}}">
+      <view slot="title" class="cellTitle" style="color: {{skin['text_h2']}};">
+        {{i18n['familyManage']}}
+      </view>
+      <van-icon slot="right-icon" name="arrow" color="{{skin['arrow']}}" />
+    </van-cell>
+  </view>
+  <view wx:if="{{env['isPushTel'] || env['isPushSms']}}">
+    <van-cell custom-class="custCell" is-link link-type="navigateTo" catchtap="goPush" border="{{false}}">
+      <view slot="title" class="cellTitle" style="color: {{skin['text_h2']}};">推送设置</view>
+      <van-icon slot="right-icon" name="arrow" color="{{skin['arrow']}}" />
+    </van-cell>
+  </view>
+  <view wx:if="{{env['isPushTel'] || env['isPushSms']}}">
+    <van-cell custom-class="custCell" is-link link-type="navigateTo" catchtap="clearCache" border="{{false}}">
+      <view slot="title" class="cellTitle" style="color: {{skin['text_h2']}};">清空缓存</view>
+      <view>{{cacheSize}} KB</view>
+      <van-icon slot="right-icon" name="arrow" color="{{skin['arrow']}}" />
+    </van-cell>
+  </view>
+</view>
+<!-- Demo: 隐私管理已移除 -->
+<!-- 家居模式 -->
+<confirm_tip visible="{{modeShow}}" title="{{i18n['modeTitle']}}" tip="{{i18n['houseSet']}}" bindCancel="onClose" bindConfirm="confirmMode"></confirm_tip>
+<confirm_tip visible="{{clearShow}}" title="温馨提示" tip="将删除{{cacheSize}}KB缓存数据?(包含图片缓存和系统预设信息)" bindConfirm="confirmClear"></confirm_tip>
+<!-- 开启家居模式 -->
+<van-popup wx:if="{{openHouse}}" show="{{ openHouse }}" round position="bottom" z-index="{{99}}" overlay-style="background-color:rgba(0,0,0,.4)" close-on-click-overlay="{{false}}" custom-class="houseCls" custom-style="" bind:close="openClose">
+  <view class="house">
+    <view class="hbg" style="background: linear-gradient(180deg, {{skin['primary']}} 0%, #ffffff 100%);"></view>
+    <view class="title">
+      <view class="close" catchtap="openClose">
+        <van-icon name="cross" size="20px" color="#333333" />
+      </view>
+      <view class="txt">{{i18n['changeMode']}}</view>
+    </view>
+    <view class="qipao">
+      <van-image width="375" height="440" src="{{homeqipao}}" use-loading-slot>
+        <van-loading slot="loading" type="spinner" size="20" vertical />
+      </van-image>
+    </view>
+    <view class="img">
+      <van-image width="264" height="477" src="{{houseImg}}" use-loading-slot>
+        <van-loading slot="loading" type="spinner" size="20" vertical />
+      </van-image>
+    </view>
+    <view class="enterBtn">
+      <van-button catchtap="confirmMode" custom-class="pluginBtn" custom-style="{{'border-radius:'+skin['radius']}}" block color="{{skin['primary']}}">
+        {{i18n['enterHouse']}}
+      </van-button>
+      <view catchtap="toEnterDetail" class="detail" style="color: {{skin['primary']}};">
+        {{i18n['knowDetail']}}
+      </view>
+    </view>
+  </view>
+</van-popup>

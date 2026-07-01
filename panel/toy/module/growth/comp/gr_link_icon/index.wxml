@@ -1,0 +1,4 @@
+<view class="link-icon">
+  <image class="icon-img" mode="aspectFit" src="{{statIcon}}" bindtap="onTap" data-type="weekStat" />
+  <image class="icon-img" mode="aspectFit" src="{{ (babyInfo && babyInfo.gender === 0) ? girlIcon : boyIcon }}" bindtap="onTap" data-type="editInfo" />
+</view>

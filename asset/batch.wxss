@@ -1,0 +1,60 @@
+.mult {
+  padding: 30rpx;
+}
+
+.mult .title {
+  text-align: center;
+  line-height: 44px;
+  padding-bottom: 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.mult .delTit {
+  text-align: left;
+  line-height: 24px;
+  padding: 20rpx 20rpx 30rpx;
+  font-size: 15px;
+}
+
+.mult .failList {
+  text-align: left;
+  color: #999999;
+  font-size: 14px;
+  padding: 0 15px 10px 10px;
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+.mult .list {
+  text-align: left;
+  color: #999999;
+  font-size: 14px;
+  padding: 0 10px 10px;
+  max-height: 140px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.mult text {
+  display: block;
+  line-height: 20px;
+  font-size: 12px;
+}
+
+.mult .tip {
+  font-size: 14px;
+  color: #333333;
+  line-height: 22px;
+}
+
+.failList .li {
+  padding-bottom: 12rpx;
+}
+
+.li text {
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

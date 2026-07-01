@@ -1,0 +1,36 @@
+@import '../../css/user.wxss';
+
+
+.getCodeBtn {
+  border-color: transparent !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  height: var(--button-default-height, 24px) !important;
+}
+
+.btns {
+  margin: 80rpx 40rpx 60rpx;
+}
+
+.desc {
+  display: block;
+  margin: 20rpx 40rpx 0;
+  height: 18px;
+}
+
+.desc .txt {
+  color: #999999;
+  font-size: 13px;
+}
+
+.desc .txt text {
+  color: #000;
+}
+
+.labelCls {
+  padding-top: 6rpx;
+}
+
+.c999 {
+  color: #999999;
+}

@@ -1,0 +1,36 @@
+<view class="{{curPackageStatus ? 'resource-buy-card' : 'unpaid'}}">
+  <!-- 双 tab 模式 -->
+  <block wx:if="{{!isSingleTab}}">
+    <van-tabs animated tab-active-class="tab-active-class" wrap-class="wrap-class" tab-class="tab-class" nav-class="nav-class" bindchange="onTabChange">
+      <van-tab wx:for="{{tabsConfig}}" wx:for-index="tabIndex" wx:key="tabIndex" title="{{item.title}}">
+        <scroll-view scroll-y="{{true}}" style="height: {{curPackageStatus ? 'calc(100vh - 910rpx)' : 'calc(100vh - 560rpx)'}};" enhanced="{{true}}" show-scrollbar="{{false}}">
+          <re-tab-content packageList="{{activeList}}" emptyText="{{item.emptyText}}" serviceDesc="{{item.serviceDesc}}" selectedIndex="{{selectedPackageIndex}}" emptyImg="{{emptyImg}}" curPackageStatus="{{curPackageStatus}}" bind:selectPackage="onSelectPackage"></re-tab-content>
+        </scroll-view>
+      </van-tab>
+    </van-tabs>
+  </block>
+  <!-- 单 tab 模式 -->
+  <block wx:else>
+    <view class="single-tab-header">
+      <view class="single-tab-bar"></view>
+      <view class="single-tab-title">{{singleTabConfig.title}}</view>
+    </view>
+    <scroll-view scroll-y="{{true}}" style="height: {{curPackageStatus ? 'calc(100vh - 910rpx)' : 'calc(100vh - 560rpx)'}};" enhanced="{{true}}" show-scrollbar="{{false}}">
+      <re-tab-content packageList="{{activeList}}" emptyText="{{singleTabConfig.emptyText}}" serviceDesc="{{singleTabConfig.serviceDesc}}" selectedIndex="{{selectedPackageIndex}}" emptyImg="{{emptyImg}}" curPackageStatus="{{curPackageStatus}}" bind:selectPackage="onSelectPackage"></re-tab-content>
+    </scroll-view>
+  </block>
+  <view class="footer-sec">
+    <van-button disabled="{{activeListEmpty}}" color="#0091FF" size="large" custom-class="buy-btn" bindtap="pay">
+      立即支付
+    </van-button>
+    <view class="buy-tip">
+      <van-checkbox value="{{agreeChecked}}" icon-size="18px" bindchange="onServiceCheckChange"></van-checkbox>
+      <view class="tip-text">
+        购买前请仔细阅读
+        <span bindtap="toServiceTermsPage">《服务协议》</span>
+        ，确认付款后即视为同意本协议
+      </view>
+    </view>
+  </view>
+</view>
+<pay_agree visible="{{agreeShow}}" type="{{5}}" bind:close="agreeClose" bind:confirm="agreeConfirm"></pay_agree>

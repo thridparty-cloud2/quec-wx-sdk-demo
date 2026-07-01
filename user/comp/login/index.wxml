@@ -21,7 +21,6 @@
       </view>
     </view>
     <view class="jump">
-      <view class="t1" catchtap="toCodeLogin" style="color: {{skin['text_h3']}};">{{i18n['loginCode']}}</view>
       <view class="t2" catchtap="toForgetPwd" style="color: {{skin['text_h3']}};">{{i18n['forgetPwd']}}</view>
     </view>
   </form>

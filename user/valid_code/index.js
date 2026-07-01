@@ -30,8 +30,9 @@ Page({
    * 验证码验证通过后跳转到密码设置页面
    */
   codeSuccess (e) {
-    this.pageRouter.navigateTo({
-      url: '/user/set_pwd/index?item=' + JSON.stringify(e.detail),
+    // Demo: set_pwd 页面已移除，验证成功后返回登录
+    this.pageRouter.reLaunch({
+      url: '/user/index/index',
     })
   },
 

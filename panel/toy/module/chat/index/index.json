@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "chat_role_switch": "../comp/chat_switch_popup",
+    "chat_del_histroy": "../comp/chat_del_histroy",
+    "chat_histroy": "../comp/chat_histroy",
+    "sos_warn": "../../../comp/sos_warn/index"
+  }
+}

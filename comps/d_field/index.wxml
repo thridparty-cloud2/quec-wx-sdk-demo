@@ -1,0 +1,7 @@
+<!-- 重命名 -->
+<van-dialog use-slot show="{{visible}}" width="{{275}}" overlayStyle="background-color:rgba(0,0,0,.4)" zIndex="{{zIndex}}" bind:close="close" bind:confirm="confirm" confirm-button-text="{{confirmTxt}}" cancel-button-text="{{cancelTxt}}" confirm-button-color="{{confirmColor}}" cancel-button-color="{{cancelColor}}" transition="none" show-cancel-button="{{isCancel}}">
+  <view class="title">{{title}}</view>
+  <view class="block">
+    <van-field type="textarea" model:value="{{ mVal }}" custom-style="background:#F7F8FC;border-radius:12px;" name="mVal" bind:change="valChange" placeholder="{{valPlace}}" maxlength="{{vMaxLength}}" border="{{ false }}" />
+  </view>
+</van-dialog>

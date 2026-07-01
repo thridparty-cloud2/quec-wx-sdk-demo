@@ -1,0 +1,20 @@
+.btn {
+  position: fixed;
+  bottom: 45px;
+  left: 12px;
+  right: 12px;
+  padding: 8px 48px;
+  border-radius: 27px;
+  background-color: #0091ff;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.btn-hover {
+  background-color: #0091ffd8;
+}
+
+.btn.disabled {
+  background-color: #0091ff73;
+}

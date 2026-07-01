@@ -1,0 +1,4 @@
+<view class="charging">
+  <view class="bg" style="height: {{bgHei}}px; background: {{bgColor}};"></view>
+  <view wx:if="{{isCharging}}" class="shandian"></view>
+</view>

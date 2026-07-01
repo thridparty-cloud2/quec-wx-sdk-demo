@@ -1,5 +1,0 @@
-@import '../../asset/bg.wxss';
-
-page {
-  background: #ffffff;
-}

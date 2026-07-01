@@ -1,79 +1,94 @@
-import { home, jump } from "../../utils/jump.js";
+import { home, jump } from '../../utils/jump.js'
 
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
     phoneVisible: false,
-    phoneInfo: {},
+    phoneInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {},
+  onLoad (options) {
+
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady() {},
+  onReady () {
+
+  },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {},
+  onShow () {
 
-  goNikeName(e) {
-    wx.redirectTo({
-      url: "/user/nickname/index?nikeName=" + e.detail,
-    });
   },
 
-  logoutSuccess() {
-    home(this);
+  goNikeName (e) {
+    // Demo: 昵称修改页面已移除
   },
 
-  goChangePwd(e) {
-    this.pageRouter.navigateTo({
-      url: "/user/edit_pwd/index?uname=" + e.detail,
-    });
+  logoutSuccess () {
+    home(this)
+  },
+
+  goChangePwd (e) {
+    // Demo: 修改密码页面已移除
+  },
+
+  goCancel (e) {
+    // Demo: 注销账号页面已移除
   },
 
   /**手机号授权 */
-  relatePhone() {
+  relatePhone () {
     this.setData({
-      phoneVisible: true,
-    });
+      phoneVisible: true
+    })
   },
 
-  getPhoneInfo(e) {
+  getPhoneInfo (e) {
     this.setData({
-      phoneInfo: e.detail,
-    });
+      phoneInfo: e.detail
+    })
   },
 
-  jump() {
-    jump(this);
+  jump () {
+    jump(this)
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide() {},
+  onHide () {
+
+  },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload() {},
+  onUnload () {
+
+  },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh() {},
+  onPullDownRefresh () {
+
+  },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom() {},
-});
+  onReachBottom () {
+
+  }
+})

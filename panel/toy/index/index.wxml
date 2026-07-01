@@ -1,0 +1,45 @@
+<view class="bgCls content" style="background: #F7F8FC url('https://iot-oss.quectelcn.com/wxsdk_img/ai/new/home_bg.png') no-repeat;background-size:contain;">
+  <nav_bar from="ai" bindBackTip="backTip" setting="{{true}}" isWs="{{true}}" bind:onSettingClick="onSettingClick"></nav_bar>
+  <block wx:if="{{!curDevice.shareCode && (iccId && iccId!=='null')}}">
+    <block wx:if="{{isSimFlow}}">
+      <sim_recharge icc-id="{{iccId}}" curItem="{{curDevice}}"></sim_recharge>
+    </block>
+    <block wx:else>
+      <sim_flow icc-id="{{iccId}}" curItem="{{curDevice}}"></sim_flow>
+    </block>
+  </block>
+  <block wx:if="{{!curDevice.shareCode}}">
+    <resource_warn curDevice="{{curDevice}}"></resource_warn>
+  </block>
+  <view class="toy">
+    <view class="info">
+      <view class="basic">
+        <basic device="{{curDevice}}" role="{{roleObj}}"></basic>
+      </view>
+      <view class="sound" bindtap="showVolumeSlider">
+        <image class="size60 icon" src="{{tConst.soundSet}}" mode="aspectFit" />
+        <view class="txt">音量调节</view>
+      </view>
+    </view>
+    <view class="role">
+      <view class="bg">
+        <role_pic device="{{curDevice}}" role="{{roleObj}}"></role_pic>
+      </view>
+      <role_set device="{{curDevice}}" role="{{roleObj}}" chatReload="{{chatReloadTsl}}"></role_set>
+    </view>
+    <feature iccId="{{iccId}}" device="{{curDevice}}" role="{{roleObj}}" chatReload="{{chatReloadTsl}}" showFunc="{{functionTsl}}" showClock="{{alarmClockTsl}}" isSimFlow="{{isSimFlow}}"></feature>
+  </view>
+</view>
+<!-- 音量调节 -->
+<volume_slider device="{{curDevice}}" volTsl="{{volumeTsl}}" sliderShow="{{sliderShow}}" bind:clickHide="onSliderHide"></volume_slider>
+<!-- 升级提示 -->
+<cload_ota_pop wx:if="{{cloudOtaVisible}}" visible="{{cloudOtaVisible}}" plan="{{cloudPlan}}" argsItem="{{curDevice}}" bindClose="cloudOtaClose"></cload_ota_pop>
+<!-- 预加载图片 -->
+<image hidden="{{true}}" src="https://iot-oss.quectelcn.com/wxsdk_img/ai/new/home_bg.png" />
+<image hidden="{{true}}" src="https://iot-oss.quectelcn.com/wxsdk_img/ai/new/click/ziyou.gif" />
+<!-- 网络异常弹框 -->
+<network bindExit="tryCloseWsSocket" bindReconnect="reconnectWsV2" bindManual="tryCloseWsSocket" bindNetErrShow="getNetErrShow"></network>
+<!-- 风险预警弹框 -->
+<risk_guide wx:if="{{riskShow}}" device="{{curDevice}}" riskItem="{{riskItem}}" visible="{{riskShow}}" role="{{roleObj}}" bindClose="riskClose"></risk_guide>
+<!-- 星云sos告警弹窗 -->
+<sos_warn device="{{curDevice}}" />

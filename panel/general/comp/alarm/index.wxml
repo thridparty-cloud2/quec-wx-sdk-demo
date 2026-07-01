@@ -1,0 +1,10 @@
+<view wx:if="{{isFinish}}">
+  <view wx:if="{{alarmData.length>0}}">
+    <scroll-view scroll-y="{{true}}" refresher-enabled="{{true}}" style="height:{{scrollHeight}}px" bindrefresherrefresh="refreshList" bindscrolltolower="getMoreList">
+      <van-steps steps="{{ alarmData }}" direction="vertical" active-color="{{activeStepColor}}" custom-class="alarmSteps" />
+    </scroll-view>
+  </view>
+  <view wx:else>
+    <noData img="{{noDataImg}}" tip1="暂无数据" bflag="{{false}}"></noData>
+  </view>
+</view>

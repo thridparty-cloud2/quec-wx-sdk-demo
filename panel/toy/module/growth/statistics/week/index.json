@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "gr-week-swicther": "../../comp/gr_week_swicther/index",
+    "gr-week-stat-card": "../../comp/gr_week_stat_card/index",
+    "gr-week-task-list": "../../comp/gr_week_task_list/index",
+    "sos_warn": "../../../../comp/sos_warn/index"
+  }
+}

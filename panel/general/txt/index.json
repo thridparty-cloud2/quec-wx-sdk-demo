@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "txt": "../tsl/txt/index",
+    "netError": "../../comp/netError/index"
+  }
+}

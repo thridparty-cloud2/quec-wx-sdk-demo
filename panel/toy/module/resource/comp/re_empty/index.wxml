@@ -1,0 +1,4 @@
+<view class="re-empty">
+  <image class="re-empty-img" src="{{img}}" />
+  <view class="re-empty-text">{{text}}</view>
+</view>

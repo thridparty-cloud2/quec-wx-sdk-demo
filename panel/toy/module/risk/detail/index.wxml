@@ -1,0 +1,60 @@
+<view class="bgCls content" style="background:url('https://iot-oss.quectelcn.com/wxsdk_img/ai/new/risk/detailBg.png?v=1.0') no-repeat;background-size: 100% 80%;">
+  <wxs src="./tools.wxs" module="tools" />
+  <nav_bar title="" backUrl="{{backUrl}}"></nav_bar>
+  <view class="detail">
+    <view class="head">
+      <view class="icon">
+        <image class="size34" src="{{role.rolePicUrl}}" mode="" />
+      </view>
+      <view class="dname">{{curDevice.deviceName}}</view>
+      <view class="status {{curDevice.onlineStatus==1?'online':'off'}}">
+        {{curDevice.onlineStatus==1?'在线':'离线'}}
+      </view>
+    </view>
+    <scroll-view scroll-y class="list" style="height: 100vh;" scroll-into-view="{{scrollId}}" scroll-with-animation="{{isScrollAnimation}}" enhanced="{{true}}" show-scrollbar="{{false}}">
+      <block wx:if="{{detailObj.parentGuideList.length>0}}">
+        <block wx:for="{{detailObj.parentGuideList}}" wx:key="index" wx:for-item="item">
+          <view class="time">{{item.createTimeFmt}}</view>
+          <view id="item{{index}}" class="item fbox" data-item="{{item}}" catchtap="boEv">
+            <view class="con" style="width:{{tools.getWidth(item.voiceTime)}}px">
+              <view class="play fbox icenter">
+                <view class="long">{{(item.voiceTime ? item.voiceTime :0)+':00'}}″</view>
+                <view class="line">
+                  <view wx:if="{{item.play}}" class="boGif">
+                    <image class="size22" src="{{riskConst.boGif}}" mode="" />
+                  </view>
+                </view>
+                <view class="laba">
+                  <image class="size16" src="{{riskConst.sRecIcon}}" mode="" />
+                </view>
+              </view>
+              <view wx:if="{{item.status}}" class="dst ok">
+                已送达
+                <van-icon name="success" />
+              </view>
+              <view wx:else class="dst retry" data-item="{{item}}" catchtap="reSend">
+                未送达，重发
+                <van-icon name="replay" />
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class="seat-box" wx:if="{{detailObj.status}}"></view>
+      </block>
+      <block wx:if="{{!detailObj.status && curDevice.onlineStatus !== 1}}">
+        <noData img="{{riskConst.offlineBg}}" tip1="设备离线中" bflag="{{false}}"></noData>
+      </block>
+    </scroll-view>
+    <block wx:if="{{ curDevice.onlineStatus === 1 || detailObj.status }}">
+      <view class="rbtn">
+        <view class="tip" wx:if="{{!detailObj.status && !isRecording}}">点击下方按钮发送语音</view>
+        <view class="vchat" catchtap="goChat" data-item="{{role}}" wx:if="{{detailObj.status && !isRecording}}">
+          查看聊天
+          <van-icon class="varrow" name="arrow" size="10px" />
+        </view>
+        <record device="{{curDevice}}" bindResult="getRecordResult" bindRecordState="onRecordStateChange"></record>
+      </view>
+    </block>
+  </view>
+</view>
+<sos_warn device="{{curDevice}}" />

@@ -195,7 +195,7 @@ Component({
       let fid = self.properties.fid
       let sname = self.properties.searchName
       if (fid) {
-        plugin.quecHouse.getFamilyDeviceList({
+        plugin.smartHome.getFamilyDeviceList({
           fid,
           isAddOwnerDevice: true,
           deviceName: sname,
@@ -231,7 +231,7 @@ Component({
       plugin.jsUtil.load()
       let frid = self.properties.frid
       if (frid) {
-        plugin.quecHouse.getFamilyRoomDeviceList({
+        plugin.smartHome.getFamilyRoomDeviceList({
           frid,
           page: self.data.page.page,
           pageSize: self.data.page.pageSize,
@@ -266,7 +266,7 @@ Component({
       plugin.jsUtil.load(3000)
       let fid = self.properties.fid
       if (fid) {
-        plugin.quecHouse.getCommonUsedDeviceList({
+        plugin.smartHome.getCommonUsedDeviceList({
           fid,
           page: self.data.page.page,
           pageSize: self.data.page.pageSize,

@@ -1,0 +1,159 @@
+.van-nav-bar__title {
+  text-align: left;
+  width: 100%;
+  transform: translateX(-20px);
+}
+
+.copy {
+  font-size: 20px;
+  padding-left: 10rpx;
+}
+
+.flow-card {
+  background-color: #ffffff;
+  padding: 20px 20px 10px 20px;
+  margin-bottom: 10px;
+}
+
+.cell {
+  padding: 0 !important;
+  margin-bottom: 5px;
+}
+
+.cell-title {
+  padding-right: 10px;
+  color: #080f19;
+}
+
+.val {
+  color: #6b6f75;
+  text-align: left;
+}
+
+.expiry.expired {
+  color: #ff4219;
+  /* 红色，表示过期 */
+}
+
+.expired-flag {
+  color: #ff4219;
+  margin-left: 6rpx;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #080F19;
+}
+
+.pay {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  padding: 20rpx 30rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  z-index: 100;
+}
+
+.payment-btn .pay-button {
+  height: 88rpx;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.agreement {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+  margin-top: 20rpx;
+}
+
+.agreement-text {
+  margin-left: 10rpx;
+  font-size: 24rpx;
+  color: #9c9fa3;
+}
+
+.agreement-text .link {
+  color: #0091ff;
+}
+
+.detail .desc text {
+  display: block;
+  font-size: 12px;
+  color: #6b6f75;
+  line-height: 22px;
+}
+
+.shei {
+  height: 110px;
+}
+
+.item {
+  box-sizing: border-box;
+  height: 110px;
+  border: 2px solid #f7f8fc;
+  background: #f7f8fc;
+  padding: 24rpx 32rpx;
+  border-radius: 12px;
+  margin-right: 20px;
+}
+
+.item .title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 8rpx;
+}
+
+.item.active {
+  border: 2px solid #0091ff;
+  background: #ffffff;
+}
+
+.price {
+  font-size: 30px;
+  font-weight: 600;
+  color: #080f19;
+  margin-bottom: 8rpx;
+}
+
+.price text {
+  font-size: 12px;
+}
+
+.item .desc {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.package-desc {
+  font-size: 10px;
+  color: #6b6f75;
+}
+
+.no-plan {
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+  padding: 20px 0 30px 0;
+}
+
+.pay-unit {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.pay-price {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.size240 {
+  width: 240px;
+  height: 140px;
+}

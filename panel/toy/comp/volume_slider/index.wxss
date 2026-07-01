@@ -1,0 +1,39 @@
+@import "/asset/icon.wxss";
+
+.vol-main-container {
+  width: 83px;
+  height: 308px;
+  border-radius: 24px;
+  border: 6px solid transparent;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #000000bf;
+  position: relative;
+}
+
+.vol-track {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 20px;
+}
+
+.vol-fill {
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+}
+
+.sdk-icon {
+  font-size: 32px;
+  color: #878787;
+  z-index: 999;
+  position: absolute;
+  top: 274px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

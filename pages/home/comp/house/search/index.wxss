@@ -1,0 +1,9 @@
+@import '/asset/icon.wxss';
+
+.list {
+  margin-top: 30rpx;
+}
+
+.selCls {
+  position: relative;
+}

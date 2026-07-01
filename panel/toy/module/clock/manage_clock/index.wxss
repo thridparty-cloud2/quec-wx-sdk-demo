@@ -1,0 +1,39 @@
+page {
+  overflow: hidden;
+}
+
+.van-nav-bar__title {
+  margin-left: calc(50% - 75px) !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+}
+
+.add-clock-content {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  min-height: calc(100vh - 88rpx - 140rpx);
+}
+
+.van-field__control {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: #080f19 !important;
+}
+
+.save-btn {
+  width: calc(100% - 32px);
+  display: block;
+  position: fixed;
+  bottom: 36px;
+  padding: 8px 48px;
+  background-color: #0091ff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 27px;
+}
+
+.save-btn:active {
+  background-color: #167be1;
+}

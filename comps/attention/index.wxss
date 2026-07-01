@@ -1,0 +1,61 @@
+@import '/asset/base.wxss';
+
+.attention {
+  position: fixed;
+  bottom: 60px;
+  left: 0;
+  width: 270px;
+  height: 42px;
+  background-color: #0091FF;
+  overflow: hidden;
+  border-radius: 0px 28px 28px 0px;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  margin-bottom: env(safe-area-inset-bottom);
+}
+
+.con {
+  color: #ffffff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+}
+
+.enter {
+  height: 42px;
+  line-height: 42px;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+
+.icon {
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  text-align: center;
+  width: 16px;
+  height: 16px;
+}
+
+.con .txt {
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 24px;
+}
+
+.guanzhu {
+  background: #ffffff;
+  border-radius: 33px;
+  padding: 0 8px;
+  height: 24px;
+  box-sizing: border-box;
+  line-height: 22px;
+  margin: 0 5px 0 10px;
+}
+
+.guanzhu text {
+  color: #0091FF;
+  font-size: 12px;
+  font-weight: bold;
+}

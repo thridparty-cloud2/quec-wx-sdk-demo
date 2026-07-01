@@ -1,0 +1,22 @@
+<van-transition name="fade">
+  <view wx:if="{{show}}" class="guide">
+    <view class="h3">{{i18n['newGuideTit']}}</view>
+    <view class="con" style="justify-content:{{env['isHouse'] ?'space-evenly':'flex-start'}};">
+      <view class="item" catchtap="introduct">
+        <image src="{{funImg}}" />
+        <view class="txt">
+          <view class="h4">{{i18n['introductH4']}}</view>
+          <view class="t1">{{i18n['introductTxt']}}</view>
+        </view>
+      </view>
+      <view class="gap"></view>
+      <view wx:if="{{env['isHouse']}}" class="item" catchtap="mode">
+        <image src="{{houseImg}}" />
+        <view class="txt">
+          <view class="h4">{{i18n['houseH4']}}</view>
+          <view class="t1">{{i18n['houseTxt']}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</van-transition>

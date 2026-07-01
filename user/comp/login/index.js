@@ -1,4 +1,4 @@
-import { setDeviceInfo } from '../../util/tool.js'
+
 import { addRecord } from '../../util/record.js'
 
 const plugin = requirePlugin('quecPlugin')
@@ -167,7 +167,6 @@ Component({
           plugin.jsUtil.tip(self.data.i18n['loginSuccTip'], 'success')
           plugin.jsUtil.delayCb(() => {
             addRecord(1, 2, self)
-            setDeviceInfo()
             plugin.config.clearStorageByKey('scene')
             plugin.config.clearStorageByKey('activefrid')
             self.triggerEvent('loginSuccess')

@@ -1,0 +1,59 @@
+.van-cell {
+  padding: 16px !important;
+}
+
+.cTitle {
+  color: #080F19;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.val {
+  color: #9C9FA3;
+  text-align: right;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.van-cell__title {
+  flex: 1 !important;
+}
+
+.van-cell__value {
+  flex: 3 !important;
+}
+
+page {
+  background: #ffffff;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.dimg {
+  padding: 2px 16px;
+}
+
+.tit {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6B6F75;
+  padding: 40rpx 40rpx 10rpx 40rpx;
+}
+
+.imgs image {
+  width: 48px;
+  height: 48px;
+}
+
+.unbind {
+  padding: 5%;
+  position: absolute;
+  bottom: 40rpx;
+  width: 90%;
+}
+
+.stch {
+  height: 24px;
+}

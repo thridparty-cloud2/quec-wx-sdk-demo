@@ -1,0 +1,10 @@
+<nav_bar title="AI资源包" icon="icon_dingdan" bindIconEv="toPackageOrderPage"></nav_bar>
+<block wx:if="{{!curPackageStatus && !hasPackage}}">
+  <noData img="{{emptyImg}}" tip1="没有任何套餐哦~" bflag="{{false}}"></noData>
+</block>
+<block wx:else>
+  <re-cur-package-card currentPackage="{{currentPackage}}" curPackageStatus="{{curPackageStatus}}" isMoreThan="{{isMoreThan}}" bind:toResourcePackageList="toResourcePackageList"></re-cur-package-card>
+  <re-buy-card addPackageList="{{addPackageList}}" renewPackageList="{{renewPackageList}}" showAddTab="{{showAddTab}}" showRenewTab="{{showRenewTab}}" defaultTab="{{defaultTab}}" curPackageStatus="{{curPackageStatus}}" canPay="{{canPay}}" bind:pay="payNow"></re-buy-card>
+  <pay_info visible="{{payInfoVisible}}" package="{{selectedPackage}}" device="{{deviceInfo}}" ctype="{{selectedPackage.packageType}}" bind:close="closePay" bindGiveup="closePay" bindPaySuccess="successPay" bindContinue="continuePay" />
+</block>
+<sos_warn device="{{deviceInfo}}" />

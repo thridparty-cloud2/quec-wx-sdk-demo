@@ -1,0 +1,5 @@
+@import '/asset/nav.wxss';
+
+.van-step--vertical {
+  padding: 15px 10px 20px 0 !important;
+}

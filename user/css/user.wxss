@@ -1,5 +1,5 @@
-@import "/asset/base.wxss";
-@import "/asset/pop.wxss";
+@import '/asset/base.wxss';
+@import '/asset/pop.wxss';
 
 .ubox {
   padding: 40rpx 50rpx;
@@ -8,7 +8,7 @@
 .uh2 {
   font-weight: 600;
   font-size: 24px;
-  color: #080f19;
+  color: #080F19;
 }
 
 .padt {
@@ -18,7 +18,7 @@
 .udesc {
   font-size: 13px;
   margin-top: 8px;
-  color: #9c9fa3;
+  color: #9C9FA3;
 }
 
 .line {
@@ -49,12 +49,12 @@
 }
 
 .van-icon-arrow {
-  color: #bfbfbf !important;
+  color: #BFBFBF !important;
 }
 
 .getCodeDisBtn {
   background: #ffffff !important;
-  border-color: #efefef !important;
+  border-color: #EFEFEF !important;
   color: #999999 !important;
 }
 
@@ -97,7 +97,7 @@
   pointer-events: none;
   position: absolute;
   right: 0;
-  transform: scaleY(0.5);
+  transform: scaleY(.5);
   transform-origin: center;
   border-bottom-width: 1px;
   border-bottom-style: solid;

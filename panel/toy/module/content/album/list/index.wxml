@@ -1,0 +1,26 @@
+<view class="aiCls">
+  <nav_bar title="{{curItem.name}}"></nav_bar>
+  <view wx:if="{{albumData.length>0}}" class="alist">
+    <scroll-view scroll-y="{{hasDataList}}" class="scrollContainer" style="height:{{sHei}}px;" refresher-enabled="{{true}}" bindrefresherrefresh="refreshList" bindscrolltolower="getMoreList" lower-threshold="{{200}}" refresher-triggered="{{triggered}}">
+      <view wx:for="{{albumData}}" wx:key="index" data-item="{{item}}" class="item fbox icenter" catch:tap="goDetail">
+        <view class="icon">
+          <image class="size86" src="{{conConst.album_bg}}" mode="aspectFit" />
+          <van-image class="size80 img radius12" radius="12px" width="80" height="80" fit="fill" src="{{item.img ? item.img : conConst.default_album}}" use-loading-slot>
+            <van-loading slot="loading" type="spinner" size="30" vertical />
+          </van-image>
+          <!-- <image class="size80 img radius12" src="{{item.img ? item.img : conConst.default_album}}" mode="aspectFit" /> -->
+        </view>
+        <view class="info">
+          <view class="tit c_080F19 size14">{{item.album_name}}</view>
+          <view wx:if="{{item.artist}}" class="auth">{{item.artist}}</view>
+          <view class="desc">{{item.album_intro}}</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view wx:else>
+    <noData img="{{noDataImg}}" tip1="暂无数据" bflag="{{false}}"></noData>
+  </view>
+</view>
+<player from="album_list" curDevice="{{curDevice}}" bindplayShow="getPlayShow"></player>
+<sos_warn device="{{curDevice}}" />

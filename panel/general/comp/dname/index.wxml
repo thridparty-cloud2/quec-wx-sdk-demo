@@ -1,0 +1,7 @@
+<!-- 重命名 -->
+<van-dialog use-slot show="{{visible}}" width="{{275}}" overlayStyle="background-color:rgba(0,0,0,.4)" zIndex="999999" bind:close="onClose" confirm-button-text="确定" confirm-button-color="{{skin['confirm']}}" cancel-button-color="{{skin['cancel']}}" bind:confirm="confirmRename" transition="none" show-cancel-button>
+  <view class="renameTit">修改设备名称</view>
+  <view class="block">
+    <van-field type="text" custom-class="field-class" model:value="{{ deviceName }}" cursor="{{deviceName.length}}" always-embed="{{true}}" custom-style="background:#F7F8FC;border-radius:12px;" name="deviceName" bind:change="dnameChange" placeholder="请输入设备名称" maxlength="64" border="{{ false }}" show-confirm-bar="{{false}}" />
+  </view>
+</van-dialog>

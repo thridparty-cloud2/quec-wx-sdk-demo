@@ -1,0 +1,24 @@
+<block wx:if="{{isFinish}}">
+  <block wx:if="{{alarmData.length>0}}">
+    <scroll-view scroll-y="{{true}}" refresher-enabled="{{true}}" style="height:{{scrollHeight}}px" bindrefresherrefresh="refreshList" bindscrolltolower="getMoreList">
+      <view class="step">
+        <block wx:for="{{alarmData}}" wx:key="ikey" wx:for-index="idx" wx:for-item="item">
+          <view class="item fbox">
+            <view class="left">
+              <view class="icon bg_E6E7E8"></view>
+              <view class="line bg_E6E7E8"></view>
+            </view>
+            <view class="right">
+              <view class="title">{{item.title}}</view>
+              <view class="content">{{item.content}}</view>
+              <view class="time">{{item.addTimeFmt}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+  </block>
+  <block wx:else>
+    <noData img="{{noDataImg}}" tip1="暂无数据" bflag="{{false}}"></noData>
+  </block>
+</block>

@@ -2,7 +2,7 @@
   text-align: center;
   line-height: 60rpx;
   color: #333333;
-  padding: 10rpx 0 0;
+  padding: 10rpx 0 20rpx;
 }
 
 .wx-btn {

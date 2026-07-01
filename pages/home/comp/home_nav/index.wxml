@@ -17,6 +17,11 @@
           <view class="tit pt nt">{{i18n['myDevice']}}</view>
         </view>
       </view>
+      <view wx:if="{{page === 'search'}}">
+        <search_nav bindStartSearch="StartSearch" bindClearSearch="ClearSearch"></search_nav>
+      </view>
+    </view>
+    <view slot="right" wx:if="{{page==='home'}}" class="rightIcon">
     </view>
   </van-nav-bar>
 </view>
@@ -30,9 +35,7 @@
             <view wx:if="{{item.fid===curFamily.fid}}">
               <view class="sdk-icon choose" style="color: {{skin['primary']}};"></view>
             </view>
-            <view wx:if="{{item.vJoin}}" class="join" style="color: {{skin['primary']}};border-color: {{skin['primary']}};" data-join="{{item}}" catchtap="join">
-              {{i18n['noJoin']}}
-            </view>
+            <view wx:if="{{item.vJoin}}" class="join" style="color: {{skin['primary']}};border-color: {{skin['primary']}};" data-join="{{item}}" catchtap="join">{{i18n['noJoin']}}</view>
           </view>
         </block>
       </scroll-view>

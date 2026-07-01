@@ -1,0 +1,66 @@
+<view style="height: {{stop+40}}px;">
+  <block wx:if="{{isEdit}}">
+    <van-transition name="fade">
+      <view class="selCls">
+        <sel bindisEdit="getSelIsEdit" selDevice="{{selDevice}}"></sel>
+      </view>
+    </van-transition>
+  </block>
+  <block wx:else>
+    <van-transition name="fade">
+      <home_nav title="-" model="{{model}}" mode="{{mode}}" commonFinish="{{commonFinish}}" navRefresh="{{navRefresh}}" bindcurFamly="curFamly" bindfamilyList="familyList" bindSearch="goSearch"></home_nav>
+    </van-transition>
+  </block>
+</view>
+<banner wx:if="{{env['isBanner']}}" isRefresh="{{isRefresh}}" bindLink="toLink"></banner>
+<view class="vadd">
+  <valadd_enter wx:if="{{env['isPushTel'] || env['isPushSms']}}" isRefresh="{{isRefresh}}" isPushTel="{{isPushTel}}" isPushSms="{{isPushSms}}" valaddTxt="{{valaddTxt}}" bindTel="goTel" bindSms="goSms" bindClose="cloeVaddEnter" bindSwitch="changeValAdd"></valadd_enter>
+</view>
+<view class="list" style="{{(model.brand==='HUAWEI' && model.model==='VTR-AL00')?'padding-top: 40rpx;':''}}">
+  <view wx:if="{{isFinish}}" class="room">
+    <van-tabs active="{{ active }}" line-height="{{0}}" swipe-threshold="{{2}}" use-before-change="{{ true }}" tab-class="tabCls" tab-active-class="tabActive" wrap-class="{{!isEdit ?'wrapCls':'wrapClsEdit'}}" bind:before-change="beforeChange">
+      <van-tab title="{{i18n['tabCommon']}}" name="common" title-style="font-size:20px;" disabled="{{active == 'common' ? true : false}}">
+        <block wx:if="{{active == 'common' && curFamly.fid}}" class="dlistCls">
+          <dlist mode="{{mode}}" fid="{{curFamly.fid}}" frole="{{curFamly.memberRole}}" from="home" isCommon="{{active==='common'}}" isRefresh="{{isRefresh}}" isEdit="{{isEdit}}" isValadd="{{isValadd}}" bindselDevice="getselDevice" bindedit="getEdit" bindgoDetail="goDetail" bindscanSuccess="toScan" bindMode="mode" bindIntroduct="introduct" bindtoNetwork="toNetwork" bindtoNear="toNear" bindCommonFinish="CommonFinish" bindnoScanAndNear="noScanAndNear"></dlist>
+        </block>
+      </van-tab>
+      <block wx:for="{{tabRoom}}" wx:key="index" wx:for-item="item">
+        <van-tab title="{{item.roomName}}" name="{{item.frid}}" title-style="font-size:16px;" disabled="{{active == item.frid ? true : false}}">
+          <block wx:if="{{active == item.frid}}" class="dlistCls">
+            <dlist mode="{{mode}}" fid="{{curFamly.fid}}" frid="{{item.frid}}" frole="{{curFamly.memberRole}}" from="home" isCommon="{{active==='common'}}" isRefresh="{{isRefresh}}" isEdit="{{isEdit}}" bindselDevice="getselDevice" bindedit="getEdit" bindgoDetail="goDetail" bindscanSuccess="toScan" bindtoNetwork="toNetwork" bindtoNear="toNear" bindnoScanAndNear="noScanAndNear"></dlist>
+          </block>
+        </van-tab>
+      </block>
+    </van-tabs>
+  </view>
+  <view wx:if="{{!isEdit}}" class="more" style="{{(model.brand==='HUAWEI' && model.model==='VTR-AL00')?'top: 70rpx;':'top:34rpx;'}}">
+    <view class="mcon">
+      <view class="sroom" catchtap="showRoom">
+        <view class="sdk-icon a-Frame1338 room-icon"></view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<van-overlay wx:if="{{roomShow}}" show="{{ roomShow }}" z-index="99999" custom-style="background-color:rgba(0,0,0,.4)" bind:click="hideRoom">
+  <view class="dropMenu" style="top:{{roomTop}}px">
+    <scroll-view scroll-y="{{true}}" style="height: {{(scrollHeight>450) ? 450 : scrollHeight}}px;" enhanced="{{true}}" show-scrollbar="{{false}}">
+      <view class="mt {{active == 'common' ?'cur':''}}" data-tab="common" catchtap="goRoomTab">
+        <view class="title">{{i18n['tabCommon']}}</view>
+      </view>
+      <block wx:for="{{tabRoom}}" wx:key="index" wx:for-item="item">
+        <view class="mt {{active == item.frid ?'cur':''}}" data-tab="{{item.frid}}" catchtap="goRoomTab">
+          <view class="title">{{item.roomName}}</view>
+        </view>
+      </block>
+    </scroll-view>
+    <view class="mt line" data-fid="{{curFamly.fid}}" data-frole="{{curFamly.memberRole}}" catchtap="goRoomList">
+      <view class="title">{{i18n['roomMange']}}</view>
+      <view class="sdk-icon shezhi"></view>
+    </view>
+  </view>
+</van-overlay>
+
+<install_button wx:if="{{isSet && !isEdit && curFamly.memberRole!==3 && (env['isScan']||env['isNetwork'])}}" id="install-btn" fid="{{curFamly.fid}}" bindinvalidDevice="invalidDevice" bindtoNetwork="toNetwork" bindtoScan="toScan" bindtoNear="toNear" />
+
+<tool wx:if="{{isEdit && selDevice.length>0}}" selDevice="{{selDevice}}" fid="{{curFamly.fid}}" role="{{curFamly.memberRole}}" isCommon="{{active==='common'}}" bindShare="Share" bindmoveSuccess="moveSuccess" bindunbindSuccess="unbindSuccess" bindrenameSuccess="renameSuccess"></tool>

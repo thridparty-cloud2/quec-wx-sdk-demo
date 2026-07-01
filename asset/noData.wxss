@@ -1,0 +1,45 @@
+.noData {
+  margin: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hei {
+  height: calc(100vh - 160px);
+  margin-top: -80px;
+}
+
+.noData .img {
+  margin: 0 auto 40rpx;
+}
+
+.noData .txt {
+  font-size: 13px;
+  line-height: 40rpx;
+  color: #9C9FA3;
+  text-align: center;
+  padding: 10rpx 0;
+}
+
+.noData .txt1 {
+  font-size: 13px;
+  line-height: 40rpx;
+  color: #666666;
+  text-align: center;
+  padding: 10rpx 0;
+  font-weight: bold;
+}
+
+.noData .txt2 {
+  font-size: 12px;
+  line-height: 40rpx;
+  color: #999999;
+  text-align: center;
+  padding: 10rpx 0;
+}
+
+.noData image {
+  width: 240px;
+  height: 140px;
+}

@@ -1,0 +1,4 @@
+<van-cell border="false" wx:if="{{chargingModeObj!==null}}" data-item="{{curItem}}">
+  <view slot="title" class="cTitle f_500">{{chargingModeObj.name}}</view>
+  <view class="val">{{valueString}}</view>
+</van-cell>

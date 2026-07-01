@@ -1,0 +1,114 @@
+<nav_bar title="{{env['appid']=='wx803cf0e39e2c0d88' ? '流量充值服务':'设备流量服务'}}" icon="icon_dingdan" bindIconEv="goOrderList"></nav_bar>
+<wxs src="/utils/common.wxs" module="tools" />
+<view class="flow-page" style="height: {{conHei}}px; overflow-y: auto;">
+  <view class="flow-card info">
+    <van-cell border="{{false}}" center title="设备名称" title-width="60px" title-class="cell-title" custom-class="cell">
+      <view class="val">{{curDevice.deviceName ? curDevice.deviceName :'--'}}(充值)</view>
+    </van-cell>
+    <van-cell border="{{false}}" center title="ICCID" title-width="60px" title-class="cell-title" custom-class="cell">
+      <view class="val">{{iccId?iccId:'--'}}<text wx:if="{{iccId}}" class="sdk-icon copy" data-text="{{iccId}}" bind:tap="onCopy"></text></view>
+    </van-cell>
+    <view class="current">
+      <view class="name fb">
+        <view>{{monthName}}</view>
+        <view wx:if="{{isExpired}}" class="extag">已过期</view>
+      </view>
+      <view class="remain fb">
+        <view>本月剩余：<text class="t1 {{(monthRemain <= 0) ? 'exp':''}}">{{monthRemain?monthRemain:'--'}} MB</text><text class="t2">（含充值流量）</text></view>
+        <!-- <view class="used">已用：<text>10GB</text></view> -->
+      </view>
+      <view class="extime">到期时间：{{expiredTime?expiredTime:'--'}}</view>
+    </view>
+  </view>
+  <view class="pack">
+    <van-tabs active="{{tabActive}}" bind:change="tabChange" animated>
+      <van-tab title="充值流量" name="recharge" title-style="font-size:16px;font-weight:500">
+        <view class="flow-card">
+          <view class="set">
+            <block wx:if="{{rechargeData.length>0}}">
+              <view class="tip size12">适用于套餐未过期，但流量已用完</view>
+              <view class="box {{isExpired?'op':''}}">
+                <block wx:for="{{rechargeData}}" wx:key="index">
+                  <view class="each {{item.check==true?'active':''}}" data-item="{{item}}" data-type="recharge" catchtap="changeSet">
+                    <view class="t1 size12">{{item.packageName}}</view>
+                    <view class="t2"><text class="rmb size12">¥</text><text class="je">{{item.packagePriceYuan}}</text></view>
+                    <view class="t3">{{item.packageDesc}}</view>
+                  </view>
+                </block>
+              </view>
+            </block>
+            <block wx:else>
+              <view class="no-set">
+                <image class="size240" src="{{noDataImg}}" mode="" />
+                <view>暂未配置续费套餐</view>
+              </view>
+            </block>
+          </view>
+          <view class="detail">
+            <view class="title">服务详情</view>
+            <view class="desc">
+              <text>1、套餐内月度流量使用完毕后，您可另行充值流量，以保证设备的持续正常使用。</text>
+              <text>2、充值流量仅当月有效，未使用部分不可结转至次月。</text>
+            </view>
+          </view>
+        </view>
+      </van-tab>
+      <van-tab title="续费套餐" name="renewal" title-style="font-size:16px;font-weight:500">
+        <view class="flow-card">
+          <view class="set">
+            <block wx:if="{{renewData.length>0}}">
+              <view class="tip size12">适用于套餐即将过期或已过期</view>
+              <view class="box">
+                <block wx:for="{{renewData}}" wx:key="index">
+                  <view class="each {{item.check==true?'active':''}}" data-item="{{item}}" data-type="renewal" catchtap="changeSet">
+                    <view class="t1 size12">{{item.packageName}}</view>
+                    <view class="t2"><text class="rmb size12">¥</text><text class="je">{{item.packagePriceYuan}}</text></view>
+                    <view class="t3">{{item.packageDesc}}</view>
+                  </view>
+                </block>
+              </view>
+            </block>
+            <block wx:else>
+              <view class="no-set">
+                <image class="size240" src="{{noDataImg}}" mode="" />
+                <view>暂未配置续费套餐</view>
+              </view>
+            </block>
+          </view>
+          <view class="detail">
+            <view class="title">服务详情</view>
+            <view class="desc">
+              <text>1、掌握设备实时状态:可远程随时了解设备在离线、电量等情况。</text>
+              <text>2、远程控制:小程序可远程控制设备开关。</text>
+              <text>3、OTA远程升级:支持设备智能化远程升级,最新功能尝新体验。</text>
+              <text>4、语音对话:支持用户与设备进行语音聊天。</text>
+            </view>
+          </view>
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
+  <view class="pay">
+    <view class="payment-btn">
+      <van-button custom-class="pay-button" block round color="#0091ff" catchtap="handlePayment" disabled="{{!canPay}}">
+        <text>立即支付</text>
+        <text class="pay-unit">{{ tools.getMapValByKey(currentPlan.packageCurrencyCode, currencyUnitMap)}}</text>
+        <text class="pay-price">{{currentPlan.packagePriceYuan}}</text>
+      </van-button>
+    </view>
+    <view class="agreement">
+      <van-checkbox data-type="checkbox" value="{{agreeChecked}}" bind:change="onAgreeChange" icon-size="18px" checked-color="#0091ff"></van-checkbox>
+      <view class="agreement-text">
+        <text data-type="text" catchtap="onAgreeChange">购买前请仔细阅读</text>
+        <text class="link" bindtap="viewServiceAgreement">《服务协议》</text>
+        <text data-type="text" catchtap="onAgreeChange">,确认付款后即视为同意本协议</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 同意协议 -->
+<pay_agree visible="{{agreeShow}}" type="{{4}}" bind:close="agreeClose" bind:confirm="agreeConfirm"></pay_agree>
+
+<!-- 付款信息弹窗  ctype:  'AI_MUSIC'-内容服务 'AI_VOICE_PRINT'-声纹识别 'AI_VOICE_CLONE'-声音复刻  'EDU_SIM_RENEW'-SIM卡续费 'EDU_SIM_FLOW_PACKAGE'-SIM卡充值-->
+<pay_info id="payInfo" visible="{{payInfoVisible}}" package="{{currentPlan}}" device="{{curDevice}}" ctype="{{currentPlan.packageType}}" iccidList="{{[iccId]}}" bind:close="closePay" bindGiveup="closePay" bindPaySuccess="successPay" bindContinue="continuePay" />

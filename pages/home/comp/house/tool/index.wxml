@@ -1,0 +1,54 @@
+<view class="bar">
+  <view wx:for="{{tab}}" wx:key="index" data-item="{{item}}" class="bar-item" catchtap="goEvent">
+    <view class="{{item.icon}}"></view>
+    <view class="txt">{{item.name}}</view>
+  </view>
+</view>
+
+<!-- 重命名 -->
+<van-dialog use-slot show="{{renameVisible}}" width="{{275}}" overlayStyle="background-color:rgba(0,0,0,.4)" zIndex="999999" bind:close="onClose" confirm-button-color="{{skin['confirm']}}" confirm-button-text="确定" cancel-button-color="{{skin['cancel']}}" bind:confirm="confirmRename" transition="none" show-cancel-button>
+  <view class="renameTit">
+    {{i18n['rename']}}
+  </view>
+  <view class="block">
+    <van-field type="textarea" model:value="{{ deviceName }}" custom-style="background:#F7F8FC;border-radius:12px;" name="deviceName" bind:change="dnameChange" placeholder="{{i18n['newDeviceName']}}" maxlength="64" border="{{ false }}" />
+  </view>
+</van-dialog>
+
+<!-- 单删除设备 -->
+<confirm_tip visible="{{delVisible}}" title="确定要删除「{{currentItem.deviceName}}」吗" tip="设备删除后，其关联的自动化、场景将移除该设备" bindConfirm="delConfirm"></confirm_tip>
+
+<!-- 移动失败弹框 -->
+<van-dialog use-slot show="{{moveFailShow}}" width="{{313}}" overlayStyle="background-color:rgba(0,0,0,.4)" zIndex="999999" bind:close="onClose" confirm-button-color="{{skin['primary']}}" bind:confirm="moveFailYes" confirmButtonText="{{i18n['moveYesBtn']}}">
+  <view class="moveFailTips">
+    <view class="tit1">{{i18n['moveFailTxt1']}} {{moveFailureList.length}} {{i18n['moveFailTxt2']}}</view>
+    <view class="tit2">
+      <block wx:for="{{moveFailureList}}" wx:key="index" data-item="{{item}}">
+        <view><text>{{ item.dk+': '+item.msg}}</text></view>
+      </block>
+    </view>
+  </view>
+</van-dialog>
+
+<!-- 移动 -->
+<van-popup wx:if="{{moveShow}}" show="{{ moveShow }}" round position="bottom" z-index="{{99999}}" overlay-style="background-color:rgba(0,0,0,.4)" custom-class="sheetCls" bind:close="moveClose">
+  <view class="moveSheet">
+    <view class="title">
+      <view class="cancel" catchtap="moveClose">{{i18n['cancel']}}</view>
+      <view class="txt">{{i18n['pleSelRoom']}}</view>
+      <view class="finish" style="color: {{skin['primary']}};" catchtap="finish">{{i18n['finish']}}</view>
+    </view>
+    <view class="con">
+      <van-tabs active="{{ active }}" color="{{skin['primary']}}" line-height="{{3}}" line-width="{{20}}" use-before-change="{{ true }}" swipe-threshold="{{2}}" tab-class="tabMove" tab-active-class="tabActive" wrap-class="wrapCls" bind:before-change="tabChange">
+        <block wx:for="{{fmList}}" wx:key="index" wx:for-item="item">
+          <van-tab title="{{item.familyName}}" name="{{item.fid}}" title-style="font-size:14px;">
+            <rlist wx:if="{{active == item.fid}}" fid="{{item.fid}}" bindSelRoom="getSelRoom"></rlist>
+          </van-tab>
+        </block>
+      </van-tabs>
+    </view>
+  </view>
+</van-popup>
+
+<!-- 批量删除设备 -->
+<batch delShow="{{multDelShow}}" selDevice="{{selDevice}}" fid="{{fid}}" bindunbindSuccess="unbindSuccess"></batch>

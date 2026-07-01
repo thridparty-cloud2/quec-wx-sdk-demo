@@ -1,0 +1,14 @@
+@import '../../css/panel.wxss';
+
+.desc-class {
+  font-size: 12px !important;
+  line-height: 50rpx !important;
+}
+
+.van-step--vertical .van-step__line {
+  background-color: #D9D9D9 !important;
+}
+
+.van-step--vertical {
+  padding: 15px 10px 15px 0 !important;
+}

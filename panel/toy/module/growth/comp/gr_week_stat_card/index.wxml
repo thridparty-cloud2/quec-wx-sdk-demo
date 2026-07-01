@@ -1,0 +1,20 @@
+<view class="stat-card-content">
+  <view class="card-item">
+    <view class="stat-text">
+      <view class="days">{{statNum.finishNum || 0}}</view>
+      <view class="desc">打卡次数</view>
+    </view>
+    <view class="stat-icon">
+      <image class="icon" src="{{checkDayIcon}}" mode="aspectFit"></image>
+    </view>
+  </view>
+  <view class="card-item">
+    <view class="stat-text">
+      <view class="task-count">{{statNum.taskNum || 0}}</view>
+      <view class="desc">任务数</view>
+    </view>
+    <view class="stat-icon">
+      <image class="icon" src="{{taskConutIcon}}" mode="aspectFit"></image>
+    </view>
+  </view>
+</view>

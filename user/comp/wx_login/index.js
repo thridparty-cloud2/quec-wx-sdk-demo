@@ -1,4 +1,3 @@
-import { setDeviceInfo } from '../../util/tool.js'
 import { addRecord } from '../../util/record.js'
 
 const plugin = requirePlugin('quecPlugin')
@@ -88,13 +87,20 @@ Component({
     apiLogin () {
       let self = this
       plugin.jsUtil.load()
+      let { wxUserInfoDecrypData, wxPhoneDecryptData } = self.data
+      let random = ''
+      if (JSON.stringify(wxUserInfoDecrypData) !== '{}' && JSON.stringify(wxPhoneDecryptData) !== '{}') {
+        random = self.data.random ? self.data.random : ''
+      } else {
+        random = ''
+      }
       plugin.quecUser.wxLogin({
         appId: plugin.jsConst.APPID,
         authorizedMobliePhone: self.data.authorizedMobliePhone,
         authorizedUserInfo: self.data.authorizedUserInfo,
         wxCode: self.data.wxCode,
         wxUserInfoDecrypData: self.data.wxUserInfoDecrypData ? self.data.wxUserInfoDecrypData : {},
-        random: self.data.random ? self.data.random : '',
+        random: random,
         wxPhoneDecryptData: self.data.wxPhoneDecryptData ? self.data.wxPhoneDecryptData : {},
         success (res) {
           if (res.code === 200) {
@@ -106,7 +112,6 @@ Component({
                   authorizedUserInfo: false,
                   phoneNoVisible: false
                 })
-                setDeviceInfo()
                 addRecord(3, 2, self)
                 plugin.config.clearStorageByKey('scene')
                 plugin.config.clearStorageByKey('activefrid')
@@ -118,6 +123,7 @@ Component({
                   random: res.data.random
                 })
               }
+              plugin.jsUtil.hideTip()
               self.setData({
                 authorizedMobliePhone: true,
                 authorizedUserInfo: true,

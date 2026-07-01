@@ -1,0 +1,173 @@
+@import "/asset/nav.wxss";
+@import "/asset/base.wxss";
+@import "/asset/color.wxss";
+
+.main-page {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.order_list {
+  height: calc(100% - 162rpx);
+}
+
+.padL {
+  padding-left: 10rpx;
+}
+
+.total {
+  text-align: right;
+}
+
+.con {
+  padding: 30rpx 0;
+}
+
+.empty-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 100rpx);
+}
+
+/* .cell-name {
+  flex: 1;
+  margin-right: 20rpx;
+  font-weight: 400;
+} */
+
+.package-type-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.close-package-text {
+  padding: 10rpx 60rpx 0 60rpx;
+  line-height: 1.2;
+  transform: translateX(-10px);
+}
+
+.succ-package-text {
+  padding: 0 60rpx;
+  transform: translateX(-10px);
+}
+
+.empty-img {
+  margin-top: -180px;
+  height: 140px;
+  width: 240px;
+}
+
+.empty-text {
+  margin-top: 20px;
+  color: #9c9fa3;
+}
+
+/* .package-type-wrapper .name{
+  font-weight: 400;
+} */
+
+.limit {
+  display: flex;
+  /* justify-content: space-between; */
+  justify-content: flex-end;
+  align-items: center;
+  /* padding-left: 40rpx; */
+}
+
+.limit .limit-time {
+  padding-left: 40rpx;
+}
+
+.pay-complete {
+  padding: 0;
+}
+
+.con {
+  padding: 30rpx 0;
+}
+
+.item {
+  background: #ffffff;
+  padding: 40rpx;
+  line-height: 22px;
+  margin: 10px 0;
+}
+
+.item .img {
+  width: 88px;
+  height: 88px;
+}
+
+.left {
+  width: 100%;
+}
+
+.info {
+  flex: 1;
+  padding-left: 40rpx;
+  padding: 0 0 20px 20px;
+  line-height: 26px;
+}
+
+.info-flat {
+  padding: 0;
+}
+
+.act {
+  height: 32px;
+  line-height: 32px;
+  margin-top: 30rpx;
+}
+
+.act .op {
+  padding: 0 32rpx;
+  border-radius: 16px;
+}
+
+.act .cancel {
+  background: #f7f8fc;
+  font-weight: 600;
+}
+
+.act .pay {
+  background: #0091ff;
+  margin-left: 20rpx;
+  color: #ffffff;
+}
+
+.package-name {
+  display: flex;
+  justify-content: flex-end;
+  word-break: break-all;
+}
+
+.item-flat {
+  margin: 10px 0;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+}
+
+.package-name-title {
+  max-width: 80%;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #080f19;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.setmeal-class {
+  display: flex;
+  width: 50%;
+  word-break: break-all;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+}

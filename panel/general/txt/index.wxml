@@ -1,0 +1,5 @@
+<nav_bar title="{{attrData.name}}"></nav_bar>
+<view class="main">
+  <txt attrData="{{attrData}}" bindsubmit="handleSubmit"></txt>
+</view>
+<netError netErrorVis="{{netErrorVis}}" conColor="#0091FF" bindExit="exitToHome" bindReconnect="reconnectPopup"></netError>

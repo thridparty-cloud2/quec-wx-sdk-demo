@@ -1,0 +1,14 @@
+.tslBtn {
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.btns {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 120rpx;
+  background: #F7F8FC;
+  margin: 80rpx 40rpx 40rpx;
+}

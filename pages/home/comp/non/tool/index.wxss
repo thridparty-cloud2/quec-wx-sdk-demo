@@ -1,4 +1,6 @@
-@import "/asset/icon.wxss";
+@import '/asset/icon.wxss';
+@import '/asset/house.wxss';
+@import '/asset/batch.wxss';
 
 .renameTit {
   text-align: center;
@@ -27,5 +29,5 @@
 }
 
 .dis {
-  opacity: 0.4;
+  opacity: .4;
 }

@@ -1,0 +1,10 @@
+@import '../../css/panel.wxss';
+
+.tslBtn {
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.btns {
+  margin: 80rpx 40rpx 40rpx;
+}

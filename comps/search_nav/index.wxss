@@ -1,0 +1,41 @@
+@import '/asset/icon.wxss';
+
+.c-search {
+  background: #FFFFFF !important;
+  margin: 0;
+  padding: 0 !important;
+  border-radius: 20px;
+  border: 1px solid #EFEFEF;
+  height: 36px;
+}
+
+.search-input {
+  padding-left: 24rpx;
+  color: #333333;
+}
+
+.search-cancel {
+  color: #333333;
+  padding: 0 20rpx;
+}
+
+.fsize {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.sdk-icon.search {
+  color: #999999;
+  font-size: 14px;
+  margin-right: 10rpx;
+}
+
+.action {
+  background: #ED5D4F;
+  color: #ffffff;
+  border-radius: 36px;
+  margin: 10rpx;
+  padding: 0 28rpx;
+  height: 26px;
+  line-height: 26px;
+}

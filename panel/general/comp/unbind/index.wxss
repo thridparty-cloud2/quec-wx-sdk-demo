@@ -1,0 +1,9 @@
+.unbindBtn {
+  text-align: center;
+  background: var(--color-bg-1, #F7F8FC);
+  padding: 16px;
+  color: #FF4219;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 500;
+}

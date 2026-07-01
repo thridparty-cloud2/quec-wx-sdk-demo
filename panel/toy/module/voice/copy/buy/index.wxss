@@ -1,0 +1,298 @@
+@import "/asset/icon.wxss";
+
+page {
+  background: white;
+}
+
+.container {
+  padding-bottom: 200rpx;
+}
+
+.service-header {
+  display: flex;
+  align-items: flex-start;
+}
+
+.service-icon {
+  margin-right: 20rpx;
+}
+
+.service-icon .icon {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.service-info {
+  flex: 1;
+}
+
+.service-name {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #080f19;
+  margin-bottom: 10rpx;
+}
+
+.service-desc {
+  font-size: 24rpx;
+  color: #9c9fa3;
+  line-height: 1.5;
+}
+
+/* 套餐选择 */
+.package-section {
+  padding: 30rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #080f19;
+  margin-bottom: 20rpx;
+}
+
+.package-item {
+  border: 4rpx solid #f7f8fc;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  margin: 10rpx 0;
+}
+
+.package-item.active {
+  border-color: #0091ff !important;
+  background: #f8fbff !important;
+}
+
+.package-info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.package-left {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.package-right {
+  flex: 0 0 auto;
+}
+
+.package-name {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #080f19;
+  flex: 1;
+}
+
+.package-price {
+  flex: 0 0 1;
+  margin-left: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.package-price .currency {
+  font-size: 24rpx;
+  color: #0091ff;
+  margin-right: 4rpx;
+  position: relative;
+  bottom: 15rpx;
+}
+
+.package-price .price {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #0091ff;
+}
+
+.package-desc {
+  font-size: 20rpx;
+  color: #9c9fa3;
+  line-height: 1.4;
+  padding-top: 5px;
+}
+
+/* 数量控制 */
+.quantity-control {
+  display: flex;
+  align-items: center;
+  border: 2rpx solid #e5e7eb;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.quantity-btn {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9f9f9;
+  font-size: 32rpx;
+  color: #080f19;
+  border-right: 2rpx solid #e5e7eb;
+}
+
+.quantity-btn:last-child {
+  border-right: none;
+  border-left: 2rpx solid #e5e7eb;
+}
+
+.quantity-btn.disabled {
+  color: #ccc;
+  background: #f5f5f5;
+}
+
+.quantity-num {
+  width: 80rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  font-size: 28rpx;
+  color: #080f19;
+}
+
+/* 服务说明 */
+.service-detail {
+  padding: 32rpx;
+}
+
+.detail-content {
+  color: #9c9fa3;
+  font-size: 24rpx;
+  line-height: 1.6;
+}
+
+.detail-item {
+  margin-bottom: 10rpx;
+  font-size: 24rpx;
+}
+
+.detail-item text {
+  display: block;
+}
+
+/* 底部支付区域 */
+.payment-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  padding: 20rpx 30rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  z-index: 100;
+}
+
+.agreement {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+  margin-top: 20rpx;
+}
+
+.agreement-text {
+  margin-left: 10rpx;
+  font-size: 24rpx;
+  color: #9c9fa3;
+}
+
+.agreement-text .link {
+  color: #0091ff;
+}
+
+.payment-btn .pay-button {
+  height: 88rpx;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.pay-unit {
+  font-size: 18px;
+  font-weight: 00;
+}
+
+.pay-price {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+/* 协议确认弹窗 */
+.consent {
+  padding: 40rpx 30rpx;
+}
+
+.consent-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #080f19;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.consent-desc {
+  font-size: 28rpx;
+  color: #9c9fa3;
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.consent-desc .link {
+  color: #0091ff;
+}
+
+.consent-buttons {
+  display: flex;
+  gap: 20rpx;
+}
+
+.cancel-btn {
+  flex: 1;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2rpx solid #e5e7eb;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  color: #9c9fa3;
+}
+
+.confirm-btn {
+  flex: 2;
+}
+
+.confirm-btn .confirm-button {
+  height: 88rpx;
+  font-size: 28rpx;
+}
+
+.count-stepper {
+  border: 1px solid #f2f3f5;
+  /* height: 24px !important; */
+}
+
+.stepper-input {
+  background-color: #ffffff !important;
+  border-right: 1px solid #f2f3f5 !important;
+  padding: 0 !important;
+}
+
+.stepper-plus {
+  background-color: #ffffff !important;
+  padding: 0 !important;
+  font-weight: bold;
+}
+
+.stepper-minus {
+  background-color: #ffffff !important;
+  border-right: 1px solid #f2f3f5 !important;
+  padding: 0 !important;
+
+}

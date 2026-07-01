@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "struct": "../tsl/struct/index",
+    "netError": "../../comp/netError/index"
+  }
+}

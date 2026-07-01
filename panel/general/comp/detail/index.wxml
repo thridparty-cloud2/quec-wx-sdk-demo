@@ -72,3 +72,6 @@
     </view>
   </view>
 </scroll-view>
+
+<!-- 网络异常弹框 -->
+<netError isWSV2Connected="{{isWSV2Connected}}" netErrorVis="{{netErrorVis}}" conColor="#0091FF" bindExit="exitToHome" bindReconnect="reconnectPopup" bindManual="networkManual" bindNetErrShow="getNetErrShow"></netError>

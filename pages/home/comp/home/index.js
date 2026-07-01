@@ -14,6 +14,10 @@ Component({
       type: Boolean,
       value: true
     },
+    valaddTxt: {
+      type: Object
+    }
+
   },
 
   /**
@@ -59,7 +63,7 @@ Component({
   methods: {
     initMode () {
       let self = this
-      plugin.jsUtil.getMode({
+      plugin.core.getMode({
         success (res) {
           self.setData({
             mode: res.data.enabledFamilyMode

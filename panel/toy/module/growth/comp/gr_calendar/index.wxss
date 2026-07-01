@@ -1,0 +1,101 @@
+.cal {
+  padding: 24px 0 32px 0;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.cal-header .month {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.arrow-left {
+  margin-right: 24px;
+}
+
+.arrow-right {
+  margin-left: 24px;
+}
+
+.week-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 42px;
+  padding-bottom: 20px;
+  justify-content: center;
+  justify-items: center;
+}
+
+.week-cell {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: #9c9fa3;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  column-gap: 22px;
+  row-gap: 24px;
+  justify-content: center;
+}
+
+.cell {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.date {
+  color: #333333;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.out-month .date {
+  color: #999999;
+}
+
+.today {
+  background: #0091ff;
+}
+
+.today .date {
+  color: #fff;
+  font-weight: 500;
+}
+
+.mark.gray {
+  width: 12px;
+  height: 12px;
+  background: #f3f3f3;
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 3px;
+}
+
+.mark.checked {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+}

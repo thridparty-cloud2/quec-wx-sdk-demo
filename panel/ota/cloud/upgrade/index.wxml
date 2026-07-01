@@ -1,0 +1,56 @@
+<nav_bar title="设备升级" from="upgrade" bindBackTip="backTip"></nav_bar>
+
+<view class="ota {{isPlan ? '' :'no_ota'}}">
+  <block wx:if="{{isPlan}}">
+    <block wx:if="{{isUpgrading == 1 || isUpgrading == 2 || isUpgrading == 4 || isUpgrading == 5}}">
+      <view class="per">
+        <view class="left">
+          <view class="tit">发现可更新项</view>
+          <view class="ver">{{plan.planName}}</view>
+        </view>
+        <view wx:if="{{curItem.memberRole !== 3}}" class="right">
+          <view wx:if="{{isUpgrading == 1}}" class="update" data-type="1" catchtap="updateTip">更新</view>
+          <view wx:if="{{isUpgrading == 2}}" class="proBar">
+            <progress percent="{{percent}}" border-radius="22px" backgroundColor="#ffffff" activeColor="#99d3ff" active-mode="forwards" active stroke-width="30" />
+            <view class="perTxt">{{percent}}%</view>
+          </view>
+          <view wx:if="{{isUpgrading == 4}}" class="fail">更新失败</view>
+          <view wx:if="{{isUpgrading == 5}}" class="update" data-type="5" catchtap="updateTip">重试</view>
+        </view>
+      </view>
+      <view class="note">
+        <block wx:for="{{plan.comVerList}}" wx:key="index" data-item="{{item}}">
+          <text>{{comType[item.comType]}}: {{item.tver}}</text>
+        </block>
+        <text>更新内容：{{plan.upgradeVersionInfo}} </text>
+      </view>
+    </block>
+    <block wx:elif="{{isUpgrading == 3}}">
+      <view class="uImg">
+        <image src="{{otaNoDataImg}}" mode="" />
+        <view class="uver">已是最新版本</view>
+      </view>
+      <view class="ntip">
+        <block wx:for="{{plan.comVerList}}" wx:key="index" data-item="{{item}}">
+          <text>{{resType[item.comType]}}: {{item.tver}}</text>
+        </block>
+      </view>
+    </block>
+  </block>
+  <block wx:else>
+    <view class="uImg">
+      <image src="{{otaNoDataImg}}" mode="" />
+      <view class="uver">已是最新版本</view>
+    </view>
+    <view wx:if="{{deviceUpgradeInfo.version || deviceUpgradeInfo.mcuVersionFmt}}" class="ntip">
+      <text wx:if="{{deviceUpgradeInfo.version}}">主联网模组: {{deviceUpgradeInfo.version}}</text>
+      <text wx:if="{{deviceUpgradeInfo.mcuVersionFmt}}">MCU模块：{{deviceUpgradeInfo.mcuVersionFmt}}</text>
+    </view>
+  </block>
+</view>
+
+<!-- 正在升级返回提示 -->
+<confirm_tip visible="{{tipVisible}}" title="退出提示" tip="退出当前页面，蓝牙设备的升级会中断，确认退出吗？" confirmColor="#080F19" confirmTxt="退出" isCancel="{{true}}" bindConfirm="backTipConfirm"></confirm_tip>
+
+<!-- 更新注意事项提示 -->
+<confirm_tip visible="{{noticeVisible}}" title="更新注意事项" tip="升级可能持续较长时间，请确保设备处于电量充足状态，更新时设备不可使用" confirmColor="#0091FF" confirmTxt="开始更新" isCancel="{{true}}" bindConfirm="noticeConfirm"></confirm_tip>

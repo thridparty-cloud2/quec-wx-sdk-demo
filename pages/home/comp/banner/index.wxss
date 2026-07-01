@@ -1,0 +1,19 @@
+.banner {
+  height: 130px;
+  box-sizing: border-box;
+  padding: 30rpx 30rpx 0 30rpx;
+}
+
+.shei {
+  height: 118px;
+}
+
+.simg {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+.sit {
+  border-radius: 12px;
+}

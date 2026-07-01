@@ -1,0 +1,31 @@
+.warn-content {
+  background-color: #fff7f2;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.warn-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16rpx 32rpx;
+}
+
+.warn-text {
+  flex: 1;
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #ff6600;
+  line-height: 44rpx;
+}
+
+.icon-container {
+  width: 48rpx;
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}

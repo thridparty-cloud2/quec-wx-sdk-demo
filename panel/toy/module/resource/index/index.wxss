@@ -1,0 +1,13 @@
+@import "/asset/icon.wxss";
+
+page {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.van-tabs__line {
+  width: 48rpx !important;
+  height: 8rpx !important;
+  border-radius: 12rpx !important;
+  background-color: #0091ff !important;
+}

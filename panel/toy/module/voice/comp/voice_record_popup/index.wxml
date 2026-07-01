@@ -1,0 +1,65 @@
+<!-- 录音弹窗公共组件 -->
+<van-popup show="{{ show }}" round position="bottom" custom-style="" bind:close="closePopup" custom-class="voice-record-popup" closeable>
+  <text class="voice-record-popup-title">{{title}}</text>
+  <!-- 第一步：权限请求 -->
+  <view wx:if="{{step===0}}" class="voice-record-popup">
+    <van-image width="77px" height="77px" fit="contain" src="{{microPhoneImg}}" />
+    <text>请求获取设备麦克风权限</text>
+  </view>
+  <!-- 第二步：注意事项 -->
+  <view wx:elif="{{step===1}}" class="voice-record-popup-precautions-content">
+    <text class="voice-record-popup-precautions">1.请确保录制的是自己/无版权声音。</text>
+    <text class="voice-record-popup-precautions">2.保持安静环境，完整跟读提示语。</text>
+    <text class="voice-record-popup-precautions">3.录制的声音，仅可自己使用，不可作为商业用途。</text>
+    <text class="voice-record-popup-precautions">4.请在<text class="time-text">10秒</text>内完成朗读录制，超出时间需重新录制。</text>
+  </view>
+  <!-- 第三步：录音界面 -->
+  <view wx:else class="voice-record-popup">
+    <!-- 语言选择 -->
+    <view class="voice-record-popup-lang-change">
+      <text class="lang-text">语言：{{langType}}</text>
+      <van-icon class="sdk-icon qiehuanwangluo" bindtap="openChangeLangDialog" custom-class="change-lang-icon" color="0091FF" />
+      <!-- 语言选择弹窗 -->
+      <block wx:if="{{showChangeLangDialog}}">
+        <view class="voice-record-choice-lang">
+          <van-button type="default" bindtap="changLang" custom-class="lang-btn {{langType==='中文'?'lang-btn-selected':''}}" data-content="中文">
+            中文
+          </van-button>
+          <van-button type="default" bindtap="changLang" custom-class="lang-btn {{langType==='英文'?'lang-btn-selected':''}}" data-content="英文">
+            英文
+          </van-button>
+        </view>
+      </block>
+    </view>
+    <!-- 点击其他区域关闭语言选择弹窗的透明遮罩 -->
+    <block wx:if="{{showChangeLangDialog}}">
+      <view class="lang-mask" catchtap="closeChangeLangDialog"></view>
+    </block>
+    <!-- 录音内容 -->
+    <view class="voice-record-popup-copy-content">
+      <text>{{langType==='中文'?'你说的没错呀，哪吒这部电影我周末也去看了，这部电影可以称得上是五年内最好的国产动画片了。':'You are right. I also watched the movie Nezha over the weekend. This movie can be regarded as the best domestic animation in the past five years.'}}</text>
+    </view>
+    <!-- 录音提示文字 -->
+    <text class="record-btn-top-text {{recordState===2?'text-red':''}}" wx:if="{{recordState!==0}}"> {{ recordTip }} </text>
+    <!-- 录音按钮 -->
+    <view class="record-btn {{recordState===1?'record-btn-blue':recordState===2?'record-btn-red':''}}" catchtouchstart="handleTouchStart" catchtouchmove="handleTouchMove" catchtouchend="handleTouchEnd" catchtouchcancel="handleTouchCancel">
+      <text class="record-btn-text" style="pointer-events: none;" wx:if="{{recordState===0}}">{{ recordTip }}</text>
+      <text class="record-btn-text" style="pointer-events: none;" wx:else>| | | | | | | | | | | | | | | | | |</text>
+    </view>
+  </view>
+  <!-- 前两步的按钮 -->
+  <view wx:if="{{step===0||step===1}}" class="voice-record-popup-btn1">
+    <view class="btn">
+      <van-button round type="info" block custom-class="btn voice-record-button grey-color" color="#f7f8fc" bindtap="closePopup">
+        取消
+      </van-button>
+    </view>
+    <view class="btn">
+      <van-button round type="info" block custom-class="btn voice-record-button" color="#0091ff" bindtap="toNextStep">
+        确定
+      </van-button>
+    </view>
+  </view>
+  <!-- 第三步的空按钮区域 -->
+  <view wx:else class="voice-record-popup-btn2"></view>
+</van-popup>

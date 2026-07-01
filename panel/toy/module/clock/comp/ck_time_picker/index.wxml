@@ -1,0 +1,10 @@
+<view class="time-picker">
+  <picker-view class="picker-view" value="{{pickerValue}}" bindchange="onPickerChange" indicator-class="selected-column" mask-style="background-image: linear-gradient(#F7F8FC,rgba(255, 255, 255, 0)),linear-gradient(rgba(255, 255, 255, 0),#F7F8FC);">
+    <picker-view-column class="item item1">
+      <view wx:for="{{hourList}}" wx:key="*this" class="picker-item {{index === pickerValue[0] ? 'selected-item' : ''}}">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column class="item item2">
+      <view wx:for="{{minuteList}}" wx:key="*this" class="picker-item {{index === pickerValue[1] ? 'selected-item' : ''}}">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>

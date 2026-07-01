@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "confirm_tip": "/comps/confirm_tip",
+    "sos_warn": "../../../comp/sos_warn/index"
+  }
+}

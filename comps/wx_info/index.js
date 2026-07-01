@@ -22,7 +22,6 @@ Component({
    */
   data: {
     primaryColor: '',
-    authVisible: false,
     env: app.globalData.envData,
   },
 
@@ -62,7 +61,7 @@ Component({
       })
 
       wx.getUserProfile({
-        desc: '微信小程序SDK',
+        desc: '小程序',
         success: (result) => {
           rsData.encryptedData = result.encryptedData
           rsData.iv = result.iv
@@ -80,16 +79,10 @@ Component({
      * @param {*} e 
      */
     getPhoneNumber (e) {
-      let self = this
       let detail = e.detail
       if (detail.errMsg.indexOf('user deny') > 0) {
-        self.setData({
-          authVisible: true
-        })
+        return plugin.jsUtil.tip('请授权手机号登录')
       } else {
-        self.setData({
-          authVisible: false
-        })
         this.triggerEvent('getPhoneNumber', e.detail)
       }
     },

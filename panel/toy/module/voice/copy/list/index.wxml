@@ -1,0 +1,153 @@
+<nav_bar title="{{isFromRoleEdit?'角色声音选择':'声音配置'}}"></nav_bar>
+<view class="roleMain">
+  <view class="main">
+    <view class="role-list">
+      <!-- 语速调节卡片  -->
+      <view wx:if="{{env['ai']['isSpeakSpeed']}}" class="speed-control-card">
+        <view class="speed-control-header" bindtap="toggleSpeedControl">
+          <text class="speed-control-title">声音调节</text>
+          <view class="speed-control-icon ">
+            <van-icon class="sdk-icon adjust" color="#666" />
+          </view>
+        </view>
+        <view class="speed-control-content {{showSpeedControl ? 'show' : 'hidden'}}">
+          <view class="speed-text">语速</view>
+          <view class="speed-slider-container">
+            <view class="speed-buttons">
+              <view wx:for="{{speedLabels}}" wx:key="index" class="speed-button {{currentSpeedIndex === index ? 'active' : ''}}" bindtap="onSpeedChange" data-index="{{index}}">
+                <text class="speed-button-text">{{item}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <van-tabs active="{{ active }}" bind:change="onChangeTab" style="background-color: transparent;" color="transparent" tab-active-class="tab-active" tab-class="role-tab" nav-class="role-tabs">
+        <van-tab title="系统声音" name="a">
+          <van-radio-group value="{{ selectedVoiceId }}">
+            <scroll-view scroll-y="true" class="role-scroll {{showSpeedControl ? 'speed-expanded' : ''}}" refresher-enabled="{{true}}" refresher-triggered="{{refresherTriggered}}" bindrefresherrefresh="onRefreshSystemVoice" enhanced="{{true}}" show-scrollbar="{{false}}">
+              <!-- 当有系统声音数据时显示列表 -->
+              <block wx:if="{{voiceDefaultData.length > 0}}">
+                <van-cell wx:for="{{voiceDefaultData}}" wx:key="voiceId" id="role_item_{{item.voiceId}}" title="{{item.voiceName}}" label="{{item.voiceDesc}}" center clickable bindtap="voiceItemClickListen" data-sound-url="{{item.soundUrl}}" data-voice-id="{{item.voiceId}}" custom-class="role-item" title-class="sys-voice-title" label-class="sys-voice-label">
+                  <image slot="icon" class="voidImg" src="{{item.voiceId===selectedVoiceId?(item.voiceId===playingVoiceId&&isPlayingAudio?(tryGifLocalPath||try_gif):voice_blue):voice_hui}}" mode="aspectFit" />
+                  <van-radio slot="right-icon" name="{{item.voiceId}}" custom-class="role-item-right-radio" icon-size="24px" />
+                </van-cell>
+              </block>
+              <!-- 当没有系统声音数据时显示空状态 -->
+              <block wx:else>
+                <view class="empty-state-container">
+                  <image class="empty-state-icon" src="{{noDataImg}}" mode="aspectFit"></image>
+                  <text class="empty-state-text">暂无系统声音</text>
+                </view>
+              </block>
+              <view style="width: 100%;height: 50px;" />
+            </scroll-view>
+          </van-radio-group>
+        </van-tab>
+        <van-tab wx:if="{{showCloneTab}}" title="克隆声音" name="b">
+          <van-radio-group value="{{ selectedEditCopyVoiceId }}">
+            <scroll-view scroll-y="true" class="role-scroll {{showSpeedControl ? 'speed-expanded' : ''}}" refresher-enabled="{{true}}" refresher-triggered="{{refresherTriggered}}" bindrefresherrefresh="onRefreshCopyVoice" enhanced="{{true}}" show-scrollbar="{{false}}">
+              <!-- 当有克隆声音数据时显示列表 -->
+              <block wx:if="{{copyVoiceLoaded && voiceCopyData.length > 0}}">
+                <view wx:for="{{voiceCopyData}}" wx:key="voiceId" class="role-item-copy {{item.voiceId===selectedEditCopyVoiceId?'role-item-copy-selected':(item.isEmpty?'role-item-copy-empty':'role-item-copy-normal')}}">
+                  <van-cell id="role_item_{{item.voiceId}}" center clickable bindtap="clickCopyVoiceItem" data-voice-id="{{item.voiceId}}" data-copy-voice="{{item}}" custom-class="role-item-copy-cell" use-label-slot>
+                    <view slot="title" class="voice-title-with-icon">
+                      <image slot="icon" class="voidImg" wx:if="{{item.sourceExpireTime}}" src="{{item.voiceId===selectedEditCopyVoiceId?(item.voiceId===playingVoiceId&&isPlayingAudio?(tryGifLocalPath||try_gif):voice_blue):voice_hui}}" mode="aspectFit" />
+                      <view class="voice-content">
+                        <view class="voice-name-row">
+                          <text wx:if="{{item.sourceExpireTime}}" class="voice-name">{{item.voiceName}}</text>
+                          <text wx:elif="{{item.statusText}}" class="statusText">{{item.statusText}}</text>
+                          <text wx:else class="empty-state-text">暂未克隆</text>
+                        </view>
+                        <view class="voice-status-row" wx:if="{{item.sourceExpireTime}}">
+                          <text wx:if="{{item.statusText}}" class="statusText"> {{item.statusText}}</text>
+                          <text wx:elif="{{item.publishStatus}}" class="clone-voice-label"> 已发布</text>
+                          <text wx:else class="clone-voice-label">剩余<text class="training-times" decode="true">&nbsp;{{item.availableTrainingTimes}}&nbsp;</text>次</text>
+                        </view>
+                      </view>
+                    </view>
+                    <view slot="right-icon" class="role-item-copy-cell-right-icon">
+                      <view wx:if="{{item.soundUrl}}" class="rename-icon-wrapper" catch:tap="openChangeNameDialog" data-init-name-value="{{item.voiceName}}" data-voice-id="{{item.voiceId}}" data-stop-select="true">
+                        <van-icon class="sdk-icon rename" data-stop-select="true" />
+                      </view>
+                      <van-radio wx:if="{{item.soundUrl}}" name="{{item.voiceId}}" custom-class="role-item-right-radio" icon-size="24px" />
+                    </view>
+                  </van-cell>
+                  <view class="role-item-copy-serve">{{item.expireTimeText}}</view>
+                </view>
+                <van-button type="info" custom-class="create-cus-role-button" color="#fff" bind:tap="gotoCreateOrder" size="large">
+                  <view class="button-container">
+                    <view class="sdk-icon jiesuogengduo"></view>
+                    <text class="button-text">{{isSingleEmptyCopyVoice ? '购买声音' : '解锁更多'}} </text>
+                  </view>
+                </van-button>
+              </block>
+              <!-- 当没有克隆声音数据时显示空状态 -->
+              <block wx:elif="{{copyVoiceLoaded}}">
+                <view class="empty-state-container">
+                  <image class="empty-state-icon" src="{{noDataImg}}" mode="aspectFit"></image>
+                  <text class="empty-state-text">暂无克隆的声音</text>
+                  <van-button type="info" custom-class="empty-voice-button" color="#0091ff" bind:tap="gotoCreateOrder" size="large">
+                    <view class="button-container">
+                      <view class="sdk-icon goumaikelongshengyin"></view>
+                      <text class="voice-button-text">购买克隆声音</text>
+                    </view>
+                  </van-button>
+                </view>
+              </block>
+              <!-- 加载中状态 -->
+              <block wx:else>
+                <view class="empty-state-container"></view>
+              </block>
+              <view style="width: 100%;height: 50px;" />
+            </scroll-view>
+          </van-radio-group>
+        </van-tab>
+      </van-tabs>
+      <view class="group-btns" wx:if="{{showCloneButton || showReCloneButton || hasSpeedChanged || (selectedVoiceId && selectedVoiceId !== currentVoiceId) || (selectedEditCopyVoiceId && selectedEditCopyVoiceId !== currentVoiceId)}}">
+        <!-- 未发布未克隆的新数据：显示克隆声音按钮 -->
+        <view class="group-btn" wx:if="{{showCloneButton}}">
+          <van-button round type="info" block custom-class="btn change-role-button" color="#0091ff" bindtap="startCloneVoice">
+            克隆我的声音
+          </van-button>
+        </view>
+        <!-- 未发布已复刻的数据：显示重新克隆按钮 -->
+        <view class="group-btn2" wx:if="{{showReCloneButton}}">
+          <van-button round type="info" block plain custom-class="btn change-role-button" color="#0091ff" bindtap="openCopyVoicePopup">
+            重新克隆（{{selectedEditCopyVoiceAvailableTrainingTimes}}/10）
+          </van-button>
+        </view>
+        <view class="group-btn" wx:if="{{!showCloneButton && (hasSpeedChanged || (selectedVoiceId && selectedVoiceId !== currentVoiceId) || (selectedEditCopyVoiceId && selectedEditCopyVoiceId !== currentVoiceId))}}">
+          <!-- <block wx:if="{{active == 'b' && copyVoiceLoaded}}"></block>
+          <block wx:else> -->
+          <van-button round type="info" block custom-class="btn change-role-button" color="#0091ff" bindtap="confirmRoleSel">
+            确定
+          </van-button>
+          <!-- </block> -->
+        </view>
+      </view>
+    </view>
+    <!-- 复刻声音名称编辑dialog -->
+    <van-dialog use-slot title="编辑名称" show="{{ showChangeNameDialog }}" confirm-button-open-type="getUserInfo" bind:close="closeChangeNameDialog" closeOnClickOverlay overlay-style="background-color:rgba(0,0,0,.4)" bind:getuserinfo="getUserInfo" show-cancel-button confirm-button-class="copy_voice_rename_dialog-confirm-text" custom-class="copy_voice_rename_dialog">
+      <input class="copy-voice-edit-name" maxlength="100" bind:change="onChangeName" value="{{changeNameDialog}}" placeholder="请输入声音名称" />
+    </van-dialog>
+    <!-- 复刻声音（行为）的popup -->
+    <!-- 使用公共录音弹窗组件 -->
+    <voice-record-popup show="{{showCopyVoicePopup}}" step="{{copyVoiceStep}}" title="{{copyVoicePopupTitle}}" langType="{{langType}}" showCancelButton="{{showCopyButton}}" bind:close="closeCopyVoicePopup" bind:nextStep="toNextStep" bind:langChange="changLang" bind:recordStart="onRecordStart" bind:recordComplete="onRecordComplete" bind:titleReset="onRecordTitleReset"></voice-record-popup>
+    <!-- 发布确认弹窗 -->
+    <van-dialog show="{{ showPublishDialog }}" overlay-style="background-color:rgba(0,0,0,.4)" title="是否发布并应用？" show-cancel-button cancel-button-text="取消" confirm-button-text="确定" confirm-button-color="#0091FF" bind:cancel="closePublishDialog" bind:confirm="confirmPublishVoice" custom-class="publish-confirm-dialog" use-slot>
+      <view class="publish-dialog-content">
+        <view class="publish-dialog-line">
+          您还有
+          <text class="publish-dialog-times">{{publishDialogData.availableTrainingTimes != null? publishDialogData.availableTrainingTimes : 10 }}</text>
+          次可重新复刻的机会，
+        </view>
+        <view class="publish-dialog-line">
+          发布后将不可修改，请谨慎选择！
+        </view>
+      </view>
+    </van-dialog>
+  </view>
+</view>
+<!-- 网络异常弹框 -->
+<network bindExit="closeWsSocket" bindReconnect="reconnectWsV2" bindManual="closeWsSocket"></network>
+<sos_warn device="{{curItem}}" />

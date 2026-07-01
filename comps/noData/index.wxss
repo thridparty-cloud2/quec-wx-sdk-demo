@@ -1,0 +1,11 @@
+@import '/asset/noData.wxss';
+
+.gbtn {
+  text-align: center;
+  margin-top: 80rpx;
+}
+
+.noBtn {
+  padding: 0 60rpx !important;
+  font-size: 16px !important;
+}

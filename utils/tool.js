@@ -1,5 +1,3 @@
-import env from '../env.js'
-
 // 获取不到token跳转到登录页
 export function noLogin () {
   requirePlugin.async('quecPlugin').then(plugin => {
@@ -31,8 +29,25 @@ export function toLogin () {
  * 不同的小程序配置
  */
 export function getEnvConfig () {
-  let appid = wx.getAccountInfoSync().miniProgram.appId
-  return env[appid]
+  return require('../env.js')
+}
+
+/**
+ * 本地图片地址转base64
+ * @param {*} imgUrl - 本地图片路径
+ */
+export function toBase64 (imgUrl) {
+  let bimg = "data:image/png;base64," + wx.getFileSystemManager().readFileSync(imgUrl, "base64")
+  return bimg
+}
+
+/**
+ * 家居接口返回5041，跳转到首页刷新列表
+ */
+export function toHouseHome () {
+  wx.reLaunch({
+    url: '/pages/home/home'
+  })
 }
 
 /**

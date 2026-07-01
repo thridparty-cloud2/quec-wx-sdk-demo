@@ -1,0 +1,166 @@
+<view class="bg">
+  <nav_bar title="声纹识别" from="ai" bind:BackTip="handleBackTip"></nav_bar>
+  <view class="print">
+    <view class="head">
+      <view class="h4 fbox fboxat">
+        <view class="tit">声纹识别</view>
+        <view class="switch">
+          <van-switch checked="{{ switchVal && activeStatus }}" bind:change="switchChange" active-color="#0091FF" size="22px" inactive-color="#CECFD1" />
+        </view>
+      </view>
+      <view class="tip">开启后，仅配置的声音才可与设备交流</view>
+      <view class="expire-container" wx:if="{{!isVoicePrintInfoEmpty}}">
+        <view class="expire {{isServiceExpired ? 'expired' : ''}}">
+          {{ expireTimeFormatted }} 到期
+          <text wx:if="{{isServiceExpired}}">已到期</text>
+        </view>
+      </view>
+    </view>
+    <scroll-view class="list" scroll-y="true" enhanced="{{true}}" show-scrollbar="{{false}}" wx:if="{{initialized}}">
+      <!-- 服务已过期状态 -->
+      <view wx:if="{{ isServiceExpired }}" class="expire-state">
+        <image class="expire-img" src="{{vpfExpiredImg}}" mode="aspectFit"></image>
+        <view class="expire-text">服务已到期</view>
+        <view class="expire-btn" bindtap="goToVoicePrintBuy">去续费</view>
+      </view>
+      <!-- 关闭状态：显示暂未开启（包括activeStatus为false或switchVal为false） -->
+      <view wx:elif="{{!switchVal || !activeStatus}}" class="empty-state">
+        <image class="empty-img" src="{{vpfNoOpenImg}}" mode="aspectFit"></image>
+        <view class="empty-text">暂未开启</view>
+      </view>
+      <!-- 开启状态：显示声纹列表 -->
+      <view wx:else class="content">
+        <!-- 声纹列表 -->
+        <view class="voice-list" wx:if="{{featureList.length > 0}}">
+          <!-- 应用的声纹 -->
+          <view class="voice-section">
+            <view class="voice-section-title">应用的声纹</view>
+            <!-- 有应用中的声纹时显示列表 -->
+            <block wx:for="{{featureList}}" wx:key="vpfId">
+              <view wx:if="{{item.activeStatus === true}}" class="voice-item" data-item="{{item}}" bindtap="onVoiceItemTap">
+                <view class="voice-info">
+                  <view class="voice-main">
+                    <view class="voice-icon">
+                      <van-icon wx:if="{{playingVoiceId === item.vpfId}}" name="{{try_gif}}" size="36px" color="#0091FF" />
+                      <van-icon wx:elif="{{selectedVoiceId === item.vpfId}}" name="{{voice_blue}}" size="36px" color="#0091FF" />
+                      <van-icon wx:else name="{{voice_hui}}" size="36px" color="#999" />
+                    </view>
+                    <view class="voice-text-container">
+                      <view class="voice-name">{{item.featureName || '--'}}</view>
+                    </view>
+                  </view>
+                </view>
+                <view class="voice-actions">
+                  <view class="more-btn" id="more-btn-{{item.vpfId}}" catchtap="showMoreOptions" data-item="{{item}}" data-vpfid="{{item.vpfId}}">
+                    <van-icon name="ellipsis" size="48rpx" color="black" />
+                  </view>
+                  <van-icon class="sdk-icon del_room" color="#FF4219" catchtap="changeDeviceVoicePrintStatus" data-item="{{item}}" />
+                </view>
+              </view>
+            </block>
+            <!-- 没有应用中的声纹时显示空状态 -->
+            <view wx:if="{{hasNoAppliedVoice}}" class="empty-applied-voice">
+              <text class="empty-applied-text">暂无选择</text>
+            </view>
+          </view>
+          <!-- 未应用的声纹 -->
+          <view class="voice-section">
+            <view class="voice-section-title">未应用的声纹</view>
+            <block wx:for="{{featureList}}" wx:key="vpfId">
+              <view wx:if="{{item.activeStatus !== true}}" class="voice-item" data-item="{{item}}" bindtap="onVoiceItemTap">
+                <view class="voice-info">
+                  <view class="voice-main">
+                    <view class="voice-icon">
+                      <van-icon wx:if="{{playingVoiceId === item.vpfId}}" name="{{try_gif}}" size="36px" color="#0091FF" />
+                      <van-icon wx:elif="{{selectedVoiceId === item.vpfId}}" name="{{voice_blue}}" size="36px" color="#0091FF" />
+                      <van-icon wx:else name="{{voice_hui}}" size="36px" />
+                    </view>
+                    <view class="voice-text-container">
+                      <view class="voice-name">{{item.featureName || '--'}}</view>
+                      <view class="voice-status" wx:if="{{item.featureStatus === 'init'}}">
+                        未上传
+                      </view>
+                      <view class="voice-status" wx:if="{{item.featureStatus ===  'fail'}}">
+                        上传失败
+                      </view>
+                    </view>
+                  </view>
+                </view>
+                <view class="voice-actions" wx:if="{{item.featureStatus === 'success'}}">
+                  <view class="more-btn" id="more-btn-{{item.vpfId}}" catchtap="showMoreOptions" data-item="{{item}}" data-vpfid="{{item.vpfId}}">
+                    <van-icon name="ellipsis" size="48rpx" color="black" />
+                  </view>
+                  <van-icon name="add" size="48rpx" color="#0091FF" catchtap="changeDeviceVoicePrintStatus" data-item="{{item}}" />
+                </view>
+                <view class="voice-actions" wx:elif="{{item.featureStatus === 'fail'}}">
+                  <van-icon class="sdk-icon shanchu1" size="48rpx" color="#080F19" catchtap="delvoicePrint" data-item="{{item}}" />
+                </view>
+              </view>
+            </block>
+          </view>
+          <!-- 添加声纹按钮 -->
+          <view wx:if="{{featureList.length < 10}}" class="add-voice-section" bindtap="openVoicePrintPopup">
+            <van-icon name="plus" size="22rpx" class="add-voice-icon" color="#0091FF" custom-style="font-weight:bold;" />
+            <text>添加声纹</text>
+          </view>
+          <view wx:if="{{featureList.length == 10}}" class="empty-view"></view>
+        </view>
+        <!-- 空状态：显示创建按钮 -->
+        <view wx:else class="create-section">
+          <view class="create-container">
+            <image class="create-img" src="{{noCreateImg}}" mode="aspectFit"></image>
+            <view class="create-text">暂未创建声纹识别</view>
+            <button class="create-btn" bindtap="openVoicePrintPopup">创建声纹识别</button>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+    <view wx:else class="list-loading">
+      <view class="loading-text">加载中...</view>
+    </view>
+  </view>
+</view>
+<!-- 声纹录音弹窗 -->
+<voice-record-popup show="{{showVoicePrintPopup}}" step="{{voicePrintStep}}" title="{{voicePrintPopupTitle}}" langType="{{langType}}" showCancelButton="{{true}}" bind:close="closeVoicePrintPopup" bind:nextStep="handleNextStep" bind:langChange="onRecordPopupLangChange" bind:recordStart="onRecordStart" bind:recordComplete="onRecordComplete" bind:titleReset="onRecordTitleReset"></voice-record-popup>
+<!-- 更多操作弹窗 -->
+<van-popup show="{{showMorePopup}}" custom-style="left: {{popupPosition.left}}px; top: {{popupPosition.top}}px; background: white; border-radius: 12px;" overlay-style="background-color:rgba(0,0,0,.4)" duration="300" bind:close="closeMorePopup" custom-class="more-popup-content">
+  <view class="more-option" bindtap="editVoice">
+    <view class="sdk-icon a-Frame1"></view>
+    <text class="option-text">修改</text>
+  </view>
+  <view class="more-option" bindtap="deleteVoice">
+    <view class="sdk-icon shanchu1"></view>
+    <text class="option-text delete-text">删除</text>
+  </view>
+</van-popup>
+<!-- 编辑声纹名称弹窗 -->
+<van-popup show="{{showEditPopup}}" close-on-click-overlay="true" bind:close="closeEditPopup" custom-class="edit-vpf-popup" overlay-style="background-color:rgba(0,0,0,.4)" duration="300">
+  <view class="popup-content">
+    <view class="edit-popup-title">编辑名称</view>
+    <view class="edit-popup-input">
+      <input class="edit-input" value="{{editVoiceName}}" placeholder="我的声音" bindinput="onEditNameInput" maxlength="20" />
+    </view>
+  </view>
+  <view class="edit-popup-buttons">
+    <view class="edit-btn cancel-btn" bindtap="closeEditPopup">取消</view>
+    <view class="middle-line"></view>
+    <view class="edit-btn confirm-btn" bindtap="confirmEditVoice">确定</view>
+  </view>
+</van-popup>
+<!-- 删除确认弹窗 -->
+<van-popup show="{{showDeletePopup}}" close-on-click-overlay="true" bind:close="closeDeletePopup" custom-class="delete-vpf-popup" overlay-style="background-color:rgba(0,0,0,.4)" duration="300">
+  <view class="popup-content">
+    <view class="delete-popup-title">确定删除？</view>
+    <view class="delete-popup-desc">删除后，设备将无法识别此声纹进行交流。</view>
+  </view>
+  <view class="delete-popup-buttons">
+    <view class="delete-btn cancel-btn" bindtap="closeDeletePopup">取消</view>
+    <view class="middle-line"></view>
+    <view class="delete-btn confirm-btn" bindtap="confirmDeleteVoice">确定</view>
+  </view>
+</van-popup>
+<!-- 服务过期续费弹窗 -->
+<van-dialog show="{{ showExpirePopup }}" title="服务已到期" message="该服务已到期，如需使用请续费" show-cancel-button cancel-button-text="取消" confirm-button-text="续费" bind:confirm="goToVoicePrintBuy" bind:cancel="closeExpirePopup" confirm-button-color="#0091FF" overlayStyle="background-color:rgba(0,0,0,.4)" closeOnClickOverlay="true" />
+<!-- 返回确认弹窗 -->
+<van-dialog show="{{ showBackConfirmPopup }}" title="" message="您暂未配置声纹识别，\n退出后将默认关闭功能。" show-cancel-button cancel-button-text="取消" confirm-button-text="确定" bind:confirm="confirmBack" bind:cancel="cancelBack" confirm-button-color="#0091FF" overlayStyle="background-color:rgba(0,0,0,.4)" closeOnClickOverlay="true" custom-class="back-dialog" />
+<sos_warn device="{{deviceInfo}}" />

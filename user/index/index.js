@@ -74,15 +74,11 @@ Page({
 
   // 跳转服务协议
   toProtocol () {
-    this.pageRouter.navigateTo({
-      url: '/user/protocol/index',
-    })
+    // Demo: 协议页面已移除
   },
   // 跳转隐私协议
   toPrivacy () {
-    this.pageRouter.navigateTo({
-      url: '/user/privacy/index',
-    })
+    // Demo: 隐私页面已移除
   },
 
   /**
