@@ -1,7 +1,0 @@
-@import "/asset/nav.wxss";
-@import "/asset/icon.wxss";
-@import "../../css/flow.wxss";
-
-.no-plan{
-  padding: 0 0 10px 0!important;
-}

@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "gr-swipe-cell": "../gr_swipe_cell/index"
-  }
-}

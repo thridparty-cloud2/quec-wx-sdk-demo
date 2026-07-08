@@ -1,6 +1,0 @@
-<nav_bar title="目标统计"></nav_bar>
-<view class="target-stat-content">
-  <gr-target-stat-info status="{{status}}" finishNum="{{finishNum}}" continueNum="{{continueNum}}" babyTask="{{babyTask}}"></gr-target-stat-info>
-  <gr-calendar year="{{year}}" month="{{month}}" grayMarks="{{grayMarks}}" checkedMarks="{{checkedMarks}}" unfinishedMarks="{{unfinishedMarks}}" bind:yearMonthChange="onYearMonthChange"></gr-calendar>
-</view>
-<sos_warn device="{{deviceInfo}}" />

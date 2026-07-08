@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "re-package-cell": "../comp/re_package_cell/index",
-    "sos_warn": "../../../comp/sos_warn/index"
-  }
-}

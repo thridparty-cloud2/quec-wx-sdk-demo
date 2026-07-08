@@ -1,4 +1,0 @@
-@import '/asset/base.wxss';
-@import '/asset/txtarea.wxss';
-@import '/asset/nav.wxss';
-@import '../../css/set.wxss';

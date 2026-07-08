@@ -1,7 +1,0 @@
-<nav_bar title="设置周期"></nav_bar>
-<view class="set-content">
-  <gr-cycle-card bind:openDatePicker="openDatePicker" bind:weekChange="weekChange" startTimeStr="{{startTimeStr}}" endTimeStr="{{endTimeStr}}" repeatDays="{{repeatDays}}"></gr-cycle-card>
-  <gr-date-picker bind:dateChange="dateChange" title="{{timeType === 'start' ? '开始时间' : '结束时间'}}" show="{{pickerShow}}" min-date="{{minDate}}" year="{{pickerYear}}" month="{{pickerMonth}}" day="{{pickerDay}}"></gr-date-picker>
-  <gr-footer-button disabled="{{ isSubmitting || repeatDays.length === 0 || !endTime || !startTime }}" bind:click="addTask" />
-</view>
-<sos_warn device="{{deviceInfo}}" />

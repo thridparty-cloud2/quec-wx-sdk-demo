@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "gr-target-selector": "../../comp/gr_target_selector/index",
-    "gr-footer-button": "../../comp/gr_footer_button/index",
-    "sos_warn": "../../../../comp/sos_warn/index"
-  }
-}

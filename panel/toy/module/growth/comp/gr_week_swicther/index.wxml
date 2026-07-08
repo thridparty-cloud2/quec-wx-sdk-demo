@@ -1,5 +1,0 @@
-<view class="switcher-content">
-  <van-icon name="arrow-left" size="16px" custom-class="arrow-icon left" bind:click="onPrev" />
-  <view class="weekly-range">{{weekRange}}</view>
-  <van-icon name="arrow" size="16px" custom-class="arrow-icon" bind:click="onNext" />
-</view>

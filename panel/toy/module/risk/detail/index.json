@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "van-icon": "@vant/weapp/icon/index",
-    "record": "../comp/record/index",
-    "noData": "/comps/noData",
-    "sos_warn": "../../../comp/sos_warn/index"
-  }
-}

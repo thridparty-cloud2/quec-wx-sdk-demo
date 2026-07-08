@@ -1,8 +1,0 @@
-<van-overlay show="{{ sliderShow }}" bind:click="onClickHide" root-portal custom-style="background-color:rgba(0,0,0,.4);" z-index="1000">
-  <view class="vol-main-container" catchtap="stopPropagation">
-    <view class="vol-track" bindtouchstart="onTouchStart" bindtouchmove="onTouchMove" bindtouchend="onTouchEnd" catchtap="stopPropagation">
-      <view class="vol-fill" style="height: {{ volumePercent + '%' }};"></view>
-    </view>
-    <view class="sdk-icon {{ volumePercent === 0 ? 'guanbi' : volumePercent <= 50 ? 'diyinliang' : 'gaoyinliang' }}"></view>
-  </view>
-</van-overlay>

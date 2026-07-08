@@ -1,9 +1,0 @@
-{
-  "usingComponents": {
-    "gr-cycle-card": "../comp/gr_cycle_card/index",
-    "gr-date-picker": "../comp/gr_date_picker/index",
-    "gr-footer-button": "../comp/gr_footer_button/index",
-    "van-button": "@vant/weapp/button/index",
-    "sos_warn": "../../../comp/sos_warn/index"
-  }
-}

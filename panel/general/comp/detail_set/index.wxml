@@ -1,5 +1,0 @@
-<view class="mask-con mask-con-show sendDynamic" style="background: {{primaryColor}};" catchtap="toSet">
-  <view class="sendDynamic mask-con mask-con-show" style="background: {{primaryColor}};">
-    <view class="sdk-icon settings"></view>
-  </view>
-</view>

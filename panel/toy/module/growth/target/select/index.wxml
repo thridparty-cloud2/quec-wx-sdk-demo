@@ -1,6 +1,0 @@
-<nav_bar title="选择目标"></nav_bar>
-<view class="target-select-content">
-  <gr-target-selector targetList="{{targetList}}" disabledIds="{{disabledTargetIds}}" bind:selectChange="onSelectedChange"></gr-target-selector>
-  <gr-footer-button text="下一步" disabled="{{ selectedTargetIds.length === 0 }}" bind:click="nextStep" />
-</view>
-<sos_warn device="{{deviceInfo}}" />

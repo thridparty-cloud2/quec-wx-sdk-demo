@@ -40,43 +40,7 @@
         "general/struct/index",
         "general/struct_txt/index",
         "general/rename/index",
-        "general/alarm/index",
-        "general/set/list/index",
-        "general/set/more/index",
-        "general/set/flow/index",
-        "general/set/recharge/index",
-        "sim/page/flow/index",
-        "sim/page/recharge/index",
-        "ota/cloud/upgrade/index",
-        "toy/index/index",
-        "toy/module/summary/index/index",
-        "toy/module/role/set/index/index",
-        "toy/module/role/memory/index",
-        "toy/module/role/add/index",
-        "toy/module/clock/index/index",
-        "toy/module/clock/manage_clock/index",
-        "toy/module/chat/index/index",
-        "toy/module/content/index/index",
-        "toy/module/content/buy/index",
-        "toy/module/content/album/list/index",
-        "toy/module/content/album/detail/index",
-        "toy/module/voice/print/buy/index",
-        "toy/module/voice/print/list/index",
-        "toy/module/voice/copy/list/index",
-        "toy/module/voice/copy/buy/index",
-        "toy/module/order/list/index",
-        "toy/module/order/detail/index",
-        "toy/module/growth/index/index",
-        "toy/module/growth/info/index",
-        "toy/module/growth/target/select/index",
-        "toy/module/growth/target/edit/index",
-        "toy/module/growth/set_cycle/index",
-        "toy/module/growth/statistics/week/index",
-        "toy/module/growth/statistics/target/index",
-        "toy/module/risk/list/index",
-        "toy/module/risk/detail/index",
-        "toy/module/resource/index/index",
-        "toy/module/resource/mine/index"
+        "general/alarm/index"
       ]
     }
   ],
@@ -95,11 +59,11 @@
   },
   "plugins": {
     "quecPlugin": {
-      "version": "dev-03355e9514f7f45da7ee4813e6789687",
+      "version": "3.0.0",
       "provider": "wx8b0625890b89be58"
     }
   },
-  "resolveAlias":{
+  "resolveAlias": {
     "~/*": "/*"
   },
   "usingComponents": {

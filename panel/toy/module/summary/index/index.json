@@ -1,9 +1,0 @@
-{
-  "usingComponents": {
-    "summary-nav": "../comp/nav/index",
-    "summary-calendar": "../comp/calendar/index",
-    "summary-switch-popup": "../comp/switch_popup/index",
-    "summary-content": "../comp/content/index/index",
-    "sos_warn": "../../../comp/sos_warn/index"
-  }
-}

@@ -1,8 +1,5 @@
 {
   "usingComponents": {
-    "detail": "../comp/detail/index",
-    "detail_set": "../comp/detail_set/index",
-    "sim_flow": "../../sim/comp/flow/index",
-    "sim_recharge": "../../sim/comp/recharge/index"
+    "detail": "../comp/detail/index"
   }
 }

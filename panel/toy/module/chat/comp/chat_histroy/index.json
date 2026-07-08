@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "noData": "/comps/noData",
-    "van-skeleton": "@vant/weapp/skeleton/index"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "van-dialog": "@vant/weapp/dialog/index",
-    "sos_warn": "../../../comp/sos_warn/index"
-  }
-}

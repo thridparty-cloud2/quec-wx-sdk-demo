@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "network": "../../../../comp/network/index",
-    "van-button": "@vant/weapp/button/index",
-    "van-checkbox": "@vant/weapp/checkbox/index",
-    "sos_warn": "../../../comp/sos_warn/index"
-  }
-}

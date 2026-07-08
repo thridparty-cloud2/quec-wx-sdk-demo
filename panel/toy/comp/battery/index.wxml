@@ -1,4 +1,0 @@
-<van-cell border="{{false}}" wx:if="{{batteryObj!==null}}" data-item="{{curItem}}">
-  <view slot="title" class="cTitle f_500">{{batteryObj.name}}</view>
-  <view class="val">{{(batteryObj.vdata ? batteryObj.vdata : 0)+''+batteryObj.specs.unit}}</view>
-</van-cell>

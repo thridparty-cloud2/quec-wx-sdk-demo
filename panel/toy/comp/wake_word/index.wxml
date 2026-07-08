@@ -1,5 +1,0 @@
-<van-dialog id="van-dialog" use-slot title="{{wakeWordObj.name}}" show="{{ visible }}" show-cancel-button bind:cancel="onClose" bind:click-overlay="onClose" bind:close="onClose" bind:confirm="onConfirm" close-on-click-overlay overlay-style="background-color:rgba(0,0,0,.4)">
-  <view class="dialog-content">
-    <input class="dialog-input" type="text" placeholder="请输入唤醒词" value="{{ inputVal }}" bindinput="onInputChange" placeholder-style="dialog-input-placeholder" />
-  </view>
-</van-dialog>

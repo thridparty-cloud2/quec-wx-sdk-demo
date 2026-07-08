@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "van-button": "@vant/weapp/button/index",
-    "van-checkbox": "@vant/weapp/checkbox/index",
-    "van-popup": "@vant/weapp/popup/index",
-    "sos_warn": "../../../../comp/sos_warn/index"
-  }
-}

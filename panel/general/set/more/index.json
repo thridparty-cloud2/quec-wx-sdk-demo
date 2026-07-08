@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "van-cell": "@vant/weapp/cell/index",
-    "van-icon": "@vant/weapp/icon/index",
-    "dname": "../../comp/dname/index"
-  }
-}

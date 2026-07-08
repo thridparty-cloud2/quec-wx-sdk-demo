@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "time-picker": "../comp/ck_time_picker/index",
-    "van-datetime-picker": "@vant/weapp/datetime-picker/index",
-    "clock-setting": "../comp/ck_setting/index",
-    "sos_warn": "../../../comp/sos_warn/index"
-  }
-}

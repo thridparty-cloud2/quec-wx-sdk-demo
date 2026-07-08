@@ -1,9 +1,0 @@
-{
-  "usingComponents": {
-    "player": "../../comp/player/index",
-    "noData": "/comps/noData",
-    "van-image": "@vant/weapp/image/index",
-    "van-loading": "@vant/weapp/loading/index",
-    "sos_warn": "../../../../comp/sos_warn/index"
-  }
-}

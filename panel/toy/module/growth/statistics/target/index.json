@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "gr-target-stat-info": "../../comp/gr_target_stat_info/index",
-    "gr-calendar": "../../comp/gr_calendar/index",
-    "sos_warn": "../../../../comp/sos_warn/index"
-  }
-}

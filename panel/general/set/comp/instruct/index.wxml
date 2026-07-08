@@ -1,4 +1,0 @@
-<van-cell wx:if="{{url}}" border="{{false}}" catchtap="goBook">
-  <view slot="title" class="cTitle f_500">产品说明书</view>
-  <van-icon wx:if="{{role !==3}}" slot="right-icon" name="arrow" size="12px" color="{{skin['arrow']}}" />
-</van-cell>

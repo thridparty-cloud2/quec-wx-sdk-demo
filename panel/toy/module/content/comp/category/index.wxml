@@ -1,6 +1,0 @@
-<view class="menu">
-  <view wx:for="{{menuData}}" wx:key="index" data-item="{{item}}" class="item" catch:tap="goAlbumList">
-    <image class="size44" src="{{item.img}}" mode="aspectFit" />
-    <view class="txt">{{item.name}}</view>
-  </view>
-</view>

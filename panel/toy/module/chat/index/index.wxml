@@ -1,9 +1,0 @@
-<nav_bar title="聊天记录" back="{{true}}"></nav_bar>
-<view class="chat-histroy-content">
-  <view class="action-bar">
-    <chat_role_switch bind:select="onRoleSwitchSelect" rolesList="{{rolesList}}" curRoleId="{{curRoleId}}"></chat_role_switch>
-    <chat_del_histroy wx:if="{{showDelBtn}}" rolesList="{{rolesList}}" bind:deleteConfirm="onDeleteConfirm"></chat_del_histroy>
-  </view>
-  <chat_histroy id="chatHistroy" bind:refresh="onRefresh" bind:loadmore="onLoadMore" isRefreshing="{{isRefreshing}}" isLoadingMoreMsg="{{isLoadingMoreMsg}}" chatData="{{chatData}}" firstMsgIdBeforeLoad="{{firstMsgIdBeforeLoad}}" initialLoading="{{initialLoading}}"></chat_histroy>
-</view>
-<sos_warn device="{{deviceInfo}}" />
